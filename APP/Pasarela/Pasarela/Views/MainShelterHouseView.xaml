@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pasarela.Core.Views.MainShelterHouseView"
+             xmlns:views="clr-namespace:Pasarela.Core.Views;assembly=Pasarela.Core"
+             xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             BarBackgroundColor="#a18e7e">
+
+    <views:MyShelterHouseView  x:Name="MyShelterHouseView">
+        <views:MyShelterHouseView.Title>Mis registros</views:MyShelterHouseView.Title>
+        <views:MyShelterHouseView.Icon>
+            <OnPlatform 
+                x:TypeArguments="FileImageSource"
+                iOS="ic_tab_bar_favoritos"/>
+        </views:MyShelterHouseView.Icon>
+    </views:MyShelterHouseView>
+
+    <views:RegisterShelterHouseView x:Name="RegisterShelterHouseView">
+        <views:RegisterShelterHouseView.Title>Registrar casa refugio</views:RegisterShelterHouseView.Title>
+        <views:RegisterShelterHouseView.Icon>
+            <OnPlatform 
+                x:TypeArguments="FileImageSource"
+                iOS="ic_tab_bar_compras_consumos"/>
+        </views:RegisterShelterHouseView.Icon>
+    </views:RegisterShelterHouseView>
+
+    <views:AllShelterHouseView x:Name="AllShelterHouseView">
+        <views:AllShelterHouseView.Title>Todos los registros</views:AllShelterHouseView.Title>
+        <views:AllShelterHouseView.Icon>
+            <OnPlatform 
+                x:TypeArguments="FileImageSource"
+                iOS="ic_tab_bar_proveedores"/>
+        </views:AllShelterHouseView.Icon>
+    </views:AllShelterHouseView>
+    
+</TabbedPage>

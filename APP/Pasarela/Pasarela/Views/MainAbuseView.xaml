@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pasarela.Core.Views.MainAbuseView"
+             xmlns:views="clr-namespace:Pasarela.Core.Views;assembly=Pasarela.Core"
+             xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true"
+             BarBackgroundColor="#A2D0B7">
+
+    <views:MyComplaintsView  x:Name="MyComplaintsView">
+        <views:MyComplaintsView.Title>Mis denuncias</views:MyComplaintsView.Title>
+        <views:MyComplaintsView.Icon>
+            <OnPlatform 
+                x:TypeArguments="FileImageSource"
+                iOS="ic_tab_bar_favoritos"/>
+        </views:MyComplaintsView.Icon>
+    </views:MyComplaintsView>
+
+    <views:RegisterComplaintView x:Name="RegisterComplaintView">
+        <views:RegisterComplaintView.Title>Registrar denuncia</views:RegisterComplaintView.Title>
+        <views:RegisterComplaintView.Icon>
+            <OnPlatform 
+                x:TypeArguments="FileImageSource"
+                iOS="ic_tab_bar_compras_consumos"/>
+        </views:RegisterComplaintView.Icon>
+    </views:RegisterComplaintView>
+
+    <views:AllComplaintsView x:Name="AllComplaintsView">
+        <views:AllComplaintsView.Title>Todas las denuncias</views:AllComplaintsView.Title>
+        <views:AllComplaintsView.Icon>
+            <OnPlatform 
+                x:TypeArguments="FileImageSource"
+                iOS="ic_tab_bar_proveedores"/>
+        </views:AllComplaintsView.Icon>
+    </views:AllComplaintsView>
+</TabbedPage>

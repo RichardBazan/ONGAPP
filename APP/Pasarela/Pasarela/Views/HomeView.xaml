@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pasarela.Core.Views.HomeView"
+             xmlns:controls="clr-namespace:Pasarela.Core.Controls;assembly=Pasarela.Core"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
+             xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <syncfusion:SfRotator x:Name="rotator" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                                  NavigationDelay="2000" ItemsSource="{Binding Banner}" SelectedIndex="2" NavigationDirection="Horizontal" 
+                                  EnableAutoPlay="False" EnableLooping="False" 
+                                  NavigationStripMode="Dots" BackgroundColor="#ececec" NavigationStripPosition="Bottom">
+                    <syncfusion:SfRotator.ItemTemplate>
+                        <DataTemplate>
+                            <ffimageloading:CachedImage Grid.Row="1" Source="{Binding PictureUrl}" Aspect="Fill">
+                                <ffimageloading:CachedImage.LoadingPlaceholder>
+                                    <OnPlatform x:TypeArguments="ImageSource" iOS="default_product" Android="default_product" WinPhone="Assets/default_product.png"/>
+                                </ffimageloading:CachedImage.LoadingPlaceholder>
+                                <ffimageloading:CachedImage.ErrorPlaceholder>
+                                    <OnPlatform  x:TypeArguments="ImageSource" iOS="noimage" Android="noimage" WinPhone="Assets/noimage.png"/>
+                                </ffimageloading:CachedImage.ErrorPlaceholder>
+                            </ffimageloading:CachedImage>
+                        </DataTemplate>
+                    </syncfusion:SfRotator.ItemTemplate>
+                </syncfusion:SfRotator>
+                <StackLayout Grid.Row="1" Grid.Column="0" Margin="4,0,4,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                <controls:ShapeView Grid.Row="0" Grid.Column="0" Color="#93B7DC" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
+                <StackLayout Grid.Row="0" Grid.Column="0" HeightRequest="172" Spacing="0">
+                    <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AdoptionCommand}" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <controls:ShapeView Grid.Row="0" Grid.Column="1" Color="#FAB29E" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
+                <StackLayout Grid.Row="0" Grid.Column="1" HeightRequest="172" Spacing="0">
+                    <Label Text="DAR EN" HorizontalOptions="Center" FontSize="18"></Label>
+                    <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GiveInAdoptionCommand}" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+
+                        <controls:ShapeView Grid.Row="1" Grid.Column="0" Color="#A2D0B7" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
+                <StackLayout Grid.Row="1" Grid.Column="0" HeightRequest="172" Spacing="0">
+                    <Label Text="DENUNCIA" HorizontalOptions="Center" FontSize="18"></Label>
+                    <Label Text="DE" HorizontalOptions="Center" FontSize="18"></Label>
+                    <Label Text="MALTRATO" HorizontalOptions="Center" FontSize="18"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ComplaintCommand}" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                        <controls:ShapeView Grid.Row="1" Grid.Column="1" Color="#a18e7e" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
+                <StackLayout Grid.Row="1" Grid.Column="1" HeightRequest="172" Spacing="0">
+                    <Label Text="CASA" HorizontalOptions="Center" FontSize="18"></Label>
+                    <Label Text="REFUGIO" HorizontalOptions="Center" FontSize="18"></Label>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShelterHouseCommand}" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pasarela.Core.Views.AdoptionDetailView"
+             xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="10" RowSpacing="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                    <RowDefinition Height="170"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="{Binding Dog.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Image Grid.Row="1" Source="{Binding Dog.Image}" HorizontalOptions="Center" Aspect="Fill"></Image>
+                <Label Grid.Row="2" Text="{Binding Dog.Breed}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Label Grid.Row="3" Text="{Binding Dog.Description}" FontSize="15"></Label>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="ADOPTAR" BackgroundColor="#93B7DC"></Button>
+                    <Button Grid.Column="1" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

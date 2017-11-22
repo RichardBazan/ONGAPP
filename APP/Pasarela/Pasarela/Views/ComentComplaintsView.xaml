@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pasarela.Core.Views.ComentComplaintsView"
+             xmlns:controls="clr-namespace:Pasarela.Core.Controls;assembly=Pasarela.Core"
+             xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" Margin="15,15,15,0" Spacing="0">
+                <Label Text="Comentarios de la denuncia" FontSize="20" HorizontalOptions="Center"/>
+                <Label Text="{Binding Complaint.Title}" FontSize="26" HorizontalOptions="Center"></Label>
+            </StackLayout>
+            <Button Text="Comentario" Command="{Binding CommentCommand}"></Button>
+            <StackLayout IsVisible="{Binding VisibleComment}">
+                <Editor HeightRequest="100"></Editor>
+                <Button Text="Cancelar" Command="{Binding CancelCommentCommand}"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
