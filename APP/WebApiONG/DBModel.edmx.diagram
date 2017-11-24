@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25ca4d6061c247dea3c0cfc6d52622d3" Name="Diagram1">
+        <EntityTypeShape EntityType="BDONGModel.Adopcion" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.CasaRefugio" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Comentario" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.DarAdopcion" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Foto_CasaRefugio" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Foto_DarAdopcion" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Foto_Maltrato" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Maltrato" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Mascota" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Raza" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDONGModel.Usuario" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="BDONGModel.FK__Adopcion__cod_ma__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Adopcion__cod_us__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__CasaRefug__cod_u__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Foto_Casa__cod_c__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Comentari__cod_m__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Comentari__cod_u__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__DarAdopci__cod_m__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__DarAdopci__cod_u__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Foto_DarA__cod_d__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Foto_Malt__cod_m__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Maltrato__cod_ra__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Maltrato__cod_us__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="BDONGModel.FK__Mascota__cod_raz__239E4DCF" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
