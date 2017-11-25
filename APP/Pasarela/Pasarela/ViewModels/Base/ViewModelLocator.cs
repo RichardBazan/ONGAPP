@@ -15,6 +15,7 @@ using Pasarela.Core.Services.Home;
 using Pasarela.Core.Services.Dog;
 using Pasarela.Core.Services.ShelterHouse;
 using Pasarela.Core.Services.Complaints;
+using Pasarela.Core.Services.Comment;
 
 namespace Pasarela.Core.ViewModels.Base
 {
@@ -92,7 +93,8 @@ namespace Pasarela.Core.ViewModels.Base
                 builder.RegisterType<HomeMockService>().As<IHomeService>();
                 builder.RegisterType<DogMockService>().As<IDogService>();
                 builder.RegisterType<ShelterHouseMockService>().As<IShelterHouseService>();
-                builder.RegisterType<ComplaintsMockService>().As<IComplaintsService>();
+                builder.RegisterType<ComplaintsService>().As<IComplaintsService>();
+                builder.RegisterType<CommentMockService>().As<ICommentService>();
                 UseMockService = true;
 			}
 			else

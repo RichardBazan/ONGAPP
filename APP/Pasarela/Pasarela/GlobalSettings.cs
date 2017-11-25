@@ -1,10 +1,12 @@
-﻿namespace Pasarela.Core
+﻿using System;
+
+namespace Pasarela.Core
 {
     public class GlobalSetting
     {
         public const string AzureTag = "Azure";
         public const string MockTag = "Mock";
-        public const string DefaultEndpoint = "http://13.88.8.119";
+        public const string DefaultEndpoint = "http://localhost:53927/api";
 
 
         private string _baseEndpoint;
@@ -51,6 +53,21 @@
 
         public string LogoutCallback { get; set; }
 
+
+        //EndPoint ONG
+
+        public string MaltratoEndpoint { get; set; }
+
+
+
+
+
+
+
+
+
+
+
         private void UpdateEndpoint(string baseEndpoint)
         {
             RegisterWebsite = string.Format("{0}:5105/Account/Register", baseEndpoint);
@@ -62,6 +79,22 @@
             LogoutEndpoint = string.Format("{0}:5105/connect/endsession", baseEndpoint);
             IdentityCallback = string.Format("{0}:5105/xamarincallback", baseEndpoint);
             LogoutCallback = string.Format("{0}:5105/Account/Redirecting", baseEndpoint);
+
+
+            MaltratoEndpoint = string.Format("{0}/Maltrato", baseEndpoint);
+
         }
+
+        public string MakeURI(string EndPoint, string Path, string Query = "")
+        {
+            UriBuilder builder = new UriBuilder(EndPoint);
+            builder.Path += Path;
+            if (Query.Trim().Length > 0)
+            {
+                builder.Query = Query;
+            }
+            return builder.Uri.ToString();
+        }
+
     }
 }

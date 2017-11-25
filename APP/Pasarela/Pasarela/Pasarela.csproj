@@ -65,9 +65,13 @@
     <Compile Include="Converters\WebNavigatingEventArgsConverter.cs" />
     <Compile Include="Interfaces\IPageLifeCylceEvents.cs" />
     <Compile Include="Models\Banner\Banner.cs" />
+    <Compile Include="Models\Comment\Comment.cs" />
     <Compile Include="Models\Complaints\Complaints.cs" />
     <Compile Include="Models\Dog\Dog.cs" />
     <Compile Include="Models\ShelterHouse\ShelterHouse.cs" />
+    <Compile Include="Services\Comment\CommentMockService.cs" />
+    <Compile Include="Services\Comment\CommentService.cs" />
+    <Compile Include="Services\Comment\ICommentService.cs" />
     <Compile Include="Services\Complaints\ComplaintsMockService.cs" />
     <Compile Include="Services\Complaints\ComplaintsService.cs" />
     <Compile Include="Services\Complaints\IComplaintsService.cs" />

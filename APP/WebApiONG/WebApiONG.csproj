@@ -199,7 +199,9 @@
     <Compile Include="Comentario.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MaltratosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DarAdopcion.cs">
@@ -238,6 +240,7 @@
     <Compile Include="Mascota.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MaltratoModelDTO.cs" />
     <Compile Include="Models\RazaModelDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raza.cs">

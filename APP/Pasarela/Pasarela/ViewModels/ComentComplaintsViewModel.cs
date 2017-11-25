@@ -1,7 +1,11 @@
-﻿using Pasarela.Core.Models.Complaints;
+﻿using Pasarela.Core.Extensions;
+using Pasarela.Core.Models.Comment;
+using Pasarela.Core.Models.Complaints;
+using Pasarela.Core.Services.Comment;
 using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +19,13 @@ namespace Pasarela.Core.ViewModels
 
         private Complaints _complaint;
         private bool _visibleComment;
+        private ObservableCollection<Comment> _comment;
+        private ICommentService _commentService;
 
-        public ComentComplaintsViewModel()
+        public ComentComplaintsViewModel(ICommentService commentService)
         {
             VisibleComment = false;
+            _commentService = commentService;
         }
 
         public Complaints Complaint
@@ -41,11 +48,24 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
-        public override Task InitializeAsync(object navigationData)
+        public ObservableCollection<Comment> ListComment
         {
+            get { return _comment; }
+            set
+            {
+                _comment = value;
+                RaisePropertyChanged(() => ListComment);
+            }
+        }
+
+        public async override Task InitializeAsync(object navigationData)
+        {
+            IsBusy = true;
             var data = navigationData as Complaints;
             Complaint = data;
-            return base.InitializeAsync(navigationData);
+            var comment = await _commentService.GetCommentByComplaintAsync(Complaint.Id);
+            ListComment = comment.ToObservableCollection();
+            IsBusy = false;
         }
 
         public ICommand CommentCommand => new Command(async () => await CommentAsync());

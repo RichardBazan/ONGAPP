@@ -23,8 +23,7 @@
                     <Button Grid.Column="1" Text="CANCELAR" BackgroundColor="#FAB29E" Command="{Binding CancelCommentCommand}"></Button>
                 </Grid>
             </StackLayout>
-            <Image Source="ic_notlike.png"></Image>
-            <ListView x:Name="listView" HasUnevenRows="True" SeparatorVisibility="Default">
+            <ListView x:Name="listView" ItemsSource="{Binding ListComment}" HasUnevenRows="True" SeparatorVisibility="Default">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <controls:ExtendedViewCell SelectedBackgroundColor="White">
@@ -34,13 +33,13 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"></RowDefinition>
+                                        <RowDefinition Height="40"></RowDefinition>
                                         <RowDefinition Height="100"></RowDefinition>
-                                        <RowDefinition Height="20"></RowDefinition>
+                                        <RowDefinition Height="40"></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Label Grid.Column="0" Grid.Row="0"></Label>
-                                    <Label Grid.Column="0" Grid.Row="1"></Label>
-                                    <Image Grid.Column="0" Grid.Row="2"></Image>
+                                    <Label Grid.Column="0" Grid.Row="0" Text="{Binding UserId}"></Label>
+                                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}"></Label>
+                                    <Image Grid.Column="0" Grid.Row="2" Source="{Binding Like}" HorizontalOptions="Start"></Image>
                                 </Grid>
                             </ViewCell.View>
                         </controls:ExtendedViewCell>

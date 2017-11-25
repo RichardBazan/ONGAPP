@@ -4,14 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pasarela.Core.Models.Complaints;
+using Pasarela.Core.Services.RequestProvider;
 
 namespace Pasarela.Core.Services.Complaints
 {
     public class ComplaintsService : IComplaintsService
     {
-        public Task<List<Models.Complaints.Complaints>> GetAllComplaintsAsync()
+        IRequestProvider _requestProvider;
+
+        public ComplaintsService(IRequestProvider requestProvider)
         {
-            throw new NotImplementedException();
+            _requestProvider = requestProvider;
+        }
+
+        public async Task<List<Models.Complaints.Complaints>> GetAllComplaintsAsync()
+        {
+            string uri = GlobalSetting.Instance.MaltratoEndpoint;
+            var listComplaint = await _requestProvider.GetAsync<List<Models.Complaints.Complaints>>(uri);
+            return listComplaint;
         }
     }
 }
