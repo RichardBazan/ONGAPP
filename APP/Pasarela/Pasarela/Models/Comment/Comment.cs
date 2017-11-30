@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace Pasarela.Core.Models.Comment
         public string Description { get; set; }
         public int ComplaintId { get; set; }
         public int UserId { get; set; }
-        public string Like { get; set; }
-
+        public string User { get; set; }
+        public int CountLikes { get; set; }
 
     }
 }

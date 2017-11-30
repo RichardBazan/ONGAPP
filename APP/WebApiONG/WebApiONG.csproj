@@ -199,9 +199,11 @@
     <Compile Include="Comentario.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CasaRefugiosController.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MaltratosController.cs" />
+    <Compile Include="Controllers\DenunciasController.cs" />
+    <Compile Include="Controllers\MascotasController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DarAdopcion.cs">
@@ -222,26 +224,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Denuncia.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Donaciones.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Foto_CasaRefugio.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Foto_DarAdopcion.cs">
+    <Compile Include="Foto_Denuncia.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Foto_Maltrato.cs">
+    <Compile Include="Foto_Mascota.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Maltrato.cs">
+    <Compile Include="Like_Comentario.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Mascota.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MaltratoModelDTO.cs" />
+    <Compile Include="Models\AdopcionModelDTO.cs" />
+    <Compile Include="Models\CasaRefugioModelDTO.cs" />
+    <Compile Include="Models\ComentarioModelDTO.cs" />
+    <Compile Include="Models\FotoCasaRefugioModelDTO.cs" />
+    <Compile Include="Models\FotoDenunciaModelDTO.cs" />
+    <Compile Include="Models\DenunciaModelDTO.cs" />
+    <Compile Include="Models\FotoMascotaModelDTO.cs" />
+    <Compile Include="Models\MascotaModelDTO.cs" />
     <Compile Include="Models\RazaModelDTO.cs" />
+    <Compile Include="Producto.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raza.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
@@ -298,6 +316,7 @@
     <Content Include="DBModel.edmx.diagram">
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

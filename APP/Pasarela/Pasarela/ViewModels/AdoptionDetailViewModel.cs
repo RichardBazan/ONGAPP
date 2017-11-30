@@ -13,10 +13,11 @@ namespace Pasarela.Core.ViewModels
     public class AdoptionDetailViewModel : ViewModelBase
     {
         private Dog _dog;
+        private bool _visible;
 
         public AdoptionDetailViewModel()
         {
-
+            Visible = true;
         }
 
         public Dog Dog
@@ -29,10 +30,29 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public bool Visible
+        {
+            get { return _visible; }
+            set
+            {
+                _visible = value;
+                RaisePropertyChanged(() => Visible);
+            }
+        }
+
         public override Task InitializeAsync(object navigationData)
         {
             var data = navigationData as Dog;
             Dog = data;
+            if(Dog.State.Equals("En Adopcion"))
+            {
+                Visible = true;
+            }
+            else if (Dog.State.Equals("Adoptado"))
+            {
+                Visible = false;
+            }
+            
             return base.InitializeAsync(navigationData);
         }
 

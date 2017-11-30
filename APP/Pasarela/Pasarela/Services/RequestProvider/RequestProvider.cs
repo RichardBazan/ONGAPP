@@ -61,10 +61,52 @@ namespace Pasarela.Core.Services.RequestProvider
             return result;
         }
 
-        public async Task DeleteAsync(string uri, string token = "")
+        public async Task<bool> PutAsync<TResult>(string uri, TResult data, string token = "", string header = "")
         {
-            HttpClient httpClient = CreateHttpClient(token);
-            await httpClient.DeleteAsync(uri);
+            try
+            {
+                HttpClient httpClient = CreateHttpClient(token);
+
+                if (!string.IsNullOrEmpty(header))
+                {
+                    AddHeaderParameter(httpClient, header);
+                }
+
+                var content = new StringContent(JsonConvert.SerializeObject(data));
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                HttpResponseMessage response = await httpClient.PutAsync(uri, content).ConfigureAwait(false);
+
+                await HandleResponse(response).ConfigureAwait(false);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //await _dialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK).ConfigureAwait(false);
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteAsync(string uri, string token = "", string header = "")
+        {
+            try
+            {
+                HttpClient httpClient = CreateHttpClient(token);
+
+                if (!string.IsNullOrEmpty(header))
+                {
+                    AddHeaderParameter(httpClient, header);
+                }
+
+                HttpResponseMessage response = await httpClient.DeleteAsync(uri).ConfigureAwait(false);
+
+                await HandleResponse(response).ConfigureAwait(false);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //await _dialogService.ShowAlertAsync(ex.Message, "Error", "Aceptar").ConfigureAwait(false);
+                return false;
+            }
         }
 
         private HttpClient CreateHttpClient(string token = "")

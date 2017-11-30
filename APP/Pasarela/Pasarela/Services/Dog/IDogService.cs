@@ -8,6 +8,12 @@ namespace Pasarela.Core.Services.Dog
 {
     public interface IDogService
     {
-        Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogAsync();
+        Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogOngAsync();
+
+        Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogUserAsync();
+
+        Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogAdoptAsync();
+
+        Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogAdoptionsAsync();
     }
 }

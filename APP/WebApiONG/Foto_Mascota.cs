@@ -12,12 +12,12 @@ namespace WebApiONG
     using System;
     using System.Collections.Generic;
     
-    public partial class Foto_Maltrato
+    public partial class Foto_Mascota
     {
-        public int cod_foto_mal { get; set; }
+        public int cod_foto_mas { get; set; }
         public string foto { get; set; }
-        public int cod_mal { get; set; }
+        public int cod_mas { get; set; }
     
-        public virtual Maltrato Maltrato { get; set; }
+        public virtual Mascota Mascota { get; set; }
     }
 }

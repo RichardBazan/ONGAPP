@@ -28,10 +28,10 @@ namespace Pasarela.Core.Views
                 switch (arg)
                 {
                     case 0:
-                        CurrentPage = MyAdoptionsView;
+                        CurrentPage = AdoptOngView;
                         break;
                     case 1:
-                        CurrentPage = AdoptView;
+                        CurrentPage = AdoptUserView;
                         break;
                     case 2:
                         CurrentPage = AllAdoptionsView;
@@ -39,8 +39,8 @@ namespace Pasarela.Core.Views
                 }
             });
 
-            await ((MyAdoptionsViewModel)MyAdoptionsView.BindingContext).InitializeAsync(null);
-            await ((AdoptViewModel)AdoptView.BindingContext).InitializeAsync(null);
+            await ((AdoptOngViewModel)AdoptOngView.BindingContext).InitializeAsync(null);
+            await ((AdoptUserViewModel)AdoptUserView.BindingContext).InitializeAsync(null);
             await ((AllAdoptionsViewModel)AllAdoptionsView.BindingContext).InitializeAsync(null);
         }
     }

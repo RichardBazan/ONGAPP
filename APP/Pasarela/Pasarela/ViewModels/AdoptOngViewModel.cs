@@ -1,5 +1,4 @@
 ﻿using Pasarela.Core.Extensions;
-using Pasarela.Core.Helpers;
 using Pasarela.Core.Models.Dog;
 using Pasarela.Core.Services.Dog;
 using Pasarela.Core.ViewModels.Base;
@@ -14,13 +13,13 @@ using Xamarin.Forms;
 
 namespace Pasarela.Core.ViewModels
 {
-    public class AdoptViewModel: ViewModelBase
+    public class AdoptOngViewModel: ViewModelBase
     {
 
         private ObservableCollection<Dog> _dog;
         private IDogService _dogService;
 
-        public AdoptViewModel(IDogService dogService)
+        public AdoptOngViewModel(IDogService dogService)
         {
             _dogService = dogService;
         }
@@ -38,8 +37,7 @@ namespace Pasarela.Core.ViewModels
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
-            var authToken = Settings.AuthAccessToken;
-            var dogList = await _dogService.GetDogAsync();
+            var dogList = await _dogService.GetDogOngAsync();
             ListDog = dogList.ToObservableCollection();
             IsBusy = false;
         }

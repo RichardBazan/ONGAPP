@@ -14,12 +14,6 @@ namespace WebApiONG
     
     public partial class DarAdopcion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DarAdopcion()
-        {
-            this.Foto_DarAdopcion = new HashSet<Foto_DarAdopcion>();
-        }
-    
         public int cod_daradop { get; set; }
         public Nullable<System.DateTime> fecha_reg { get; set; }
         public string estado_daradop { get; set; }
@@ -28,7 +22,5 @@ namespace WebApiONG
     
         public virtual Mascota Mascota { get; set; }
         public virtual Usuario Usuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Foto_DarAdopcion> Foto_DarAdopcion { get; set; }
     }
 }

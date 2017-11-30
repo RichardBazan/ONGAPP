@@ -7,23 +7,23 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              BarBackgroundColor="#93B7DC">
 
-    <views:MyAdoptionsView  x:Name="MyAdoptionsView">
-        <views:MyAdoptionsView.Title>Mis adopciones</views:MyAdoptionsView.Title>
-        <views:MyAdoptionsView.Icon>
+    <views:AdoptOngView  x:Name="AdoptOngView">
+        <views:AdoptOngView.Title>Por ONG</views:AdoptOngView.Title>
+        <views:AdoptOngView.Icon>
             <OnPlatform 
                 x:TypeArguments="FileImageSource"
                 iOS="ic_tab_bar_favoritos"/>
-        </views:MyAdoptionsView.Icon>
-    </views:MyAdoptionsView>
+        </views:AdoptOngView.Icon>
+    </views:AdoptOngView>
 
-    <views:AdoptView x:Name="AdoptView">
-        <views:AdoptView.Title>Adoptar</views:AdoptView.Title>
-        <views:AdoptView.Icon>
+    <views:AdoptUserView x:Name="AdoptUserView">
+        <views:AdoptUserView.Title>Por Usuario</views:AdoptUserView.Title>
+        <views:AdoptUserView.Icon>
             <OnPlatform 
                 x:TypeArguments="FileImageSource"
                 iOS="ic_tab_bar_compras_consumos"/>
-        </views:AdoptView.Icon>
-    </views:AdoptView>
+        </views:AdoptUserView.Icon>
+    </views:AdoptUserView>
 
     <views:AllAdoptionsView x:Name="AllAdoptionsView">
         <views:AllAdoptionsView.Title>Todas las adopciones</views:AllAdoptionsView.Title>

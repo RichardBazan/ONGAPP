@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Pasarela.Core.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AdoptView : ContentPage
+    public partial class AdoptUserView : ContentPage
     {
-        public AdoptView()
+        public AdoptUserView()
         {
             InitializeComponent();
         }

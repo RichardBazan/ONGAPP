@@ -9,12 +9,14 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebApiONG;
+using WebApiONG.Models;
 
 namespace WebApiONG.Controllers
 {
     public class ComentariosController : ApiController
     {
         private BDONGEntities db = new BDONGEntities();
+
 
         // GET: api/Comentarios
         public IQueryable<Comentario> GetComentario()
@@ -33,6 +35,20 @@ namespace WebApiONG.Controllers
             }
 
             return Ok(comentario);
+        }
+
+        [Route("api/Comentarios/{complaintId}/GetCommentByComplaint")]
+        public HttpResponseMessage GetCommentByComplaint(int complaintId)
+        {
+            List<ComentarioModelDTO> ListComentarioModelDTO = new List<ComentarioModelDTO>();
+            List<Comentario> ListComentario = new List<Comentario>();
+            ListComentario = db.Comentario.Where(c => c.cod_den == complaintId).ToList();
+
+            foreach (var item in ListComentario)
+            {
+                ListComentarioModelDTO.Add(new ComentarioModelDTO() { Id = item.cod_com, Description = item.comen, ComplaintId = item.cod_den, UserId = item.cod_usu, User = item.Usuario.usuario1, CountLikes = (int)item.count_like });
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, ListComentarioModelDTO);
         }
 
         // PUT: api/Comentarios/5

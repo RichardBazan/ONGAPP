@@ -11,7 +11,9 @@ namespace Pasarela.Core.Models.Dog
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
         public string Breed { get; set; }
+        public string State { get; set; }
+        public string Tenure { get; set; }
+        public List<PhotoDog.PhotoDog> Photos { get; set; }
     }
 }

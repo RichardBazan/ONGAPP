@@ -11,5 +11,9 @@ namespace Pasarela.Core.Services.ShelterHouse
 
         Task<List<Pasarela.Core.Models.ShelterHouse.ShelterHouse>> GetShelterHouseAsync();
 
+        Task<List<Models.ShelterHouse.ShelterHouse>> GetAllShelterHouseAsync();
+
+        Task<List<Models.ShelterHouse.ShelterHouse>> GetShelterHouseByUserAsync(int userId);
+
     }
 }

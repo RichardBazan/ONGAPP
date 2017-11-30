@@ -17,6 +17,7 @@ namespace WebApiONG
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CasaRefugio()
         {
+            this.Donaciones = new HashSet<Donaciones>();
             this.Foto_CasaRefugio = new HashSet<Foto_CasaRefugio>();
         }
     
@@ -29,6 +30,8 @@ namespace WebApiONG
         public int cod_usu { get; set; }
     
         public virtual Usuario Usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Donaciones> Donaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Foto_CasaRefugio> Foto_CasaRefugio { get; set; }
     }

@@ -39,7 +39,7 @@ namespace Pasarela.Core.ViewModels
         {
             IsBusy = true;
             var authToken = Settings.AuthAccessToken;
-            var shelterHouseList = await _shelterHouseService.GetShelterHouseAsync();
+            var shelterHouseList = await _shelterHouseService.GetAllShelterHouseAsync();
             ListShelterHouse = shelterHouseList.ToObservableCollection();
             IsBusy = false;
         }

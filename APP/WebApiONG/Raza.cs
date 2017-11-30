@@ -17,7 +17,7 @@ namespace WebApiONG
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Raza()
         {
-            this.Maltrato = new HashSet<Maltrato>();
+            this.Denuncia = new HashSet<Denuncia>();
             this.Mascota = new HashSet<Mascota>();
         }
     
@@ -25,7 +25,7 @@ namespace WebApiONG
         public string nom_raza { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Maltrato> Maltrato { get; set; }
+        public virtual ICollection<Denuncia> Denuncia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mascota> Mascota { get; set; }
     }

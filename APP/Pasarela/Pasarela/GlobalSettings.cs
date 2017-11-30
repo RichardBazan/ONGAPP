@@ -6,7 +6,7 @@ namespace Pasarela.Core
     {
         public const string AzureTag = "Azure";
         public const string MockTag = "Mock";
-        public const string DefaultEndpoint = "http://localhost:53927/api";
+        public const string DefaultEndpoint = "http://192.168.1.7/WebApiONG/api";
 
 
         private string _baseEndpoint;
@@ -57,15 +57,10 @@ namespace Pasarela.Core
         //EndPoint ONG
 
         public string MaltratoEndpoint { get; set; }
-
-
-
-
-
-
-
-
-
+        public string FotoMaltratoEndPoint { get; set; }
+        public string ComentarioEndPoint { get; set; }
+        public string MascotaEndPoint { get; set; }
+        public string CasaRefugioEndPoint { get; set; }
 
 
         private void UpdateEndpoint(string baseEndpoint)
@@ -81,7 +76,11 @@ namespace Pasarela.Core
             LogoutCallback = string.Format("{0}:5105/Account/Redirecting", baseEndpoint);
 
 
-            MaltratoEndpoint = string.Format("{0}/Maltrato", baseEndpoint);
+            MaltratoEndpoint = string.Format("{0}/Maltratos", baseEndpoint);
+            FotoMaltratoEndPoint = string.Format("{0}/Foto_Maltrato", baseEndpoint);
+            ComentarioEndPoint = string.Format("{0}/Comentarios", baseEndpoint);
+            MascotaEndPoint = string.Format("{0}/Mascotas", baseEndpoint);
+            CasaRefugioEndPoint = string.Format("{0}/CasaRefugios", baseEndpoint);
 
         }
 

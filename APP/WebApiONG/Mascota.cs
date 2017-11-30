@@ -19,6 +19,7 @@ namespace WebApiONG
         {
             this.Adopcion = new HashSet<Adopcion>();
             this.DarAdopcion = new HashSet<DarAdopcion>();
+            this.Foto_Mascota = new HashSet<Foto_Mascota>();
         }
     
         public int cod_mas { get; set; }
@@ -26,13 +27,16 @@ namespace WebApiONG
         public string sexo_mas { get; set; }
         public string edad_mas { get; set; }
         public string descrip_mas { get; set; }
-        public string foto_mas { get; set; }
+        public string estado_mas { get; set; }
+        public string tenencia { get; set; }
         public int cod_raza { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Adopcion> Adopcion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DarAdopcion> DarAdopcion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Foto_Mascota> Foto_Mascota { get; set; }
         public virtual Raza Raza { get; set; }
     }
 }

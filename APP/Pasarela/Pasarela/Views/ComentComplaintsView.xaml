@@ -28,7 +28,7 @@
                     <DataTemplate>
                         <controls:ExtendedViewCell SelectedBackgroundColor="White">
                             <ViewCell.View>
-                                <Grid x:Name="Item" RowSpacing="5" ColumnSpacing="20">
+                                <Grid x:Name="Item" RowSpacing="5" Padding="10,5,10,5">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
@@ -37,9 +37,9 @@
                                         <RowDefinition Height="100"></RowDefinition>
                                         <RowDefinition Height="40"></RowDefinition>
                                     </Grid.RowDefinitions>
-                                    <Label Grid.Column="0" Grid.Row="0" Text="{Binding UserId}"></Label>
+                                    <Label Grid.Column="0" Grid.Row="0" Text="{Binding User}" FontSize="25" FontAttributes="Bold" TextColor="Blue"></Label>
                                     <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}"></Label>
-                                    <Image Grid.Column="0" Grid.Row="2" Source="{Binding Like}" HorizontalOptions="Start"></Image>
+                                    <Image Grid.Column="0" Grid.Row="2" Source="{Binding ImageLike}" HorizontalOptions="Start"></Image>
                                 </Grid>
                             </ViewCell.View>
                         </controls:ExtendedViewCell>

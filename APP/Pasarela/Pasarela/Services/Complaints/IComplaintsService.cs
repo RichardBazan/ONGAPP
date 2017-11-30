@@ -11,5 +11,7 @@ namespace Pasarela.Core.Services.Complaints
 
         Task<List<Pasarela.Core.Models.Complaints.Complaints>> GetAllComplaintsAsync();
 
+        Task<List<Pasarela.Core.Models.Complaints.Complaints>> GetComplaintsByUserAsync(int userId);
+
     }
 }

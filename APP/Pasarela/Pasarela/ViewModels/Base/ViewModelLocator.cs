@@ -56,8 +56,6 @@ namespace Pasarela.Core.ViewModels.Base
             builder.RegisterType<HomeViewModel>();
             builder.RegisterType<AdoptionDetailViewModel>();
             builder.RegisterType<MainAdoptionViewModel>();
-            builder.RegisterType<AdoptViewModel>();
-            builder.RegisterType<MyAdoptionsViewModel>();
             builder.RegisterType<AllAdoptionsViewModel>();
             builder.RegisterType<MainAbuseViewModel>();
             builder.RegisterType<MyComplaintsViewModel>();
@@ -72,6 +70,9 @@ namespace Pasarela.Core.ViewModels.Base
             builder.RegisterType<ComplaintDetailViewModel>();
             builder.RegisterType<ComentComplaintsViewModel>();
             builder.RegisterType<DonateViewModel>();
+            builder.RegisterType<AdoptOngViewModel>();
+            builder.RegisterType<AdoptUserViewModel>();
+            
 
             // Services
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();
@@ -89,12 +90,22 @@ namespace Pasarela.Core.ViewModels.Base
 				builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
 				builder.RegisterInstance(new UserMockService()).As<IUserService>();
 
-                //ServicesONG
+                //MockServicesONG
                 builder.RegisterType<HomeMockService>().As<IHomeService>();
-                builder.RegisterType<DogMockService>().As<IDogService>();
-                builder.RegisterType<ShelterHouseMockService>().As<IShelterHouseService>();
-                builder.RegisterType<ComplaintsService>().As<IComplaintsService>();
-                builder.RegisterType<CommentMockService>().As<ICommentService>();
+                //builder.RegisterType<DogMockService>().As<IDogService>();
+                //builder.RegisterType<ShelterHouseMockService>().As<IShelterHouseService>();
+                //builder.RegisterType<ComplaintsMockService>().As<IComplaintsService>();
+                //builder.RegisterType<CommentMockService>().As<ICommentService>();
+
+
+                //RealService ONG
+
+                builder.RegisterType<ComplaintsService>().As<IComplaintsService>().SingleInstance();
+                builder.RegisterType<CommentService>().As<ICommentService>().SingleInstance();
+                builder.RegisterType<DogService>().As<IDogService>();
+                builder.RegisterType<ShelterHouseService>().As<IShelterHouseService>();
+
+
                 UseMockService = true;
 			}
 			else

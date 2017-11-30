@@ -12,12 +12,12 @@ namespace WebApiONG
     using System;
     using System.Collections.Generic;
     
-    public partial class Foto_DarAdopcion
+    public partial class Like_Comentario
     {
-        public int cod_foto_daradop { get; set; }
-        public string foto { get; set; }
-        public int cod_daradop { get; set; }
+        public int cod_like { get; set; }
+        public Nullable<bool> liked { get; set; }
+        public int cod_com { get; set; }
     
-        public virtual DarAdopcion DarAdopcion { get; set; }
+        public virtual Comentario Comentario { get; set; }
     }
 }

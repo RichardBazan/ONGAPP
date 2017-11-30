@@ -8,6 +8,8 @@ namespace Pasarela.Core.Services.RequestProvider
 
         Task<TResult> PostAsync<TResult>(string uri, TResult data, string token = "", string header = "");
 
-        Task DeleteAsync(string uri, string token = "");
+        Task<bool> PutAsync<TResult>(string uri, TResult data, string token = "", string header = "");
+
+        Task<bool> DeleteAsync(string uri, string token = "", string header = "");
     }
 }

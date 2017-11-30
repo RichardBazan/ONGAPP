@@ -21,7 +21,7 @@
                 <Image Grid.Row="1" Source="{Binding Dog.Image}" HorizontalOptions="Center" Aspect="Fill"></Image>
                 <Label Grid.Row="2" Text="{Binding Dog.Breed}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <Label Grid.Row="3" Text="{Binding Dog.Description}" FontSize="15"></Label>
-                <Grid Grid.Row="4">
+                <Grid Grid.Row="4" IsVisible="{Binding Visible}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -29,6 +29,7 @@
                     <Button Grid.Column="0" Text="ADOPTAR" BackgroundColor="#93B7DC"></Button>
                     <Button Grid.Column="1" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
                 </Grid>
+                <Button Grid.Row="4" IsVisible="{Binding Visible, Converter={StaticResource InverseBoolConverter}}" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

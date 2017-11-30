@@ -64,10 +64,15 @@
     <Compile Include="Converters\WebNavigatedEventArgsConverter.cs" />
     <Compile Include="Converters\WebNavigatingEventArgsConverter.cs" />
     <Compile Include="Interfaces\IPageLifeCylceEvents.cs" />
+    <Compile Include="Models\Adoption\Adoption.cs" />
     <Compile Include="Models\Banner\Banner.cs" />
     <Compile Include="Models\Comment\Comment.cs" />
+    <Compile Include="Models\Common\Constants.cs" />
     <Compile Include="Models\Complaints\Complaints.cs" />
     <Compile Include="Models\Dog\Dog.cs" />
+    <Compile Include="Models\PhotoComplaints\PhotoComplaints.cs" />
+    <Compile Include="Models\PhotoDog\PhotoDog.cs" />
+    <Compile Include="Models\PhotoShelterHouse\PhotoShelterHouse.cs" />
     <Compile Include="Models\ShelterHouse\ShelterHouse.cs" />
     <Compile Include="Services\Comment\CommentMockService.cs" />
     <Compile Include="Services\Comment\CommentService.cs" />
@@ -81,11 +86,14 @@
     <Compile Include="Services\Home\HomeMockService.cs" />
     <Compile Include="Services\Home\HomeService.cs" />
     <Compile Include="Services\Home\IHomeService.cs" />
+    <Compile Include="Services\PhotoComplaints\IPhotoComplaintsService.cs" />
+    <Compile Include="Services\PhotoComplaints\PhotoComplaintsService.cs" />
     <Compile Include="Services\ShelterHouse\IShelterHouseService.cs" />
     <Compile Include="Services\ShelterHouse\ShelterHouseMockService.cs" />
     <Compile Include="Services\ShelterHouse\ShelterHouseService.cs" />
     <Compile Include="ViewModels\AdoptionDetailViewModel.cs" />
-    <Compile Include="ViewModels\AdoptViewModel.cs" />
+    <Compile Include="ViewModels\AdoptOngViewModel.cs" />
+    <Compile Include="ViewModels\AdoptUserViewModel.cs" />
     <Compile Include="ViewModels\AllAdoptionsViewModel.cs" />
     <Compile Include="ViewModels\AllComplaintsViewModel.cs" />
     <Compile Include="ViewModels\AllShelterHouseViewModel.cs" />
@@ -100,7 +108,6 @@
     <Compile Include="ViewModels\MainAbuseViewModel.cs" />
     <Compile Include="ViewModels\MainAdoptionViewModel.cs" />
     <Compile Include="ViewModels\MainShelterHouseViewModel.cs" />
-    <Compile Include="ViewModels\MyAdoptionsViewModel.cs" />
     <Compile Include="ViewModels\MyComplaintsViewModel.cs" />
     <Compile Include="ViewModels\MyShelterHouseViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailViewModel.cs" />
@@ -112,8 +119,11 @@
     <Compile Include="Views\AdoptionDetailView.xaml.cs">
       <DependentUpon>AdoptionDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\AdoptView.xaml.cs">
-      <DependentUpon>AdoptView.xaml</DependentUpon>
+    <Compile Include="Views\AdoptOngView.xaml.cs">
+      <DependentUpon>AdoptOngView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdoptUserView.xaml.cs">
+      <DependentUpon>AdoptUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AllAdoptionsView.xaml.cs">
       <DependentUpon>AllAdoptionsView.xaml</DependentUpon>
@@ -228,9 +238,6 @@
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MyAdoptionsView.xaml.cs">
-      <DependentUpon>MyAdoptionsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyComplaintsView.xaml.cs">
       <DependentUpon>MyComplaintsView.xaml</DependentUpon>
@@ -460,24 +467,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MainAdoptionView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\AdoptView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MyAdoptionsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\AllAdoptionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -557,6 +546,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\DonateView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AdoptOngView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AdoptUserView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainAdoptionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
