@@ -39,7 +39,10 @@
                                     </Grid.RowDefinitions>
                                     <Label Grid.Column="0" Grid.Row="0" Text="{Binding User}" FontSize="25" FontAttributes="Bold" TextColor="Blue"></Label>
                                     <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}"></Label>
-                                    <Image Grid.Column="0" Grid.Row="2" Source="{Binding ImageLike}" HorizontalOptions="Start"></Image>
+                                    <StackLayout Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+                                        <Image Source="{Binding ImageLike}" HorizontalOptions="Start"></Image>
+                                        <Label Text="{Binding CountLikes}"></Label>
+                                    </StackLayout>
                                 </Grid>
                             </ViewCell.View>
                         </controls:ExtendedViewCell>
