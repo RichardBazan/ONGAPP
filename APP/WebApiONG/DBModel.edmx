@@ -35,7 +35,6 @@
           <Property Name="comen" Type="varchar(max)" />
           <Property Name="cod_den" Type="int" Nullable="false" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
-          <Property Name="count_like" Type="int" />
         </EntityType>
         <EntityType Name="DarAdopcion">
           <Key>
@@ -67,6 +66,7 @@
           </Key>
           <Property Name="cod_don" Type="int" Nullable="false" />
           <Property Name="cod_casa" Type="int" Nullable="false" />
+          <Property Name="cod_usu" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -77,6 +77,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           </Key>
           <Property Name="cod_don" Type="int" Nullable="false" />
           <Property Name="cod_pro" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="int" />
         </EntityType>
         <EntityType Name="Foto_CasaRefugio">
           <Key>
@@ -101,14 +102,6 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="cod_foto_mas" Type="int" Nullable="false" />
           <Property Name="foto" Type="varchar(max)" />
           <Property Name="cod_mas" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Like_Comentario">
-          <Key>
-            <PropertyRef Name="cod_like" />
-          </Key>
-          <Property Name="cod_like" Type="int" Nullable="false" />
-          <Property Name="liked" Type="bit" />
-          <Property Name="cod_com" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Mascota">
           <Key>
@@ -152,7 +145,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="contraseña" Type="nvarchar" MaxLength="50" />
           <Property Name="foto_usu" Type="varchar(max)" />
         </EntityType>
-        <Association Name="FK__Adopcion__cod_ma__2E1BDC42">
+        <Association Name="FK__Adopcion__cod_ma__2C3393D0">
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
           <End Role="Adopcion" Type="Self.Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -164,7 +157,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Adopcion__cod_us__2D27B809">
+        <Association Name="FK__Adopcion__cod_us__2B3F6F97">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Adopcion" Type="Self.Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +169,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CasaRefug__cod_u__30F848ED">
+        <Association Name="FK__CasaRefug__cod_u__2F10007B">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="CasaRefugio" Type="Self.CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,7 +181,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_d__33D4B598">
+        <Association Name="FK__Comentari__cod_d__31EC6D26">
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="1" />
           <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -200,7 +193,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_u__34C8D9D1">
+        <Association Name="FK__Comentari__cod_u__32E0915F">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -212,7 +205,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_m__300424B4">
+        <Association Name="FK__DarAdopci__cod_m__2E1BDC42">
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
           <End Role="DarAdopcion" Type="Self.DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -224,7 +217,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_u__2F10007B">
+        <Association Name="FK__DarAdopci__cod_u__2D27B809">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="DarAdopcion" Type="Self.DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -236,7 +229,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_ra__2B3F6F97">
+        <Association Name="FK__Denuncia__cod_ra__29572725">
           <End Role="Raza" Type="Self.Raza" Multiplicity="1" />
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -248,7 +241,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_us__2C3393D0">
+        <Association Name="FK__Denuncia__cod_us__2A4B4B5E">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -260,7 +253,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Donacione__cod_c__37A5467C">
+        <Association Name="FK__Donacione__cod_c__34C8D9D1">
           <End Role="CasaRefugio" Type="Self.CasaRefugio" Multiplicity="1" />
           <End Role="Donaciones" Type="Self.Donaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -272,7 +265,19 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DonacionP__cod_d__38996AB5">
+        <Association Name="FK__Donacione__cod_u__35BCFE0A">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Donaciones" Type="Self.Donaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="cod_usu" />
+            </Principal>
+            <Dependent Role="Donaciones">
+              <PropertyRef Name="cod_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonacionP__cod_d__36B12243">
           <End Role="Donaciones" Type="Self.Donaciones" Multiplicity="1" />
           <End Role="DonacionProducto" Type="Self.DonacionProducto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -284,7 +289,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DonacionP__cod_p__398D8EEE">
+        <Association Name="FK__DonacionP__cod_p__37A5467C">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="DonacionProducto" Type="Self.DonacionProducto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -296,7 +301,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Casa__cod_c__32E0915F">
+        <Association Name="FK__Foto_Casa__cod_c__30F848ED">
           <End Role="CasaRefugio" Type="Self.CasaRefugio" Multiplicity="1" />
           <End Role="Foto_CasaRefugio" Type="Self.Foto_CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -308,7 +313,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Denu__cod_d__31EC6D26">
+        <Association Name="FK__Foto_Denu__cod_d__300424B4">
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="1" />
           <End Role="Foto_Denuncia" Type="Self.Foto_Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -320,7 +325,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Masc__cod_m__36B12243">
+        <Association Name="FK__Foto_Masc__cod_m__33D4B598">
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
           <End Role="Foto_Mascota" Type="Self.Foto_Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -332,19 +337,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Like_Come__cod_c__35BCFE0A">
-          <End Role="Comentario" Type="Self.Comentario" Multiplicity="1" />
-          <End Role="Like_Comentario" Type="Self.Like_Comentario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Comentario">
-              <PropertyRef Name="cod_com" />
-            </Principal>
-            <Dependent Role="Like_Comentario">
-              <PropertyRef Name="cod_com" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Mascota__cod_raz__2A4B4B5E">
+        <Association Name="FK__Mascota__cod_raz__286302EC">
           <End Role="Raza" Type="Self.Raza" Multiplicity="1" />
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -366,7 +359,6 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <EntitySet Name="Foto_CasaRefugio" EntityType="Self.Foto_CasaRefugio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Foto_Denuncia" EntityType="Self.Foto_Denuncia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Foto_Mascota" EntityType="Self.Foto_Mascota" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Like_Comentario" EntityType="Self.Like_Comentario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mascota" EntityType="Self.Mascota" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Raza" EntityType="Self.Raza" Schema="dbo" store:Type="Tables" />
@@ -374,74 +366,75 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <EntitySet Name="DonacionProducto" EntityType="Self.DonacionProducto" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [DonacionProducto].[cod_don] AS [cod_don], 
-    [DonacionProducto].[cod_pro] AS [cod_pro]
+    [DonacionProducto].[cod_pro] AS [cod_pro], 
+    [DonacionProducto].[cantidad] AS [cantidad]
     FROM [dbo].[DonacionProducto] AS [DonacionProducto]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Adopcion__cod_ma__2E1BDC42" Association="Self.FK__Adopcion__cod_ma__2E1BDC42">
+          <AssociationSet Name="FK__Adopcion__cod_ma__2C3393D0" Association="Self.FK__Adopcion__cod_ma__2C3393D0">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Adopcion__cod_us__2D27B809" Association="Self.FK__Adopcion__cod_us__2D27B809">
+          <AssociationSet Name="FK__Adopcion__cod_us__2B3F6F97" Association="Self.FK__Adopcion__cod_us__2B3F6F97">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CasaRefug__cod_u__30F848ED" Association="Self.FK__CasaRefug__cod_u__30F848ED">
+          <AssociationSet Name="FK__CasaRefug__cod_u__2F10007B" Association="Self.FK__CasaRefug__cod_u__2F10007B">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_d__33D4B598" Association="Self.FK__Comentari__cod_d__33D4B598">
+          <AssociationSet Name="FK__Comentari__cod_d__31EC6D26" Association="Self.FK__Comentari__cod_d__31EC6D26">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_u__34C8D9D1" Association="Self.FK__Comentari__cod_u__34C8D9D1">
+          <AssociationSet Name="FK__Comentari__cod_u__32E0915F" Association="Self.FK__Comentari__cod_u__32E0915F">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_m__300424B4" Association="Self.FK__DarAdopci__cod_m__300424B4">
+          <AssociationSet Name="FK__DarAdopci__cod_m__2E1BDC42" Association="Self.FK__DarAdopci__cod_m__2E1BDC42">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_u__2F10007B" Association="Self.FK__DarAdopci__cod_u__2F10007B">
+          <AssociationSet Name="FK__DarAdopci__cod_u__2D27B809" Association="Self.FK__DarAdopci__cod_u__2D27B809">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_ra__2B3F6F97" Association="Self.FK__Denuncia__cod_ra__2B3F6F97">
+          <AssociationSet Name="FK__Denuncia__cod_ra__29572725" Association="Self.FK__Denuncia__cod_ra__29572725">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_us__2C3393D0" Association="Self.FK__Denuncia__cod_us__2C3393D0">
+          <AssociationSet Name="FK__Denuncia__cod_us__2A4B4B5E" Association="Self.FK__Denuncia__cod_us__2A4B4B5E">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Donacione__cod_c__37A5467C" Association="Self.FK__Donacione__cod_c__37A5467C">
+          <AssociationSet Name="FK__Donacione__cod_c__34C8D9D1" Association="Self.FK__Donacione__cod_c__34C8D9D1">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Donaciones" EntitySet="Donaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__DonacionP__cod_d__38996AB5" Association="Self.FK__DonacionP__cod_d__38996AB5">
+          <AssociationSet Name="FK__Donacione__cod_u__35BCFE0A" Association="Self.FK__Donacione__cod_u__35BCFE0A">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Donaciones" EntitySet="Donaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonacionP__cod_d__36B12243" Association="Self.FK__DonacionP__cod_d__36B12243">
             <End Role="Donaciones" EntitySet="Donaciones" />
             <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          <AssociationSet Name="FK__DonacionP__cod_p__398D8EEE" Association="Self.FK__DonacionP__cod_p__398D8EEE">
+          <AssociationSet Name="FK__DonacionP__cod_p__37A5467C" Association="Self.FK__DonacionP__cod_p__37A5467C">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Casa__cod_c__32E0915F" Association="Self.FK__Foto_Casa__cod_c__32E0915F">
+          <AssociationSet Name="FK__Foto_Casa__cod_c__30F848ED" Association="Self.FK__Foto_Casa__cod_c__30F848ED">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Foto_CasaRefugio" EntitySet="Foto_CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Denu__cod_d__31EC6D26" Association="Self.FK__Foto_Denu__cod_d__31EC6D26">
+          <AssociationSet Name="FK__Foto_Denu__cod_d__300424B4" Association="Self.FK__Foto_Denu__cod_d__300424B4">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Foto_Denuncia" EntitySet="Foto_Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Masc__cod_m__36B12243" Association="Self.FK__Foto_Masc__cod_m__36B12243">
+          <AssociationSet Name="FK__Foto_Masc__cod_m__33D4B598" Association="Self.FK__Foto_Masc__cod_m__33D4B598">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Foto_Mascota" EntitySet="Foto_Mascota" />
           </AssociationSet>
-          <AssociationSet Name="FK__Like_Come__cod_c__35BCFE0A" Association="Self.FK__Like_Come__cod_c__35BCFE0A">
-            <End Role="Comentario" EntitySet="Comentario" />
-            <End Role="Like_Comentario" EntitySet="Like_Comentario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Mascota__cod_raz__2A4B4B5E" Association="Self.FK__Mascota__cod_raz__2A4B4B5E">
+          <AssociationSet Name="FK__Mascota__cod_raz__286302EC" Association="Self.FK__Mascota__cod_raz__286302EC">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Mascota" EntitySet="Mascota" />
           </AssociationSet>
@@ -450,17 +443,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDONGModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Raza">
-          <Key>
-            <PropertyRef Name="cod_raza" />
-          </Key>
-          <Property Name="cod_raza" Type="Int32" Nullable="false" />
-          <Property Name="nom_raza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_ra__2B3F6F97" FromRole="Raza" ToRole="Denuncia" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_raz__2A4B4B5E" FromRole="Raza" ToRole="Mascota" />
-        </EntityType>
         <EntityContainer Name="BDONGEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Raza" EntityType="Self.Raza" />
           <EntitySet Name="Adopcion" EntityType="BDONGModel.Adopcion" />
           <EntitySet Name="CasaRefugio" EntityType="BDONGModel.CasaRefugio" />
           <EntitySet Name="Comentario" EntityType="BDONGModel.Comentario" />
@@ -470,75 +453,80 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <EntitySet Name="Foto_CasaRefugio" EntityType="BDONGModel.Foto_CasaRefugio" />
           <EntitySet Name="Foto_Denuncia" EntityType="BDONGModel.Foto_Denuncia" />
           <EntitySet Name="Foto_Mascota" EntityType="BDONGModel.Foto_Mascota" />
-          <EntitySet Name="Like_Comentario" EntityType="BDONGModel.Like_Comentario" />
           <EntitySet Name="Mascota" EntityType="BDONGModel.Mascota" />
           <EntitySet Name="Producto" EntityType="BDONGModel.Producto" />
+          <EntitySet Name="Raza" EntityType="BDONGModel.Raza" />
           <EntitySet Name="Usuario" EntityType="BDONGModel.Usuario" />
-          <AssociationSet Name="FK__Adopcion__cod_ma__2E1BDC42" Association="BDONGModel.FK__Adopcion__cod_ma__2E1BDC42">
+          <EntitySet Name="DonacionProducto" EntityType="BDONGModel.DonacionProducto" />
+          <AssociationSet Name="FK__Adopcion__cod_ma__2C3393D0" Association="BDONGModel.FK__Adopcion__cod_ma__2C3393D0">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Adopcion__cod_us__2D27B809" Association="BDONGModel.FK__Adopcion__cod_us__2D27B809">
+          <AssociationSet Name="FK__Adopcion__cod_us__2B3F6F97" Association="BDONGModel.FK__Adopcion__cod_us__2B3F6F97">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CasaRefug__cod_u__30F848ED" Association="BDONGModel.FK__CasaRefug__cod_u__30F848ED">
+          <AssociationSet Name="FK__CasaRefug__cod_u__2F10007B" Association="BDONGModel.FK__CasaRefug__cod_u__2F10007B">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Donacione__cod_c__37A5467C" Association="BDONGModel.FK__Donacione__cod_c__37A5467C">
+          <AssociationSet Name="FK__Donacione__cod_c__34C8D9D1" Association="BDONGModel.FK__Donacione__cod_c__34C8D9D1">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Donaciones" EntitySet="Donaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Casa__cod_c__32E0915F" Association="BDONGModel.FK__Foto_Casa__cod_c__32E0915F">
+          <AssociationSet Name="FK__Foto_Casa__cod_c__30F848ED" Association="BDONGModel.FK__Foto_Casa__cod_c__30F848ED">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Foto_CasaRefugio" EntitySet="Foto_CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_d__33D4B598" Association="BDONGModel.FK__Comentari__cod_d__33D4B598">
+          <AssociationSet Name="FK__Comentari__cod_d__31EC6D26" Association="BDONGModel.FK__Comentari__cod_d__31EC6D26">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_u__34C8D9D1" Association="BDONGModel.FK__Comentari__cod_u__34C8D9D1">
+          <AssociationSet Name="FK__Comentari__cod_u__32E0915F" Association="BDONGModel.FK__Comentari__cod_u__32E0915F">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__Like_Come__cod_c__35BCFE0A" Association="BDONGModel.FK__Like_Come__cod_c__35BCFE0A">
-            <End Role="Comentario" EntitySet="Comentario" />
-            <End Role="Like_Comentario" EntitySet="Like_Comentario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_m__300424B4" Association="BDONGModel.FK__DarAdopci__cod_m__300424B4">
+          <AssociationSet Name="FK__DarAdopci__cod_m__2E1BDC42" Association="BDONGModel.FK__DarAdopci__cod_m__2E1BDC42">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_u__2F10007B" Association="BDONGModel.FK__DarAdopci__cod_u__2F10007B">
+          <AssociationSet Name="FK__DarAdopci__cod_u__2D27B809" Association="BDONGModel.FK__DarAdopci__cod_u__2D27B809">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_ra__2B3F6F97" Association="BDONGModel.FK__Denuncia__cod_ra__2B3F6F97">
+          <AssociationSet Name="FK__Denuncia__cod_ra__29572725" Association="BDONGModel.FK__Denuncia__cod_ra__29572725">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_us__2C3393D0" Association="BDONGModel.FK__Denuncia__cod_us__2C3393D0">
+          <AssociationSet Name="FK__Denuncia__cod_us__2A4B4B5E" Association="BDONGModel.FK__Denuncia__cod_us__2A4B4B5E">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Denu__cod_d__31EC6D26" Association="BDONGModel.FK__Foto_Denu__cod_d__31EC6D26">
+          <AssociationSet Name="FK__Foto_Denu__cod_d__300424B4" Association="BDONGModel.FK__Foto_Denu__cod_d__300424B4">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Foto_Denuncia" EntitySet="Foto_Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Masc__cod_m__36B12243" Association="BDONGModel.FK__Foto_Masc__cod_m__36B12243">
+          <AssociationSet Name="FK__Donacione__cod_u__35BCFE0A" Association="BDONGModel.FK__Donacione__cod_u__35BCFE0A">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Donaciones" EntitySet="Donaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DonacionP__cod_d__36B12243" Association="BDONGModel.FK__DonacionP__cod_d__36B12243">
+            <End Role="Donaciones" EntitySet="Donaciones" />
+            <End Role="DonacionProducto" EntitySet="DonacionProducto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Foto_Masc__cod_m__33D4B598" Association="BDONGModel.FK__Foto_Masc__cod_m__33D4B598">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Foto_Mascota" EntitySet="Foto_Mascota" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mascota__cod_raz__2A4B4B5E" Association="BDONGModel.FK__Mascota__cod_raz__2A4B4B5E">
+          <AssociationSet Name="FK__Mascota__cod_raz__286302EC" Association="BDONGModel.FK__Mascota__cod_raz__286302EC">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Mascota" EntitySet="Mascota" />
           </AssociationSet>
-          <AssociationSet Name="DonacionProducto" Association="BDONGModel.DonacionProducto">
-            <End Role="Donaciones" EntitySet="Donaciones" />
+          <AssociationSet Name="FK__DonacionP__cod_p__37A5467C" Association="BDONGModel.FK__DonacionP__cod_p__37A5467C">
             <End Role="Producto" EntitySet="Producto" />
+            <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          </EntityContainer>
+        </EntityContainer>
         <EntityType Name="Adopcion">
           <Key>
             <PropertyRef Name="cod_adop" />
@@ -548,8 +536,8 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="estado_adop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Adopcion__cod_ma__2E1BDC42" FromRole="Adopcion" ToRole="Mascota" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Adopcion__cod_us__2D27B809" FromRole="Adopcion" ToRole="Usuario" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Adopcion__cod_ma__2C3393D0" FromRole="Adopcion" ToRole="Mascota" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Adopcion__cod_us__2B3F6F97" FromRole="Adopcion" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="CasaRefugio">
           <Key>
@@ -562,9 +550,9 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="descrip_casa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="fecha_reg" Type="DateTime" Precision="0" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__CasaRefug__cod_u__30F848ED" FromRole="CasaRefugio" ToRole="Usuario" />
-          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_c__37A5467C" FromRole="CasaRefugio" ToRole="Donaciones" />
-          <NavigationProperty Name="Foto_CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__32E0915F" FromRole="CasaRefugio" ToRole="Foto_CasaRefugio" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__CasaRefug__cod_u__2F10007B" FromRole="CasaRefugio" ToRole="Usuario" />
+          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_c__34C8D9D1" FromRole="CasaRefugio" ToRole="Donaciones" />
+          <NavigationProperty Name="Foto_CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__30F848ED" FromRole="CasaRefugio" ToRole="Foto_CasaRefugio" />
         </EntityType>
         <EntityType Name="Comentario">
           <Key>
@@ -574,10 +562,8 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="comen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_den" Type="Int32" Nullable="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
-          <Property Name="count_like" Type="Int32" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Comentari__cod_d__33D4B598" FromRole="Comentario" ToRole="Denuncia" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Comentari__cod_u__34C8D9D1" FromRole="Comentario" ToRole="Usuario" />
-          <NavigationProperty Name="Like_Comentario" Relationship="BDONGModel.FK__Like_Come__cod_c__35BCFE0A" FromRole="Comentario" ToRole="Like_Comentario" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Comentari__cod_d__31EC6D26" FromRole="Comentario" ToRole="Denuncia" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Comentari__cod_u__32E0915F" FromRole="Comentario" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="DarAdopcion">
           <Key>
@@ -588,8 +574,8 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="estado_daradop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__DarAdopci__cod_m__300424B4" FromRole="DarAdopcion" ToRole="Mascota" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__DarAdopci__cod_u__2F10007B" FromRole="DarAdopcion" ToRole="Usuario" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__DarAdopci__cod_m__2E1BDC42" FromRole="DarAdopcion" ToRole="Mascota" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__DarAdopci__cod_u__2D27B809" FromRole="DarAdopcion" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Denuncia">
           <Key>
@@ -604,10 +590,10 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="estado_den" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <Property Name="cod_raza" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_d__33D4B598" FromRole="Denuncia" ToRole="Comentario" />
-          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Denuncia__cod_ra__2B3F6F97" FromRole="Denuncia" ToRole="Raza" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Denuncia__cod_us__2C3393D0" FromRole="Denuncia" ToRole="Usuario" />
-          <NavigationProperty Name="Foto_Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__31EC6D26" FromRole="Denuncia" ToRole="Foto_Denuncia" />
+          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_d__31EC6D26" FromRole="Denuncia" ToRole="Comentario" />
+          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Denuncia__cod_ra__29572725" FromRole="Denuncia" ToRole="Raza" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Denuncia__cod_us__2A4B4B5E" FromRole="Denuncia" ToRole="Usuario" />
+          <NavigationProperty Name="Foto_Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__300424B4" FromRole="Denuncia" ToRole="Foto_Denuncia" />
         </EntityType>
         <EntityType Name="Donaciones">
           <Key>
@@ -615,8 +601,10 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           </Key>
           <Property Name="cod_don" Type="Int32" Nullable="false" />
           <Property Name="cod_casa" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Donacione__cod_c__37A5467C" FromRole="Donaciones" ToRole="CasaRefugio" />
-          <NavigationProperty Name="Producto" Relationship="BDONGModel.DonacionProducto" FromRole="Donaciones" ToRole="Producto" />
+          <Property Name="cod_usu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Donacione__cod_c__34C8D9D1" FromRole="Donaciones" ToRole="CasaRefugio" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Donacione__cod_u__35BCFE0A" FromRole="Donaciones" ToRole="Usuario" />
+          <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_d__36B12243" FromRole="Donaciones" ToRole="DonacionProducto" />
         </EntityType>
         <EntityType Name="Foto_CasaRefugio">
           <Key>
@@ -625,7 +613,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="cod_foto_casa" Type="Int32" Nullable="false" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_casa" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__32E0915F" FromRole="Foto_CasaRefugio" ToRole="CasaRefugio" />
+          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__30F848ED" FromRole="Foto_CasaRefugio" ToRole="CasaRefugio" />
         </EntityType>
         <EntityType Name="Foto_Denuncia">
           <Key>
@@ -634,7 +622,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="cod_foto_den" Type="Int32" Nullable="false" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_den" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__31EC6D26" FromRole="Foto_Denuncia" ToRole="Denuncia" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__300424B4" FromRole="Foto_Denuncia" ToRole="Denuncia" />
         </EntityType>
         <EntityType Name="Foto_Mascota">
           <Key>
@@ -643,16 +631,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="cod_foto_mas" Type="Int32" Nullable="false" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__36B12243" FromRole="Foto_Mascota" ToRole="Mascota" />
-        </EntityType>
-        <EntityType Name="Like_Comentario">
-          <Key>
-            <PropertyRef Name="cod_like" />
-          </Key>
-          <Property Name="cod_like" Type="Int32" Nullable="false" />
-          <Property Name="liked" Type="Boolean" />
-          <Property Name="cod_com" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Like_Come__cod_c__35BCFE0A" FromRole="Like_Comentario" ToRole="Comentario" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__33D4B598" FromRole="Foto_Mascota" ToRole="Mascota" />
         </EntityType>
         <EntityType Name="Mascota">
           <Key>
@@ -666,10 +645,10 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="estado_mas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tenencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_raza" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_ma__2E1BDC42" FromRole="Mascota" ToRole="Adopcion" />
-          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_m__300424B4" FromRole="Mascota" ToRole="DarAdopcion" />
-          <NavigationProperty Name="Foto_Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__36B12243" FromRole="Mascota" ToRole="Foto_Mascota" />
-          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Mascota__cod_raz__2A4B4B5E" FromRole="Mascota" ToRole="Raza" />
+          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_ma__2C3393D0" FromRole="Mascota" ToRole="Adopcion" />
+          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_m__2E1BDC42" FromRole="Mascota" ToRole="DarAdopcion" />
+          <NavigationProperty Name="Foto_Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__33D4B598" FromRole="Mascota" ToRole="Foto_Mascota" />
+          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Mascota__cod_raz__286302EC" FromRole="Mascota" ToRole="Raza" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -677,7 +656,16 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           </Key>
           <Property Name="cod_pro" Type="Int32" Nullable="false" />
           <Property Name="des_pro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.DonacionProducto" FromRole="Producto" ToRole="Donaciones" />
+          <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_p__37A5467C" FromRole="Producto" ToRole="DonacionProducto" />
+        </EntityType>
+        <EntityType Name="Raza">
+          <Key>
+            <PropertyRef Name="cod_raza" />
+          </Key>
+          <Property Name="cod_raza" Type="Int32" Nullable="false" />
+          <Property Name="nom_raza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_ra__29572725" FromRole="Raza" ToRole="Denuncia" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_raz__286302EC" FromRole="Raza" ToRole="Mascota" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -693,13 +681,25 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="foto_usu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_us__2D27B809" FromRole="Usuario" ToRole="Adopcion" />
-          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__CasaRefug__cod_u__30F848ED" FromRole="Usuario" ToRole="CasaRefugio" />
-          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_u__34C8D9D1" FromRole="Usuario" ToRole="Comentario" />
-          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_u__2F10007B" FromRole="Usuario" ToRole="DarAdopcion" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_us__2C3393D0" FromRole="Usuario" ToRole="Denuncia" />
+          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_us__2B3F6F97" FromRole="Usuario" ToRole="Adopcion" />
+          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__CasaRefug__cod_u__2F10007B" FromRole="Usuario" ToRole="CasaRefugio" />
+          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_u__32E0915F" FromRole="Usuario" ToRole="Comentario" />
+          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_u__2D27B809" FromRole="Usuario" ToRole="DarAdopcion" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_us__2A4B4B5E" FromRole="Usuario" ToRole="Denuncia" />
+          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_u__35BCFE0A" FromRole="Usuario" ToRole="Donaciones" />
         </EntityType>
-        <Association Name="FK__Adopcion__cod_ma__2E1BDC42">
+        <EntityType Name="DonacionProducto">
+          <Key>
+            <PropertyRef Name="cod_don" />
+            <PropertyRef Name="cod_pro" />
+          </Key>
+          <Property Name="cod_don" Type="Int32" Nullable="false" />
+          <Property Name="cod_pro" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Int32" />
+          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__DonacionP__cod_d__36B12243" FromRole="DonacionProducto" ToRole="Donaciones" />
+          <NavigationProperty Name="Producto" Relationship="BDONGModel.FK__DonacionP__cod_p__37A5467C" FromRole="DonacionProducto" ToRole="Producto" />
+        </EntityType>
+        <Association Name="FK__Adopcion__cod_ma__2C3393D0">
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="1" />
           <End Type="BDONGModel.Adopcion" Role="Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -711,7 +711,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Adopcion__cod_us__2D27B809">
+        <Association Name="FK__Adopcion__cod_us__2B3F6F97">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Adopcion" Role="Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -723,7 +723,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CasaRefug__cod_u__30F848ED">
+        <Association Name="FK__CasaRefug__cod_u__2F10007B">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.CasaRefugio" Role="CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -735,7 +735,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Donacione__cod_c__37A5467C">
+        <Association Name="FK__Donacione__cod_c__34C8D9D1">
           <End Type="BDONGModel.CasaRefugio" Role="CasaRefugio" Multiplicity="1" />
           <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -747,7 +747,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Casa__cod_c__32E0915F">
+        <Association Name="FK__Foto_Casa__cod_c__30F848ED">
           <End Type="BDONGModel.CasaRefugio" Role="CasaRefugio" Multiplicity="1" />
           <End Type="BDONGModel.Foto_CasaRefugio" Role="Foto_CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -759,7 +759,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_d__33D4B598">
+        <Association Name="FK__Comentari__cod_d__31EC6D26">
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="1" />
           <End Type="BDONGModel.Comentario" Role="Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -771,7 +771,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_u__34C8D9D1">
+        <Association Name="FK__Comentari__cod_u__32E0915F">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Comentario" Role="Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -783,19 +783,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Like_Come__cod_c__35BCFE0A">
-          <End Type="BDONGModel.Comentario" Role="Comentario" Multiplicity="1" />
-          <End Type="BDONGModel.Like_Comentario" Role="Like_Comentario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Comentario">
-              <PropertyRef Name="cod_com" />
-            </Principal>
-            <Dependent Role="Like_Comentario">
-              <PropertyRef Name="cod_com" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DarAdopci__cod_m__300424B4">
+        <Association Name="FK__DarAdopci__cod_m__2E1BDC42">
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="1" />
           <End Type="BDONGModel.DarAdopcion" Role="DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -807,7 +795,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_u__2F10007B">
+        <Association Name="FK__DarAdopci__cod_u__2D27B809">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.DarAdopcion" Role="DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -819,7 +807,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_ra__2B3F6F97">
+        <Association Name="FK__Denuncia__cod_ra__29572725">
           <End Type="BDONGModel.Raza" Role="Raza" Multiplicity="1" />
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -831,7 +819,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_us__2C3393D0">
+        <Association Name="FK__Denuncia__cod_us__2A4B4B5E">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -843,7 +831,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Denu__cod_d__31EC6D26">
+        <Association Name="FK__Foto_Denu__cod_d__300424B4">
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="1" />
           <End Type="BDONGModel.Foto_Denuncia" Role="Foto_Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -855,7 +843,31 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Masc__cod_m__36B12243">
+        <Association Name="FK__Donacione__cod_u__35BCFE0A">
+          <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="cod_usu" />
+            </Principal>
+            <Dependent Role="Donaciones">
+              <PropertyRef Name="cod_usu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DonacionP__cod_d__36B12243">
+          <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="1" />
+          <End Type="BDONGModel.DonacionProducto" Role="DonacionProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donaciones">
+              <PropertyRef Name="cod_don" />
+            </Principal>
+            <Dependent Role="DonacionProducto">
+              <PropertyRef Name="cod_don" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Foto_Masc__cod_m__33D4B598">
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="1" />
           <End Type="BDONGModel.Foto_Mascota" Role="Foto_Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -867,7 +879,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mascota__cod_raz__2A4B4B5E">
+        <Association Name="FK__Mascota__cod_raz__286302EC">
           <End Type="BDONGModel.Raza" Role="Raza" Multiplicity="1" />
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -879,9 +891,17 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="DonacionProducto">
-          <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="*" />
-          <End Type="BDONGModel.Producto" Role="Producto" Multiplicity="*" />
+        <Association Name="FK__DonacionP__cod_p__37A5467C">
+          <End Type="BDONGModel.Producto" Role="Producto" Multiplicity="1" />
+          <End Type="BDONGModel.DonacionProducto" Role="DonacionProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="cod_pro" />
+            </Principal>
+            <Dependent Role="DonacionProducto">
+              <PropertyRef Name="cod_pro" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -889,14 +909,6 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BDONGModelStoreContainer" CdmEntityContainer="BDONGEntities">
-          <EntitySetMapping Name="Raza">
-            <EntityTypeMapping TypeName="BDONGModel.Raza">
-              <MappingFragment StoreEntitySet="Raza">
-                <ScalarProperty Name="cod_raza" ColumnName="cod_raza" />
-                <ScalarProperty Name="nom_raza" ColumnName="nom_raza" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Adopcion">
             <EntityTypeMapping TypeName="BDONGModel.Adopcion">
               <MappingFragment StoreEntitySet="Adopcion">
@@ -924,7 +936,6 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <EntitySetMapping Name="Comentario">
             <EntityTypeMapping TypeName="BDONGModel.Comentario">
               <MappingFragment StoreEntitySet="Comentario">
-                <ScalarProperty Name="count_like" ColumnName="count_like" />
                 <ScalarProperty Name="cod_usu" ColumnName="cod_usu" />
                 <ScalarProperty Name="cod_den" ColumnName="cod_den" />
                 <ScalarProperty Name="comen" ColumnName="comen" />
@@ -961,6 +972,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <EntitySetMapping Name="Donaciones">
             <EntityTypeMapping TypeName="BDONGModel.Donaciones">
               <MappingFragment StoreEntitySet="Donaciones">
+                <ScalarProperty Name="cod_usu" ColumnName="cod_usu" />
                 <ScalarProperty Name="cod_casa" ColumnName="cod_casa" />
                 <ScalarProperty Name="cod_don" ColumnName="cod_don" />
               </MappingFragment>
@@ -993,15 +1005,6 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Like_Comentario">
-            <EntityTypeMapping TypeName="BDONGModel.Like_Comentario">
-              <MappingFragment StoreEntitySet="Like_Comentario">
-                <ScalarProperty Name="cod_com" ColumnName="cod_com" />
-                <ScalarProperty Name="liked" ColumnName="liked" />
-                <ScalarProperty Name="cod_like" ColumnName="cod_like" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Mascota">
             <EntityTypeMapping TypeName="BDONGModel.Mascota">
               <MappingFragment StoreEntitySet="Mascota">
@@ -1024,6 +1027,14 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Raza">
+            <EntityTypeMapping TypeName="BDONGModel.Raza">
+              <MappingFragment StoreEntitySet="Raza">
+                <ScalarProperty Name="nom_raza" ColumnName="nom_raza" />
+                <ScalarProperty Name="cod_raza" ColumnName="cod_raza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="BDONGModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
@@ -1040,14 +1051,15 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="DonacionProducto" TypeName="BDONGModel.DonacionProducto" StoreEntitySet="DonacionProducto">
-            <EndProperty Name="Producto">
-              <ScalarProperty Name="cod_pro" ColumnName="cod_pro" />
-            </EndProperty>
-            <EndProperty Name="Donaciones">
-              <ScalarProperty Name="cod_don" ColumnName="cod_don" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <EntitySetMapping Name="DonacionProducto">
+            <EntityTypeMapping TypeName="BDONGModel.DonacionProducto">
+              <MappingFragment StoreEntitySet="DonacionProducto">
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="cod_pro" ColumnName="cod_pro" />
+                <ScalarProperty Name="cod_don" ColumnName="cod_don" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

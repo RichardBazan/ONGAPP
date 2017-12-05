@@ -201,9 +201,11 @@
     </Compile>
     <Compile Include="Controllers\CasaRefugiosController.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
+    <Compile Include="Controllers\DonacionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DenunciasController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
+    <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DarAdopcion.cs">
@@ -230,6 +232,9 @@
     <Compile Include="Donaciones.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DonacionProducto.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Foto_CasaRefugio.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -242,20 +247,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Like_Comentario.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Mascota.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdopcionModelDTO.cs" />
     <Compile Include="Models\CasaRefugioModelDTO.cs" />
     <Compile Include="Models\ComentarioModelDTO.cs" />
+    <Compile Include="Models\DonacionModelDTO.cs" />
+    <Compile Include="Models\DonacionProductoModelDTO.cs" />
     <Compile Include="Models\FotoCasaRefugioModelDTO.cs" />
     <Compile Include="Models\FotoDenunciaModelDTO.cs" />
     <Compile Include="Models\DenunciaModelDTO.cs" />
     <Compile Include="Models\FotoMascotaModelDTO.cs" />
     <Compile Include="Models\MascotaModelDTO.cs" />
+    <Compile Include="Models\ProductoModelDTO.cs" />
     <Compile Include="Models\RazaModelDTO.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>

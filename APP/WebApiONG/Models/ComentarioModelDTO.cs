@@ -18,7 +18,5 @@ namespace WebApiONG.Models
 
         public string User;
 
-        public int CountLikes;
-
     }
 }

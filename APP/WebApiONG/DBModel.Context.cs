@@ -25,7 +25,6 @@ namespace WebApiONG
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Raza> Raza { get; set; }
         public virtual DbSet<Adopcion> Adopcion { get; set; }
         public virtual DbSet<CasaRefugio> CasaRefugio { get; set; }
         public virtual DbSet<Comentario> Comentario { get; set; }
@@ -35,9 +34,10 @@ namespace WebApiONG
         public virtual DbSet<Foto_CasaRefugio> Foto_CasaRefugio { get; set; }
         public virtual DbSet<Foto_Denuncia> Foto_Denuncia { get; set; }
         public virtual DbSet<Foto_Mascota> Foto_Mascota { get; set; }
-        public virtual DbSet<Like_Comentario> Like_Comentario { get; set; }
         public virtual DbSet<Mascota> Mascota { get; set; }
         public virtual DbSet<Producto> Producto { get; set; }
+        public virtual DbSet<Raza> Raza { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<DonacionProducto> DonacionProducto { get; set; }
     }
 }

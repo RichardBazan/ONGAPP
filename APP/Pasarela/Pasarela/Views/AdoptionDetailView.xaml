@@ -18,7 +18,7 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="{Binding Dog.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <Image Grid.Row="1" Source="{Binding Dog.Image}" HorizontalOptions="Center" Aspect="Fill"></Image>
+
                 <Label Grid.Row="2" Text="{Binding Dog.Breed}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <Label Grid.Row="3" Text="{Binding Dog.Description}" FontSize="15"></Label>
                 <Grid Grid.Row="4" IsVisible="{Binding Visible}">

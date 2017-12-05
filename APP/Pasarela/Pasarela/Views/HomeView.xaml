@@ -44,40 +44,40 @@
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                <controls:ShapeView Grid.Row="0" Grid.Column="0" Color="#93B7DC" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
-                <StackLayout Grid.Row="0" Grid.Column="0" HeightRequest="172" Spacing="0">
-                    <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding AdoptionCommand}" NumberOfTapsRequired="1" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
-                <controls:ShapeView Grid.Row="0" Grid.Column="1" Color="#FAB29E" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
-                <StackLayout Grid.Row="0" Grid.Column="1" HeightRequest="172" Spacing="0">
-                    <Label Text="DAR EN" HorizontalOptions="Center" FontSize="18"></Label>
-                    <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding GiveInAdoptionCommand}" NumberOfTapsRequired="1" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+                        <controls:ShapeView Grid.Row="0" Grid.Column="0" Color="#93B7DC" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
+                        <StackLayout Grid.Row="0" Grid.Column="0" HeightRequest="172" Spacing="0">
+                            <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding AdoptionCommand}" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <controls:ShapeView Grid.Row="0" Grid.Column="1" Color="#FAB29E" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
+                        <StackLayout Grid.Row="0" Grid.Column="1" HeightRequest="172" Spacing="0">
+                            <Label Text="DAR EN" HorizontalOptions="Center" FontSize="18"></Label>
+                            <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GiveInAdoptionCommand}" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
 
 
                         <controls:ShapeView Grid.Row="1" Grid.Column="0" Color="#A2D0B7" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
-                <StackLayout Grid.Row="1" Grid.Column="0" HeightRequest="172" Spacing="0">
-                    <Label Text="DENUNCIA" HorizontalOptions="Center" FontSize="18"></Label>
-                    <Label Text="DE" HorizontalOptions="Center" FontSize="18"></Label>
-                    <Label Text="MALTRATO" HorizontalOptions="Center" FontSize="18"></Label>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ComplaintCommand}" NumberOfTapsRequired="1" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="0" HeightRequest="172" Spacing="0">
+                            <Label Text="DENUNCIA" HorizontalOptions="Center" FontSize="18"></Label>
+                            <Label Text="DE" HorizontalOptions="Center" FontSize="18"></Label>
+                            <Label Text="MALTRATO" HorizontalOptions="Center" FontSize="18"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ComplaintCommand}" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
                         <controls:ShapeView Grid.Row="1" Grid.Column="1" Color="#a18e7e" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
-                <StackLayout Grid.Row="1" Grid.Column="1" HeightRequest="172" Spacing="0">
-                    <Label Text="CASA" HorizontalOptions="Center" FontSize="18"></Label>
-                    <Label Text="REFUGIO" HorizontalOptions="Center" FontSize="18"></Label>
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ShelterHouseCommand}" NumberOfTapsRequired="1" />
-                    </StackLayout.GestureRecognizers>
-                </StackLayout>
+                        <StackLayout Grid.Row="1" Grid.Column="1" HeightRequest="172" Spacing="0">
+                            <Label Text="CASA" HorizontalOptions="Center" FontSize="18"></Label>
+                            <Label Text="REFUGIO" HorizontalOptions="Center" FontSize="18"></Label>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ShelterHouseCommand}" NumberOfTapsRequired="1" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
                     </Grid>
                 </StackLayout>
 

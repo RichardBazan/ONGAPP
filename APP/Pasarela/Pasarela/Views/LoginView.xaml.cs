@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Pasarela.Core.Models.Banner;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Pasarela.Core .ViewModels;
+using Pasarela.Core.ViewModels;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

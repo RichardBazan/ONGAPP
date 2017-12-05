@@ -14,21 +14,12 @@ namespace WebApiONG
     
     public partial class Comentario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Comentario()
-        {
-            this.Like_Comentario = new HashSet<Like_Comentario>();
-        }
-    
         public int cod_com { get; set; }
         public string comen { get; set; }
         public int cod_den { get; set; }
         public int cod_usu { get; set; }
-        public Nullable<int> count_like { get; set; }
     
         public virtual Denuncia Denuncia { get; set; }
         public virtual Usuario Usuario { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Like_Comentario> Like_Comentario { get; set; }
     }
 }

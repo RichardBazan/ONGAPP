@@ -5,7 +5,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(CatalogView), typeof(SlideDownMenuPageRenderer))]
+//[assembly: ExportRenderer(typeof(CatalogView), typeof(SlideDownMenuPageRenderer))]
 namespace Pasarela.Droid.Renderers
 {
     public class SlideDownMenuPageRenderer : PageRenderer, ISlideOverKitPageRendererDroid

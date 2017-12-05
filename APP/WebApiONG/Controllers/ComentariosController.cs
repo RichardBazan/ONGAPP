@@ -46,7 +46,7 @@ namespace WebApiONG.Controllers
 
             foreach (var item in ListComentario)
             {
-                ListComentarioModelDTO.Add(new ComentarioModelDTO() { Id = item.cod_com, Description = item.comen, ComplaintId = item.cod_den, UserId = item.cod_usu, User = item.Usuario.usuario1, CountLikes = (int)item.count_like });
+                ListComentarioModelDTO.Add(new ComentarioModelDTO() { Id = item.cod_com, Description = item.comen, ComplaintId = item.cod_den, UserId = item.cod_usu, User = item.Usuario.usuario1});
             }
             return Request.CreateResponse(HttpStatusCode.OK, ListComentarioModelDTO);
         }

@@ -33,5 +33,5 @@
                 iOS="ic_tab_bar_proveedores"/>
         </views:AllShelterHouseView.Icon>
     </views:AllShelterHouseView>
-    
+
 </TabbedPage>

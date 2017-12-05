@@ -6,7 +6,7 @@ namespace Pasarela.Core
     {
         public const string AzureTag = "Azure";
         public const string MockTag = "Mock";
-        public const string DefaultEndpoint = "http://192.168.1.42/WebApiONG/api";
+        public const string DefaultEndpoint = "http://192.168.1.6/WebApiONG/api";
 
 
         private string _baseEndpoint;
@@ -61,6 +61,8 @@ namespace Pasarela.Core
         public string ComentarioEndPoint { get; set; }
         public string MascotaEndPoint { get; set; }
         public string CasaRefugioEndPoint { get; set; }
+        public string DonacionEndPoint { get; set; }
+        public string ProductoEndPoint { get; set; }
 
 
         private void UpdateEndpoint(string baseEndpoint)
@@ -81,6 +83,8 @@ namespace Pasarela.Core
             ComentarioEndPoint = string.Format("{0}/Comentarios", baseEndpoint);
             MascotaEndPoint = string.Format("{0}/Mascotas", baseEndpoint);
             CasaRefugioEndPoint = string.Format("{0}/CasaRefugios", baseEndpoint);
+            DonacionEndPoint = string.Format("{0}/Donaciones", baseEndpoint);
+            ProductoEndPoint = string.Format("{0}/Productos", baseEndpoint);
 
         }
 

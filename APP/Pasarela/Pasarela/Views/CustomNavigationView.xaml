@@ -6,5 +6,5 @@
     BarBackgroundColor="{StaticResource GreenColor}"
     BarTextColor="{StaticResource WhiteColor}"
     BackgroundColor="Transparent">
-    
+
 </NavigationPage>

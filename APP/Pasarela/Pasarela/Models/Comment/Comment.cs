@@ -15,7 +15,6 @@ namespace Pasarela.Core.Models.Comment
         public int ComplaintId { get; set; }
         public int UserId { get; set; }
         public string User { get; set; }
-        public int CountLikes { get; set; }
 
     }
 }

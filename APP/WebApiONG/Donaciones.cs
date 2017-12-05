@@ -17,14 +17,16 @@ namespace WebApiONG
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Donaciones()
         {
-            this.Producto = new HashSet<Producto>();
+            this.DonacionProducto = new HashSet<DonacionProducto>();
         }
     
         public int cod_don { get; set; }
         public int cod_casa { get; set; }
+        public int cod_usu { get; set; }
     
         public virtual CasaRefugio CasaRefugio { get; set; }
+        public virtual Usuario Usuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Producto> Producto { get; set; }
+        public virtual ICollection<DonacionProducto> DonacionProducto { get; set; }
     }
 }

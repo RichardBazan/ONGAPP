@@ -95,6 +95,12 @@ namespace Pasarela.Core.Models.Common
 
             /*ShelterHouse by user*/
             public const string METHOD_SHELTERHOUSE_USER = "/GetShelterHouseByUser";
+
+            /*Donate by shelter house*/
+            public const string METHOD_DONATE_SHELTERHOUSE = "/GetDonateByShelterHouse";
+
+            /*All Products*/
+            public const string METHOD_ALL_PRODUCTS = "/GetAllProducts";
         }
 
         public struct ParameterService

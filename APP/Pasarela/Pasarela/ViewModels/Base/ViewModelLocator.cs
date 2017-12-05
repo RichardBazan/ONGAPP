@@ -16,6 +16,8 @@ using Pasarela.Core.Services.Dog;
 using Pasarela.Core.Services.ShelterHouse;
 using Pasarela.Core.Services.Complaints;
 using Pasarela.Core.Services.Comment;
+using Pasarela.Core.Services.Donate;
+using Pasarela.Core.Services.Product;
 
 namespace Pasarela.Core.ViewModels.Base
 {
@@ -104,6 +106,8 @@ namespace Pasarela.Core.ViewModels.Base
                 builder.RegisterType<CommentService>().As<ICommentService>().SingleInstance();
                 builder.RegisterType<DogService>().As<IDogService>();
                 builder.RegisterType<ShelterHouseService>().As<IShelterHouseService>();
+                builder.RegisterType<DonateService>().As<IDonateService>();
+                builder.RegisterType<ProductService>().As<IProductService>();
 
 
                 UseMockService = true;

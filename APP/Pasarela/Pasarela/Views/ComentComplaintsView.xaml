@@ -2,25 +2,33 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pasarela.Core.Views.ComentComplaintsView"
+             xmlns:behaviors="clr-namespace:Pasarela.Core.Behaviors;assembly=Pasarela.Core"
              xmlns:controls="clr-namespace:Pasarela.Core.Controls;assembly=Pasarela.Core"
              xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Vertical" Margin="15,15,15,0" Spacing="0">
-                <Label Text="Comentarios de la denuncia" FontSize="20" HorizontalOptions="Center"/>
-                <Label Text="{Binding Complaint.Title}" FontSize="26" HorizontalOptions="Center"></Label>
+                <Label Text="Comentarios de la denuncia" TextColor="#A2D0B7" FontSize="20" HorizontalOptions="Center"/>
+                <Label Text="{Binding Complaint.Title}" TextColor="#A2D0B7" FontSize="26" HorizontalOptions="Center"></Label>
             </StackLayout>
-            <Button Text="Comentario" Command="{Binding CommentCommand}" Margin="15,0,15,0"></Button>
+            <Button Text="Hacer un comentario" Command="{Binding CommentCommand}" BackgroundColor="#228B22" Margin="15,0,15,0"></Button>
             <StackLayout IsVisible="{Binding VisibleComment}">
-                <Editor HeightRequest="100"></Editor>
-                <Grid  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+                <Editor HeightRequest="100">
+                    <Editor.Behaviors>
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="230" />
+                    </Editor.Behaviors>
+                </Editor>
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Text="COMENTAR" BackgroundColor="#A2D0B7"></Button>
-                    <Button Grid.Column="1" Text="CANCELAR" BackgroundColor="#FAB29E" Command="{Binding CancelCommentCommand}"></Button>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="45"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Grid.Row="0" Text="COMENTAR" BackgroundColor="#A2D0B7"></Button>
+                    <Button Grid.Column="1" Grid.Row="0" Text="CANCELAR" BackgroundColor="#FAB29E" Command="{Binding CancelCommentCommand}"></Button>
                 </Grid>
             </StackLayout>
             <ListView x:Name="listView" ItemsSource="{Binding ListComment}" HasUnevenRows="True" SeparatorVisibility="Default">
@@ -35,14 +43,9 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="40"></RowDefinition>
                                         <RowDefinition Height="100"></RowDefinition>
-                                        <RowDefinition Height="40"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Label Grid.Column="0" Grid.Row="0" Text="{Binding User}" FontSize="25" FontAttributes="Bold" TextColor="Blue"></Label>
                                     <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}"></Label>
-                                    <StackLayout Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
-                                        <Image Source="{Binding ImageLike}" HorizontalOptions="Start"></Image>
-                                        <Label Text="{Binding CountLikes}"></Label>
-                                    </StackLayout>
                                 </Grid>
                             </ViewCell.View>
                         </controls:ExtendedViewCell>

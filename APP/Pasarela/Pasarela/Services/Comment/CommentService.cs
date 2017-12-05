@@ -21,7 +21,7 @@ namespace Pasarela.Core.Services.Comment
         public async Task<List<Models.Comment.Comment>> GetCommentByComplaintAsync(int complaintId)
         {
             string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.ComentarioEndPoint,
-                string.Format("/{0}" + Constants.MethodsService.METHOD_COMMENT_COMPLAINTS, complaintId));
+            string.Format("/{0}" + Constants.MethodsService.METHOD_COMMENT_COMPLAINTS, complaintId));
             var listComments = await _requestProvider.GetAsync<List<Models.Comment.Comment>>(uri);
             return listComments;
         }

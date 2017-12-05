@@ -8,61 +8,56 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using WebApiONG.Models;
 using WebApiONG;
+using WebApiONG.Models;
 
 namespace WebApiONG.Controllers
 {
-    public class RazasController : ApiController
+    public class ProductosController : ApiController
     {
         private BDONGEntities db = new BDONGEntities();
 
-        // GET: api/Razas
-        public HttpResponseMessage GetRaza()
+        [Route("api/Productos/GetAllProducts")]
+        public HttpResponseMessage GetProducto()
         {
-            List<RazaModelDTO> ListRazaModelDTO = new List<RazaModelDTO>();
-            
-            foreach (var i in db.Raza.ToList())
+            List<ProductoModelDTO> ListProductoModelDTO = new List<ProductoModelDTO>();
+
+            foreach (var i in db.Producto.ToList())
             {
-                ListRazaModelDTO.Add(new RazaModelDTO() { Cod_Raza = i.cod_raza, Nom_Raza = i.nom_raza });
+                ListProductoModelDTO.Add(new ProductoModelDTO() { Id = i.cod_pro, Name = i.des_pro });
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, ListRazaModelDTO);
+            return Request.CreateResponse(HttpStatusCode.OK, ListProductoModelDTO);
         }
 
-        // GET: api/Razas/5
-        //[ResponseType(typeof(RazaModelDTO))]
-        [Route("api/Razas/{id}/GetRazaById")]
-        public HttpResponseMessage GetRaza(int id)
+        // GET: api/Productos/5
+        [ResponseType(typeof(Producto))]
+        public IHttpActionResult GetProducto(int id)
         {
-            Raza raza = db.Raza.Find(id);
-
-            
-            if (raza == null)
+            Producto producto = db.Producto.Find(id);
+            if (producto == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return NotFound();
             }
 
-            RazaModelDTO razaById = new RazaModelDTO() { Cod_Raza = raza.cod_raza, Nom_Raza = raza.nom_raza };
-
-            return Request.CreateResponse(HttpStatusCode.OK, razaById);
+            return Ok(producto);
         }
 
-        // PUT: api/Razas/5
+        // PUT: api/Productos/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutRaza(int id, Raza raza)
+        public IHttpActionResult PutProducto(int id, Producto producto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != raza.cod_raza)
+            if (id != producto.cod_pro)
             {
                 return BadRequest();
             }
 
-            db.Entry(raza).State = EntityState.Modified;
+            db.Entry(producto).State = EntityState.Modified;
 
             try
             {
@@ -70,7 +65,7 @@ namespace WebApiONG.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RazaExists(id))
+                if (!ProductoExists(id))
                 {
                     return NotFound();
                 }
@@ -83,16 +78,16 @@ namespace WebApiONG.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Razas
-        [ResponseType(typeof(Raza))]
-        public IHttpActionResult PostRaza(Raza raza)
+        // POST: api/Productos
+        [ResponseType(typeof(Producto))]
+        public IHttpActionResult PostProducto(Producto producto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Raza.Add(raza);
+            db.Producto.Add(producto);
 
             try
             {
@@ -100,7 +95,7 @@ namespace WebApiONG.Controllers
             }
             catch (DbUpdateException)
             {
-                if (RazaExists(raza.cod_raza))
+                if (ProductoExists(producto.cod_pro))
                 {
                     return Conflict();
                 }
@@ -110,24 +105,23 @@ namespace WebApiONG.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = raza.cod_raza }, raza);
+            return CreatedAtRoute("DefaultApi", new { id = producto.cod_pro }, producto);
         }
 
-        // DELETE: api/Razas/5
-        [ResponseType(typeof(Raza))]
-        public IHttpActionResult DeleteRaza(int id)
+        // DELETE: api/Productos/5
+        [ResponseType(typeof(Producto))]
+        public IHttpActionResult DeleteProducto(int id)
         {
-            Raza raza = db.Raza.Find(id);
-            
-            if (raza == null)
+            Producto producto = db.Producto.Find(id);
+            if (producto == null)
             {
                 return NotFound();
             }
 
-            db.Raza.Remove(raza);
+            db.Producto.Remove(producto);
             db.SaveChanges();
 
-            return Ok();
+            return Ok(producto);
         }
 
         protected override void Dispose(bool disposing)
@@ -139,9 +133,9 @@ namespace WebApiONG.Controllers
             base.Dispose(disposing);
         }
 
-        private bool RazaExists(int id)
+        private bool ProductoExists(int id)
         {
-            return db.Raza.Count(e => e.cod_raza == id) > 0;
+            return db.Producto.Count(e => e.cod_pro == id) > 0;
         }
     }
 }

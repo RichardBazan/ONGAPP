@@ -43,11 +43,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\Base\BindableBehavior.cs" />
+    <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\LineColorBehavior.cs" />
-    <Compile Include="Controls\AddBasketButton.xaml.cs">
-      <DependentUpon>AddBasketButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\CustomTabbedPage.cs" />
     <Compile Include="Controls\ExtendedViewCell.cs" />
     <Compile Include="Controls\Shape.cs" />
@@ -70,9 +68,12 @@
     <Compile Include="Models\Common\Constants.cs" />
     <Compile Include="Models\Complaints\Complaints.cs" />
     <Compile Include="Models\Dog\Dog.cs" />
+    <Compile Include="Models\DonateProduct\DonateProduct.cs" />
+    <Compile Include="Models\Donate\Donate.cs" />
     <Compile Include="Models\PhotoComplaints\PhotoComplaints.cs" />
     <Compile Include="Models\PhotoDog\PhotoDog.cs" />
     <Compile Include="Models\PhotoShelterHouse\PhotoShelterHouse.cs" />
+    <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\ShelterHouse\ShelterHouse.cs" />
     <Compile Include="Services\Comment\CommentMockService.cs" />
     <Compile Include="Services\Comment\CommentService.cs" />
@@ -83,11 +84,15 @@
     <Compile Include="Services\Dog\DogMockService.cs" />
     <Compile Include="Services\Dog\DogService.cs" />
     <Compile Include="Services\Dog\IDogService.cs" />
+    <Compile Include="Services\Donate\DonateService.cs" />
+    <Compile Include="Services\Donate\IDonateService.cs" />
     <Compile Include="Services\Home\HomeMockService.cs" />
     <Compile Include="Services\Home\HomeService.cs" />
     <Compile Include="Services\Home\IHomeService.cs" />
     <Compile Include="Services\PhotoComplaints\IPhotoComplaintsService.cs" />
     <Compile Include="Services\PhotoComplaints\PhotoComplaintsService.cs" />
+    <Compile Include="Services\Product\IProductService.cs" />
+    <Compile Include="Services\Product\ProductService.cs" />
     <Compile Include="Services\ShelterHouse\IShelterHouseService.cs" />
     <Compile Include="Services\ShelterHouse\ShelterHouseMockService.cs" />
     <Compile Include="Services\ShelterHouse\ShelterHouseService.cs" />
@@ -134,23 +139,11 @@
     <Compile Include="Views\AllShelterHouseView.xaml.cs">
       <DependentUpon>AllShelterHouseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BasketView.xaml.cs">
-      <DependentUpon>BasketView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CatalogView.xaml.cs">
-      <DependentUpon>CatalogView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CheckoutView.xaml.cs">
-      <DependentUpon>CheckoutView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ComentComplaintsView.xaml.cs">
       <DependentUpon>ComentComplaintsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ComplaintDetailView.xaml.cs">
       <DependentUpon>ComplaintDetailView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CustomNavigationView.xaml.cs">
-      <DependentUpon>CustomNavigationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Effects\EntryLineColorEffect.cs" />
     <Compile Include="Exceptions\ServiceAuthenticationException.cs" />
@@ -159,11 +152,11 @@
     <Compile Include="Helpers\EasingHelper.cs" />
     <Compile Include="Helpers\ServicesHelper.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Views\CustomNavigationView.xaml.cs">
+      <DependentUpon>CustomNavigationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DonateView.xaml.cs">
       <DependentUpon>DonateView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FiltersView.xaml.cs">
-      <DependentUpon>FiltersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GiveInAdoptionView.xaml.cs">
       <DependentUpon>GiveInAdoptionView.xaml</DependentUpon>
@@ -179,9 +172,6 @@
     </Compile>
     <Compile Include="Views\MainAdoptionView.xaml.cs">
       <DependentUpon>MainAdoptionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Basket\BasketItem.cs" />
     <Compile Include="Models\Basket\CustomerBasket.cs" />
@@ -233,11 +223,11 @@
     <Compile Include="ViewModels\Base\ViewModelLocator.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainShelterHouseView.xaml.cs">
       <DependentUpon>MainShelterHouseView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyComplaintsView.xaml.cs">
       <DependentUpon>MyComplaintsView.xaml</DependentUpon>
@@ -245,42 +235,17 @@
     <Compile Include="Views\MyShelterHouseView.xaml.cs">
       <DependentUpon>MyShelterHouseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OrderDetailView.xaml.cs">
-      <DependentUpon>OrderDetailView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ProfileView.xaml.cs">
-      <DependentUpon>ProfileView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\RegisterComplaintView.xaml.cs">
       <DependentUpon>RegisterComplaintView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterShelterHouseView.xaml.cs">
       <DependentUpon>RegisterShelterHouseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SettingsView.xaml.cs">
-      <DependentUpon>SettingsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ShelterHouseDetailView.xaml.cs">
       <DependentUpon>ShelterHouseDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Templates\BasketItemTemplate.xaml.cs">
-      <DependentUpon>BasketItemTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Templates\OrderItemTemplate.xaml.cs">
-      <DependentUpon>OrderItemTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Templates\OrderTemplate.xaml.cs">
-      <DependentUpon>OrderTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Templates\ProductTemplate.xaml.cs">
-      <DependentUpon>ProductTemplate.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -365,187 +330,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\FiltersView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CustomNavigationView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\LoginView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CatalogView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ProfileView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\BasketView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Templates\BasketItemTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Templates\OrderTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Templates\ProductTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Controls\AddBasketButton.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\OrderDetailView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Templates\OrderItemTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\SettingsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CheckoutView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\HomeView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\AdoptionDetailView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\AllAdoptionsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainAbuseView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MyComplaintsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\RegisterComplaintView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\AllComplaintsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainShelterHouseView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MyShelterHouseView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\RegisterShelterHouseView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\AllShelterHouseView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\GiveInAdoptionView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ShelterHouseDetailView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ComplaintDetailView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ComentComplaintsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\DonateView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -563,7 +348,118 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views\AllAdoptionsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AllShelterHouseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ComentComplaintsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ComplaintDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CustomNavigationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DonateView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\GiveInAdoptionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\HomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LoginView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Views\MainAdoptionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainShelterHouseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RegisterComplaintView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RegisterShelterHouseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ShelterHouseDetailView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyComplaintsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyShelterHouseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainAbuseView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AllComplaintsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
