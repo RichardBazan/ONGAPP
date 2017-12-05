@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pasarela.Core.Views.ComplaintDetailView"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
@@ -17,7 +18,13 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="{Binding Complaints.Title}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <Image Grid.Row="1" Source="{Binding Complaints.Image}" HorizontalOptions="Center" Aspect="Fill"></Image>
+                <cv:CarouselView Grid.Row="1" ItemsSource="{Binding Complaints.Photos}">
+                    <cv:CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Aspect="AspectFill" Source="{Binding Photo}"/>
+                        </DataTemplate>
+                    </cv:CarouselView.ItemTemplate>
+                </cv:CarouselView>
                 <Label Grid.Row="2" Text="{Binding Complaints.Description}" FontSize="15"></Label>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>

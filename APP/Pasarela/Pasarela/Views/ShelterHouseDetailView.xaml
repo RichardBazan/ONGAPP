@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pasarela.Core.Views.ShelterHouseDetailView"
+             xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
              xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
@@ -19,7 +20,13 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="{Binding ShelterHouse.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <Image Grid.Row="1" Source="{Binding ShelterHouse.Image}" HorizontalOptions="Center" Aspect="Fill"></Image>
+                <cv:CarouselView Grid.Row="1" ItemsSource="{Binding ShelterHouse.Photos}">
+                    <cv:CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Aspect="AspectFill" Source="{Binding Photo}"/>
+                        </DataTemplate>
+                    </cv:CarouselView.ItemTemplate>
+                </cv:CarouselView>
                 <Label Grid.Row="2" Text="{Binding ShelterHouse.Address}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <Label Grid.Row="3" Text="{Binding ShelterHouse.Phone}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <Label Grid.Row="4" Text="{Binding ShelterHouse.Description}" FontSize="15"></Label>
