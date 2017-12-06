@@ -5,20 +5,20 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="25ca4d6061c247dea3c0cfc6d52622d3" Name="Diagram1">
-        <EntityTypeShape EntityType="BDONGModel.Adopcion" Width="1.5" PointX="6" PointY="9.625" />
-        <EntityTypeShape EntityType="BDONGModel.CasaRefugio" Width="1.5" PointX="3" PointY="19.625" />
-        <EntityTypeShape EntityType="BDONGModel.Comentario" Width="1.5" PointX="5.25" PointY="6.75" />
-        <EntityTypeShape EntityType="BDONGModel.DarAdopcion" Width="1.5" PointX="3" PointY="5.625" />
-        <EntityTypeShape EntityType="BDONGModel.Denuncia" Width="1.5" PointX="3" PointY="9" />
-        <EntityTypeShape EntityType="BDONGModel.Donaciones" Width="1.5" PointX="5.25" PointY="14.625" />
-        <EntityTypeShape EntityType="BDONGModel.Foto_CasaRefugio" Width="1.5" PointX="5.25" PointY="23.125" />
-        <EntityTypeShape EntityType="BDONGModel.Foto_Denuncia" Width="1.5" PointX="5.25" PointY="3.875" />
-        <EntityTypeShape EntityType="BDONGModel.Foto_Mascota" Width="1.5" PointX="3" PointY="13.875" />
+        <EntityTypeShape EntityType="BDONGModel.Adopcion" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="BDONGModel.CasaRefugio" Width="1.5" PointX="3" PointY="22.75" />
+        <EntityTypeShape EntityType="BDONGModel.Comentario" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="BDONGModel.DarAdopcion" Width="1.5" PointX="3" PointY="12.625" />
+        <EntityTypeShape EntityType="BDONGModel.Denuncia" Width="1.5" PointX="6" PointY="9" />
+        <EntityTypeShape EntityType="BDONGModel.Donaciones" Width="1.5" PointX="5.25" PointY="16.125" />
+        <EntityTypeShape EntityType="BDONGModel.Foto_CasaRefugio" Width="1.5" PointX="5.25" PointY="26.25" />
+        <EntityTypeShape EntityType="BDONGModel.Foto_Denuncia" Width="1.5" PointX="8.25" PointY="9.875" />
+        <EntityTypeShape EntityType="BDONGModel.Foto_Mascota" Width="1.5" PointX="3" PointY="3.875" />
         <EntityTypeShape EntityType="BDONGModel.Mascota" Width="1.5" PointX="0.75" PointY="4.125" />
-        <EntityTypeShape EntityType="BDONGModel.Producto" Width="1.5" PointX="5.25" PointY="17.875" />
+        <EntityTypeShape EntityType="BDONGModel.Producto" Width="1.5" PointX="5.25" PointY="13.375" />
         <EntityTypeShape EntityType="BDONGModel.Raza" Width="1.5" PointX="1.5" PointY="0.875" />
         <EntityTypeShape EntityType="BDONGModel.Usuario" Width="1.5" PointX="0.75" PointY="8.75" />
-        <EntityTypeShape EntityType="BDONGModel.DonacionProducto" Width="1.5" PointX="7.5" PointY="14.625" />
+        <EntityTypeShape EntityType="BDONGModel.DonacionProducto" Width="1.5" PointX="7.5" PointY="16.25" />
         <AssociationConnector Association="BDONGModel.FK__Adopcion__cod_ma__2C3393D0" />
         <AssociationConnector Association="BDONGModel.FK__Adopcion__cod_us__2B3F6F97" />
         <AssociationConnector Association="BDONGModel.FK__CasaRefug__cod_u__2F10007B" />

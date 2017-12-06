@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="cod_adop" />
           </Key>
-          <Property Name="cod_adop" Type="int" Nullable="false" />
+          <Property Name="cod_adop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fecha_solic" Type="date" />
           <Property Name="estado_adop" Type="varchar" MaxLength="50" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
@@ -19,7 +19,7 @@
           <Key>
             <PropertyRef Name="cod_casa" />
           </Key>
-          <Property Name="cod_casa" Type="int" Nullable="false" />
+          <Property Name="cod_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom_casa" Type="varchar" MaxLength="50" />
           <Property Name="dir_casa" Type="varchar" MaxLength="50" />
           <Property Name="tel_cont" Type="varchar" MaxLength="50" />
@@ -31,7 +31,7 @@
           <Key>
             <PropertyRef Name="cod_com" />
           </Key>
-          <Property Name="cod_com" Type="int" Nullable="false" />
+          <Property Name="cod_com" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="comen" Type="varchar(max)" />
           <Property Name="cod_den" Type="int" Nullable="false" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="cod_daradop" />
           </Key>
-          <Property Name="cod_daradop" Type="int" Nullable="false" />
+          <Property Name="cod_daradop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fecha_reg" Type="date" />
           <Property Name="estado_daradop" Type="varchar" MaxLength="50" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
@@ -50,7 +50,7 @@
           <Key>
             <PropertyRef Name="cod_den" />
           </Key>
-          <Property Name="cod_den" Type="int" Nullable="false" />
+          <Property Name="cod_den" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="titulo_den" Type="varchar" MaxLength="50" />
           <Property Name="dir_den" Type="varchar" MaxLength="50" />
           <Property Name="tel_cont" Type="varchar" MaxLength="50" />
@@ -64,7 +64,7 @@
           <Key>
             <PropertyRef Name="cod_don" />
           </Key>
-          <Property Name="cod_don" Type="int" Nullable="false" />
+          <Property Name="cod_don" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="cod_casa" Type="int" Nullable="false" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
         </EntityType>
@@ -83,7 +83,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_foto_casa" />
           </Key>
-          <Property Name="cod_foto_casa" Type="int" Nullable="false" />
+          <Property Name="cod_foto_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="foto" Type="varchar(max)" />
           <Property Name="cod_casa" Type="int" Nullable="false" />
         </EntityType>
@@ -91,7 +91,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_foto_den" />
           </Key>
-          <Property Name="cod_foto_den" Type="int" Nullable="false" />
+          <Property Name="cod_foto_den" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="foto" Type="varchar(max)" />
           <Property Name="cod_den" Type="int" Nullable="false" />
         </EntityType>
@@ -99,7 +99,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_foto_mas" />
           </Key>
-          <Property Name="cod_foto_mas" Type="int" Nullable="false" />
+          <Property Name="cod_foto_mas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="foto" Type="varchar(max)" />
           <Property Name="cod_mas" Type="int" Nullable="false" />
         </EntityType>
@@ -107,7 +107,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_mas" />
           </Key>
-          <Property Name="cod_mas" Type="int" Nullable="false" />
+          <Property Name="cod_mas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom_mas" Type="varchar" MaxLength="50" />
           <Property Name="sexo_mas" Type="varchar" MaxLength="50" />
           <Property Name="edad_mas" Type="varchar" MaxLength="50" />
@@ -120,21 +120,21 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_pro" />
           </Key>
-          <Property Name="cod_pro" Type="int" Nullable="false" />
+          <Property Name="cod_pro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="des_pro" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Raza">
           <Key>
             <PropertyRef Name="cod_raza" />
           </Key>
-          <Property Name="cod_raza" Type="int" Nullable="false" />
+          <Property Name="cod_raza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom_raza" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="cod_usu" />
           </Key>
-          <Property Name="cod_usu" Type="int" Nullable="false" />
+          <Property Name="cod_usu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nom_usu" Type="varchar" MaxLength="50" />
           <Property Name="ape_pat" Type="varchar" MaxLength="50" />
           <Property Name="ape_mat" Type="varchar" MaxLength="50" />
@@ -531,7 +531,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_adop" />
           </Key>
-          <Property Name="cod_adop" Type="Int32" Nullable="false" />
+          <Property Name="cod_adop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha_solic" Type="DateTime" Precision="0" />
           <Property Name="estado_adop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
@@ -543,7 +543,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_casa" />
           </Key>
-          <Property Name="cod_casa" Type="Int32" Nullable="false" />
+          <Property Name="cod_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom_casa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dir_casa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tel_cont" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -558,7 +558,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_com" />
           </Key>
-          <Property Name="cod_com" Type="Int32" Nullable="false" />
+          <Property Name="cod_com" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="comen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_den" Type="Int32" Nullable="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
@@ -569,7 +569,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_daradop" />
           </Key>
-          <Property Name="cod_daradop" Type="Int32" Nullable="false" />
+          <Property Name="cod_daradop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fecha_reg" Type="DateTime" Precision="0" />
           <Property Name="estado_daradop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
@@ -581,7 +581,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_den" />
           </Key>
-          <Property Name="cod_den" Type="Int32" Nullable="false" />
+          <Property Name="cod_den" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="titulo_den" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dir_den" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="tel_cont" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -599,7 +599,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_don" />
           </Key>
-          <Property Name="cod_don" Type="Int32" Nullable="false" />
+          <Property Name="cod_don" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cod_casa" Type="Int32" Nullable="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Donacione__cod_c__34C8D9D1" FromRole="Donaciones" ToRole="CasaRefugio" />
@@ -610,7 +610,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_foto_casa" />
           </Key>
-          <Property Name="cod_foto_casa" Type="Int32" Nullable="false" />
+          <Property Name="cod_foto_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_casa" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__30F848ED" FromRole="Foto_CasaRefugio" ToRole="CasaRefugio" />
@@ -619,7 +619,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_foto_den" />
           </Key>
-          <Property Name="cod_foto_den" Type="Int32" Nullable="false" />
+          <Property Name="cod_foto_den" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_den" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__300424B4" FromRole="Foto_Denuncia" ToRole="Denuncia" />
@@ -628,7 +628,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_foto_mas" />
           </Key>
-          <Property Name="cod_foto_mas" Type="Int32" Nullable="false" />
+          <Property Name="cod_foto_mas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__33D4B598" FromRole="Foto_Mascota" ToRole="Mascota" />
@@ -637,7 +637,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_mas" />
           </Key>
-          <Property Name="cod_mas" Type="Int32" Nullable="false" />
+          <Property Name="cod_mas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom_mas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="sexo_mas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="edad_mas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -654,7 +654,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_pro" />
           </Key>
-          <Property Name="cod_pro" Type="Int32" Nullable="false" />
+          <Property Name="cod_pro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="des_pro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_p__37A5467C" FromRole="Producto" ToRole="DonacionProducto" />
         </EntityType>
@@ -662,7 +662,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_raza" />
           </Key>
-          <Property Name="cod_raza" Type="Int32" Nullable="false" />
+          <Property Name="cod_raza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom_raza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_ra__29572725" FromRole="Raza" ToRole="Denuncia" />
           <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_raz__286302EC" FromRole="Raza" ToRole="Mascota" />
@@ -671,7 +671,7 @@ warning 6002: The table/view 'BDONG.dbo.DonacionProducto' does not have a primar
           <Key>
             <PropertyRef Name="cod_usu" />
           </Key>
-          <Property Name="cod_usu" Type="Int32" Nullable="false" />
+          <Property Name="cod_usu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom_usu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ape_pat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ape_mat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />

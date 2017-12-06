@@ -81,26 +81,6 @@ namespace WebApiONG.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, ListCasaRefugioModelDTO);
         }
 
-
-        // GET: api/CasaRefugios
-        public IQueryable<CasaRefugio> GetCasaRefugio()
-        {
-            return db.CasaRefugio;
-        }
-
-        // GET: api/CasaRefugios/5
-        [ResponseType(typeof(CasaRefugio))]
-        public IHttpActionResult GetCasaRefugio(int id)
-        {
-            CasaRefugio casaRefugio = db.CasaRefugio.Find(id);
-            if (casaRefugio == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(casaRefugio);
-        }
-
         // PUT: api/CasaRefugios/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCasaRefugio(int id, CasaRefugio casaRefugio)
@@ -138,32 +118,27 @@ namespace WebApiONG.Controllers
 
         // POST: api/CasaRefugios
         [ResponseType(typeof(CasaRefugio))]
-        public IHttpActionResult PostCasaRefugio(CasaRefugio casaRefugio)
+        public IHttpActionResult PostCasaRefugio(CasaRefugioModelPostDTO casaRefugio)
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.CasaRefugio.Add(casaRefugio);
+            db.CasaRefugio.Add(new CasaRefugio() {nom_casa= casaRefugio.Name, descrip_casa = casaRefugio.Description, fecha_reg=DateTime.Now ,dir_casa=casaRefugio.Address, tel_cont = casaRefugio.Phone, cod_usu=casaRefugio.IdUser});
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException e)
             {
-                if (CasaRefugioExists(casaRefugio.cod_casa))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                e.GetBaseException();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = casaRefugio.cod_casa }, casaRefugio);
+            return CreatedAtRoute("DefaultApi",null, casaRefugio);
         }
 
         // DELETE: api/CasaRefugios/5

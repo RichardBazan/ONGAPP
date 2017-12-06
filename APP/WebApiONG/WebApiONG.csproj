@@ -252,6 +252,7 @@
     </Compile>
     <Compile Include="Models\AdopcionModelDTO.cs" />
     <Compile Include="Models\CasaRefugioModelDTO.cs" />
+    <Compile Include="Models\CasaRefugioModelPostDTO.cs" />
     <Compile Include="Models\ComentarioModelDTO.cs" />
     <Compile Include="Models\DonacionModelDTO.cs" />
     <Compile Include="Models\DonacionProductoModelDTO.cs" />
