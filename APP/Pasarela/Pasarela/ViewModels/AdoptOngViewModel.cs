@@ -1,4 +1,5 @@
 ﻿using Pasarela.Core.Extensions;
+using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Dog;
 using Pasarela.Core.Services.Dog;
 using Pasarela.Core.ViewModels.Base;

@@ -110,7 +110,8 @@
             <converters:ToUpperConverter x:Key="ToUpperConverter" />
             <converters:WebNavigatingEventArgsConverter x:Key="WebNavigatingEventArgsConverter" />
             <converters:WebNavigatedEventArgsConverter x:Key="WebNavigatedEventArgsConverter" />
-
+            <converters:DescriptionConverter x:Key="DescriptionConverter" />
+            
             <!-- STYLES -->
             <Style x:Key="ValidationErrorLabelStyle"
 				   TargetType="{x:Type Label}">

@@ -23,7 +23,7 @@
                 <cv:CarouselView Grid.Row="1" ItemsSource="{Binding ShelterHouse.Photos}">
                     <cv:CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <Image Aspect="AspectFill" Source="{Binding Photo}"/>
+                            <Image Aspect="AspectFit" Source="{Binding Photo}"/>
                         </DataTemplate>
                     </cv:CarouselView.ItemTemplate>
                 </cv:CarouselView>

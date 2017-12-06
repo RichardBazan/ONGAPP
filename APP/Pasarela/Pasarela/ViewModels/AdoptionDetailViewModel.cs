@@ -1,4 +1,5 @@
 ﻿using Pasarela.Core.Models.Dog;
+using Pasarela.Core.Models.PhotoDog;
 using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+
         public bool Visible
         {
             get { return _visible; }
@@ -44,6 +46,7 @@ namespace Pasarela.Core.ViewModels
         {
             var data = navigationData as Dog;
             Dog = data;
+
             if(Dog.State.Equals("En Adopcion"))
             {
                 Visible = true;

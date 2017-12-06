@@ -52,6 +52,7 @@
     <Compile Include="Controls\ToggleButton.cs" />
     <Compile Include="Converters\CountToBoolConverter.cs" />
     <Compile Include="Converters\DatetimeConverter.cs" />
+    <Compile Include="Converters\DescriptionConverter.cs" />
     <Compile Include="Converters\FirstValidationErrorConverter.cs" />
     <Compile Include="Converters\ImageConverter.cs" />
     <Compile Include="Converters\InverseBoolConverter.cs" />
