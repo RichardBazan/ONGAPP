@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pasarela.Core.Models.ShelterHouse;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace Pasarela.Core.Services.ShelterHouse
         Task<List<Models.ShelterHouse.ShelterHouse>> GetAllShelterHouseAsync();
 
         Task<List<Models.ShelterHouse.ShelterHouse>> GetShelterHouseByUserAsync(int userId);
+
+        Task<SaveShelterHouse> SaveShelterHouseAsync(SaveShelterHouse _saveShelterHouse);
 
     }
 }

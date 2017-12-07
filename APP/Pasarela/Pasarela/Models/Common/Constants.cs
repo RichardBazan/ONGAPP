@@ -101,6 +101,9 @@ namespace Pasarela.Core.Models.Common
 
             /*All Products*/
             public const string METHOD_ALL_PRODUCTS = "/GetAllProducts";
+
+            /*Save Shelter House*/
+            public const string METHOD_SAVE_SHELTERHOUSE = "/SaveShelterHouse";
         }
 
         public struct ParameterService

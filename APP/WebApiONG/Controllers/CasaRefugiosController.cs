@@ -115,8 +115,8 @@ namespace WebApiONG.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-        // POST: api/CasaRefugios
+        
+        [Route("api/CasaRefugios/SaveShelterHouse")]
         [ResponseType(typeof(CasaRefugio))]
         public IHttpActionResult PostCasaRefugio(CasaRefugioModelPostDTO casaRefugio)
         {

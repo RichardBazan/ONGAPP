@@ -75,6 +75,7 @@
     <Compile Include="Models\PhotoDog\PhotoDog.cs" />
     <Compile Include="Models\PhotoShelterHouse\PhotoShelterHouse.cs" />
     <Compile Include="Models\Product\Product.cs" />
+    <Compile Include="Models\ShelterHouse\SaveShelterHouse.cs" />
     <Compile Include="Models\ShelterHouse\ShelterHouse.cs" />
     <Compile Include="Services\Comment\CommentMockService.cs" />
     <Compile Include="Services\Comment\CommentService.cs" />
