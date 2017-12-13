@@ -12,5 +12,6 @@ namespace WebApiONG.Models
 
         public int IdShelterHouse;
 
+
     }
 }

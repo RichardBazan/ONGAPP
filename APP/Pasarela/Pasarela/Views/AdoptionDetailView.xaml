@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                         <ColumnDefinition Width="0.5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Text="ADOPTAR" BackgroundColor="#93B7DC"></Button>
+                    <Button Grid.Column="0" Text="ADOPTAR" Command="{Binding AdoptCommand}" BackgroundColor="#93B7DC"></Button>
                     <Button Grid.Column="1" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
                 </Grid>
                 <Button Grid.Row="4" IsVisible="{Binding Visible, Converter={StaticResource InverseBoolConverter}}" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>

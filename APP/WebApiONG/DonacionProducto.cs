@@ -14,6 +14,7 @@ namespace WebApiONG
     
     public partial class DonacionProducto
     {
+        public int cod_donpro { get; set; }
         public int cod_don { get; set; }
         public int cod_pro { get; set; }
         public Nullable<int> cantidad { get; set; }

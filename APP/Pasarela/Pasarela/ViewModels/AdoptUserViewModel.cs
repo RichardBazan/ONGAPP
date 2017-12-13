@@ -5,6 +5,7 @@ using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,16 @@ namespace Pasarela.Core.ViewModels
             IsBusy = true;
             var dog = item as Dog;
             await NavigationService.NavigateToAsync<AdoptionDetailViewModel>(dog);
+            IsBusy = false;
+        }
+
+        public ICommand AdoptCommand => new Command(async (item) => await AdoptAsync(item));
+
+        private async Task AdoptAsync(object item)
+        {
+            IsBusy = true;
+            var dog = item as Dog;
+            await NavigationService.NavigateToAsync<ConfirmationAdoptionViewModel>(dog);
             IsBusy = false;
         }
 

@@ -267,8 +267,8 @@
     <Compile Include="Models\FotoMascotaModelDTO.cs" />
     <Compile Include="Models\MascotaModelDTO.cs" />
     <Compile Include="Models\MascotaModelPostDTO.cs" />
+    <Compile Include="Models\ProductoDonacionModelDTO.cs" />
     <Compile Include="Models\ProductoModelDTO.cs" />
-    <Compile Include="Models\ProductosDonadosModelDTO.cs" />
     <Compile Include="Models\RazaModelDTO.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>

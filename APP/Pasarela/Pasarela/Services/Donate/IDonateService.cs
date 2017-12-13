@@ -11,8 +11,8 @@ namespace Pasarela.Core.Services.Donate
     {
 
         Task<List<Models.Donate.Donate>> GetDonateByShelterHouseAsync(int shelterHouseId);
-        Task<ProductDonate> SaveDonateProductAsync(ProductDonate _saveDonateProduct);
         Task<SaveDonate> SaveDonateAsync(SaveDonate _saveDonate);
+        Task<ProductDonate> SaveProductDonateAsync(ProductDonate _saveProductDonate);
 
     }
 }

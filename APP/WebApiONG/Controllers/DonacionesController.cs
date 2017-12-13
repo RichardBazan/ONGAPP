@@ -104,6 +104,7 @@ namespace WebApiONG.Controllers
                 return BadRequest(ModelState);
             }
             db.Donaciones.Add(new Donaciones() { cod_usu=donaciones.IdUser,cod_casa=donaciones.IdShelterHouse });
+
             try
             {
                 db.SaveChanges();

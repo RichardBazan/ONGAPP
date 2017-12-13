@@ -46,7 +46,7 @@ namespace WebApiONG.Controllers
 
             foreach (var item in ListComentario)
             {
-                ListComentarioModelDTO.Add(new ComentarioModelDTO() { Id = item.cod_com, Description = item.comen, ComplaintId = item.cod_den, UserId = item.cod_usu, User = item.Usuario.usuario1});
+                ListComentarioModelDTO.Add(new ComentarioModelDTO() { Description = item.comen, ComplaintId = item.cod_den, UserId = item.cod_usu, User = item.Usuario.usuario1});
             }
             return Request.CreateResponse(HttpStatusCode.OK, ListComentarioModelDTO);
         }
@@ -88,32 +88,25 @@ namespace WebApiONG.Controllers
 
         // POST: api/Comentarios
         [ResponseType(typeof(Comentario))]
-        public IHttpActionResult PostComentario(Comentario comentario)
+        public IHttpActionResult PostComentario(ComentarioModelDTO comentario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Comentario.Add(comentario);
+            db.Comentario.Add(new Comentario() { cod_den= comentario.ComplaintId, cod_usu= comentario.UserId, comen= comentario.Description });
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException e)
             {
-                if (ComentarioExists(comentario.cod_com))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                e.GetBaseException();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = comentario.cod_com }, comentario);
+            return CreatedAtRoute("DefaultApi", null, comentario);
         }
 
         // DELETE: api/Comentarios/5

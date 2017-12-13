@@ -5,13 +5,12 @@ using System.Web;
 
 namespace WebApiONG.Models
 {
-    public class ProductosDonadosModelDTO
+    public class ProductoDonacionModelDTO
     {
 
         public int IdDonate;
 
         public List<DonacionProductoModelDTO> ListProducts;
-
 
     }
 }

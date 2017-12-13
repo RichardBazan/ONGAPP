@@ -14,9 +14,9 @@
             </StackLayout>
             <Button Text="Hacer un comentario" Command="{Binding CommentCommand}" BackgroundColor="#228B22" Margin="15,0,15,0"></Button>
             <StackLayout IsVisible="{Binding VisibleComment}">
-                <Editor HeightRequest="100">
+                <Editor HeightRequest="100" Text="{Binding Comment}">
                     <Editor.Behaviors>
-                        <behaviors:EntryLengthValidatorBehavior MaxLength="230" />
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="320" />
                     </Editor.Behaviors>
                 </Editor>
                 <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
@@ -27,7 +27,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Button Grid.Column="0" Grid.Row="0" Text="COMENTAR" BackgroundColor="#A2D0B7"></Button>
+                    <Button Grid.Column="0" Grid.Row="0" Text="COMENTAR" BackgroundColor="#A2D0B7" Command="{Binding ToCommentCommand}"></Button>
                     <Button Grid.Column="1" Grid.Row="0" Text="CANCELAR" BackgroundColor="#FAB29E" Command="{Binding CancelCommentCommand}"></Button>
                 </Grid>
             </StackLayout>
@@ -41,11 +41,11 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"></RowDefinition>
-                                        <RowDefinition Height="100"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Label Grid.Column="0" Grid.Row="0" Text="{Binding User}" FontSize="25" FontAttributes="Bold" TextColor="Blue"></Label>
-                                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}"></Label>
+                                    <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}" FontSize="15"></Label>
                                 </Grid>
                             </ViewCell.View>
                         </controls:ExtendedViewCell>

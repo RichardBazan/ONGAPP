@@ -42,7 +42,7 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
-        public override Task InitializeAsync(object navigationData)
+        public async override Task InitializeAsync(object navigationData)
         {
             var data = navigationData as Dog;
             Dog = data;
@@ -56,7 +56,22 @@ namespace Pasarela.Core.ViewModels
                 Visible = false;
             }
             
-            return base.InitializeAsync(navigationData);
+        }
+
+        public ICommand AdoptCommand => new Command(async () => await AdoptAsync());
+
+        private async Task AdoptAsync()
+        {
+            IsBusy = true;
+            if(Dog.Tenure.Equals("Usuario"))
+            { 
+            await NavigationService.NavigateToAsync<ConfirmationAdoptionViewModel>(Dog);
+            }
+            else
+            {
+                await NavigationService.NavigateToAsync<ConfirmationAdoptionOngViewModel>(Dog);
+            }
+            IsBusy = false;
         }
 
         public ICommand CancelCommand => new Command(async () => await CancelAsync());

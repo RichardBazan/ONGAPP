@@ -168,8 +168,15 @@ namespace Pasarela.Core.ViewModels
                 {
                     IdShelterHouse = ShelterHouse.Id,
                     IdUser = 2
+                    //ListProducts= ListProductDonate.ToList()
                 };
                 await _donateService.SaveDonateAsync(saveDonate);
+
+                var saveDonateProduct = new ProductDonate()
+                {
+                    ListProducts = ListProductDonate.ToList()
+                };
+                await _donateService.SaveProductDonateAsync(saveDonateProduct);
 
                 await DialogService.ShowAlertAsync("Se registro con éxito su donación", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);

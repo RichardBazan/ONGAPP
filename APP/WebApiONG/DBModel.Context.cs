@@ -31,6 +31,7 @@ namespace WebApiONG
         public virtual DbSet<DarAdopcion> DarAdopcion { get; set; }
         public virtual DbSet<Denuncia> Denuncia { get; set; }
         public virtual DbSet<Donaciones> Donaciones { get; set; }
+        public virtual DbSet<DonacionProducto> DonacionProducto { get; set; }
         public virtual DbSet<Foto_CasaRefugio> Foto_CasaRefugio { get; set; }
         public virtual DbSet<Foto_Denuncia> Foto_Denuncia { get; set; }
         public virtual DbSet<Foto_Mascota> Foto_Mascota { get; set; }
@@ -38,6 +39,5 @@ namespace WebApiONG
         public virtual DbSet<Producto> Producto { get; set; }
         public virtual DbSet<Raza> Raza { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<DonacionProducto> DonacionProducto { get; set; }
     }
 }

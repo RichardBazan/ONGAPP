@@ -25,5 +25,12 @@ namespace Pasarela.Core.Services.Comment
             var listComments = await _requestProvider.GetAsync<List<Models.Comment.Comment>>(uri);
             return listComments;
         }
+
+        public async Task<Models.Comment.Comment> SaveCommentAsync(Models.Comment.Comment _saveComment)
+        {
+            string uri = GlobalSetting.Instance.ComentarioEndPoint;
+            var saveComment = await _requestProvider.PostAsync<Models.Comment.Comment>(uri, _saveComment).ConfigureAwait(false);
+            return saveComment;
+        }
     }
 }

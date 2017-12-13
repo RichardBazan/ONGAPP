@@ -76,6 +76,8 @@ namespace Pasarela.Core.ViewModels.Base
             builder.RegisterType<DonateViewModel>();
             builder.RegisterType<AdoptOngViewModel>();
             builder.RegisterType<AdoptUserViewModel>();
+            builder.RegisterType<ConfirmationAdoptionViewModel>();
+            builder.RegisterType<ConfirmationAdoptionOngViewModel>();
             
 
             // Services

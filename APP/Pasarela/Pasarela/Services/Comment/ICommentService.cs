@@ -12,5 +12,7 @@ namespace Pasarela.Core.Services.Comment
 
         Task<List<Models.Comment.Comment>> GetCommentByComplaintAsync(int complaintId);
 
+        Task<Models.Comment.Comment> SaveCommentAsync(Models.Comment.Comment _saveComment);
+
     }
 }

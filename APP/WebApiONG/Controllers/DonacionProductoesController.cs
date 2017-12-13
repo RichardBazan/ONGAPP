@@ -23,30 +23,97 @@ namespace WebApiONG.Controllers
             return db.DonacionProducto;
         }
 
+        // GET: api/DonacionProductoes/5
+        [ResponseType(typeof(DonacionProducto))]
+        public IHttpActionResult GetDonacionProducto(int id)
+        {
+            DonacionProducto donacionProducto = db.DonacionProducto.Find(id);
+            if (donacionProducto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(donacionProducto);
+        }
+
+        // PUT: api/DonacionProductoes/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutDonacionProducto(int id, DonacionProducto donacionProducto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != donacionProducto.cod_don)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(donacionProducto).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DonacionProductoExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+
         // POST: api/DonacionProductoes
-        //public IHttpActionResult PostDonacionProducto(ProductosDonadosModelDTO donacionProducto)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [ResponseType(typeof(DonacionProducto))]
+        public IHttpActionResult PostDonacionProducto(ProductoDonacionModelDTO productoDonacion)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //    var idDonacion = db.Donaciones.Max(x => x.cod_don);
-        //    db.DonacionProducto.Add(new DonacionProducto() { cod_don = idDonacion, cod_pro=donacionProducto. });
+            var idDonacion = db.Donaciones.Max(x => x.cod_don);
+ 
+            foreach (var item in productoDonacion.ListProducts)
+            {
+                db.DonacionProducto.Add(new DonacionProducto() { cod_don = idDonacion, cod_pro = item.ProductId, cantidad = int.Parse(item.Quantity) });
+            };
 
-        //    try
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateException e)
-        //    {
-        //        e.GetBaseException();
-        //    }
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException e)
+            {
+                e.GetBaseException();
+            }
 
-        //    return CreatedAtRoute("DefaultApi", null, donacionProducto);
-        //}
+            return CreatedAtRoute("DefaultApi", null, productoDonacion);
+        }
 
-       
+        // DELETE: api/DonacionProductoes/5
+        [ResponseType(typeof(DonacionProducto))]
+        public IHttpActionResult DeleteDonacionProducto(int id)
+        {
+            DonacionProducto donacionProducto = db.DonacionProducto.Find(id);
+            if (donacionProducto == null)
+            {
+                return NotFound();
+            }
+
+            db.DonacionProducto.Remove(donacionProducto);
+            db.SaveChanges();
+
+            return Ok(donacionProducto);
+        }
 
         protected override void Dispose(bool disposing)
         {

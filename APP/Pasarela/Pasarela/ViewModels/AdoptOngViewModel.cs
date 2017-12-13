@@ -50,6 +50,16 @@ namespace Pasarela.Core.ViewModels
             IsBusy = false;
         }
 
+        public ICommand AdoptCommand => new Command(async (item) => await AdoptAsync(item));
+
+        private async Task AdoptAsync(object item)
+        {
+            IsBusy = true;
+            var dog = item as Dog;
+            await NavigationService.NavigateToAsync<ConfirmationAdoptionOngViewModel>(dog);
+            IsBusy = false;
+        }
+
         public ICommand ViewDetailCommand => new Command(async (item) => await ViewDetailAsync(item));
 
         private async Task ViewDetailAsync(object item)

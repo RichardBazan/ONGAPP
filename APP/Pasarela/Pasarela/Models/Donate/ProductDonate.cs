@@ -10,6 +10,5 @@ namespace Pasarela.Core.Models.Donate
     {
         public int IdDonate { get; set; }
         public List<DonateProduct.DonateProduct> ListProducts { get; set; }
-
     }
 }

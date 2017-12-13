@@ -12,5 +12,6 @@ namespace Pasarela.Core.Models.Donate
         public int IdUser { get; set; }
         public int IdShelterHouse { get; set; }
 
+
     }
 }

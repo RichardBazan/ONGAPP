@@ -1,5 +1,6 @@
 ﻿using Pasarela.Core.Extensions;
 using Pasarela.Core.Models.Comment;
+using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Complaints;
 using Pasarela.Core.Services.Comment;
 using Pasarela.Core.ViewModels.Base;
@@ -21,6 +22,7 @@ namespace Pasarela.Core.ViewModels
         private bool _visibleComment;
         private ObservableCollection<Comment> _comment;
         private ICommentService _commentService;
+        private string _comments;
 
         public ComentComplaintsViewModel(ICommentService commentService)
         {
@@ -58,6 +60,16 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public string Comment
+        {
+            get { return _comments; }
+            set
+            {
+                _comments = value;
+                RaisePropertyChanged(() => Comment);
+            }
+        }
+
         public async override Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
@@ -80,6 +92,28 @@ namespace Pasarela.Core.ViewModels
         private async Task CancelCommentAsync()
         {
             VisibleComment = false;
+        }
+
+        public ICommand ToCommentCommand => new Command(async () => await ToCommentAsync());
+
+        private async Task ToCommentAsync()
+        {
+            try
+            {
+                var saveComment = new Comment()
+                {
+                    UserId=2,
+                    ComplaintId= Complaint.Id,
+                    Description= Comment
+                };
+                await _commentService.SaveCommentAsync(saveComment);
+                await DialogService.ShowAlertAsync("Se registro con éxito su comentario", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                await NavigationService.NavigateBack(false);
+            }
+            catch (Exception ex)
+            {
+                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+            }
         }
 
     }

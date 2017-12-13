@@ -8,8 +8,6 @@ namespace WebApiONG.Models
     public class ComentarioModelDTO
     {
 
-        public int Id;
-
         public string Description;
 
         public int ComplaintId;
