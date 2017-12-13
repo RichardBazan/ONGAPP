@@ -38,6 +38,13 @@ namespace Pasarela.Core.ViewModels
         {
             IsBusy = true;
             var complaintsList = await _complaintsService.GetAllComplaintsAsync();
+            foreach (var item in complaintsList)
+            {
+                if (item.Photos.Count == 0)
+                {
+                    item.Photos.Add(new Models.PhotoComplaints.PhotoComplaints() { Photo = "icon.png" });
+                }
+            }
             ListComplaints = complaintsList.ToObservableCollection();
             IsBusy = false;
         }

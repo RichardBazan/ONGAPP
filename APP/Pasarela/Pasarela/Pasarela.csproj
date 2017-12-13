@@ -74,6 +74,8 @@
     <Compile Include="Models\Dog\SaveDog.cs" />
     <Compile Include="Models\DonateProduct\DonateProduct.cs" />
     <Compile Include="Models\Donate\Donate.cs" />
+    <Compile Include="Models\Donate\ProductDonate.cs" />
+    <Compile Include="Models\Donate\SaveDonate.cs" />
     <Compile Include="Models\GiveInAdoption\GiveInAdoption.cs" />
     <Compile Include="Models\PhotoComplaints\PhotoComplaints.cs" />
     <Compile Include="Models\PhotoDog\PhotoDog.cs" />

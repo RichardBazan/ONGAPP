@@ -10,7 +10,7 @@ namespace Pasarela.Core.Models.DonateProduct
     {
         public int ProductId { get; set; }
         public string Name { get; set; }
-        public int Count { get; set; }
+        public string Quantity { get; set; }
 
     }
 }

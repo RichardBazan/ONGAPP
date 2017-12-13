@@ -24,10 +24,10 @@
                                         <RowDefinition Height="50"></RowDefinition>
                                     </Grid.RowDefinitions>
                                     <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Text="{Binding Name}" FontSize="Large"></Label>
-                                    <Image Grid.Column="0" Grid.Row="1" Aspect="Fill">
-                                        <Image.Source>
+                                    <Image Grid.Column="0" Grid.Row="1" Aspect="Fill" Source="{Binding Photos[0].Photo}">
+                                        <!--<Image.Source>
                                             <UriImageSource Uri="{Binding Photos[0].Photo}" CacheValidity="14" CachingEnabled="true"></UriImageSource>
-                                        </Image.Source>
+                                        </Image.Source>-->
                                     </Image>
                                     <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description, Converter={StaticResource DescriptionConverter}}" FontSize="Small"></Label>
                                     <Grid  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">

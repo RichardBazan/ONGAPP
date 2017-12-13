@@ -15,8 +15,8 @@ using FFImageLoading;
 namespace Pasarela.Droid
 {
     [Activity(
-        Label = "Pasarela",
-        Icon = "@drawable/icon",
+        Label = "Cuidando Ángeles",
+        Icon = "@drawable/logo",
         Theme = "@style/MainTheme",
         MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

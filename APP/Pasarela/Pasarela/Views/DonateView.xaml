@@ -22,26 +22,24 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="55"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Picker Grid.Column="0" Grid.Row="0" Title="Selecciona producto" ItemsSource="{Binding ListProduct}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}"></Picker>
-                    <Picker Grid.Column="1" Grid.Row="0" Title="Selecciona cantidad" SelectedItem="{Binding SelectCount, Mode=TwoWay}">
-                        <Picker.ItemsSource>
-                            <x:Array Type="{x:Type x:String}">
-                                <x:String>1</x:String>
-                                <x:String>2</x:String>
-                                <x:String>3</x:String>
-                                <x:String>4</x:String>
-                                <x:String>5</x:String>
-                                <x:String>6</x:String>
-                                <x:String>7</x:String>
-                                <x:String>8</x:String>
-                                <x:String>9</x:String>
-                                <x:String>10</x:String>
-                            </x:Array>
-                        </Picker.ItemsSource>
+                    <Picker Grid.Column="0" Grid.Row="0" Title="Selecciona producto" ItemsSource="{Binding ListProduct}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProduct}"></Picker>
+                    <Picker Grid.Column="1" Grid.Row="0" Title="Selecciona cantidad" SelectedItem="{Binding SelectedCount}">
+                        <Picker.Items>
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>7</x:String>
+                            <x:String>8</x:String>
+                            <x:String>9</x:String>
+                            <x:String>10</x:String>
+                        </Picker.Items>
                     </Picker>
                 </Grid>
                 <Button Text="Agregar" Command="{Binding AddCommand}" BackgroundColor="#228B22" Margin="20,10,20,0"></Button>
-                <ListView x:Name="listViewDonate" HasUnevenRows="True" SeparatorVisibility="Default">
+                <ListView x:Name="listViewDonate" HasUnevenRows="True" SeparatorVisibility="Default" ItemsSource="{Binding ListProductDonate}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <controls:ExtendedViewCell SelectedBackgroundColor="White">
@@ -55,9 +53,8 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="40"></RowDefinition>
                                         </Grid.RowDefinitions>
-                                        <Label Grid.Column="0" Grid.Row="0"></Label>
-                                        <Label Grid.Column="1" Grid.Row="0"></Label>
-
+                                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"></Label>
+                                        <Label Grid.Column="1" Grid.Row="0" Text="{Binding Quantity}"></Label>
                                     </Grid>
                                 </ViewCell.View>
                             </controls:ExtendedViewCell>
@@ -72,7 +69,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="45"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Button Grid.Column="0" Grid.Row="0" Text="DONAR" BackgroundColor="#a18e7e"></Button>
+                    <Button Grid.Column="0" Grid.Row="0" Text="DONAR" BackgroundColor="#a18e7e" Command="{Binding GiveDonateCommand}"></Button>
                     <Button Grid.Column="1" Grid.Row="0" Text="CANCELAR" BackgroundColor="#FAB29E" Command="{Binding CancelDonateCommand}"></Button>
                 </Grid>
             </StackLayout>
@@ -103,7 +100,7 @@
                                                         <RowDefinition Height="40"></RowDefinition>
                                                     </Grid.RowDefinitions>
                                                     <Label Grid.Column="0" Grid.Row="0" Text="{Binding Name}"></Label>
-                                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Count}"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Quantity}"></Label>
                                                 </Grid>
 
 

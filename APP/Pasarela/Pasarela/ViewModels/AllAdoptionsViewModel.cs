@@ -38,6 +38,13 @@ namespace Pasarela.Core.ViewModels
         {
             IsBusy = true;
             var dogList = await _dogService.GetDogAdoptionsAsync();
+            foreach (var item in dogList)
+            {
+                if (item.Photos.Count == 0)
+                {
+                    item.Photos.Add(new Models.PhotoDog.PhotoDog() { Photo = "icon.png" });
+                }
+            }
             ListDog = dogList.ToObservableCollection();
             IsBusy = false;
         }

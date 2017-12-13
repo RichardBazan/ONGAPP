@@ -107,13 +107,14 @@ namespace Pasarela.Core.ViewModels
             {
                 var saveComplaints = new SaveComplaints()
                 {
+                    
                     IdUser = 2,
                     IdBreed = SelectedBreed.Id,
                     Title = Title,
                     Description = Description,
                     State = "1",
                     Address = Address,
-                    Phone = Phone
+                    Phone = Phone,
                 };
                 await _complaintsService.SaveComplaintsAsync(saveComplaints);
                 await DialogService.ShowAlertAsync("Se registro con éxito la denuncia", Constants.MessageTitle.Message, Constants.MessageButton.OK);

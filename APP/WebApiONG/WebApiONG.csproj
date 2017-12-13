@@ -203,6 +203,7 @@
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\DarAdopcionsController.cs" />
     <Compile Include="Controllers\DonacionesController.cs" />
+    <Compile Include="Controllers\DonacionProductoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DenunciasController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="Models\DarEnAdopcionModelDTO.cs" />
     <Compile Include="Models\DenunciaModelPostDTO.cs" />
     <Compile Include="Models\DonacionModelDTO.cs" />
+    <Compile Include="Models\DonacionModelPostDTO.cs" />
     <Compile Include="Models\DonacionProductoModelDTO.cs" />
     <Compile Include="Models\FotoCasaRefugioModelDTO.cs" />
     <Compile Include="Models\FotoDenunciaModelDTO.cs" />
@@ -266,6 +268,7 @@
     <Compile Include="Models\MascotaModelDTO.cs" />
     <Compile Include="Models\MascotaModelPostDTO.cs" />
     <Compile Include="Models\ProductoModelDTO.cs" />
+    <Compile Include="Models\ProductosDonadosModelDTO.cs" />
     <Compile Include="Models\RazaModelDTO.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>

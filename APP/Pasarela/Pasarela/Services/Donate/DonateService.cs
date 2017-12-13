@@ -27,5 +27,23 @@ namespace Pasarela.Core.Services.Donate
             var listDonate = await _requestProvider.GetAsync<List<Models.Donate.Donate>>(uri);
             return listDonate;
         }
+
+        public async Task<SaveDonate> SaveDonateAsync(SaveDonate _saveDonate)
+        {
+            string uri = GlobalSetting.Instance.DonacionEndPoint;
+            var saveDonate = await _requestProvider.PostAsync<SaveDonate>(uri, _saveDonate).ConfigureAwait(false);
+            return saveDonate;
+        }
+
+        public async Task<ProductDonate> SaveDonateProductAsync(ProductDonate _saveProductDonate)
+        {
+            string uri = GlobalSetting.Instance.DonacionProductoEndPoint;
+            var saveDonateProduc = await _requestProvider.PostAsync<ProductDonate>(uri, _saveProductDonate).ConfigureAwait(false);
+            return saveDonateProduc;
+        }
+
+
+
+
     }
 }

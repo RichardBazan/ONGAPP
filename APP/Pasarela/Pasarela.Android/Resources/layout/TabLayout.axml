@@ -11,7 +11,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true">
   <ImageView
-      android:src="@drawable/icon"
+      android:src="@drawable/logo"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:layout_weight="70"

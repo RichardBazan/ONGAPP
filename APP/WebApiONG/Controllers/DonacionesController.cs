@@ -40,7 +40,7 @@ namespace WebApiONG.Controllers
                     {
                         ProductId = i.cod_pro,
                         Name = i.Producto.des_pro,
-                        Count = (int)i.cantidad
+                        Quantity = i.cantidad.ToString()
                     });
                 }
                 ListDonacionModelDTO.Add(new DonacionModelDTO() { Id = item.cod_don, IdShelterHouse=item.cod_casa,IdUser=item.cod_usu,User = item.Usuario.usuario1,ShelterHouse=item.CasaRefugio.nom_casa, Products= listDonacionProductoDTO });
@@ -97,33 +97,23 @@ namespace WebApiONG.Controllers
         }
 
         // POST: api/Donaciones
-        [ResponseType(typeof(Donaciones))]
-        public IHttpActionResult PostDonaciones(Donaciones donaciones)
+        public IHttpActionResult PostDonaciones(DonacionModelPostDTO donaciones)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Donaciones.Add(donaciones);
-
+            db.Donaciones.Add(new Donaciones() { cod_usu=donaciones.IdUser,cod_casa=donaciones.IdShelterHouse });
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException e)
             {
-                if (DonacionesExists(donaciones.cod_don))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                e.GetBaseException();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = donaciones.cod_don }, donaciones);
+            return CreatedAtRoute("DefaultApi", null, donaciones);
         }
 
         // DELETE: api/Donaciones/5

@@ -15,8 +15,8 @@ using Android.Widget;
 namespace Pasarela.Droid
 {
     [Activity(
-         Label = "Pasarela",
-         Icon = "@drawable/icon",
+         Label = "Cuidando Ángeles",
+         Icon = "@drawable/logo",
          Theme = "@style/Theme.Splash",
          NoHistory = true,
          ScreenOrientation = ScreenOrientation.Portrait)]

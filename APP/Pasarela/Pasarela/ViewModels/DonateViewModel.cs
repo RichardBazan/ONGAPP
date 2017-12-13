@@ -1,5 +1,7 @@
 ﻿using Pasarela.Core.Extensions;
+using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Donate;
+using Pasarela.Core.Models.DonateProduct;
 using Pasarela.Core.Models.Product;
 using Pasarela.Core.Models.ShelterHouse;
 using Pasarela.Core.Services.Donate;
@@ -24,12 +26,18 @@ namespace Pasarela.Core.ViewModels
         private ObservableCollection<Product> _products;
         private IDonateService _donateService;
         private IProductService _productService;
+        private Product _product;
+        private string _selectedCount;
+        private string product;
+        private string quantity;
+        private ObservableCollection<DonateProduct> _donateproduct;
 
         public DonateViewModel( IDonateService donateService, IProductService productService)
         {
             VisibleComment = false;
             _donateService = donateService;
             _productService = productService;
+            ListProductDonate = new ObservableCollection<DonateProduct>();
         }
 
         public bool VisibleComment
@@ -62,6 +70,17 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public ObservableCollection<DonateProduct> ListProductDonate
+        {
+            get { return _donateproduct; }
+            set
+            {
+                _donateproduct = value;
+                RaisePropertyChanged(() => ListProductDonate);
+            }
+        }
+
+
         public ObservableCollection<Product> ListProduct
         {
             get { return _products; }
@@ -72,6 +91,45 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public Product SelectedProduct
+        {
+            get { return _product; }
+            set
+            {
+                _product = value;
+                RaisePropertyChanged(() => SelectedProduct);
+            }
+        }
+
+        public string SelectedCount
+        {
+            get { return _selectedCount; }
+            set
+            {
+                _selectedCount = value;
+                RaisePropertyChanged(() => SelectedCount);
+            }
+        }
+
+        public string Quantity
+        {
+            get { return quantity; }
+            set
+            {
+                quantity = value;
+                RaisePropertyChanged(() => Quantity);
+            }
+        }
+
+        public string Product
+        {
+            get { return product; }
+            set
+            {
+                product = value;
+                RaisePropertyChanged(() => Product);
+            }
+        }
 
         public async override Task InitializeAsync(object navigationData)
         {
@@ -90,6 +148,38 @@ namespace Pasarela.Core.ViewModels
         private async Task DonateAsync()
         {
             VisibleComment = true;
+        }
+
+        public ICommand AddCommand => new Command(async () => await AddAsync());
+
+        private async Task AddAsync()
+        {
+            ListProductDonate.Add(new DonateProduct() { ProductId = SelectedProduct.Id, Name = SelectedProduct.Name, Quantity = SelectedCount });
+            ListProductDonate = ListProductDonate.ToObservableCollection();
+        }
+
+        public ICommand GiveDonateCommand => new Command(async () => await GiveDonateAsync());
+
+        private async Task GiveDonateAsync()
+        {
+            try
+            {
+                var saveDonate = new SaveDonate()
+                {
+                    IdShelterHouse = ShelterHouse.Id,
+                    IdUser = 2
+                };
+                await _donateService.SaveDonateAsync(saveDonate);
+
+                await DialogService.ShowAlertAsync("Se registro con éxito su donación", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                await NavigationService.NavigateBack(false);
+            }
+
+            
+            catch (Exception ex)
+            {
+                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+            }
         }
 
         public ICommand CancelDonateCommand => new Command(async () => await CancelDonateAsync());

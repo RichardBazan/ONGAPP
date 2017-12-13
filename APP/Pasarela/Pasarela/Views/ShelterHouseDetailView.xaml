@@ -17,9 +17,9 @@
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="{Binding ShelterHouse.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Label Grid.Row="0" Text="{Binding ShelterHouse.Name}" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <cv:CarouselView Grid.Row="1" ItemsSource="{Binding ShelterHouse.Photos}">
                     <cv:CarouselView.ItemTemplate>
                         <DataTemplate>
@@ -27,8 +27,8 @@
                         </DataTemplate>
                     </cv:CarouselView.ItemTemplate>
                 </cv:CarouselView>
-                <Label Grid.Row="2" Text="{Binding ShelterHouse.Address}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <Label Grid.Row="3" Text="{Binding ShelterHouse.Phone}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Label Grid.Row="2" Text="{Binding ShelterHouse.Address}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                <Label Grid.Row="3" Text="{Binding ShelterHouse.Phone}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"></Label>
                 <Label Grid.Row="4" Text="{Binding ShelterHouse.Description}" FontSize="15"></Label>
                 <Grid  Grid.Row="5">
                     <Grid.ColumnDefinitions>

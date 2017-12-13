@@ -154,7 +154,7 @@ namespace WebApiONG.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Mascota.Add(new Mascota() { nom_mas = mascota.Name, cod_raza = mascota.IdBreed,  sexo_mas= mascota.Gender, edad_mas = mascota.Age,descrip_mas =mascota.Description, estado_mas ="En Adopción", tenencia = "Usuario",cod_usu=mascota.IdUser});
+            db.Mascota.Add(new Mascota() { nom_mas = mascota.Name, cod_raza = mascota.IdBreed,  sexo_mas= mascota.Gender, edad_mas = mascota.Age,descrip_mas =mascota.Description, estado_mas ="En Adopcion", tenencia = "Usuario",cod_usu=mascota.IdUser});
 
             try
             {
