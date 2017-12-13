@@ -26,5 +26,10 @@ namespace Pasarela.Core.Services.Complaints
         {
             throw new NotImplementedException();
         }
+
+        public Task<SaveComplaints> SaveComplaintsAsync(SaveComplaints _saveComplaints)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

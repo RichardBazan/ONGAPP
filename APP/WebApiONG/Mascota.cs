@@ -30,6 +30,7 @@ namespace WebApiONG
         public string estado_mas { get; set; }
         public string tenencia { get; set; }
         public int cod_raza { get; set; }
+        public int cod_usu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Adopcion> Adopcion { get; set; }
@@ -38,5 +39,6 @@ namespace WebApiONG
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Foto_Mascota> Foto_Mascota { get; set; }
         public virtual Raza Raza { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

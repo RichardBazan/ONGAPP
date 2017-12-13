@@ -24,7 +24,6 @@ namespace Pasarela.Core.ViewModels
         private ObservableCollection<Product> _products;
         private IDonateService _donateService;
         private IProductService _productService;
-        public Product _product;
 
         public DonateViewModel( IDonateService donateService, IProductService productService)
         {

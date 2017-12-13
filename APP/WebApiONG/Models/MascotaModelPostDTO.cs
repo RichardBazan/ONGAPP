@@ -5,26 +5,20 @@ using System.Web;
 
 namespace WebApiONG.Models
 {
-    public class MascotaModelDTO
+    public class MascotaModelPostDTO
     {
-
-        public int Id;
 
         public string Name;
 
         public string Description;
 
-        public string Breed;
+        public int IdBreed;
 
         public string Gender;
 
         public string Age;
 
-        public string Tenure;
-
-        public string State;
-
-        public List<FotoMascotaModelDTO> Photos;
+        public int IdUser;
 
     }
 }

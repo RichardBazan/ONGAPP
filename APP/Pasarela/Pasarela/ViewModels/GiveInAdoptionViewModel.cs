@@ -1,6 +1,15 @@
-﻿using Pasarela.Core.ViewModels.Base;
+﻿using Pasarela.Core.Extensions;
+using Pasarela.Core.Models.Breed;
+using Pasarela.Core.Models.Common;
+using Pasarela.Core.Models.Dog;
+using Pasarela.Core.Models.GiveInAdoption;
+using Pasarela.Core.Services.Breed;
+using Pasarela.Core.Services.Dog;
+using Pasarela.Core.Services.GiveInAdoption;
+using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,14 +21,142 @@ namespace Pasarela.Core.ViewModels
     public class GiveInAdoptionViewModel : ViewModelBase
     {
 
-        public GiveInAdoptionViewModel()
-        {
+        private IBreedService _breedService;
+        private IDogService _dogService;
+        private IGiveInAdoptionService _giveInAdoptionService;
+        private ObservableCollection<Breed> _breeds;
+        private SaveDog _saveDog;
+        private string _name;
+        private Breed _selectedBreed;
+        private string _selectedSex;
+        private string _age;
+        private string _description;
+        private GiveInAdoption _saveGiveInAdoption;
 
+        public GiveInAdoptionViewModel(IBreedService breedService, IDogService dogService, IGiveInAdoptionService giveInAdoptionService)
+        {
+            _breedService = breedService;
+            _dogService = dogService;
+            _giveInAdoptionService = giveInAdoptionService;
         }
 
-        public override Task InitializeAsync(object navigationData)
+        public ObservableCollection<Breed> ListBreed
         {
-            return base.InitializeAsync(navigationData);
+            get { return _breeds; }
+            set
+            {
+                _breeds = value;
+                RaisePropertyChanged(() => ListBreed);
+            }
+        }
+
+        public GiveInAdoption SaveGiveInAdoption
+        {
+            get { return _saveGiveInAdoption; }
+            set
+            {
+                _saveGiveInAdoption = value;
+                RaisePropertyChanged(() => SaveGiveInAdoption);
+            }
+        }
+
+        public SaveDog SaveDog
+        {
+            get { return _saveDog; }
+            set
+            {
+                _saveDog = value;
+                RaisePropertyChanged(() => SaveDog);
+            }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                RaisePropertyChanged(() => Name);
+            }
+        }
+
+        public Breed SelectedBreed
+        {
+            get { return _selectedBreed; }
+            set
+            {
+                _selectedBreed = value;
+                RaisePropertyChanged(() => SelectedBreed);
+            }
+        }
+
+        public string SelectedSex
+        {
+            get { return _selectedSex; }
+            set
+            {
+                _selectedSex = value;
+                RaisePropertyChanged(() => SelectedSex);
+            }
+        }
+
+        public string Age
+        {
+            get { return _age; }
+            set
+            {
+                _age = value;
+                RaisePropertyChanged(() => Age);
+            }
+        }
+
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                _description = value;
+                RaisePropertyChanged(() => Description);
+            }
+        }
+
+        public async override Task InitializeAsync(object navigationData)
+        {
+            var breed = await _breedService.GetAllBreedAsync();
+            ListBreed = breed.ToObservableCollection();
+        }
+
+        public ICommand SaveCommand => new Command(async () => await SaveAsync());
+
+        private async Task SaveAsync()
+        {
+            try
+            {
+                var saveDog = new SaveDog()
+                {
+                    IdUser = 2,
+                    IdBreed = SelectedBreed.Id,
+                    Name = Name,
+                    Description = Description,
+                    Age = Age,
+                    Gender = SelectedSex
+                  
+                };
+                await _dogService.SaveDogAsync(saveDog);
+
+                var saveGiveInAdoption = new GiveInAdoption()
+                {
+                    IdUser = 2
+                };
+                await _giveInAdoptionService.SaveGiveInAdoptionAsync(saveGiveInAdoption);
+
+                await DialogService.ShowAlertAsync("Se registro con éxito su mascota en adopción", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                await NavigationService.NavigateBack(false);
+            }
+            catch (Exception ex)
+            {
+                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+            }
         }
 
         public ICommand CancelCommand => new Command(async () => await CancelAsync());

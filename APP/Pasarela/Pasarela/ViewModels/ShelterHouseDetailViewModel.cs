@@ -33,6 +33,7 @@ namespace Pasarela.Core.ViewModels
         {
             var data = navigationData as ShelterHouse;
             ShelterHouse = data;
+            
             return base.InitializeAsync(navigationData);
         }
 

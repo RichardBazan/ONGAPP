@@ -18,6 +18,8 @@ using Pasarela.Core.Services.Complaints;
 using Pasarela.Core.Services.Comment;
 using Pasarela.Core.Services.Donate;
 using Pasarela.Core.Services.Product;
+using Pasarela.Core.Services.Breed;
+using Pasarela.Core.Services.GiveInAdoption;
 
 namespace Pasarela.Core.ViewModels.Base
 {
@@ -86,11 +88,11 @@ namespace Pasarela.Core.ViewModels.Base
 
 
             if (useMockServices)
-			{
-				builder.RegisterInstance(new CatalogMockService()).As<ICatalogService>();
-				builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
-				builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
-				builder.RegisterInstance(new UserMockService()).As<IUserService>();
+            {
+                builder.RegisterInstance(new CatalogMockService()).As<ICatalogService>();
+                builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
+                builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
+                builder.RegisterInstance(new UserMockService()).As<IUserService>();
 
                 //MockServicesONG
                 builder.RegisterType<HomeMockService>().As<IHomeService>();
@@ -108,7 +110,8 @@ namespace Pasarela.Core.ViewModels.Base
                 builder.RegisterType<ShelterHouseService>().As<IShelterHouseService>();
                 builder.RegisterType<DonateService>().As<IDonateService>();
                 builder.RegisterType<ProductService>().As<IProductService>();
-
+                builder.RegisterType<BreedService>().As <IBreedService>();
+                builder.RegisterType<GiveInAdoptionService>().As<IGiveInAdoptionService>();
 
                 UseMockService = true;
 			}

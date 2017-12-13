@@ -5,10 +5,12 @@ using System.Web;
 
 namespace WebApiONG.Models
 {
-    public class RazaModelDTO
+    public class DarEnAdopcionModelDTO
     {
-        public int Id;
 
-        public string Name;
+        public int IdUser;
+
+        public int IdDog;
+
     }
 }

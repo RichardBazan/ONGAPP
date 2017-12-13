@@ -40,6 +40,15 @@ namespace Pasarela.Core.ViewModels
             IsBusy = true;
             var authToken = Settings.AuthAccessToken;
             var shelterHouseList = await _shelterHouseService.GetAllShelterHouseAsync();
+            ////int c = -1;
+            //foreach (var item in shelterHouseList)
+            //{
+            //    if (item.Photos.Count == 0)
+            //    {
+            //        //c += 1;
+            //        item.Photos[0].Photo = "icon.png";
+            //    }
+            //}
             ListShelterHouse = shelterHouseList.ToObservableCollection();
             IsBusy = false;
         }

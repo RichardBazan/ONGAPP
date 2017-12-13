@@ -19,34 +19,31 @@
                         <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
-                        <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="90"></RowDefinition>
                         <RowDefinition Height="130"></RowDefinition>
                         <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Text="Titulo" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="0" Grid.Row="1" Text="Tipo" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="0" Grid.Row="2" Text="Raza" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="0" Grid.Row="3" Text="Dirección" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="0" Grid.Row="4" Text="Teléfono" VerticalOptions="Center"></Label>
-                    <Label Grid.Column="0" Grid.Row="5" Text="Descripción" VerticalOptions="Center"></Label>
-                    <Entry Grid.Column="1" Grid.Row="0"></Entry>
-                    <Picker Grid.Column="1" Grid.Row="1"></Picker>
-                    <Picker Grid.Column="1" Grid.Row="2"></Picker>
-                    <Entry Grid.Column="1" Grid.Row="3"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="4"></Entry>
-                    <Editor Grid.Column="1" Grid.Row="5">
+                    <Label Grid.Column="0" Grid.Row="1" Text="Raza" VerticalOptions="Center"></Label>
+                    <Label Grid.Column="0" Grid.Row="2" Text="Dirección" VerticalOptions="Center"></Label>
+                    <Label Grid.Column="0" Grid.Row="3" Text="Teléfono" VerticalOptions="Center"></Label>
+                    <Label Grid.Column="0" Grid.Row="4" Text="Descripción" VerticalOptions="Center"></Label>
+                    <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Title}"></Entry>
+                    <Picker Grid.Column="1" Grid.Row="1" Title="Selecciona raza" ItemsSource="{Binding ListBreed}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedBreed}"></Picker>
+                    <Entry Grid.Column="1" Grid.Row="2" Text="{Binding Address}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="3" Text="{Binding Phone}"></Entry>
+                    <Editor Grid.Column="1" Grid.Row="4" Text="{Binding Description}">
                         <Editor.Behaviors>
                             <behaviors:EntryLengthValidatorBehavior MaxLength="320" />
                         </Editor.Behaviors>
                     </Editor>
-                    <Image Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Source="ic_camera.png"></Image>
-                    <Grid  Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2">
+                    <Image Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Source="ic_camera.png"></Image>
+                    <Grid  Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" BackgroundColor="#A2D0B7" Text="Guardar"></Button>
+                        <Button Grid.Column="0" BackgroundColor="#A2D0B7" Text="Guardar" Command="{Binding SaveCommand}"></Button>
                         <Button Grid.Column="1" BackgroundColor="#A2D0B7" Text="Cancelar" Command="{Binding CancelCommand}"></Button>
                     </Grid>
                 </Grid>

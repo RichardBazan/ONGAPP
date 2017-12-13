@@ -20,7 +20,7 @@ namespace Pasarela.Core.Services.Complaints
 
         public async Task<List<Models.Complaints.Complaints>> GetAllComplaintsAsync()
         {
-            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.MaltratoEndpoint,
+            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.DenunciaEndpoint,
             string.Format(Constants.MethodsService.METHOD_ALL_COMPLAINTS));
             var listComplaints = await _requestProvider.GetAsync<List<Models.Complaints.Complaints>>(uri);
             return listComplaints;
@@ -28,10 +28,17 @@ namespace Pasarela.Core.Services.Complaints
 
         public async Task<List<Models.Complaints.Complaints>> GetComplaintsByUserAsync(int userId)
         {
-            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.MaltratoEndpoint,
+            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.DenunciaEndpoint,
             string.Format("/{0}" + Constants.MethodsService.METHOD_COMPLAINTS_USER, userId));
             var listComplaintsByUser = await _requestProvider.GetAsync<List<Models.Complaints.Complaints>>(uri);
             return listComplaintsByUser;
+        }
+
+        public async Task<SaveComplaints> SaveComplaintsAsync(SaveComplaints _saveComplaints)
+        {
+            string uri = GlobalSetting.Instance.DenunciaEndpoint;
+            var saveShelterHouse = await _requestProvider.PostAsync<SaveComplaints>(uri, _saveComplaints).ConfigureAwait(false);
+            return saveShelterHouse;
         }
     }
 }

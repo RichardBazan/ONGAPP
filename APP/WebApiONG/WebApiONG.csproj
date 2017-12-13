@@ -201,6 +201,7 @@
     </Compile>
     <Compile Include="Controllers\CasaRefugiosController.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
+    <Compile Include="Controllers\DarAdopcionsController.cs" />
     <Compile Include="Controllers\DonacionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DenunciasController.cs" />
@@ -254,6 +255,8 @@
     <Compile Include="Models\CasaRefugioModelDTO.cs" />
     <Compile Include="Models\CasaRefugioModelPostDTO.cs" />
     <Compile Include="Models\ComentarioModelDTO.cs" />
+    <Compile Include="Models\DarEnAdopcionModelDTO.cs" />
+    <Compile Include="Models\DenunciaModelPostDTO.cs" />
     <Compile Include="Models\DonacionModelDTO.cs" />
     <Compile Include="Models\DonacionProductoModelDTO.cs" />
     <Compile Include="Models\FotoCasaRefugioModelDTO.cs" />
@@ -261,6 +264,7 @@
     <Compile Include="Models\DenunciaModelDTO.cs" />
     <Compile Include="Models\FotoMascotaModelDTO.cs" />
     <Compile Include="Models\MascotaModelDTO.cs" />
+    <Compile Include="Models\MascotaModelPostDTO.cs" />
     <Compile Include="Models\ProductoModelDTO.cs" />
     <Compile Include="Models\RazaModelDTO.cs" />
     <Compile Include="Producto.cs">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pasarela.Core.Models.Dog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,7 @@ namespace Pasarela.Core.Services.Dog
         Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogAdoptAsync();
 
         Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogAdoptionsAsync();
+
+        Task<SaveDog> SaveDogAsync(SaveDog _saveDog);
     }
 }

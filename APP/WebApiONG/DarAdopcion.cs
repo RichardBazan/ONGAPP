@@ -16,7 +16,6 @@ namespace WebApiONG
     {
         public int cod_daradop { get; set; }
         public Nullable<System.DateTime> fecha_reg { get; set; }
-        public string estado_daradop { get; set; }
         public int cod_usu { get; set; }
         public int cod_mas { get; set; }
     

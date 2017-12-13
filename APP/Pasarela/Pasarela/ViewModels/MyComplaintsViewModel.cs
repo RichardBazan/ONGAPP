@@ -36,7 +36,7 @@ namespace Pasarela.Core.ViewModels
         public async override Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
-            var complaintsList = await _complaintsService.GetComplaintsByUserAsync(1);
+            var complaintsList = await _complaintsService.GetComplaintsByUserAsync(2);
             ListComplaints = complaintsList.ToObservableCollection();
             IsBusy = false;
         }

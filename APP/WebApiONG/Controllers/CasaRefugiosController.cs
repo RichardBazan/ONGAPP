@@ -17,7 +17,7 @@ namespace WebApiONG.Controllers
     {
         private BDONGEntities db = new BDONGEntities();
 
-        [Route("api/CasaRefugios/GetAllShelterHouse")]
+        //[Route("api/CasaRefugios/GetAllShelterHouse")]
         public HttpResponseMessage GetAllShelterHouse()
         {
             List<CasaRefugioModelDTO> ListCasaRefugioModelDTO = new List<CasaRefugioModelDTO>();
@@ -115,13 +115,11 @@ namespace WebApiONG.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-        
-        [Route("api/CasaRefugios/SaveShelterHouse")]
-        [ResponseType(typeof(CasaRefugio))]
+
+
         public IHttpActionResult PostCasaRefugio(CasaRefugioModelPostDTO casaRefugio)
         {
-            
-
+        
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -138,7 +136,7 @@ namespace WebApiONG.Controllers
                 e.GetBaseException();
             }
 
-            return CreatedAtRoute("DefaultApi",null, casaRefugio);
+            return CreatedAtRoute("DefaultApi", null, casaRefugio);
         }
 
         // DELETE: api/CasaRefugios/5

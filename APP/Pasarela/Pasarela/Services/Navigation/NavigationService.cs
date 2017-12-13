@@ -115,10 +115,10 @@ namespace Pasarela.Services
             return page;
         }
 
-        public async Task NavigateBack()
+        public async Task NavigateBack(bool Animated = true)
         {
             var navigationPage = Application.Current.MainPage as CustomNavigationView;
-            await navigationPage.PopAsync(true);
+            await navigationPage.PopAsync(Animated);
         }
     }
 }

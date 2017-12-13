@@ -56,13 +56,15 @@ namespace Pasarela.Core
 
         //EndPoint ONG
 
-        public string MaltratoEndpoint { get; set; }
+        public string DenunciaEndpoint { get; set; }
         public string FotoMaltratoEndPoint { get; set; }
         public string ComentarioEndPoint { get; set; }
         public string MascotaEndPoint { get; set; }
         public string CasaRefugioEndPoint { get; set; }
         public string DonacionEndPoint { get; set; }
         public string ProductoEndPoint { get; set; }
+        public string RazaEndPoint { get; set; }
+        public string DarEnAdopcionEndPoint { get; set; }
 
 
         private void UpdateEndpoint(string baseEndpoint)
@@ -78,14 +80,15 @@ namespace Pasarela.Core
             LogoutCallback = string.Format("{0}:5105/Account/Redirecting", baseEndpoint);
 
 
-            MaltratoEndpoint = string.Format("{0}/Maltratos", baseEndpoint);
+            DenunciaEndpoint = string.Format("{0}/Denuncias", baseEndpoint);
             FotoMaltratoEndPoint = string.Format("{0}/Foto_Maltrato", baseEndpoint);
             ComentarioEndPoint = string.Format("{0}/Comentarios", baseEndpoint);
             MascotaEndPoint = string.Format("{0}/Mascotas", baseEndpoint);
             CasaRefugioEndPoint = string.Format("{0}/CasaRefugios", baseEndpoint);
             DonacionEndPoint = string.Format("{0}/Donaciones", baseEndpoint);
             ProductoEndPoint = string.Format("{0}/Productos", baseEndpoint);
-
+            RazaEndPoint = string.Format("{0}/Razas", baseEndpoint);
+            DarEnAdopcionEndPoint = string.Format("{0}/DarAdopcions", baseEndpoint);
         }
 
         public string MakeURI(string EndPoint, string Path, string Query = "")

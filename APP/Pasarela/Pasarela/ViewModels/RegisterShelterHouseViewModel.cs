@@ -99,13 +99,15 @@ namespace Pasarela.Core.ViewModels
             {
                 var saveShelterHouse = new SaveShelterHouse()
                 {
-                    IdUser = 1,
+                    IdUser = 2,
                     Name = Name,
                     Description = Description,
                     Address=Address,
                     Phone=Phone
                 };
                 await _shelterHouseService.SaveShelterHouseAsync(saveShelterHouse);
+                await DialogService.ShowAlertAsync("Se registro con éxito la casa refugio", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                await NavigationService.NavigateBack(false);
             }
             catch (Exception ex)
             {

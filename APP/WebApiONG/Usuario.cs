@@ -23,6 +23,7 @@ namespace WebApiONG
             this.DarAdopcion = new HashSet<DarAdopcion>();
             this.Denuncia = new HashSet<Denuncia>();
             this.Donaciones = new HashSet<Donaciones>();
+            this.Mascota = new HashSet<Mascota>();
         }
     
         public int cod_usu { get; set; }
@@ -48,5 +49,7 @@ namespace WebApiONG
         public virtual ICollection<Denuncia> Denuncia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donaciones> Donaciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mascota> Mascota { get; set; }
     }
 }

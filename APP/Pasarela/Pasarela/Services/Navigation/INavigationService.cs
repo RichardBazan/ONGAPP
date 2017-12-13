@@ -17,6 +17,6 @@ namespace Pasarela.Services
 
         Task RemoveBackStackAsync();
 
-        Task NavigateBack();
+        Task NavigateBack(bool Animated = false);
     }
 }

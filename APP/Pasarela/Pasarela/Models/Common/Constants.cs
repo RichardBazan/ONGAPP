@@ -104,6 +104,12 @@ namespace Pasarela.Core.Models.Common
 
             /*Save Shelter House*/
             public const string METHOD_SAVE_SHELTERHOUSE = "/SaveShelterHouse";
+
+            /*All Breed*/
+            public const string METHOD_ALL_BREED = "/GetAllBreed";
+
+            /*Save Complaints*/
+            public const string METHOD_SAVE_COMPLAINTS = "/SaveComplaints";
         }
 
         public struct ParameterService

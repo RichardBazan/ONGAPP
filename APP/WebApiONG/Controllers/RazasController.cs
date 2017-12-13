@@ -18,13 +18,15 @@ namespace WebApiONG.Controllers
         private BDONGEntities db = new BDONGEntities();
 
         // GET: api/Razas
+        [Route("api/Razas/GetAllBreed")]
+
         public HttpResponseMessage GetRaza()
         {
             List<RazaModelDTO> ListRazaModelDTO = new List<RazaModelDTO>();
             
             foreach (var i in db.Raza.ToList())
             {
-                ListRazaModelDTO.Add(new RazaModelDTO() { Cod_Raza = i.cod_raza, Nom_Raza = i.nom_raza });
+                ListRazaModelDTO.Add(new RazaModelDTO() { Id = i.cod_raza, Name = i.nom_raza });
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, ListRazaModelDTO);
@@ -43,7 +45,7 @@ namespace WebApiONG.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            RazaModelDTO razaById = new RazaModelDTO() { Cod_Raza = raza.cod_raza, Nom_Raza = raza.nom_raza };
+            RazaModelDTO razaById = new RazaModelDTO() { Id = raza.cod_raza, Name = raza.nom_raza };
 
             return Request.CreateResponse(HttpStatusCode.OK, razaById);
         }

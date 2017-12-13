@@ -26,8 +26,9 @@ namespace Pasarela.Core.Services.ShelterHouse
 
         public async Task<List<Models.ShelterHouse.ShelterHouse>> GetAllShelterHouseAsync()
         {
-            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.CasaRefugioEndPoint,
-            string.Format(Constants.MethodsService.METHOD_ALL_SHELTERHOUSE));
+            string uri = GlobalSetting.Instance.CasaRefugioEndPoint;
+            //string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.CasaRefugioEndPoint,
+            //string.Format(Constants.MethodsService.METHOD_ALL_SHELTERHOUSE));
             var listShelterHouse = await _requestProvider.GetAsync<List<Models.ShelterHouse.ShelterHouse>>(uri);
             return listShelterHouse;
         }
@@ -42,8 +43,7 @@ namespace Pasarela.Core.Services.ShelterHouse
 
         public async Task<SaveShelterHouse> SaveShelterHouseAsync(SaveShelterHouse _saveShelterHouse)
         {
-            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.CasaRefugioEndPoint,
-            string.Format(Constants.MethodsService.METHOD_SAVE_SHELTERHOUSE));
+            string uri = GlobalSetting.Instance.CasaRefugioEndPoint;
             var saveShelterHouse = await _requestProvider.PostAsync<SaveShelterHouse>(uri, _saveShelterHouse).ConfigureAwait(false);
             return saveShelterHouse;
         }

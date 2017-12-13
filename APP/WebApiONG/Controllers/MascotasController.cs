@@ -147,32 +147,25 @@ namespace WebApiONG.Controllers
 
         // POST: api/Mascotas
         [ResponseType(typeof(Mascota))]
-        public IHttpActionResult PostMascota(Mascota mascota)
+        public IHttpActionResult PostMascota(MascotaModelPostDTO mascota)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
-            db.Mascota.Add(mascota);
+            db.Mascota.Add(new Mascota() { nom_mas = mascota.Name, cod_raza = mascota.IdBreed,  sexo_mas= mascota.Gender, edad_mas = mascota.Age,descrip_mas =mascota.Description, estado_mas ="En Adopción", tenencia = "Usuario",cod_usu=mascota.IdUser});
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException e)
             {
-                if (MascotaExists(mascota.cod_mas))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                e.GetBaseException();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = mascota.cod_mas }, mascota);
+            return CreatedAtRoute("DefaultApi", null, mascota);
         }
 
         // DELETE: api/Mascotas/5

@@ -46,5 +46,12 @@ namespace Pasarela.Core.Services.Dog
             var listDogs = await _requestProvider.GetAsync<List<Models.Dog.Dog>>(uri);
             return listDogs;
         }
+
+        public async Task<SaveDog> SaveDogAsync(SaveDog _saveDog)
+        {
+            string uri = GlobalSetting.Instance.MascotaEndPoint;
+            var saveDog = await _requestProvider.PostAsync<SaveDog>(uri, _saveDog).ConfigureAwait(false);
+            return saveDog;
+        }
     }
 }

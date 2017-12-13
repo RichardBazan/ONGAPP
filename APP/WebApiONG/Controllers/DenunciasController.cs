@@ -17,7 +17,7 @@ namespace WebApiONG.Controllers
     {
         private BDONGEntities db = new BDONGEntities();
 
-        [Route("api/Maltratos/GetAllComplaints")]
+        [Route("api/Denuncias/GetAllComplaints")]
         public HttpResponseMessage GetMaltrato()
         {
             List<DenunciaModelDTO> ListMaltratoModelDTO = new List<DenunciaModelDTO>();
@@ -46,7 +46,7 @@ namespace WebApiONG.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, ListMaltratoModelDTO);
         }
 
-        [Route("api/Maltratos/{userId}/GetComplaintByUser")]
+        [Route("api/Denuncias/{userId}/GetComplaintByUser")]
         public HttpResponseMessage GetCommentByComplaint(int userId)
         {
             List<DenunciaModelDTO> ListMaltratoModelDTO = new List<DenunciaModelDTO>();
@@ -123,34 +123,27 @@ namespace WebApiONG.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Maltratos
+
         [ResponseType(typeof(Denuncia))]
-        public IHttpActionResult PostMaltrato(Denuncia denuncia)
+        public IHttpActionResult PostDenuncia(DenunciaModelPostDTO denuncia)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Denuncia.Add(denuncia);
+            db.Denuncia.Add(new Denuncia() { titulo_den = denuncia.Title,cod_raza = denuncia.IdBreed,  descrip_den = denuncia.Description, fecha_reg = DateTime.Now, dir_den = denuncia.Address, tel_cont = denuncia.Phone, estado_den=denuncia.State, cod_usu = denuncia.IdUser });
 
             try
             {
                 db.SaveChanges();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException e)
             {
-                if (MaltratoExists(denuncia.cod_den))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                e.GetBaseException();
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = denuncia.cod_den }, denuncia);
+            return CreatedAtRoute("DefaultApi", null, denuncia);
         }
 
         // DELETE: api/Maltratos/5

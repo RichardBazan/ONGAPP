@@ -38,7 +38,16 @@ namespace Pasarela.Core.ViewModels
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
-            var shelterHouseList = await _shelterHouseService.GetShelterHouseByUserAsync(1);
+            var shelterHouseList = await _shelterHouseService.GetShelterHouseByUserAsync(2);
+            ////int c = -1;
+            //foreach (var item in shelterHouseList)
+            //{
+            //    if (item.Photos.Count == 0)
+            //    {
+            //        //c += 1;
+            //        item.Photos[0].Photo = "icon.png";
+            //    }
+            //}
             ListShelterHouse = shelterHouseList.ToObservableCollection();
             IsBusy = false;
         }
