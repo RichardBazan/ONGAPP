@@ -262,6 +262,7 @@
     <Compile Include="Models\DonacionModelDTO.cs" />
     <Compile Include="Models\DonacionModelPostDTO.cs" />
     <Compile Include="Models\DonacionProductoModelDTO.cs" />
+    <Compile Include="Models\EstadoMascotaModelDTO.cs" />
     <Compile Include="Models\FotoCasaRefugioModelDTO.cs" />
     <Compile Include="Models\FotoDenunciaModelDTO.cs" />
     <Compile Include="Models\DenunciaModelDTO.cs" />

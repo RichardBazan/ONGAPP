@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pasarela.Core.Models.Dog;
+using Pasarela.Core.Models.StateDog;
 
 namespace Pasarela.Core.Services.Dog
 {
@@ -38,6 +39,11 @@ namespace Pasarela.Core.Services.Dog
         }
 
         public Task<SaveDog> SaveDogAsync(SaveDog _saveDog)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> StateDogAsync(int id, StateDog _stateDog)
         {
             throw new NotImplementedException();
         }

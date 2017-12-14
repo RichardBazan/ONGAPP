@@ -83,6 +83,7 @@
     <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\ShelterHouse\SaveShelterHouse.cs" />
     <Compile Include="Models\ShelterHouse\ShelterHouse.cs" />
+    <Compile Include="Models\StateDog\StateDog.cs" />
     <Compile Include="Services\Adoption\AdoptionService.cs" />
     <Compile Include="Services\Adoption\IAdoptionService.cs" />
     <Compile Include="Services\Breed\BreedService.cs" />

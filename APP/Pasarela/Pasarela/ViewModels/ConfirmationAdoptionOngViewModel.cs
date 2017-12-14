@@ -1,7 +1,9 @@
 ﻿using Pasarela.Core.Models.Adoption;
 using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Dog;
+using Pasarela.Core.Models.StateDog;
 using Pasarela.Core.Services.Adoption;
+using Pasarela.Core.Services.Dog;
 using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
@@ -18,10 +20,12 @@ namespace Pasarela.Core.ViewModels
 
         private Dog _dog;
         private IAdoptionService _adoptionService;
+        private IDogService _dogService;
 
-        public ConfirmationAdoptionOngViewModel(IAdoptionService adoptionService)
+        public ConfirmationAdoptionOngViewModel(IAdoptionService adoptionService, IDogService dogService)
         {
             _adoptionService = adoptionService;
+            _dogService = dogService;
         }
 
         public Dog Dog
@@ -53,6 +57,14 @@ namespace Pasarela.Core.ViewModels
                     IdDog = Dog.Id
                 };
                 await _adoptionService.SaveAdoptionAsync(saveAdoption);
+
+                int idDog = Dog.Id;
+                var stateDog = new StateDog()
+                {
+                    State = "En Espera"
+                };
+
+                await _dogService.StateDogAsync(idDog, stateDog);
                 await DialogService.ShowAlertAsync("Se solicitó con éxito su adopción", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
                 await NavigationService.NavigateBack(false);

@@ -111,20 +111,11 @@ namespace WebApiONG.Controllers
         }
 
         // PUT: api/Mascotas/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutMascota(int id, Mascota mascota)
+        public bool PutMascota(int id, EstadoMascotaModelDTO estadoMascota)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            if (id != mascota.cod_mas)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(mascota).State = EntityState.Modified;
+            var entity = db.Mascota.FirstOrDefault(m => m.cod_mas == id);
+            entity.estado_mas = estadoMascota.State;
 
             try
             {
@@ -134,15 +125,14 @@ namespace WebApiONG.Controllers
             {
                 if (!MascotaExists(id))
                 {
-                    return NotFound();
+                    return false;
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return true;
         }
 
         // POST: api/Mascotas

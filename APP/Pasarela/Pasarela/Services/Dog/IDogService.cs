@@ -18,5 +18,9 @@ namespace Pasarela.Core.Services.Dog
         Task<List<Pasarela.Core.Models.Dog.Dog>> GetDogAdoptionsAsync();
 
         Task<SaveDog> SaveDogAsync(SaveDog _saveDog);
+
+        Task<bool> StateDogAsync(int id, Models.StateDog.StateDog _stateDog);
+
+
     }
 }
