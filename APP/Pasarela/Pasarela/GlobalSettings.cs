@@ -67,6 +67,7 @@ namespace Pasarela.Core
         public string DarEnAdopcionEndPoint { get; set; }
         public string DonacionProductoEndPoint { get; set; }
         public string AdopcionEndPoint { get; set; }
+        public string UsuarioEndPoint { get; set; }
 
 
         private void UpdateEndpoint(string baseEndpoint)
@@ -93,6 +94,7 @@ namespace Pasarela.Core
             DarEnAdopcionEndPoint = string.Format("{0}/DarAdopcions", baseEndpoint);
             DonacionProductoEndPoint = string.Format("{0}/DonacionProductoes", baseEndpoint);
             AdopcionEndPoint = string.Format("{0}/Adopcions", baseEndpoint);
+            UsuarioEndPoint = string.Format("{0}/Usuarios", baseEndpoint);
         }
 
         public string MakeURI(string EndPoint, string Path, string Query = "")

@@ -27,5 +27,12 @@ namespace Pasarela.Core.Services.User
             return userInfo;
 
         }
+
+        public async Task<Models.User.User> SaveUserAsync(Models.User.User _saveUser)
+        {
+            string uri = GlobalSetting.Instance.UsuarioEndPoint;
+            var saveUser = await _requestProvider.PostAsync<Models.User.User>(uri, _saveUser).ConfigureAwait(false);
+            return saveUser;
+        }
     }
 }

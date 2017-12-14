@@ -96,7 +96,7 @@ namespace Pasarela.Core.ViewModels.Base
                 builder.RegisterInstance(new CatalogMockService()).As<ICatalogService>();
                 builder.RegisterInstance(new BasketMockService()).As<IBasketService>();
                 builder.RegisterInstance(new OrderMockService()).As<IOrderService>();
-                builder.RegisterInstance(new UserMockService()).As<IUserService>();
+               // builder.RegisterInstance(new UserMockService()).As<IUserService>();
 
                 //MockServicesONG
                 builder.RegisterType<HomeMockService>().As<IHomeService>();
@@ -116,7 +116,8 @@ namespace Pasarela.Core.ViewModels.Base
                 builder.RegisterType<ProductService>().As<IProductService>();
                 builder.RegisterType<BreedService>().As<IBreedService>();
                 builder.RegisterType<GiveInAdoptionService>().As<IGiveInAdoptionService>();
-                builder.RegisterType <AdoptionService>().As<IAdoptionService>();
+                builder.RegisterType<AdoptionService>().As<IAdoptionService>();
+                builder.RegisterType<UserService>().As<IUserService>();
 
                 UseMockService = true;
 			}

@@ -32,5 +32,10 @@ namespace Pasarela.Core.Services.User
 
             return MockUserInfo;
         }
+
+        public Task<Models.User.User> SaveUserAsync(Models.User.User _saveUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
