@@ -20,6 +20,7 @@ using Pasarela.Core.Services.Donate;
 using Pasarela.Core.Services.Product;
 using Pasarela.Core.Services.Breed;
 using Pasarela.Core.Services.GiveInAdoption;
+using Pasarela.Core.Services.Adoption;
 
 namespace Pasarela.Core.ViewModels.Base
 {
@@ -112,8 +113,9 @@ namespace Pasarela.Core.ViewModels.Base
                 builder.RegisterType<ShelterHouseService>().As<IShelterHouseService>();
                 builder.RegisterType<DonateService>().As<IDonateService>();
                 builder.RegisterType<ProductService>().As<IProductService>();
-                builder.RegisterType<BreedService>().As <IBreedService>();
+                builder.RegisterType<BreedService>().As<IBreedService>();
                 builder.RegisterType<GiveInAdoptionService>().As<IGiveInAdoptionService>();
+                builder.RegisterType <AdoptionService>().As<IAdoptionService>();
 
                 UseMockService = true;
 			}

@@ -199,6 +199,7 @@
     <Compile Include="Comentario.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AdopcionsController.cs" />
     <Compile Include="Controllers\CasaRefugiosController.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\DarAdopcionsController.cs" />

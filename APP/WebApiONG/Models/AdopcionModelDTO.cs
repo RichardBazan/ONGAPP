@@ -8,15 +8,9 @@ namespace WebApiONG.Models
     public class AdopcionModelDTO
     {
 
-        public int Id;
+        public int IdUser;
 
-        public string NameDog;
-
-        public string DescriptionDog;
-
-        public string NameUser;
-
-        public string Raza;
+        public int IdDog;
 
     }
 }

@@ -9,11 +9,8 @@ namespace Pasarela.Core.Models.Adoption
     public class Adoption
     {
 
-        public int Id { get; set; }
-        public string NameDog { get; set; }
-        public string DescriptionDog { get; set; }
-        public string NameUser { get; set; }
-        public string Raza { get; set; }
+        public int IdUser { get; set; }
+        public int IdDog { get; set; }
 
 
     }
