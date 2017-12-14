@@ -16,7 +16,7 @@ namespace Pasarela.Droid
 {
     [Activity(
         Label = "Cuidando Ángeles",
-        Icon = "@drawable/logo",
+        Icon = "@drawable/header_logo1",
         Theme = "@style/MainTheme",
         MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]

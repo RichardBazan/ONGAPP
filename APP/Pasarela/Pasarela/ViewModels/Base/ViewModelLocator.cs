@@ -79,7 +79,8 @@ namespace Pasarela.Core.ViewModels.Base
             builder.RegisterType<AdoptUserViewModel>();
             builder.RegisterType<ConfirmationAdoptionViewModel>();
             builder.RegisterType<ConfirmationAdoptionOngViewModel>();
-            
+            builder.RegisterType<RegisterUserViewModel>();
+
 
             // Services
             builder.RegisterType<NavigationService>().As<INavigationService>().SingleInstance();

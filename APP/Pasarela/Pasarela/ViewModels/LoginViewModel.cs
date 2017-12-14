@@ -125,7 +125,7 @@ namespace Pasarela.Core.ViewModels
 
         public ICommand SignInCommand => new Command(async () => await SignInAsync());
 
-        public ICommand RegisterCommand => new Command(Register);
+        public ICommand RegisterCommand => new Command(async () => await RegisterAsync());
 
         public ICommand NavigateCommand => new Command<string>(async (url) => await NavigateAsync(url));
 
@@ -277,13 +277,20 @@ namespace Pasarela.Core.ViewModels
 
         private void AddValidations()
         {
-            _userName.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A username is required." });
-            _password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "A password is required." });
+            _userName.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ingrese su nombre de usuario." });
+            _password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ingrese su contraseña." });
         }
 
         public void InvalidateMock()
         {
             IsMock = Settings.UseMocks;
+        }
+
+        private async Task RegisterAsync()
+        {
+            IsBusy = true;
+            await NavigationService.NavigateToAsync<RegisterUserViewModel>();
+            IsBusy = false;
         }
     }
 }

@@ -124,7 +124,7 @@
                 Margin="48, 24">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
-                    <ColumnDefinition />
+                    <!--<ColumnDefinition />-->
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <StackLayout  
@@ -135,7 +135,7 @@
                         Text="["
                         TextColor="{StaticResource LightGreenColor}"/>
                     <Label
-                        Text="LOGIN"
+                        Text="LOGUEARSE"
                         FontAttributes="Bold"/>
                     <Label
                         Text="]"
@@ -145,7 +145,7 @@
                   Grid.Column="1"
                   HorizontalOptions="Center">
                     <Label
-                        Text="REGISTER"
+                        Text="REGISTRARSE"
                         TextColor="Gray"/>
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer
@@ -153,7 +153,7 @@
                           NumberOfTapsRequired="1" />
                     </Grid.GestureRecognizers>
                 </Grid>
-                <StackLayout  
+                <!--<StackLayout  
                   Grid.Column="2"
                   Orientation="Horizontal"
                   HorizontalOptions="Center">
@@ -164,19 +164,19 @@
                             Command="{Binding SettingsCommand}"
                             NumberOfTapsRequired="1" />
                     </StackLayout.GestureRecognizers>
-                </StackLayout>
+                </StackLayout>-->
             </Grid>
             <!-- INFO -->
             <Label
               Grid.Row="1"
-              Text="ARE YOU REGISTERED?"
+              Text="INICIAR SESIÓN"
               Style="{StaticResource TitleLabelStyle}"/>
             <!-- LOGIN FORM -->
             <StackLayout   
                 Grid.Row="2"
                 Margin="24">
                 <Label
-                  Text="User name or email"
+                  Text="Usuario"
                   Style="{StaticResource HeaderLabelStyle}" />
                 <Entry Text="{Binding UserName.Value, Mode=TwoWay}">
                     <Entry.Style>
@@ -203,7 +203,7 @@
 					Text="{Binding UserName.Errors, Converter={StaticResource FirstValidationErrorConverter}"
 					Style="{StaticResource ValidationErrorLabelStyle}" />
                 <Label
-                  Text="Password"
+                  Text="Contraseña"
                   Style="{StaticResource HeaderLabelStyle}"/>
                 <Entry
                   IsPassword="True"
@@ -240,7 +240,7 @@
                 ColumnSpacing="0"
                 RowSpacing="0">
                 <Label
-                  Text="[ LOGIN ]"
+                  Text="[ INICIAR SESIÓN ]"
                   Style="{StaticResource LoginButtonStyle}"/>
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer

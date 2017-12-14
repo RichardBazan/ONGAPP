@@ -136,6 +136,7 @@
     <Compile Include="ViewModels\ProfileViewModel.cs" />
     <Compile Include="ViewModels\RegisterComplaintViewModel.cs" />
     <Compile Include="ViewModels\RegisterShelterHouseViewModel.cs" />
+    <Compile Include="ViewModels\RegisterUserViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShelterHouseDetailViewModel.cs" />
     <Compile Include="Views\AdoptionDetailView.xaml.cs">
@@ -263,6 +264,9 @@
     </Compile>
     <Compile Include="Views\RegisterShelterHouseView.xaml.cs">
       <DependentUpon>RegisterShelterHouseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterUserView.xaml.cs">
+      <DependentUpon>RegisterUserView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShelterHouseDetailView.xaml.cs">
       <DependentUpon>ShelterHouseDetailView.xaml</DependentUpon>
@@ -498,6 +502,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ConfirmationAdoptionOngView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RegisterUserView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
