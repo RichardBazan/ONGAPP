@@ -6,7 +6,59 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Registro" />
+            <StackLayout Margin="10,12,10,0">
+                <Label Text="REGISTRO DE USUARIO" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
+            </StackLayout>
+            <ScrollView>
+                <Grid Margin="5,10,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.35*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.65*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Text="Nombres"></Label>
+                    <Label Grid.Column="0" Grid.Row="1" Text="Ap. Paterno"></Label>
+                    <Label Grid.Column="0" Grid.Row="2" Text="Ap. Materno"></Label>
+                    <Label Grid.Column="0" Grid.Row="3" Text="Fec. Nac."></Label>
+                    <Label Grid.Column="0" Grid.Row="4" Text="Sexo"></Label>
+                    <Label Grid.Column="0" Grid.Row="5" Text="Dirección"></Label>
+                    <Label Grid.Column="0" Grid.Row="6" Text="Telefono"></Label>
+                    <Label Grid.Column="0" Grid.Row="7" Text="Usuario"></Label>
+                    <Label Grid.Column="0" Grid.Row="8" Text="Contraseña"></Label>
+                    <Label Grid.Column="0" Grid.Row="9" Text="Rep. Contraseña"></Label>
+                    <Entry Grid.Column="1" Grid.Row="0" Text=""></Entry>
+                    <Entry Grid.Column="1" Grid.Row="1" Text=""></Entry>
+                    <Entry Grid.Column="1" Grid.Row="2" Text=""></Entry>
+                    <DatePicker Grid.Column="1" Grid.Row="3"></DatePicker>
+                    <Picker Grid.Column="1" Grid.Row="4"></Picker>
+                    <Entry Grid.Column="1" Grid.Row="5" Text=""></Entry>
+                    <Entry Grid.Column="1" Grid.Row="6" Text=""></Entry>
+                    <Entry Grid.Column="1" Grid.Row="7" Text=""></Entry>
+                    <Entry Grid.Column="1" Grid.Row="8" Text="" IsPassword="true"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="9" Text="" IsPassword="true"></Entry>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Text="Cancelar"></Button>
+                        <Button Grid.Column="1" Text="Registrarme"></Button>
+                    </Grid>
+                </Grid>
+
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
