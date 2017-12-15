@@ -110,6 +110,11 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        void DatePicker_DateSelected()
+        {
+
+        }
+
         public override Task InitializeAsync(object navigationData)
         {
             return base.InitializeAsync(navigationData);

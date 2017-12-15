@@ -10,7 +10,7 @@
                 <Label Text="REGISTRO DE USUARIO" TextColor="#00a69c" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
             </StackLayout>
             <ScrollView>
-                <Grid Margin="5,10,5,0">
+                <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.35*"></ColumnDefinition>
                         <ColumnDefinition Width="0.65*"></ColumnDefinition>
@@ -25,27 +25,29 @@
                         <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
                         <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="130"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Grid.Row="0" Text="Nombres"></Label>
-                    <Label Grid.Column="0" Grid.Row="1" Text="Ap. Paterno"></Label>
-                    <Label Grid.Column="0" Grid.Row="2" Text="Ap. Materno"></Label>
-                    <Label Grid.Column="0" Grid.Row="3" Text="Fec. Nac."></Label>
-                    <Label Grid.Column="0" Grid.Row="4" Text="Dirección"></Label>
-                    <Label Grid.Column="0" Grid.Row="5" Text="Telefono"></Label>
-                    <Label Grid.Column="0" Grid.Row="6" Text="Usuario"></Label>
-                    <Label Grid.Column="0" Grid.Row="7" Text="Contraseña"></Label>
-                    <Label Grid.Column="0" Grid.Row="8" Text="Rep. Contraseña"></Label>
+                    <Label Grid.Column="0" Grid.Row="0" Text="Nombres" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="1" Text="Ap. Paterno" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="2" Text="Ap. Materno" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="3" Text="Fec. Nac." FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="4" Text="Dirección" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="5" Text="Telefono" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="6" Text="Usuario" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="7" Text="Contraseña" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="8" Text="Rep. Contraseña" FontAttributes="Bold"></Label>
                     <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Name}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="1" Text="{Binding FistLastName}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="2" Text="{Binding SecondLastName}"></Entry>
-                    <DatePicker Grid.Column="1" Grid.Row="3" DateSelected=""></DatePicker>
+                    <Entry Grid.Column="1" Grid.Row="1" Text="{Binding FirstLastName}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="2" Text="{Binding SecondLastName}" ></Entry>
+                    <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding Birthdate}"></DatePicker>
                     <Entry Grid.Column="1" Grid.Row="4" Text="{Binding Address}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Phone}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="6" Text="{Binding User}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="7" Text="{Binding Password}" IsPassword="true"></Entry>
                     <Entry Grid.Column="1" Grid.Row="8" Text="{Binding PasswordConfirm}" IsPassword="true"></Entry>
-                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9">
+                    <Image Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" Source="ic_camera.png"></Image>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>
