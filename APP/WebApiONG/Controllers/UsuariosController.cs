@@ -24,17 +24,17 @@ namespace WebApiONG.Controllers
         }
 
         // GET: api/Usuarios/5
-        [ResponseType(typeof(Usuario))]
-        public IHttpActionResult GetUsuario(int id)
-        {
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
+        //[ResponseType(typeof(Usuario))]
+        //public IHttpActionResult GetUsuario(string userName, string password)
+        //{
+        //    Usuario usuario = db.Usuario.Find(userName, password);
+        //    if (usuario == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return Ok(usuario);
-        }
+        //    return Ok(usuario);
+        //}
 
         // PUT: api/Usuarios/5
         [ResponseType(typeof(void))]
