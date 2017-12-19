@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pasarela.Core.Views.RegisterUserView"
+             xmlns:behaviors="clr-namespace:Pasarela.Core.Behaviors;assembly=Pasarela.Core"
              xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
@@ -40,7 +41,7 @@
                     <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Name}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="1" Text="{Binding FirstLastName}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="2" Text="{Binding SecondLastName}" ></Entry>
-                    <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding Birthdate}"></DatePicker>
+                    <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="01/01/1940"></DatePicker>
                     <Entry Grid.Column="1" Grid.Row="4" Text="{Binding Address}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Phone}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="6" Text="{Binding User}"></Entry>

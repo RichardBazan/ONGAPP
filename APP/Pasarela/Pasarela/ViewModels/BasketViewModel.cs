@@ -73,22 +73,22 @@ namespace Pasarela.Core.ViewModels
                 BasketItems = new ObservableCollection<BasketItem>();
 
             var authToken = Settings.AuthAccessToken;
-            var userInfo = await _userService.GetUserInfoAsync(authToken);
+            //var userInfo = await _userService.GetUserInfoAsync(authToken);
 
             // Update Basket
-            var basket = await _basketService.GetBasketAsync(userInfo.UserId, authToken);
+            //var basket = await _basketService.GetBasketAsync(userInfo.UserId, authToken);
 
-            if (basket != null && basket.Items != null && basket.Items.Any())
-            {
-                BadgeCount = 0;
-                BasketItems.Clear();
+            //if (basket != null && basket.Items != null && basket.Items.Any())
+            //{
+            //    BadgeCount = 0;
+            //    BasketItems.Clear();
 
-                foreach (var basketItem in basket.Items)
-                {
-                    BadgeCount += basketItem.Quantity;
-                    await AddBasketItemAsync(basketItem);
-                }
-            }
+            //    foreach (var basketItem in basket.Items)
+            //    {
+            //        BadgeCount += basketItem.Quantity;
+            //        await AddBasketItemAsync(basketItem);
+            //    }
+            //}
 
             MessagingCenter.Unsubscribe<CatalogViewModel, CatalogItem>(this, MessageKeys.AddProduct);
             MessagingCenter.Subscribe<CatalogViewModel, CatalogItem>(this, MessageKeys.AddProduct, async (sender, arg) =>
@@ -145,14 +145,14 @@ namespace Pasarela.Core.ViewModels
                 Total += (orderItem.Quantity * orderItem.UnitPrice);
             }
 
-            var authToken = Settings.AuthAccessToken;
-            var userInfo = await _userService.GetUserInfoAsync(authToken);
+            //var authToken = Settings.AuthAccessToken;
+            //var userInfo = await _userService.GetUserInfoAsync(authToken);
 
-            await _basketService.UpdateBasketAsync(new CustomerBasket
-            {
-                BuyerId = userInfo.UserId,
-                Items = BasketItems.ToList()
-            }, authToken);
+            //await _basketService.UpdateBasketAsync(new CustomerBasket
+            //{
+            //    BuyerId = userInfo.UserId,
+            //    Items = BasketItems.ToList()
+            //}, authToken);
         }
 
         private async Task CheckoutAsync()

@@ -178,7 +178,7 @@
                 <Label
                   Text="Usuario"
                   Style="{StaticResource HeaderLabelStyle}" />
-                <Entry Text="{Binding UserName.Value, Mode=TwoWay}">
+                <Entry Text="{Binding UserName}">
                     <Entry.Style>
                         <OnPlatform x:TypeArguments="Style"
                           iOS="{StaticResource EntryStyle}"
@@ -207,7 +207,7 @@
                   Style="{StaticResource HeaderLabelStyle}"/>
                 <Entry
                   IsPassword="True"
-                  Text="{Binding Password.Value, Mode=TwoWay}">
+                  Text="{Binding Password}">
                     <Entry.Style>
                         <OnPlatform x:TypeArguments="Style"
                           iOS="{StaticResource EntryStyle}"

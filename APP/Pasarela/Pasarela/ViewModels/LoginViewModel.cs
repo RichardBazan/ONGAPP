@@ -14,13 +14,15 @@ using Pasarela.Core.Services.OpenUrl;
 using Pasarela.Core.Validations;
 using Pasarela.Core.ViewModels.Base;
 using Xamarin.Forms;
+using Pasarela.Core.Services.User;
+using Pasarela.Core.Models.Common;
 
 namespace Pasarela.Core.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        private ValidatableObject<string> _userName;
-        private ValidatableObject<string> _password;
+        //private ValidatableObject<string> _userName;
+        //private ValidatableObject<string> _password;
         private bool _isMock;
         private bool _isValid;
         private bool _isLogin;
@@ -29,21 +31,27 @@ namespace Pasarela.Core.ViewModels
         private IOpenUrlService _openUrlService;
         private IIdentityService _identityService;
 
+        private IUserService _userService;
+        private string _userName;
+        private string _password;
+
         public LoginViewModel(
             IOpenUrlService openUrlService,
-            IIdentityService identityService)
+            IIdentityService identityService,
+            IUserService userService)
         {
             _openUrlService = openUrlService;
             _identityService = identityService;
+            _userService = userService;
 
-            _userName = new ValidatableObject<string>();
-            _password = new ValidatableObject<string>();
+            //_userName = new ValidatableObject<string>();
+            //_password = new ValidatableObject<string>();
 
             InvalidateMock();
-            AddValidations();
+            //AddValidations();
         }
 
-        public ValidatableObject<string> UserName
+        public string UserName
         {
             get
             {
@@ -56,7 +64,7 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
-        public ValidatableObject<string> Password
+        public string Password
         {
             get
             {
@@ -131,9 +139,9 @@ namespace Pasarela.Core.ViewModels
 
         public ICommand SettingsCommand => new Command(async () => await SettingsAsync());
 
-        public ICommand ValidateUserNameCommand => new Command(() => ValidateUserName());
+        //public ICommand ValidateUserNameCommand => new Command(() => ValidateUserName());
 
-        public ICommand ValidatePasswordCommand => new Command(() => ValidatePassword());
+        //public ICommand ValidatePasswordCommand => new Command(() => ValidatePassword());
 
         public override Task InitializeAsync(object navigationData)
         {
@@ -152,38 +160,19 @@ namespace Pasarela.Core.ViewModels
 
         private async Task MockSignInAsync()
         {
-            IsBusy = true;
-            IsValid = true;
-            bool isValid = Validate();
-            bool isAuthenticated = false;
-
-            if (isValid)
+            try
             {
-                try
-                {
-                    await Task.Delay(1000);
-
-                    isAuthenticated = true;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"[SignIn] Error signing in: {ex}");
-                }
-            }
-            else
-            {
-                IsValid = false;
-            }
-
-            if (isAuthenticated)
-            {
-                Settings.AuthAccessToken = GlobalSetting.Instance.AuthToken;
-
+                await _userService.GetUserInfoAsync(UserName, Password);
                 await NavigationService.NavigateToAsync<HomeViewModel>();
                 await NavigationService.RemoveLastFromBackStackAsync();
             }
+            catch (Exception ex)
+            {
+                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+            }
 
-            IsBusy = false;
+
+
         }
 
         private async Task SignInAsync()
@@ -257,29 +246,29 @@ namespace Pasarela.Core.ViewModels
             await NavigationService.NavigateToAsync<SettingsViewModel>();
         }
 
-        private bool Validate()
-        {
-            bool isValidUser = ValidateUserName();
-            bool isValidPassword = ValidatePassword();
+        //private bool Validate()
+        //{
+        //    bool isValidUser = ValidateUserName();
+        //    bool isValidPassword = ValidatePassword();
 
-            return isValidUser && isValidPassword;
-        }
+        //    return isValidUser && isValidPassword;
+        //}
 
-        private bool ValidateUserName()
-        {
-            return _userName.Validate();
-        }
+        //private bool ValidateUserName()
+        //{
+        //    return _userName.Validate();
+        //}
 
-        private bool ValidatePassword()
-        {
-            return _password.Validate();
-        }
+        //private bool ValidatePassword()
+        //{
+        //    return _password.Validate();
+        //}
 
-        private void AddValidations()
-        {
-            _userName.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ingrese su nombre de usuario." });
-            _password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ingrese su contraseña." });
-        }
+        //private void AddValidations()
+        //{
+        //    _userName.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ingrese su nombre de usuario." });
+        //    _password.Validations.Add(new IsNotNullOrEmptyRule<string> { ValidationMessage = "Ingrese su contraseña." });
+        //}
 
         public void InvalidateMock()
         {

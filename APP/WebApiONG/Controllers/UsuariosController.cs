@@ -18,22 +18,36 @@ namespace WebApiONG.Controllers
         private BDONGEntities db = new BDONGEntities();
 
         // GET: api/Usuarios
-        public IQueryable<Usuario> GetUsuario()
-        {
-            return db.Usuario;
-        }
+        //public IQueryable<Usuario> GetUsuario()
+        //{
+        //    return db.Usuario;
+        //}
 
-        // GET: api/Usuarios/5
-        [ResponseType(typeof(Usuario))]
-        public IHttpActionResult GetUsuario(int id)
+        [Route("api/Usuarios/Username/{username}/Password/{password}")]
+        public HttpResponseMessage GetUsuarioLogin(string username, string password)
         {
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
+            Usuario usuario = new Usuario();
+            UsuarioInfoModelDTO UsuarioInfoModelDTO = new UsuarioInfoModelDTO();
+            usuario = db.Usuario.Where(x => x.usuario1 == username && x.contraseña == password).FirstOrDefault();
+            if(usuario != null) { 
+            UsuarioInfoModelDTO.Id = usuario.cod_usu;
+            UsuarioInfoModelDTO.Name = usuario.nom_usu;
+            UsuarioInfoModelDTO.FirstLastName = usuario.ape_pat;
+            UsuarioInfoModelDTO.SecondLastName = usuario.ape_mat;
+            UsuarioInfoModelDTO.Address = usuario.dir_usu;
+            UsuarioInfoModelDTO.Phone = usuario.tel_usu;
+            UsuarioInfoModelDTO.Birthdate = (DateTime)usuario.fecha_nac;
+            UsuarioInfoModelDTO.UserName = usuario.usuario1;
+            UsuarioInfoModelDTO.Password = usuario.contraseña;
+            }
+            else
             {
-                return NotFound();
+                var message = string.Format("Usuario o contraseña incorrecto");
+
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
             }
 
-            return Ok(usuario);
+            return Request.CreateResponse(HttpStatusCode.OK, UsuarioInfoModelDTO);
         }
 
         // PUT: api/Usuarios/5
@@ -73,25 +87,23 @@ namespace WebApiONG.Controllers
 
         // POST: api/Usuarios
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult PostUsuario(UsuarioModelDTO usuario)
+        public HttpResponseMessage PostUsuario(UsuarioModelDTO usuario)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            db.Usuario.Add(new Usuario() { nom_usu=usuario.Name,ape_pat=usuario.FirstLastName,ape_mat=usuario.SecondLastName,dir_usu=usuario.Address,tel_usu=usuario.Phone,usuario1=usuario.UserName, fecha_nac=usuario.Birthdate,contraseña=usuario.Password });
-
-            try
+            var result = db.Usuario.Where(x => x.usuario1 == usuario.UserName);
+            if(result == null)
             {
+                db.Usuario.Add(new Usuario() { nom_usu = usuario.Name, ape_pat = usuario.FirstLastName, ape_mat = usuario.SecondLastName, dir_usu = usuario.Address, tel_usu = usuario.Phone, usuario1 = usuario.UserName, fecha_nac = usuario.Birthdate, contraseña = usuario.Password });
                 db.SaveChanges();
             }
-            catch (DbUpdateException e)
+            else
             {
-                e.GetBaseException();
+                var message = string.Format("El nombre de usuario ya esta en uso");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
             }
 
-            return CreatedAtRoute("DefaultApi", null, usuario);
+
+            return Request.CreateResponse(HttpStatusCode.OK, usuario);
         }
 
         // DELETE: api/Usuarios/5

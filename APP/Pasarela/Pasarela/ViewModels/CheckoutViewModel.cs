@@ -82,47 +82,47 @@ namespace Pasarela.Core.ViewModels
                 OrderItems = orderItems;
 
                 var authToken = Settings.AuthAccessToken;
-                var userInfo = await _userService.GetUserInfoAsync(authToken);
+                //var userInfo = await _userService.GetUserInfoAsync(authToken);
 
                 // Create Shipping Address
-                ShippingAddress = new Address
-                {
-                    Id = !string.IsNullOrEmpty(userInfo?.UserId) ? new Guid(userInfo.UserId) : Guid.NewGuid(),
-                    Street = userInfo?.Street,
-                    ZipCode = userInfo?.ZipCode,
-                    State = userInfo?.State,
-                    Country = userInfo?.Country,
-                    City = userInfo?.Address
-                };
+                //ShippingAddress = new Address
+                //{
+                //    Id = !string.IsNullOrEmpty(userInfo?.UserId) ? new Guid(userInfo.UserId) : Guid.NewGuid(),
+                //    Street = userInfo?.Street,
+                //    ZipCode = userInfo?.ZipCode,
+                //    State = userInfo?.State,
+                //    Country = userInfo?.Country,
+                //    City = userInfo?.Address
+                //};
 
-                // Create Payment Info
-                var paymentInfo = new PaymentInfo
-                {
-                    CardNumber = userInfo?.CardNumber,
-                    CardHolderName = userInfo?.CardHolder,
-                    CardType = new CardType { Id = 3, Name = "MasterCard" },
-                    SecurityNumber = userInfo?.CardSecurityNumber
-                };
+                //// Create Payment Info
+                //var paymentInfo = new PaymentInfo
+                //{
+                //    CardNumber = userInfo?.CardNumber,
+                //    CardHolderName = userInfo?.CardHolder,
+                //    CardType = new CardType { Id = 3, Name = "MasterCard" },
+                //    SecurityNumber = userInfo?.CardSecurityNumber
+                //};
 
-                // Create new Order
-                Order = new Order
-                {
-                    BuyerId = userInfo.UserId,
-                    OrderItems = CreateOrderItems(orderItems),
-                    State = OrderState.InProcess,
-                    OrderDate = DateTime.Now,
-                    CardHolderName = paymentInfo.CardHolderName,
-                    CardNumber = paymentInfo.CardNumber,
-                    CardSecurityNumber = paymentInfo.SecurityNumber,
-                    CardExpiration = DateTime.Now.AddYears(5),
-                    CardTypeId = paymentInfo.CardType.Id,
-                    ShippingState = _shippingAddress.State,
-                    ShippingCountry = _shippingAddress.Country,
-                    ShippingStreet = _shippingAddress.Street,
-                    ShippingCity = _shippingAddress.City,
-                    ShippingZipCode = _shippingAddress.ZipCode,
-                    Total = CalculateTotal(CreateOrderItems(orderItems))
-                };
+                //// Create new Order
+                //Order = new Order
+                //{
+                //    BuyerId = userInfo.UserId,
+                //    OrderItems = CreateOrderItems(orderItems),
+                //    State = OrderState.InProcess,
+                //    OrderDate = DateTime.Now,
+                //    CardHolderName = paymentInfo.CardHolderName,
+                //    CardNumber = paymentInfo.CardNumber,
+                //    CardSecurityNumber = paymentInfo.SecurityNumber,
+                //    CardExpiration = DateTime.Now.AddYears(5),
+                //    CardTypeId = paymentInfo.CardType.Id,
+                //    ShippingState = _shippingAddress.State,
+                //    ShippingCountry = _shippingAddress.Country,
+                //    ShippingStreet = _shippingAddress.Street,
+                //    ShippingCity = _shippingAddress.City,
+                //    ShippingZipCode = _shippingAddress.ZipCode,
+                //    Total = CalculateTotal(CreateOrderItems(orderItems))
+                //};
 
                 IsBusy = false;
             }

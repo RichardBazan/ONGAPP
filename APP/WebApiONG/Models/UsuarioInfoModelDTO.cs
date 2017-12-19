@@ -5,9 +5,10 @@ using System.Web;
 
 namespace WebApiONG.Models
 {
-    public class UsuarioModelDTO
+    public class UsuarioInfoModelDTO
     {
-        
+
+        public int Id;
 
         public string Name;
 

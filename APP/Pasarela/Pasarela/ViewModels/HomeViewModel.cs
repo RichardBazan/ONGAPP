@@ -1,6 +1,7 @@
 ﻿using Pasarela.Core.Extensions;
 using Pasarela.Core.Helpers;
 using Pasarela.Core.Models.Banner;
+using Pasarela.Core.Models.User;
 using Pasarela.Core.Services.Home;
 using Pasarela.Core.ViewModels.Base;
 using System;
@@ -37,7 +38,6 @@ namespace Pasarela.Core.ViewModels
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
-            var authToken = Settings.AuthAccessToken;
             var banner = await _homeService.GetBannerAsync();
             Banner = banner.ToObservableCollection();
             IsBusy = false;

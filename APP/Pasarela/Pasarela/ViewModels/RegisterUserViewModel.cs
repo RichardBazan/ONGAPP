@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Pasarela.Core.ViewModels
 {
-    public class RegisterUserViewModel: ViewModelBase
+    public class RegisterUserViewModel : ViewModelBase
     {
 
         private string _name;
@@ -23,6 +23,7 @@ namespace Pasarela.Core.ViewModels
         private DateTime _birthdate;
         private string _user;
         private string _password;
+        private string _passwordConfirm;
         private IUserService _userService;
 
         public RegisterUserViewModel(IUserService userService)
@@ -110,6 +111,15 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public string PasswordConfirm
+        {
+            get { return _passwordConfirm; }
+            set
+            {
+                _passwordConfirm = value;
+                RaisePropertyChanged(() => PasswordConfirm);
+            }
+        }
         void DatePicker_DateSelected()
         {
 
@@ -133,28 +143,45 @@ namespace Pasarela.Core.ViewModels
 
         private async Task SaveAsync()
         {
-            try
+
+            if (Password == PasswordConfirm && Password != null)
             {
-                var saveUser = new User()
+                if (Name != null && FirstLastName != null && SecondLastName != null && Address != null && Phone != null && User != null && Password != null && Name != "" && FirstLastName != "" && SecondLastName != "" && Address != "" && Phone != "" && User != "" && Password != "")
                 {
-                    Name = Name,
-                    FirstLastName=FirstLastName,
-                    SecondLastName=SecondLastName,
-                    Birthdate=Birthdate,
-                    Address = Address,
-                    Phone = Phone,
-                    UserName= User,
-                    Password=Password
-                };
-                await _userService.SaveUserAsync(saveUser);
-                await DialogService.ShowAlertAsync("Se registro con éxito", Constants.MessageTitle.Message, Constants.MessageButton.OK);
-                await NavigationService.NavigateBack(false);
+                    try
+                    {
+                        var saveUser = new User()
+                        {
+                            Name = Name,
+                            FirstLastName = FirstLastName,
+                            SecondLastName = SecondLastName,
+                            Birthdate = Birthdate,
+                            Address = Address,
+                            Phone = Phone,
+                            UserName = User,
+                            Password = Password
+                        };
+
+                        await _userService.SaveUserAsync(saveUser);
+                        await DialogService.ShowAlertAsync("Se registro con éxito", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                        await NavigationService.NavigateBack(false);
+                    }
+                    catch (Exception ex)
+                    {
+                        await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                    }
+
+                }
+                else
+                {
+                    await DialogService.ShowAlertAsync("Complete todos los campos para poder registrarse", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync("Las contraseñas no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
         }
-
     }
 }
+

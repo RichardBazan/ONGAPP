@@ -43,9 +43,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\Base\BindableBehavior.cs" />
+    <Compile Include="Behaviors\ConfirmPasswordBehavior.cs" />
     <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\LineColorBehavior.cs" />
+    <Compile Include="Behaviors\RequiredValidatorBehavior.cs" />
     <Compile Include="Controls\CustomTabbedPage.cs" />
     <Compile Include="Controls\ExtendedViewCell.cs" />
     <Compile Include="Controls\Shape.cs" />

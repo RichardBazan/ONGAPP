@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using Pasarela.Core.Models.User;
+using Pasarela.Core.Models.Common;
 
 namespace Pasarela.Core.Services.User
 {
@@ -26,6 +27,14 @@ namespace Pasarela.Core.Services.User
 
             return userInfo;
 
+        }
+
+        public async Task<UserInfo> GetUserInfoAsync(string username, string password)
+        {
+            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.UsuarioEndPoint,
+            string.Format(Constants.Parameters.USERNAME+ "/{0}" + Constants.Parameters.PASSWORD + "/{1}", username,password));
+            var user = await _requestProvider.GetAsync<UserInfo>(uri);
+            return user;
         }
 
         public async Task<Models.User.User> SaveUserAsync(Models.User.User _saveUser)

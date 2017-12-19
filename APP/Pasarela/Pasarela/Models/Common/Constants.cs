@@ -67,6 +67,13 @@ namespace Pasarela.Core.Models.Common
             public const string COUPON = "coupon-images";
         }
 
+        public struct Parameters
+        {
+            public const string USERNAME = "/Username";
+
+            public const string PASSWORD = "/Password";
+        }
+
         public struct MethodsService
         {
             /* Photo by complaints*/
