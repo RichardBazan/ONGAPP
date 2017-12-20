@@ -21,7 +21,7 @@ namespace Pasarela.Core.Services.Complaints
         public async Task<List<Models.Complaints.Complaints>> GetAllComplaintsAsync()
         {
             string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.DenunciaEndpoint,
-            string.Format(Constants.MethodsService.METHOD_ALL_COMPLAINTS));
+            string.Format(Constants.MethodsService.METHOD_COMPLAINTS));
             var listComplaints = await _requestProvider.GetAsync<List<Models.Complaints.Complaints>>(uri);
             return listComplaints;
         }

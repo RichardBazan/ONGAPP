@@ -91,24 +91,30 @@ namespace WebApiONG.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, ListMascotaModelDTO);
         }
 
-        // GET: api/Mascotas
-        public IQueryable<Mascota> GetMascota()
+        [Route("api/Mascotas/GetAllDogs")]
+        public HttpResponseMessage GetAllDogs()
         {
-            return db.Mascota;
-        }
+            List<MascotaModelDTO> ListMascotaModelDTO = new List<MascotaModelDTO>();
+            List<Mascota> ListMascota = new List<Mascota>();
+            ListMascota = db.Mascota.ToList();
 
-        // GET: api/Mascotas/5
-        [ResponseType(typeof(Mascota))]
-        public IHttpActionResult GetMascota(int id)
-        {
-            Mascota mascota = db.Mascota.Find(id);
-            if (mascota == null)
+            foreach (var item in ListMascota)
             {
-                return NotFound();
+                var listFotoDB = db.Foto_Mascota.Where(x => x.cod_mas == item.cod_mas).ToList();
+                List<FotoMascotaModelDTO> listFotoDTO = new List<FotoMascotaModelDTO>();
+                foreach (var i in listFotoDB)
+                {
+                    listFotoDTO.Add(new FotoMascotaModelDTO()
+                    {
+                        IdPhoto = i.cod_foto_mas,
+                        Photo = i.foto
+                    });
+                }
+                ListMascotaModelDTO.Add(new MascotaModelDTO() { Id = item.cod_mas, Name = item.nom_mas, Description = item.descrip_mas, Breed = item.Raza.nom_raza, Tenure = item.tenencia, State = item.estado_mas, Photos = listFotoDTO });
             }
-
-            return Ok(mascota);
+            return Request.CreateResponse(HttpStatusCode.OK, ListMascotaModelDTO);
         }
+
 
         // PUT: api/Mascotas/5
         public bool PutMascota(int id, EstadoMascotaModelDTO estadoMascota)

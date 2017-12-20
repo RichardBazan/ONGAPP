@@ -25,6 +25,7 @@
           <Property Name="tel_cont" Type="varchar" MaxLength="50" />
           <Property Name="descrip_casa" Type="varchar(max)" />
           <Property Name="fecha_reg" Type="date" />
+          <Property Name="estado_casa" Type="varchar" MaxLength="50" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Comentario">
@@ -561,6 +562,7 @@
           <Property Name="tel_cont" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="descrip_casa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="fecha_reg" Type="DateTime" Precision="0" />
+          <Property Name="estado_casa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__CasaRefug__cod_u__30F848ED" FromRole="CasaRefugio" ToRole="Usuario" />
           <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_c__36B12243" FromRole="CasaRefugio" ToRole="Donaciones" />
@@ -950,6 +952,7 @@
             <EntityTypeMapping TypeName="BDONGModel.CasaRefugio">
               <MappingFragment StoreEntitySet="CasaRefugio">
                 <ScalarProperty Name="cod_usu" ColumnName="cod_usu" />
+                <ScalarProperty Name="estado_casa" ColumnName="estado_casa" />
                 <ScalarProperty Name="fecha_reg" ColumnName="fecha_reg" />
                 <ScalarProperty Name="descrip_casa" ColumnName="descrip_casa" />
                 <ScalarProperty Name="tel_cont" ColumnName="tel_cont" />

@@ -28,7 +28,7 @@ namespace Pasarela.Core.Services.ShelterHouse
         {
             string uri = GlobalSetting.Instance.CasaRefugioEndPoint;
             //string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.CasaRefugioEndPoint,
-            //string.Format(Constants.MethodsService.METHOD_ALL_SHELTERHOUSE));
+            //string.Format(Constants.MethodsService.METHOD_SHELTERHOUSE));
             var listShelterHouse = await _requestProvider.GetAsync<List<Models.ShelterHouse.ShelterHouse>>(uri);
             return listShelterHouse;
         }

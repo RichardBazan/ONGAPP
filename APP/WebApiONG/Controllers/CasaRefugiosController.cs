@@ -17,12 +17,14 @@ namespace WebApiONG.Controllers
     {
         private BDONGEntities db = new BDONGEntities();
 
-        //[Route("api/CasaRefugios/GetAllShelterHouse")]
-        public HttpResponseMessage GetAllShelterHouse()
+        //[Route("api/CasaRefugios/GetShelterHouse")]
+        public HttpResponseMessage GetShelterHouse()
         {
             List<CasaRefugioModelDTO> ListCasaRefugioModelDTO = new List<CasaRefugioModelDTO>();
+            List<CasaRefugio> ListCasaRegufio = new List<CasaRefugio>();
+            ListCasaRegufio = db.CasaRefugio.Where(c => c.estado_casa.Equals("Confirmada")).ToList();
 
-            foreach (var i in db.CasaRefugio.ToList())
+            foreach (var i in ListCasaRegufio)
             {
                 var listFotoDB = db.Foto_CasaRefugio.Where(x => x.cod_casa == i.cod_casa).ToList();
                 List<FotoCasaRefugioModelDTO> listFotoDTO = new List<FotoCasaRefugioModelDTO>();
@@ -41,6 +43,39 @@ namespace WebApiONG.Controllers
                     Description = i.descrip_casa,
                     Address = i.dir_casa,
                     Phone= i.tel_cont,
+                    Photos = listFotoDTO
+                });
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, ListCasaRefugioModelDTO);
+        }
+
+        [Route("api/CasaRefugios/GetAllShelterHouse")]
+        public HttpResponseMessage GetAllShelterHouse()
+        {
+            List<CasaRefugioModelDTO> ListCasaRefugioModelDTO = new List<CasaRefugioModelDTO>();
+            List<CasaRefugio> ListCasaRegufio = new List<CasaRefugio>();
+            ListCasaRegufio = db.CasaRefugio.ToList();
+
+            foreach (var i in ListCasaRegufio)
+            {
+                var listFotoDB = db.Foto_CasaRefugio.Where(x => x.cod_casa == i.cod_casa).ToList();
+                List<FotoCasaRefugioModelDTO> listFotoDTO = new List<FotoCasaRefugioModelDTO>();
+                foreach (var item in listFotoDB)
+                {
+                    listFotoDTO.Add(new FotoCasaRefugioModelDTO()
+                    {
+                        IdPhoto = item.cod_foto_casa,
+                        Photo = item.foto
+                    });
+                }
+                ListCasaRefugioModelDTO.Add(new CasaRefugioModelDTO()
+                {
+                    Id = i.cod_casa,
+                    Name = i.nom_casa,
+                    Description = i.descrip_casa,
+                    Address = i.dir_casa,
+                    Phone = i.tel_cont,
                     Photos = listFotoDTO
                 });
             }

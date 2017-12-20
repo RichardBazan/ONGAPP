@@ -17,12 +17,45 @@ namespace WebApiONG.Controllers
     {
         private BDONGEntities db = new BDONGEntities();
 
-        [Route("api/Denuncias/GetAllComplaints")]
+        [Route("api/Denuncias/GetComplaints")]
         public HttpResponseMessage GetMaltrato()
         {
             List<DenunciaModelDTO> ListMaltratoModelDTO = new List<DenunciaModelDTO>();
+            List<Denuncia> ListDenuncia = new List<Denuncia>();
+            ListDenuncia = db.Denuncia.Where(c => c.estado_den.Equals("En tratamiento")).ToList();
 
-            foreach (var i in db.Denuncia.ToList())
+            foreach (var i in ListDenuncia)
+            {
+                var listFotoDB = db.Foto_Denuncia.Where(x => x.cod_den == i.cod_den).ToList();
+                List<FotoDenunciaModelDTO> listFotoDTO = new List<FotoDenunciaModelDTO>();
+                foreach (var item in listFotoDB)
+                {
+                    listFotoDTO.Add(new FotoDenunciaModelDTO()
+                    {
+                        IdPhoto = item.cod_foto_den,
+                        Photo = item.foto
+                    });
+                }
+                ListMaltratoModelDTO.Add(new DenunciaModelDTO()
+                {
+                    Id = i.cod_den,
+                    Title = i.titulo_den,
+                    Description = i.descrip_den,
+                    Photos = listFotoDTO
+                });
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, ListMaltratoModelDTO);
+        }
+
+        [Route("api/Denuncias/GetAllComplaints")]
+        public HttpResponseMessage GetAllMaltrato()
+        {
+            List<DenunciaModelDTO> ListMaltratoModelDTO = new List<DenunciaModelDTO>();
+            List<Denuncia> ListDenuncia = new List<Denuncia>();
+            ListDenuncia = db.Denuncia.ToList();
+
+            foreach (var i in ListDenuncia)
             {
                 var listFotoDB = db.Foto_Denuncia.Where(x => x.cod_den == i.cod_den).ToList();
                 List<FotoDenunciaModelDTO> listFotoDTO = new List<FotoDenunciaModelDTO>();

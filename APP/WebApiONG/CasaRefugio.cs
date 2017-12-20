@@ -27,6 +27,7 @@ namespace WebApiONG
         public string tel_cont { get; set; }
         public string descrip_casa { get; set; }
         public Nullable<System.DateTime> fecha_reg { get; set; }
+        public string estado_casa { get; set; }
         public int cod_usu { get; set; }
     
         public virtual Usuario Usuario { get; set; }

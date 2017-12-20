@@ -89,9 +89,9 @@ namespace WebApiONG.Controllers
         [ResponseType(typeof(Usuario))]
         public HttpResponseMessage PostUsuario(UsuarioModelDTO usuario)
         {
-
-            var result = db.Usuario.Where(x => x.usuario1 == usuario.UserName);
-            if(result == null)
+            Usuario usu = new Usuario();
+            usu = db.Usuario.Where(x => x.usuario1 == usuario.UserName).FirstOrDefault();
+            if(usu == null)
             {
                 db.Usuario.Add(new Usuario() { nom_usu = usuario.Name, ape_pat = usuario.FirstLastName, ape_mat = usuario.SecondLastName, dir_usu = usuario.Address, tel_usu = usuario.Phone, usuario1 = usuario.UserName, fecha_nac = usuario.Birthdate, contraseña = usuario.Password });
                 db.SaveChanges();

@@ -85,6 +85,9 @@ namespace Pasarela.Core.Models.Common
             /*All Complaints*/
             public const string METHOD_ALL_COMPLAINTS = "/GetAllComplaints";
 
+            /*Complaints*/
+            public const string METHOD_COMPLAINTS = "/GetComplaints";
+
             /*Complaints by user*/
             public const string METHOD_COMPLAINTS_USER = "/GetComplaintByUser";
 
@@ -99,6 +102,9 @@ namespace Pasarela.Core.Models.Common
 
             /*All ShelterHouse*/
             public const string METHOD_ALL_SHELTERHOUSE = "/GetAllShelterHouse";
+
+            /*ShelterHouse*/
+            public const string METHOD_SHELTERHOUSE = "/GetShelterHouse";
 
             /*ShelterHouse by user*/
             public const string METHOD_SHELTERHOUSE_USER = "/GetShelterHouseByUser";
