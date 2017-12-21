@@ -41,6 +41,9 @@ namespace WebApiONG.Controllers
                     Id = i.cod_den,
                     Title = i.titulo_den,
                     Description = i.descrip_den,
+                    Address = i.dir_den,
+                    Phone = i.tel_cont,
+                    Breed = i.Raza.nom_raza,
                     Photos = listFotoDTO
                 });
             }
@@ -72,6 +75,9 @@ namespace WebApiONG.Controllers
                     Id = i.cod_den,
                     Title = i.titulo_den,
                     Description = i.descrip_den,
+                    Address = i.dir_den,
+                    Phone = i.tel_cont,
+                    Breed = i.Raza.nom_raza,
                     Photos = listFotoDTO
                 });
             }
@@ -79,12 +85,42 @@ namespace WebApiONG.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, ListMaltratoModelDTO);
         }
 
-        [Route("api/Denuncias/{userId}/GetComplaintByUser")]
-        public HttpResponseMessage GetCommentByComplaint(int userId)
+        //[Route("api/Denuncias/{userId}/GetComplaintByUser")]
+        //public HttpResponseMessage GetCommentByComplaint(int userId)
+        //{
+        //    List<DenunciaModelDTO> ListMaltratoModelDTO = new List<DenunciaModelDTO>();
+        //    List<Denuncia> ListMaltrato = new List<Denuncia>();
+        //    ListMaltrato = db.Denuncia.Where(m => m.cod_usu == userId).ToList();
+
+        //    foreach (var i in ListMaltrato)
+        //    {
+        //        var listFotoDB = db.Foto_Denuncia.Where(x => x.cod_den == i.cod_den).ToList();
+        //        List<FotoDenunciaModelDTO> listFotoDTO = new List<FotoDenunciaModelDTO>();
+        //        foreach (var item in listFotoDB)
+        //        {
+        //            listFotoDTO.Add(new FotoDenunciaModelDTO()
+        //            {
+        //                IdPhoto = item.cod_foto_den,
+        //                Photo = item.foto
+        //            });
+        //        }
+        //        ListMaltratoModelDTO.Add(new DenunciaModelDTO()
+        //        {
+        //            Id = i.cod_den,
+        //            Title = i.titulo_den,
+        //            Description = i.descrip_den,
+        //            Photos = listFotoDTO
+        //        });
+        //    }
+        //    return Request.CreateResponse(HttpStatusCode.OK, ListMaltratoModelDTO);
+        //}
+
+        [Route("api/Denuncias/GetComplaintResolve")]
+        public HttpResponseMessage GetComplaintResolve()
         {
             List<DenunciaModelDTO> ListMaltratoModelDTO = new List<DenunciaModelDTO>();
             List<Denuncia> ListMaltrato = new List<Denuncia>();
-            ListMaltrato = db.Denuncia.Where(m => m.cod_usu == userId).ToList();
+            ListMaltrato = db.Denuncia.Where(d => d.estado_den == "Solucionada").ToList();
 
             foreach (var i in ListMaltrato)
             {
@@ -98,10 +134,14 @@ namespace WebApiONG.Controllers
                         Photo = item.foto
                     });
                 }
-                ListMaltratoModelDTO.Add(new DenunciaModelDTO() {
+                ListMaltratoModelDTO.Add(new DenunciaModelDTO()
+                {
                     Id = i.cod_den,
                     Title = i.titulo_den,
                     Description = i.descrip_den,
+                    Address=i.dir_den,
+                    Phone=i.tel_cont,
+                    Breed=i.Raza.nom_raza,
                     Photos = listFotoDTO
                 });
             }
@@ -123,19 +163,10 @@ namespace WebApiONG.Controllers
 
         // PUT: api/Maltratos/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutMaltrato(int id, Denuncia denuncia)
+        public bool PutMaltrato(int id, EstadoDenunciaModelDTO estadoDenuncia)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != denuncia.cod_den)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(denuncia).State = EntityState.Modified;
+            var entity = db.Denuncia.Where(d => d.cod_den == id).FirstOrDefault();
+            entity.estado_den = estadoDenuncia.State;
 
             try
             {
@@ -145,15 +176,14 @@ namespace WebApiONG.Controllers
             {
                 if (!MaltratoExists(id))
                 {
-                    return NotFound();
+                    return false;
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return true;
         }
 
 
@@ -165,7 +195,7 @@ namespace WebApiONG.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Denuncia.Add(new Denuncia() { titulo_den = denuncia.Title,cod_raza = denuncia.IdBreed,  descrip_den = denuncia.Description, fecha_reg = DateTime.Now, dir_den = denuncia.Address, tel_cont = denuncia.Phone, estado_den=denuncia.State, cod_usu = denuncia.IdUser });
+            db.Denuncia.Add(new Denuncia() { titulo_den = denuncia.Title,cod_raza = denuncia.IdBreed,  descrip_den = denuncia.Description, fecha_reg = DateTime.Now, dir_den = denuncia.Address, tel_cont = denuncia.Phone, estado_den="En evaluacion", cod_usu = denuncia.IdUser });
 
             try
             {

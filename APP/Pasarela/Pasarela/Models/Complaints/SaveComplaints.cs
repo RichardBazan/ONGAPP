@@ -14,7 +14,6 @@ namespace Pasarela.Core.Models.Complaints
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Description { get; set; }
-        public string State { get; set; }
         public int IdUser { get; set; }
         //public List<PhotoShelterHouse.PhotoShelterHouse> Photos { get; set; }
 

@@ -22,7 +22,7 @@ namespace Pasarela.Core.Services.Complaints
             return MockListComplaints;
         }
 
-        public Task<List<Models.Complaints.Complaints>> GetComplaintsByUserAsync(int userId)
+        public Task<List<Models.Complaints.Complaints>> GetComplaintsResolveAsync()
         {
             throw new NotImplementedException();
         }

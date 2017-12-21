@@ -26,12 +26,12 @@ namespace Pasarela.Core.Services.Complaints
             return listComplaints;
         }
 
-        public async Task<List<Models.Complaints.Complaints>> GetComplaintsByUserAsync(int userId)
+        public async Task<List<Models.Complaints.Complaints>> GetComplaintsResolveAsync()
         {
             string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.DenunciaEndpoint,
-            string.Format("/{0}" + Constants.MethodsService.METHOD_COMPLAINTS_USER, userId));
-            var listComplaintsByUser = await _requestProvider.GetAsync<List<Models.Complaints.Complaints>>(uri);
-            return listComplaintsByUser;
+            string.Format(Constants.MethodsService.METHOD_COMPLAINTS_RESOLVE));
+            var listComplaintsResolve = await _requestProvider.GetAsync<List<Models.Complaints.Complaints>>(uri);
+            return listComplaintsResolve;
         }
 
         public async Task<SaveComplaints> SaveComplaintsAsync(SaveComplaints _saveComplaints)

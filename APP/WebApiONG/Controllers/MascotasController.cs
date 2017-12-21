@@ -120,7 +120,7 @@ namespace WebApiONG.Controllers
         public bool PutMascota(int id, EstadoMascotaModelDTO estadoMascota)
         {
 
-            var entity = db.Mascota.FirstOrDefault(m => m.cod_mas == id);
+            var entity = db.Mascota.Where(m => m.cod_mas == id).FirstOrDefault();
             entity.estado_mas = estadoMascota.State;
 
             try

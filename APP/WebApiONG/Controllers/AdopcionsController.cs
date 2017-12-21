@@ -38,19 +38,10 @@ namespace WebApiONG.Controllers
 
         // PUT: api/Adopcions/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAdopcion(int id, Adopcion adopcion)
+        public bool PutAdopcion(int id, EstadoAdopcionModelDTO estadoAdopcion)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != adopcion.cod_adop)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(adopcion).State = EntityState.Modified;
+            var entity = db.Adopcion.Where(m => m.cod_mas == id).FirstOrDefault();
+            entity.estado_adop = estadoAdopcion.State;
 
             try
             {
@@ -60,15 +51,14 @@ namespace WebApiONG.Controllers
             {
                 if (!AdopcionExists(id))
                 {
-                    return NotFound();
+                    return false;
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return true;
         }
 
         // POST: api/Adopcions

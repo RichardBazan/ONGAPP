@@ -89,7 +89,7 @@ namespace Pasarela.Core.Models.Common
             public const string METHOD_COMPLAINTS = "/GetComplaints";
 
             /*Complaints by user*/
-            public const string METHOD_COMPLAINTS_USER = "/GetComplaintByUser";
+            public const string METHOD_COMPLAINTS_RESOLVE = "/GetComplaintResolve";
 
             /*Dogs adopt ONG*/
             public const string METHOD_DOGS_ADOPT_ONG = "/GetDogsAdoptONG";

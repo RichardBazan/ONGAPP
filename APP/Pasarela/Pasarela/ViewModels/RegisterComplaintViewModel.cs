@@ -112,7 +112,6 @@ namespace Pasarela.Core.ViewModels
                     IdBreed = SelectedBreed.Id,
                     Title = Title,
                     Description = Description,
-                    State = "1",
                     Address = Address,
                     Phone = Phone,
                 };

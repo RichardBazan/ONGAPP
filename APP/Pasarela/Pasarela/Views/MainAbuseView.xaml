@@ -8,7 +8,7 @@
              BarBackgroundColor="#A2D0B7">
 
     <views:MyComplaintsView  x:Name="MyComplaintsView">
-        <views:MyComplaintsView.Title>Mis denuncias</views:MyComplaintsView.Title>
+        <views:MyComplaintsView.Title>Denuncias Resueltas</views:MyComplaintsView.Title>
         <views:MyComplaintsView.Icon>
             <OnPlatform 
                 x:TypeArguments="FileImageSource"

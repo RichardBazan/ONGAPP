@@ -18,27 +18,23 @@ namespace WebApiONG.Controllers
         private BDONGEntities db = new BDONGEntities();
 
         // GET: api/Usuarios
-        //public IQueryable<Usuario> GetUsuario()
-        //{
-        //    return db.Usuario;
-        //}
-
         [Route("api/Usuarios/Username/{username}/Password/{password}")]
         public HttpResponseMessage GetUsuarioLogin(string username, string password)
         {
             Usuario usuario = new Usuario();
             UsuarioInfoModelDTO UsuarioInfoModelDTO = new UsuarioInfoModelDTO();
             usuario = db.Usuario.Where(x => x.usuario1 == username && x.contraseña == password).FirstOrDefault();
-            if(usuario != null) { 
-            UsuarioInfoModelDTO.Id = usuario.cod_usu;
-            UsuarioInfoModelDTO.Name = usuario.nom_usu;
-            UsuarioInfoModelDTO.FirstLastName = usuario.ape_pat;
-            UsuarioInfoModelDTO.SecondLastName = usuario.ape_mat;
-            UsuarioInfoModelDTO.Address = usuario.dir_usu;
-            UsuarioInfoModelDTO.Phone = usuario.tel_usu;
-            UsuarioInfoModelDTO.Birthdate = (DateTime)usuario.fecha_nac;
-            UsuarioInfoModelDTO.UserName = usuario.usuario1;
-            UsuarioInfoModelDTO.Password = usuario.contraseña;
+            if (usuario != null)
+            {
+                UsuarioInfoModelDTO.Id = usuario.cod_usu;
+                UsuarioInfoModelDTO.Name = usuario.nom_usu;
+                UsuarioInfoModelDTO.FirstLastName = usuario.ape_pat;
+                UsuarioInfoModelDTO.SecondLastName = usuario.ape_mat;
+                UsuarioInfoModelDTO.Address = usuario.dir_usu;
+                UsuarioInfoModelDTO.Phone = usuario.tel_usu;
+                UsuarioInfoModelDTO.Birthdate = (DateTime)usuario.fecha_nac;
+                UsuarioInfoModelDTO.UserName = usuario.usuario1;
+                UsuarioInfoModelDTO.Password = usuario.contraseña;
             }
             else
             {
@@ -49,6 +45,8 @@ namespace WebApiONG.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, UsuarioInfoModelDTO);
         }
+
+
 
         // PUT: api/Usuarios/5
         [ResponseType(typeof(void))]

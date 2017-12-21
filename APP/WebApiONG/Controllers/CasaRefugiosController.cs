@@ -118,19 +118,10 @@ namespace WebApiONG.Controllers
 
         // PUT: api/CasaRefugios/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCasaRefugio(int id, CasaRefugio casaRefugio)
+        public bool PutCasaRefugio(int id, EstadoCasaRefugioModelDTO estadoCasaRefugio)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != casaRefugio.cod_casa)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(casaRefugio).State = EntityState.Modified;
+            var entity = db.CasaRefugio.Where(c => c.cod_casa == id).FirstOrDefault();
+            entity.estado_casa = estadoCasaRefugio.State;
 
             try
             {
@@ -140,15 +131,14 @@ namespace WebApiONG.Controllers
             {
                 if (!CasaRefugioExists(id))
                 {
-                    return NotFound();
+                    return false;
                 }
                 else
                 {
                     throw;
                 }
             }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return true;
         }
 
 
@@ -160,7 +150,7 @@ namespace WebApiONG.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.CasaRefugio.Add(new CasaRefugio() {nom_casa= casaRefugio.Name, descrip_casa = casaRefugio.Description, fecha_reg=DateTime.Now ,dir_casa=casaRefugio.Address, tel_cont = casaRefugio.Phone, cod_usu=casaRefugio.IdUser});
+            db.CasaRefugio.Add(new CasaRefugio() {nom_casa= casaRefugio.Name, descrip_casa = casaRefugio.Description, fecha_reg=DateTime.Now ,dir_casa=casaRefugio.Address, estado_casa="En evaluacion",tel_cont = casaRefugio.Phone, cod_usu=casaRefugio.IdUser});
 
             try
             {

@@ -17,8 +17,6 @@ namespace WebApiONG.Models
 
         public string Phone;
 
-        public string State;
-
         public string Description;
 
         public int IdUser;
