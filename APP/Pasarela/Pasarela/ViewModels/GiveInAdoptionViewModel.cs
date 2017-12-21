@@ -134,7 +134,7 @@ namespace Pasarela.Core.ViewModels
             {
                 var saveDog = new SaveDog()
                 {
-                    IdUser = 2,
+                    IdUser = GlobalSetting.UserInfo.Id,
                     IdBreed = SelectedBreed.Id,
                     Name = Name,
                     Description = Description,
@@ -146,7 +146,7 @@ namespace Pasarela.Core.ViewModels
 
                 var saveGiveInAdoption = new GiveInAdoption()
                 {
-                    IdUser = 2
+                    IdUser = GlobalSetting.UserInfo.Id
                 };
                 await _giveInAdoptionService.SaveGiveInAdoptionAsync(saveGiveInAdoption);
 

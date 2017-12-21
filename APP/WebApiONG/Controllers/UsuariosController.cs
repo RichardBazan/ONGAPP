@@ -24,25 +24,24 @@ namespace WebApiONG.Controllers
             Usuario usuario = new Usuario();
             UsuarioInfoModelDTO UsuarioInfoModelDTO = new UsuarioInfoModelDTO();
             usuario = db.Usuario.Where(x => x.usuario1 == username && x.contraseña == password).FirstOrDefault();
-            if (usuario != null)
-            {
-                UsuarioInfoModelDTO.Id = usuario.cod_usu;
-                UsuarioInfoModelDTO.Name = usuario.nom_usu;
-                UsuarioInfoModelDTO.FirstLastName = usuario.ape_pat;
-                UsuarioInfoModelDTO.SecondLastName = usuario.ape_mat;
-                UsuarioInfoModelDTO.Address = usuario.dir_usu;
-                UsuarioInfoModelDTO.Phone = usuario.tel_usu;
-                UsuarioInfoModelDTO.Birthdate = (DateTime)usuario.fecha_nac;
-                UsuarioInfoModelDTO.UserName = usuario.usuario1;
-                UsuarioInfoModelDTO.Password = usuario.contraseña;
-            }
-            else
-            {
-                var message = string.Format("Usuario o contraseña incorrecto");
+                if (usuario != null)
+                {
+                    UsuarioInfoModelDTO.Id = usuario.cod_usu;
+                    UsuarioInfoModelDTO.Name = usuario.nom_usu;
+                    UsuarioInfoModelDTO.FirstLastName = usuario.ape_pat;
+                    UsuarioInfoModelDTO.SecondLastName = usuario.ape_mat;
+                    UsuarioInfoModelDTO.Address = usuario.dir_usu;
+                    UsuarioInfoModelDTO.Phone = usuario.tel_usu;
+                    UsuarioInfoModelDTO.Birthdate = (DateTime)usuario.fecha_nac;
+                    UsuarioInfoModelDTO.UserName = usuario.usuario1;
+                    UsuarioInfoModelDTO.Password = usuario.contraseña;
+                }
+                else
+                {
+                    var message = string.Format("Usuario o contraseña incorrecto");
 
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
-            }
-
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                }
             return Request.CreateResponse(HttpStatusCode.OK, UsuarioInfoModelDTO);
         }
 
@@ -89,7 +88,7 @@ namespace WebApiONG.Controllers
         {
             Usuario usu = new Usuario();
             usu = db.Usuario.Where(x => x.usuario1 == usuario.UserName).FirstOrDefault();
-            if(usu == null)
+            if (usu == null)
             {
                 db.Usuario.Add(new Usuario() { nom_usu = usuario.Name, ape_pat = usuario.FirstLastName, ape_mat = usuario.SecondLastName, dir_usu = usuario.Address, tel_usu = usuario.Phone, usuario1 = usuario.UserName, fecha_nac = usuario.Birthdate, contraseña = usuario.Password });
                 db.SaveChanges();

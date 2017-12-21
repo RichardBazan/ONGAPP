@@ -53,7 +53,7 @@ namespace Pasarela.Core.ViewModels
             {
                 var saveAdoption = new Adoption()
                 {
-                    IdUser = 2,
+                    IdUser = GlobalSetting.UserInfo.Id,
                     IdDog = Dog.Id
                 };
                 await _adoptionService.SaveAdoptionAsync(saveAdoption);

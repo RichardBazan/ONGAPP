@@ -108,7 +108,7 @@ namespace Pasarela.Core.ViewModels
                 var saveComplaints = new SaveComplaints()
                 {
                     
-                    IdUser = 2,
+                    IdUser = GlobalSetting.UserInfo.Id,
                     IdBreed = SelectedBreed.Id,
                     Title = Title,
                     Description = Description,

@@ -99,7 +99,7 @@ namespace Pasarela.Core.ViewModels
             {
                 var saveShelterHouse = new SaveShelterHouse()
                 {
-                    IdUser = 2,
+                    IdUser = GlobalSetting.UserInfo.Id,
                     Name = Name,
                     Description = Description,
                     Address=Address,

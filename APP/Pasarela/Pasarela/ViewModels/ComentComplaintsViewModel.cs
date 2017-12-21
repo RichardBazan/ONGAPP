@@ -102,7 +102,7 @@ namespace Pasarela.Core.ViewModels
             {
                 var saveComment = new Comment()
                 {
-                    UserId=2,
+                    UserId= GlobalSetting.UserInfo.Id,
                     ComplaintId= Complaint.Id,
                     Description= Comment
                 };

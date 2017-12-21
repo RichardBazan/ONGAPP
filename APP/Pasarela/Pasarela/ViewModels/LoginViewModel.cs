@@ -162,9 +162,15 @@ namespace Pasarela.Core.ViewModels
         {
             try
             {
-                await _userService.GetUserInfoAsync(UserName, Password);
+                if(UserName!= null && Password != null && UserName != "" && Password != "") { 
+                GlobalSetting.UserInfo = await _userService.GetUserInfoAsync(UserName, Password);
                 await NavigationService.NavigateToAsync<HomeViewModel>();
                 await NavigationService.RemoveLastFromBackStackAsync();
+                }
+                else
+                {
+                    await DialogService.ShowAlertAsync("Ingrese su nombre de usuario y contraseña", Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                }
             }
             catch (Exception ex)
             {

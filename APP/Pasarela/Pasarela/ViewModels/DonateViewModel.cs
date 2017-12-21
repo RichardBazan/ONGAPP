@@ -167,7 +167,7 @@ namespace Pasarela.Core.ViewModels
                 var saveDonate = new SaveDonate()
                 {
                     IdShelterHouse = ShelterHouse.Id,
-                    IdUser = 2
+                    IdUser = GlobalSetting.UserInfo.Id
                     //ListProducts= ListProductDonate.ToList()
                 };
                 await _donateService.SaveDonateAsync(saveDonate);

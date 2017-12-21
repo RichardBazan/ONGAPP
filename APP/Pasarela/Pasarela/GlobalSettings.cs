@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pasarela.Core.Models.User;
+using System;
 
 namespace Pasarela.Core
 {
@@ -11,6 +12,7 @@ namespace Pasarela.Core
 
         private string _baseEndpoint;
         private static readonly GlobalSetting _instance = new GlobalSetting();
+        private static UserInfo _userInfo;
 
         public GlobalSetting()
         {
@@ -21,6 +23,18 @@ namespace Pasarela.Core
         public static GlobalSetting Instance
         {
             get { return _instance; }
+        }
+
+        public static UserInfo UserInfo
+        {
+            get
+            {
+                return _userInfo;
+            }
+            set
+            {
+                _userInfo = value;
+            }
         }
 
         public string BaseEndpoint
