@@ -7,37 +7,49 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
         <StackLayout>
-            <Grid Margin="10" RowSpacing="7">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition Height="170"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="{Binding Dog.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <cv:CarouselView Grid.Row="1" ItemsSource="{Binding Dog.Photos}">
-                    <cv:CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <Image Aspect="AspectFit" Source="{Binding Photo}"/>
-                        </DataTemplate>
-                    </cv:CarouselView.ItemTemplate>
-                </cv:CarouselView>
-                <Label Grid.Row="2" Text="{Binding Dog.Breed}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <Label Grid.Row="3" Text="{Binding Dog.Description}" FontSize="15"></Label>
-                <Grid Grid.Row="4" IsVisible="{Binding Visible}">
+            <ScrollView>
+                <Grid Margin="10" RowSpacing="7">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Text="ADOPTAR" Command="{Binding AdoptCommand}" BackgroundColor="#93B7DC"></Button>
-                    <Button Grid.Column="1" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="170"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Text="{Binding Dog.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                    <cv:CarouselView Grid.Row="1" ItemsSource="{Binding Dog.Photos}">
+                        <cv:CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Aspect="AspectFit" Source="{Binding Photo}"/>
+                            </DataTemplate>
+                        </cv:CarouselView.ItemTemplate>
+                    </cv:CarouselView>
+                    <Label Grid.Row="2" Text="{Binding Dog.Breed}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center"></Label>
+                    <StackLayout Grid.Row="3" HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label Text="Edad:" FontSize="20" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Dog.Age}" FontSize="16" VerticalOptions="End"></Label>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" HorizontalOptions="Center" Orientation="Horizontal">
+                        <Label Text="Sexo:" FontSize="20" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                        <Label Text="{Binding Dog.Gender}" FontSize="16" VerticalOptions="End"></Label>
+                    </StackLayout>
+                    <Label Grid.Row="5" Text="{Binding Dog.Description}" FontSize="15"></Label>
+                    <Grid Grid.Row="6" IsVisible="{Binding Visible}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Text="ADOPTAR" Command="{Binding AdoptCommand}" BackgroundColor="#93B7DC"></Button>
+                        <Button Grid.Column="1" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
+                    </Grid>
+                    <Button Grid.Row="6" IsVisible="{Binding Visible, Converter={StaticResource InverseBoolConverter}}" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
                 </Grid>
-                <Button Grid.Row="4" IsVisible="{Binding Visible, Converter={StaticResource InverseBoolConverter}}" Text="CANCELAR" Command="{Binding CancelCommand}" BackgroundColor="#93B7DC"></Button>
-            </Grid>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

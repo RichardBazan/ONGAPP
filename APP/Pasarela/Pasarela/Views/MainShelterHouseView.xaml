@@ -7,14 +7,14 @@
              viewModelBase:ViewModelLocator.AutoWireViewModel="true"
              BarBackgroundColor="#a18e7e">
 
-    <views:MyShelterHouseView  x:Name="MyShelterHouseView">
+    <!--<views:MyShelterHouseView  x:Name="MyShelterHouseView">
         <views:MyShelterHouseView.Title>Mis registros</views:MyShelterHouseView.Title>
         <views:MyShelterHouseView.Icon>
             <OnPlatform 
                 x:TypeArguments="FileImageSource"
                 iOS="ic_tab_bar_favoritos"/>
         </views:MyShelterHouseView.Icon>
-    </views:MyShelterHouseView>
+    </views:MyShelterHouseView>-->
 
     <views:RegisterShelterHouseView x:Name="RegisterShelterHouseView">
         <views:RegisterShelterHouseView.Title>Registrar casa refugio</views:RegisterShelterHouseView.Title>

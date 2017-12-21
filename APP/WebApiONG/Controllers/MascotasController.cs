@@ -62,7 +62,7 @@ namespace WebApiONG.Controllers
                         Photo = i.foto
                     });
                 }
-                ListMascotaModelDTO.Add(new MascotaModelDTO() { Id = item.cod_mas, Name = item.nom_mas, Description = item.descrip_mas, Breed = item.Raza.nom_raza, Tenure = item.tenencia, State = item.estado_mas, Photos = listFotoDTO });
+                ListMascotaModelDTO.Add(new MascotaModelDTO() { Id = item.cod_mas, Name = item.nom_mas, Description = item.descrip_mas, Breed = item.Raza.nom_raza, Tenure = item.tenencia, Age = item.edad_mas, Gender = item.sexo_mas, State = item.estado_mas, Photos = listFotoDTO });
             }
             return Request.CreateResponse(HttpStatusCode.OK, ListMascotaModelDTO);
         }
@@ -86,7 +86,7 @@ namespace WebApiONG.Controllers
                         Photo = i.foto
                     });
                 }
-                ListMascotaModelDTO.Add(new MascotaModelDTO() { Id = item.cod_mas, Name = item.nom_mas, Description = item.descrip_mas, Breed = item.Raza.nom_raza,Tenure=item.tenencia, State=item.estado_mas, Photos = listFotoDTO });
+                ListMascotaModelDTO.Add(new MascotaModelDTO() { Id = item.cod_mas, Name = item.nom_mas, Description = item.descrip_mas, Breed = item.Raza.nom_raza,Tenure=item.tenencia,Age=item.edad_mas,Gender=item.sexo_mas, State=item.estado_mas, Photos = listFotoDTO });
             }
             return Request.CreateResponse(HttpStatusCode.OK, ListMascotaModelDTO);
         }

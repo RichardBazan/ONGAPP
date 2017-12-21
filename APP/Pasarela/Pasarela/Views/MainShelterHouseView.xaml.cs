@@ -27,19 +27,19 @@ namespace Pasarela.Core.Views
             {
                 switch (arg)
                 {
+                    //case 0:
+                    //    CurrentPage = MyShelterHouseView;
+                    //    break;
                     case 0:
-                        CurrentPage = MyShelterHouseView;
-                        break;
-                    case 1:
                         CurrentPage = RegisterShelterHouseView;
                         break;
-                    case 2:
+                    case 1:
                         CurrentPage = AllShelterHouseView;
                         break;
                 }
             });
 
-            await ((MyShelterHouseViewModel)MyShelterHouseView.BindingContext).InitializeAsync(null);
+            //await ((MyShelterHouseViewModel)MyShelterHouseView.BindingContext).InitializeAsync(null);
             await ((RegisterShelterHouseViewModel)RegisterShelterHouseView.BindingContext).InitializeAsync(null);
             await ((AllShelterHouseViewModel)AllShelterHouseView.BindingContext).InitializeAsync(null);
         }
