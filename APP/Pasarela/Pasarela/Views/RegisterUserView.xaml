@@ -47,7 +47,8 @@
                     <Entry Grid.Column="1" Grid.Row="6" Text="{Binding User}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="7" Text="{Binding Password}" IsPassword="true"></Entry>
                     <Entry Grid.Column="1" Grid.Row="8" Text="{Binding PasswordConfirm}" IsPassword="true"></Entry>
-                    <Image Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" Source="ic_camera.png"></Image>
+                    <Button x:Name="takePhoto" Grid.Column="0" Grid.Row="9" Text="Camara"></Button>
+                    <Image x:Name="image" Grid.Column="1" Grid.Row="9"></Image>
                     <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>

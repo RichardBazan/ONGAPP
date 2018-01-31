@@ -11,6 +11,8 @@ using Acr.UserDialogs;
 using FFImageLoading.Forms.Droid;
 using Android.Content;
 using FFImageLoading;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 
 namespace Pasarela.Droid
 {
@@ -22,8 +24,6 @@ namespace Pasarela.Droid
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
     {
-
-
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -60,6 +60,11 @@ namespace Pasarela.Droid
             ImageService.Instance.InvalidateMemoryCache();
             GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);
             base.OnTrimMemory(level);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

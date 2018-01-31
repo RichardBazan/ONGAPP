@@ -20,7 +20,7 @@ namespace Pasarela
 
             InitApp();
 
-            if (Device.RuntimePlatform == Device.Windows)
+            if (Device.RuntimePlatform == Device.WinPhone)
             {
                 InitNavigation();
             }
@@ -42,7 +42,7 @@ namespace Pasarela
         {
             base.OnStart();
 
-            if (Device.RuntimePlatform != Device.Windows)
+            if (Device.RuntimePlatform != Device.WinPhone)
             {
                 await InitNavigation();
             }
