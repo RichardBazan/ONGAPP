@@ -21,6 +21,7 @@ namespace WebApiONG
         }
     
         public int cod_don { get; set; }
+        public string estado_don { get; set; }
         public int cod_casa { get; set; }
         public int cod_usu { get; set; }
     

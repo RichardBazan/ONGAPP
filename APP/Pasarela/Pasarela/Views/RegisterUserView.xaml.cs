@@ -30,8 +30,9 @@ namespace Pasarela.Core.Views
                 var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
                     Directory = "Sample",
-                    Name = "test.jpg"
-                });
+                    Name = Guid.NewGuid().ToString()
+                    
+            });
 
                 if (file == null)
                     return;

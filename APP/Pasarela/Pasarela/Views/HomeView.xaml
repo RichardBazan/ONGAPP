@@ -17,7 +17,7 @@
                     <RowDefinition Height="150"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <syncfusion:SfRotator x:Name="rotator" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                <!--<syncfusion:SfRotator x:Name="rotator" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
                                   NavigationDelay="2000" ItemsSource="{Binding Banner}" SelectedIndex="2" NavigationDirection="Horizontal" 
                                   EnableAutoPlay="False" EnableLooping="False" 
                                   NavigationStripMode="Dots" BackgroundColor="#ececec" NavigationStripPosition="Bottom">
@@ -33,7 +33,7 @@
                             </ffimageloading:CachedImage>
                         </DataTemplate>
                     </syncfusion:SfRotator.ItemTemplate>
-                </syncfusion:SfRotator>
+                </syncfusion:SfRotator>-->
                 <StackLayout Grid.Row="1" Grid.Column="0" Margin="4,0,4,0">
                     <Grid>
                         <Grid.ColumnDefinitions>

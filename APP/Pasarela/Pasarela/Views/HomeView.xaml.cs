@@ -71,15 +71,15 @@ namespace Pasarela.Core.Views
         {
             InitializeComponent();
 
-            // static for banner
-            if (!HomeView.ALREADY_INSTANCED)
-            {
-                HomeView.CURRENT_ROTATORS = new List<BannerRotatorSimulator>();
-                HomeView.ALREADY_INSTANCED = true;
-            }
+            //// static for banner
+            //if (!HomeView.ALREADY_INSTANCED)
+            //{
+            //    HomeView.CURRENT_ROTATORS = new List<BannerRotatorSimulator>();
+            //    HomeView.ALREADY_INSTANCED = true;
+            //}
 
-            HomeView.REMOVE_LAST_SIMULATOR();
-            HomeView.CURRENT_ROTATORS.Add(BannerRotatorSimulator.Create(this.rotator));
+            //HomeView.REMOVE_LAST_SIMULATOR();
+            //HomeView.CURRENT_ROTATORS.Add(BannerRotatorSimulator.Create(this.rotator));
         }
 
         #region Static Methods

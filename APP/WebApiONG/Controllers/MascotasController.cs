@@ -23,7 +23,7 @@ namespace WebApiONG.Controllers
         {
             List<MascotaModelDTO> ListMascotaModelDTO = new List<MascotaModelDTO>();
             List<Mascota> ListMascota = new List<Mascota>();
-            ListMascota = db.Mascota.Where(c => c.estado_mas.Equals("En Adopcion") && c.tenencia.Equals("ONG")).ToList();
+            ListMascota = db.Mascota.Where(c => c.estado_mas.Equals("En adopcion") && c.tenencia.Equals("ONG")).ToList();
 
             foreach (var item in ListMascota)
             {
@@ -48,7 +48,7 @@ namespace WebApiONG.Controllers
         {
             List<MascotaModelDTO> ListMascotaModelDTO = new List<MascotaModelDTO>();
             List<Mascota> ListMascota = new List<Mascota>();
-            ListMascota = db.Mascota.Where(c => c.estado_mas.Equals("En Adopcion") && c.tenencia.Equals("Usuario")).ToList();
+            ListMascota = db.Mascota.Where(c => c.estado_mas.Equals("En adopcion") && c.tenencia.Equals("Usuario")).ToList();
 
             foreach (var item in ListMascota)
             {

@@ -15,19 +15,19 @@ namespace Pasarela.Core.Services.User
             _requestProvider = requestProvider;
         }
 
-        public async Task<UserInfo> GetUserInfoAsync(string authToken)
-        {
+        //public async Task<UserInfo> GetUserInfoAsync(string authToken)
+        //{
 
-            UriBuilder builder = new UriBuilder(GlobalSetting.Instance.UserInfoEndpoint);
+        //    UriBuilder builder = new UriBuilder(GlobalSetting.Instance.UserInfoEndpoint);
 
-            string uri = builder.ToString();
+        //    string uri = builder.ToString();
 
-            var userInfo =
-                await _requestProvider.GetAsync<UserInfo>(uri, authToken);
+        //    var userInfo =
+        //        await _requestProvider.GetAsync<UserInfo>(uri, authToken);
 
-            return userInfo;
+        //    return userInfo;
 
-        }
+        //}
 
         public async Task<UserInfo> GetUserInfoAsync(string username, string password)
         {

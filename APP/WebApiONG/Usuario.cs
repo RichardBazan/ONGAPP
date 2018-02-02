@@ -36,6 +36,7 @@ namespace WebApiONG
         public string usuario1 { get; set; }
         public string contraseña { get; set; }
         public string foto_usu { get; set; }
+        public string pertenencia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Adopcion> Adopcion { get; set; }

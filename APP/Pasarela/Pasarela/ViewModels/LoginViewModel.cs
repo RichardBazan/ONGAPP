@@ -165,7 +165,7 @@ namespace Pasarela.Core.ViewModels
                 if(UserName!= null && Password != null && UserName != "" && Password != "") { 
                 GlobalSetting.UserInfo = await _userService.GetUserInfoAsync(UserName, Password);
                 await NavigationService.NavigateToAsync<HomeViewModel>();
-                await NavigationService.RemoveLastFromBackStackAsync();
+                //await NavigationService.RemoveLastFromBackStackAsync();
                 }
                 else
                 {
