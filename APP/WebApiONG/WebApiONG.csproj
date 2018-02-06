@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -205,6 +206,7 @@
     <Compile Include="Controllers\DarAdopcionsController.cs" />
     <Compile Include="Controllers\DonacionesController.cs" />
     <Compile Include="Controllers\DonacionProductoesController.cs" />
+    <Compile Include="Controllers\Foto_CasaRefugioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DenunciasController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
@@ -268,6 +270,7 @@
     <Compile Include="Models\EstadoDenunciaModelDTO.cs" />
     <Compile Include="Models\EstadoMascotaModelDTO.cs" />
     <Compile Include="Models\FotoCasaRefugioModelDTO.cs" />
+    <Compile Include="Models\FotoCasaRefugioModelPostDTO.cs" />
     <Compile Include="Models\FotoDenunciaModelDTO.cs" />
     <Compile Include="Models\DenunciaModelDTO.cs" />
     <Compile Include="Models\FotoMascotaModelDTO.cs" />

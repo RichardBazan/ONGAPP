@@ -1,4 +1,5 @@
-﻿using Pasarela.Core.Models.ShelterHouse;
+﻿using Pasarela.Core.Models.PhotoShelterHouse;
+using Pasarela.Core.Models.ShelterHouse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace Pasarela.Core.Services.ShelterHouse
         Task<List<Models.ShelterHouse.ShelterHouse>> GetShelterHouseByUserAsync(int userId);
 
         Task<SaveShelterHouse> SaveShelterHouseAsync(SaveShelterHouse _saveShelterHouse);
+
+        Task<SavePhotoShelterHouse> SavePhotoShelterHouseAsync(SavePhotoShelterHouse _savePhotoShelterHouse);
 
     }
 }

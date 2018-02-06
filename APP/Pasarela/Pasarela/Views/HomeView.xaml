@@ -47,7 +47,7 @@
                         <controls:ShapeView Grid.Row="0" Grid.Column="0" Color="#93B7DC" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
                         <StackLayout Grid.Row="0" Grid.Column="0" HeightRequest="172" Spacing="0">
                             <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
-                            <Image Source="adopcion"></Image>
+                            <Image Source="{Binding adopcion}"></Image>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding AdoptionCommand}" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>

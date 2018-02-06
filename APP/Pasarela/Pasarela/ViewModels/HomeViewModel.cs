@@ -7,7 +7,9 @@ using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,11 +17,11 @@ using Xamarin.Forms;
 
 namespace Pasarela.Core.ViewModels
 {
-    public class HomeViewModel: ViewModelBase
+    public class HomeViewModel : ViewModelBase
     {
         private ObservableCollection<Banner> _banner;
         private IHomeService _homeService;
-
+        private ImageSource _photoUser;
         public HomeViewModel(IHomeService homeService)
         {
             _homeService = homeService;
@@ -35,11 +37,26 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public ImageSource PhotoUser
+        {
+            get { return _photoUser; }
+            set
+            {
+                _photoUser = value;
+                RaisePropertyChanged(() => PhotoUser);
+            }
+        }
+
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
             var banner = await _homeService.GetBannerAsync();
             Banner = banner.ToObservableCollection();
+            string p = GlobalSetting.UserInfo.Photo;
+            p = p.Substring(23);
+            var bytes = Convert.FromBase64String(p);
+            Stream contents = new MemoryStream(bytes);
+            PhotoUser = ImageSource.FromStream(() => { return contents; });
             IsBusy = false;
         }
 
@@ -78,7 +95,7 @@ namespace Pasarela.Core.ViewModels
             await NavigationService.NavigateToAsync<GiveInAdoptionViewModel>();
             IsBusy = false;
         }
-        
+
 
     }
 }

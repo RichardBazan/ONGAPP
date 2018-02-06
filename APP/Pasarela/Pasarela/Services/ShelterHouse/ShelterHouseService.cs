@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Pasarela.Core.Models.ShelterHouse;
 using Pasarela.Core.Models.Common;
 using Pasarela.Core.Services.RequestProvider;
+using Pasarela.Core.Models.PhotoShelterHouse;
 
 namespace Pasarela.Core.Services.ShelterHouse
 {
@@ -48,5 +49,11 @@ namespace Pasarela.Core.Services.ShelterHouse
             return saveShelterHouse;
         }
 
+        public async Task<SavePhotoShelterHouse> SavePhotoShelterHouseAsync(SavePhotoShelterHouse _savePhotoShelterHouse)
+        {
+            string uri = GlobalSetting.Instance.FotoCasaRefugioEndPoint;
+            var savePhotoShelterHouse = await _requestProvider.PostAsync<SavePhotoShelterHouse>(uri, _savePhotoShelterHouse).ConfigureAwait(false);
+            return savePhotoShelterHouse;
+        }
     }
 }

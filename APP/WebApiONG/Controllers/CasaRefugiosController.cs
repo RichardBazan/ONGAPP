@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -150,7 +151,12 @@ namespace WebApiONG.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.CasaRefugio.Add(new CasaRefugio() {nom_casa= casaRefugio.Name, descrip_casa = casaRefugio.Description, fecha_reg=DateTime.Now ,dir_casa=casaRefugio.Address, estado_casa="En evaluacion",tel_cont = casaRefugio.Phone, cod_usu=casaRefugio.IdUser});
+            db.CasaRefugio.Add(new CasaRefugio() {nom_casa= casaRefugio.Name, descrip_casa = casaRefugio.Description, fecha_reg=DateTime.Now ,dir_casa=casaRefugio.Address, estado_casa="En evaluacion",tel_cont = casaRefugio.Phone, cod_usu=casaRefugio.IdUser });
+            //var idCasaRefugio = db.CasaRefugio.Max(x => x.cod_casa);
+            //foreach (var item in casaRefugio.Photos)  
+            //{
+            //    db.Foto_CasaRefugio.Add(new Foto_CasaRefugio() { foto = item.Photo, cod_casa = idCasaRefugio });
+            //};
 
             try
             {

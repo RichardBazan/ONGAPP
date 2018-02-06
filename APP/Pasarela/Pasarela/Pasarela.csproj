@@ -64,6 +64,7 @@
     <Compile Include="Converters\ToUpperConverter.cs" />
     <Compile Include="Converters\WebNavigatedEventArgsConverter.cs" />
     <Compile Include="Converters\WebNavigatingEventArgsConverter.cs" />
+    <Compile Include="Helpers\MessageHelper.cs" />
     <Compile Include="Interfaces\IPageLifeCylceEvents.cs" />
     <Compile Include="Models\Adoption\Adoption.cs" />
     <Compile Include="Models\Banner\Banner.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Models\PhotoComplaints\PhotoComplaints.cs" />
     <Compile Include="Models\PhotoDog\PhotoDog.cs" />
     <Compile Include="Models\PhotoShelterHouse\PhotoShelterHouse.cs" />
+    <Compile Include="Models\PhotoShelterHouse\SavePhotoShelterHouse.cs" />
     <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\ShelterHouse\SaveShelterHouse.cs" />
     <Compile Include="Models\ShelterHouse\ShelterHouse.cs" />

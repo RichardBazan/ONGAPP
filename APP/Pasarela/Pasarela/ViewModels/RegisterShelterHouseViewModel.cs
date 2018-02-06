@@ -1,9 +1,13 @@
-﻿using Pasarela.Core.Models.Common;
+﻿using Pasarela.Core.Helpers;
+using Pasarela.Core.Models.Common;
+using Pasarela.Core.Models.PhotoShelterHouse;
 using Pasarela.Core.Models.ShelterHouse;
 using Pasarela.Core.Services.ShelterHouse;
 using Pasarela.Core.ViewModels.Base;
+using Pasarela.Core.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +25,9 @@ namespace Pasarela.Core.ViewModels
         private string _description;
         private SaveShelterHouse _saveShelterHouse;
         private IShelterHouseService _shelterHouseService;
+        private List<PhotoShelterHouse> _photosShelterHouse;
+        public static RegisterShelterHouseViewModel OLD_INSTANCE;
+        public string photoShelterHouse;
 
         public RegisterShelterHouseViewModel(IShelterHouseService shelterHouseService)
         {
@@ -77,9 +84,41 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
-        public override Task InitializeAsync(object navigationData)
+        public List<PhotoShelterHouse> PhotosShelterHouse
         {
-            return base.InitializeAsync(navigationData);
+            get { return _photosShelterHouse; }
+            set
+            {
+                _photosShelterHouse = value;
+                RaisePropertyChanged(() => PhotosShelterHouse);
+            }
+        }
+
+        public List<PhotoShelterHouse> ImageUser(string photo)
+        {
+            photoShelterHouse = photo;
+            PhotosShelterHouse.Add(new PhotoShelterHouse { Photo = photoShelterHouse});
+            return PhotosShelterHouse;
+        }
+
+        public override async Task InitializeAsync(object navigationData)
+        {
+            if (OLD_INSTANCE != null)
+            {
+                MessagingCenter.Unsubscribe<RegisterShelterHouseView, string>(OLD_INSTANCE, MessageKeys.SendData);
+            }
+
+            MessagingCenter.Subscribe<RegisterShelterHouseView, string>(this, MessageKeys.SendData, (sender, args) =>
+            {
+                ImageUser(args);
+            });
+        }
+
+        public ICommand CameraCommand => new Command(async () => await CameraAsync());
+
+        private async Task CameraAsync()
+        {
+            MessageHelper.OpenCameraMessage();
         }
 
         public ICommand CancelCommand => new Command(async () => await CancelAsync());
@@ -106,6 +145,11 @@ namespace Pasarela.Core.ViewModels
                     Phone=Phone
                 };
                 await _shelterHouseService.SaveShelterHouseAsync(saveShelterHouse);
+                var savePhotoShelterHouse = new SavePhotoShelterHouse()
+                {
+                    Photos= PhotosShelterHouse
+                };
+                await _shelterHouseService.SavePhotoShelterHouseAsync(savePhotoShelterHouse);
                 await DialogService.ShowAlertAsync("Se registro con éxito la casa refugio", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
             }

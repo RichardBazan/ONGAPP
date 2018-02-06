@@ -25,5 +25,7 @@ namespace WebApiONG.Models
 
         public string Password;
 
+        public string Photo;
+
     }
 }

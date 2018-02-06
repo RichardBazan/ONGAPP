@@ -19,7 +19,7 @@ namespace WebApiONG.Models
 
         public int IdUser;
 
-        //public List<FotoCasaRefugioModelDTO> Photos;
+        //public List<FotoCasaRefugioModelPostDTO> Photos;
 
     }
 }

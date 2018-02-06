@@ -1,7 +1,9 @@
-﻿using Pasarela.Core.Models.Common;
+﻿using Pasarela.Core.Helpers;
+using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.User;
 using Pasarela.Core.Services.User;
 using Pasarela.Core.ViewModels.Base;
+using Pasarela.Core.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,8 @@ namespace Pasarela.Core.ViewModels
         private string _password;
         private string _passwordConfirm;
         private IUserService _userService;
+        public static RegisterUserViewModel OLD_INSTANCE;
+        public string photoUser;
 
         public RegisterUserViewModel(IUserService userService)
         {
@@ -125,9 +129,30 @@ namespace Pasarela.Core.ViewModels
 
         }
 
-        public override Task InitializeAsync(object navigationData)
+        public string ImageUser(string photo)
         {
-            return base.InitializeAsync(navigationData);
+            photoUser = photo;
+            return photoUser;
+        }
+
+        public override async Task InitializeAsync(object navigationData)
+        {
+            if (OLD_INSTANCE != null)
+            {
+                MessagingCenter.Unsubscribe<RegisterUserView, string>(OLD_INSTANCE, MessageKeys.SendData);
+            }
+
+            MessagingCenter.Subscribe<RegisterUserView, string>(this, MessageKeys.SendData, (sender, args) =>
+            {
+                ImageUser(args);
+            });
+        }
+
+        public ICommand CameraCommand => new Command(async () => await CameraAsync());
+
+        private async Task CameraAsync()
+        {
+            MessageHelper.OpenCameraMessage();
         }
 
         public ICommand CancelCommand => new Command(async () => await CancelAsync());
@@ -150,6 +175,7 @@ namespace Pasarela.Core.ViewModels
                 {
                     try
                     {
+
                         var saveUser = new User()
                         {
                             Name = Name,
@@ -159,7 +185,8 @@ namespace Pasarela.Core.ViewModels
                             Address = Address,
                             Phone = Phone,
                             UserName = User,
-                            Password = Password
+                            Password = Password,
+                            Photo = photoUser
                         };
 
                         await _userService.SaveUserAsync(saveUser);

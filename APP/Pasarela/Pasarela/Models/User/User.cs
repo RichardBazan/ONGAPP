@@ -25,5 +25,7 @@ namespace Pasarela.Core.Models.User
 
         public string Password { get; set; }
 
+        public string Photo { get; set; }
+
     }
 }

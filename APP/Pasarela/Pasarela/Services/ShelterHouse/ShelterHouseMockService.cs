@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Pasarela.Core.Models.PhotoShelterHouse;
 using Pasarela.Core.Models.ShelterHouse;
 
 namespace Pasarela.Core.Services.ShelterHouse
@@ -29,6 +30,11 @@ namespace Pasarela.Core.Services.ShelterHouse
         }
 
         public Task<List<Models.ShelterHouse.ShelterHouse>> GetShelterHouseByUserAsync(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<SavePhotoShelterHouse> SavePhotoShelterHouseAsync(SavePhotoShelterHouse _savePhotoShelterHouse)
         {
             throw new NotImplementedException();
         }
