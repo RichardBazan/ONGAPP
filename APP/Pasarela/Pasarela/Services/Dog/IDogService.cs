@@ -1,4 +1,5 @@
 ﻿using Pasarela.Core.Models.Dog;
+using Pasarela.Core.Models.PhotoDog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,6 @@ namespace Pasarela.Core.Services.Dog
 
         Task<bool> StateDogAsync(int id, Models.StateDog.StateDog _stateDog);
 
-
+        Task<List<SavePhotoDog>> SavePhotoDogAsync(List<SavePhotoDog> _savePhotoDog);
     }
 }

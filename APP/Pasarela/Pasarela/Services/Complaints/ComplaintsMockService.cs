@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pasarela.Core.Models.Complaints;
+using Pasarela.Core.Models.PhotoComplaints;
 
 namespace Pasarela.Core.Services.Complaints
 {
@@ -28,6 +29,11 @@ namespace Pasarela.Core.Services.Complaints
         }
 
         public Task<SaveComplaints> SaveComplaintsAsync(SaveComplaints _saveComplaints)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<SavePhotoComplaints>> SavePhotoComplaintsAsync(List<SavePhotoComplaints> _savePhotoComplaints)
         {
             throw new NotImplementedException();
         }

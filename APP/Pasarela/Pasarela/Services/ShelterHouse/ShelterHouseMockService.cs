@@ -39,6 +39,11 @@ namespace Pasarela.Core.Services.ShelterHouse
             throw new NotImplementedException();
         }
 
+        public Task<List<SavePhotoShelterHouse>> SavePhotoShelterHouseAsync(List<SavePhotoShelterHouse> _savePhotoShelterHouse)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<SaveShelterHouse> SaveShelterHouseAsync(SaveShelterHouse _saveShelterHouse)
         {
             throw new NotImplementedException();

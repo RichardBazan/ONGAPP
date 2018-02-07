@@ -1,4 +1,5 @@
 ﻿using Pasarela.Core.Models.Complaints;
+using Pasarela.Core.Models.PhotoComplaints;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Pasarela.Core.Services.Complaints
 
         Task<SaveComplaints> SaveComplaintsAsync(SaveComplaints _saveComplaints);
 
+        Task<List<SavePhotoComplaints>> SavePhotoComplaintsAsync(List<SavePhotoComplaints> _savePhotoComplaints);
     }
 }

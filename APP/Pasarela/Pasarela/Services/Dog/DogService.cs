@@ -7,6 +7,7 @@ using Pasarela.Core.Models.Dog;
 using Pasarela.Core.Models.Common;
 using Pasarela.Core.Services.RequestProvider;
 using Pasarela.Core.Models.StateDog;
+using Pasarela.Core.Models.PhotoDog;
 
 namespace Pasarela.Core.Services.Dog
 {
@@ -61,6 +62,13 @@ namespace Pasarela.Core.Services.Dog
             string.Format("/{0}", id.ToString()));
             var stateDog = await _requestProvider.PutAsync<StateDog>(uri, _stateDog).ConfigureAwait(false);
             return stateDog;
+        }
+
+        public async Task<List<SavePhotoDog>> SavePhotoDogAsync(List<SavePhotoDog> _savePhotoDog)
+        {
+            string uri = GlobalSetting.Instance.FotoMascotaEndPoint;
+            var savePhotoShelterHouse = await _requestProvider.PostAsync<List<SavePhotoDog>>(uri, _savePhotoDog).ConfigureAwait(false);
+            return savePhotoShelterHouse;
         }
     }
 }

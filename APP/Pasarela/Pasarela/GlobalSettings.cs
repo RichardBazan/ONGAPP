@@ -76,6 +76,8 @@ namespace Pasarela.Core
         public string MascotaEndPoint { get; set; }
         public string CasaRefugioEndPoint { get; set; }
         public string FotoCasaRefugioEndPoint { get; set; }
+        public string FotoDenunciaEndPoint { get; set; }
+        public string FotoMascotaEndPoint { get; set; }
         public string DonacionEndPoint { get; set; }
         public string ProductoEndPoint { get; set; }
         public string RazaEndPoint { get; set; }
@@ -111,6 +113,8 @@ namespace Pasarela.Core
             DonacionProductoEndPoint = string.Format("{0}/DonacionProductoes", baseEndpoint);
             AdopcionEndPoint = string.Format("{0}/Adopcions", baseEndpoint);
             UsuarioEndPoint = string.Format("{0}/Usuarios", baseEndpoint);
+            FotoDenunciaEndPoint = string.Format("{0}/Foto_Denuncia", baseEndpoint);
+            FotoMascotaEndPoint = string.Format("{0}/Foto_Mascota", baseEndpoint);
         }
 
         public string MakeURI(string EndPoint, string Path, string Query = "")

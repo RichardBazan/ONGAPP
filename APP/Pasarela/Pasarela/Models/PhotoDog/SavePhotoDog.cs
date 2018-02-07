@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pasarela.Core.Models.PhotoShelterHouse
+namespace Pasarela.Core.Models.PhotoDog
 {
-    public class SavePhotoShelterHouse
+    public class SavePhotoDog
     {
         public string Photo { get; set; }
     }

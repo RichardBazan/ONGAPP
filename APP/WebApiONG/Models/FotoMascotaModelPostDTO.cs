@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApiONG.Models
 {
-    public class FotoCasaRefugioModelPostDTO
+    public class FotoMascotaModelPostDTO
     {
         public string Photo;
     }

@@ -19,7 +19,7 @@ namespace Pasarela.Core.Services.ShelterHouse
 
         Task<SaveShelterHouse> SaveShelterHouseAsync(SaveShelterHouse _saveShelterHouse);
 
-        Task<SavePhotoShelterHouse> SavePhotoShelterHouseAsync(SavePhotoShelterHouse _savePhotoShelterHouse);
+        Task<List<SavePhotoShelterHouse>> SavePhotoShelterHouseAsync(List<SavePhotoShelterHouse> _savePhotoShelterHouse);
 
     }
 }

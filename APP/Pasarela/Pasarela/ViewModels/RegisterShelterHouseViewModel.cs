@@ -25,7 +25,7 @@ namespace Pasarela.Core.ViewModels
         private string _description;
         private SaveShelterHouse _saveShelterHouse;
         private IShelterHouseService _shelterHouseService;
-        private List<PhotoShelterHouse> _photosShelterHouse;
+        private List<SavePhotoShelterHouse> _photosShelterHouse = new List<SavePhotoShelterHouse>();
         public static RegisterShelterHouseViewModel OLD_INSTANCE;
         public string photoShelterHouse;
 
@@ -84,7 +84,7 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
-        public List<PhotoShelterHouse> PhotosShelterHouse
+        public List<SavePhotoShelterHouse> PhotosShelterHouse
         {
             get { return _photosShelterHouse; }
             set
@@ -94,12 +94,12 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
-        public List<PhotoShelterHouse> ImageUser(string photo)
+        public string ImageUser(string photo)
         {
             photoShelterHouse = photo;
-            PhotosShelterHouse.Add(new PhotoShelterHouse { Photo = photoShelterHouse});
-            return PhotosShelterHouse;
+            return photoShelterHouse;
         }
+
 
         public override async Task InitializeAsync(object navigationData)
         {
@@ -108,9 +108,11 @@ namespace Pasarela.Core.ViewModels
                 MessagingCenter.Unsubscribe<RegisterShelterHouseView, string>(OLD_INSTANCE, MessageKeys.SendData);
             }
 
+            //OLD_INSTANCE = this;
+
             MessagingCenter.Subscribe<RegisterShelterHouseView, string>(this, MessageKeys.SendData, (sender, args) =>
             {
-                ImageUser(args);
+                PhotosShelterHouse.Add(new SavePhotoShelterHouse { Photo = args });
             });
         }
 
@@ -141,15 +143,15 @@ namespace Pasarela.Core.ViewModels
                     IdUser = GlobalSetting.UserInfo.Id,
                     Name = Name,
                     Description = Description,
-                    Address=Address,
-                    Phone=Phone
+                    Address = Address,
+                    Phone = Phone
                 };
                 await _shelterHouseService.SaveShelterHouseAsync(saveShelterHouse);
-                var savePhotoShelterHouse = new SavePhotoShelterHouse()
-                {
-                    Photos= PhotosShelterHouse
-                };
-                await _shelterHouseService.SavePhotoShelterHouseAsync(savePhotoShelterHouse);
+                //var savePhotoShelterHouse = new List<SavePhotoShelterHouse>()
+                //{
+                //    Photo= PhotosShelterHouse
+                //};
+                await _shelterHouseService.SavePhotoShelterHouseAsync(PhotosShelterHouse);
                 await DialogService.ShowAlertAsync("Se registro con éxito la casa refugio", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
             }

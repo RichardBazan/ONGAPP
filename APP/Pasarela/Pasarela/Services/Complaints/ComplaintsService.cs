@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Pasarela.Core.Models.Complaints;
 using Pasarela.Core.Services.RequestProvider;
 using Pasarela.Core.Models.Common;
+using Pasarela.Core.Models.PhotoComplaints;
 
 namespace Pasarela.Core.Services.Complaints
 {
@@ -39,6 +40,13 @@ namespace Pasarela.Core.Services.Complaints
             string uri = GlobalSetting.Instance.DenunciaEndpoint;
             var saveShelterHouse = await _requestProvider.PostAsync<SaveComplaints>(uri, _saveComplaints).ConfigureAwait(false);
             return saveShelterHouse;
+        }
+
+        public async Task<List<SavePhotoComplaints>> SavePhotoComplaintsAsync(List<SavePhotoComplaints> _savePhotoComplaints)
+        {
+            string uri = GlobalSetting.Instance.FotoDenunciaEndPoint;
+            var savePhotoShelterHouse = await _requestProvider.PostAsync<List<SavePhotoComplaints>>(uri, _savePhotoComplaints).ConfigureAwait(false);
+            return savePhotoShelterHouse;
         }
     }
 }

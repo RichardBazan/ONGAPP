@@ -2,9 +2,11 @@
 using Pasarela.Core.Models.Breed;
 using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Complaints;
+using Pasarela.Core.Models.PhotoComplaints;
 using Pasarela.Core.Services.Breed;
 using Pasarela.Core.Services.Complaints;
 using Pasarela.Core.ViewModels.Base;
+using Pasarela.Core.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -26,6 +28,9 @@ namespace Pasarela.Core.ViewModels
         private string _description;
         private IComplaintsService _complaintsService;
         private Breed _selectedBreed;
+        private List<SavePhotoComplaints> _photosComplaint = new List<SavePhotoComplaints>();
+        public static RegisterComplaintViewModel OLD_INSTANCE;
+        public string photoComplaint;
 
         public RegisterComplaintViewModel(IBreedService breedService, IComplaintsService complaintsService)
         {
@@ -93,10 +98,39 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public List<SavePhotoComplaints> PhotosComplaint
+        {
+            get { return _photosComplaint; }
+            set
+            {
+                _photosComplaint = value;
+                RaisePropertyChanged(() => PhotosComplaint);
+            }
+        }
+
+        public string ImageUser(string photo)
+        {
+            photoComplaint = photo;
+            return photoComplaint;
+        }
+
+
         public async override Task InitializeAsync(object navigationData)
         {
             var breed = await _breedService.GetAllBreedAsync();
             ListBreed = breed.ToObservableCollection();
+            if (OLD_INSTANCE != null)
+            {
+                MessagingCenter.Unsubscribe<RegisterComplaintView, string>(OLD_INSTANCE, MessageKeys.SendData);
+            }
+
+            OLD_INSTANCE = this;
+
+            MessagingCenter.Subscribe<RegisterComplaintView, string>(this, MessageKeys.SendData, (sender, args) =>
+            {
+                ImageUser(args);
+                PhotosComplaint.Add(new SavePhotoComplaints { Photo = photoComplaint });
+            });
         }
 
         public ICommand SaveCommand => new Command(async () => await SaveAsync());

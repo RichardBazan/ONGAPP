@@ -3,10 +3,12 @@ using Pasarela.Core.Models.Breed;
 using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Dog;
 using Pasarela.Core.Models.GiveInAdoption;
+using Pasarela.Core.Models.PhotoDog;
 using Pasarela.Core.Services.Breed;
 using Pasarela.Core.Services.Dog;
 using Pasarela.Core.Services.GiveInAdoption;
 using Pasarela.Core.ViewModels.Base;
+using Pasarela.Core.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,6 +34,9 @@ namespace Pasarela.Core.ViewModels
         private string _age;
         private string _description;
         private GiveInAdoption _saveGiveInAdoption;
+        private List<SavePhotoDog> _photosDog = new List<SavePhotoDog>();
+        public static GiveInAdoptionViewModel OLD_INSTANCE;
+        public string photoDog;
 
         public GiveInAdoptionViewModel(IBreedService breedService, IDogService dogService, IGiveInAdoptionService giveInAdoptionService)
         {
@@ -120,10 +125,38 @@ namespace Pasarela.Core.ViewModels
             }
         }
 
+        public List<SavePhotoDog> PhotosDog
+        {
+            get { return _photosDog; }
+            set
+            {
+                _photosDog = value;
+                RaisePropertyChanged(() => PhotosDog);
+            }
+        }
+
+        public string ImageUser(string photo)
+        {
+            photoDog = photo;
+            return photoDog;
+        }
+
         public async override Task InitializeAsync(object navigationData)
         {
             var breed = await _breedService.GetAllBreedAsync();
             ListBreed = breed.ToObservableCollection();
+            if (OLD_INSTANCE != null)
+            {
+                MessagingCenter.Unsubscribe<GiveInAdoptionView, string>(OLD_INSTANCE, MessageKeys.SendData);
+            }
+
+            OLD_INSTANCE = this;
+
+            MessagingCenter.Subscribe<GiveInAdoptionView, string>(this, MessageKeys.SendData, (sender, args) =>
+            {
+                ImageUser(args);
+                PhotosDog.Add(new SavePhotoDog { Photo = photoDog });
+            });
         }
 
         public ICommand SaveCommand => new Command(async () => await SaveAsync());
