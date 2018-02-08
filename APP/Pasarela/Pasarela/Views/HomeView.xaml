@@ -17,6 +17,7 @@
                     <RowDefinition Height="150"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="banner2" Aspect="Fill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
                 <!--<syncfusion:SfRotator x:Name="rotator" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
                                   NavigationDelay="2000" ItemsSource="{Binding Banner}" SelectedIndex="2" NavigationDirection="Horizontal" 
                                   EnableAutoPlay="False" EnableLooping="False" 
@@ -47,7 +48,7 @@
                         <controls:ShapeView Grid.Row="0" Grid.Column="0" Color="#93B7DC" ShapeType="Box" CornerRadius="10" ></controls:ShapeView>
                         <StackLayout Grid.Row="0" Grid.Column="0" HeightRequest="172" Spacing="0">
                             <Label Text="ADOPCIÓN" HorizontalOptions="Center" FontSize="18"></Label>
-                            <Image Source="{Binding adopcion}"></Image>
+                            <Image Source="adopcion"></Image>
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding AdoptionCommand}" NumberOfTapsRequired="1" />
                             </StackLayout.GestureRecognizers>

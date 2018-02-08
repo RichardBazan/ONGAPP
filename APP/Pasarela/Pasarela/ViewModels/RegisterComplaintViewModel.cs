@@ -150,6 +150,7 @@ namespace Pasarela.Core.ViewModels
                     Phone = Phone,
                 };
                 await _complaintsService.SaveComplaintsAsync(saveComplaints);
+                await _complaintsService.SavePhotoComplaintsAsync(PhotosComplaint);
                 await DialogService.ShowAlertAsync("Se registro con éxito la denuncia", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
             }

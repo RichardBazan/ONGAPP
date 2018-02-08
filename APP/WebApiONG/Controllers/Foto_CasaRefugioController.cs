@@ -74,17 +74,14 @@ namespace WebApiONG.Controllers
         // POST: api/Foto_CasaRefugio
         [ResponseType(typeof(Foto_CasaRefugio))]
         //[HttpPost]
-        public IHttpActionResult PostFoto_CasaRefugio(List<FotoCasaRefugioModelPostDTO> fotoCasaRefugio)
+        public IHttpActionResult PostFoto_CasaRefugio(FotoCasaRefugioModelPostDTO fotoCasaRefugio)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var idCasaRefugio = db.CasaRefugio.Max(x => x.cod_casa);
-            foreach (var item in fotoCasaRefugio)
-            {
-                db.Foto_CasaRefugio.Add(new Foto_CasaRefugio() { foto = item.Photo, cod_casa = idCasaRefugio });
-            };
+            db.Foto_CasaRefugio.Add(new Foto_CasaRefugio() { foto = fotoCasaRefugio.Photo, cod_casa = idCasaRefugio });
 
             try
             {

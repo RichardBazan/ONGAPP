@@ -108,7 +108,7 @@ namespace Pasarela.Core.ViewModels
                 MessagingCenter.Unsubscribe<RegisterShelterHouseView, string>(OLD_INSTANCE, MessageKeys.SendData);
             }
 
-            //OLD_INSTANCE = this;
+            OLD_INSTANCE = this;
 
             MessagingCenter.Subscribe<RegisterShelterHouseView, string>(this, MessageKeys.SendData, (sender, args) =>
             {

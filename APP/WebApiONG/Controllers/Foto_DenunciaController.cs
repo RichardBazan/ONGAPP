@@ -73,17 +73,14 @@ namespace WebApiONG.Controllers
 
         // POST: api/Foto_Denuncia
         [ResponseType(typeof(Foto_Denuncia))]
-        public IHttpActionResult PostFoto_Denuncia(List<FotoDenunciaModelPostDTO> fotoDenuncia)
+        public IHttpActionResult PostFoto_Denuncia(FotoDenunciaModelPostDTO fotoDenuncia)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             var idDenuncia = db.Denuncia.Max(x => x.cod_den);
-            foreach (var item in fotoDenuncia)
-            {
-                db.Foto_Denuncia.Add(new Foto_Denuncia() { foto = item.Photo, cod_den = idDenuncia });
-            };
+            db.Foto_Denuncia.Add(new Foto_Denuncia() { foto = fotoDenuncia.Photo, cod_den = idDenuncia });
 
             try
             {

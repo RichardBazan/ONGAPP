@@ -67,8 +67,11 @@ namespace Pasarela.Core.Services.Dog
         public async Task<List<SavePhotoDog>> SavePhotoDogAsync(List<SavePhotoDog> _savePhotoDog)
         {
             string uri = GlobalSetting.Instance.FotoMascotaEndPoint;
-            var savePhotoShelterHouse = await _requestProvider.PostAsync<List<SavePhotoDog>>(uri, _savePhotoDog).ConfigureAwait(false);
-            return savePhotoShelterHouse;
+            foreach (var item in _savePhotoDog)
+            {
+                var savePhotoDog = await _requestProvider.PostAsync<SavePhotoDog>(uri, item).ConfigureAwait(false);
+            }
+            return _savePhotoDog;
         }
     }
 }

@@ -182,7 +182,7 @@ namespace Pasarela.Core.ViewModels
                     IdUser = GlobalSetting.UserInfo.Id
                 };
                 await _giveInAdoptionService.SaveGiveInAdoptionAsync(saveGiveInAdoption);
-
+                await _dogService.SavePhotoDogAsync(PhotosDog);
                 await DialogService.ShowAlertAsync("Se registro con éxito su mascota en adopción", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
             }

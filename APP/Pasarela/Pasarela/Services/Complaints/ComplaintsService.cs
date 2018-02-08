@@ -45,8 +45,11 @@ namespace Pasarela.Core.Services.Complaints
         public async Task<List<SavePhotoComplaints>> SavePhotoComplaintsAsync(List<SavePhotoComplaints> _savePhotoComplaints)
         {
             string uri = GlobalSetting.Instance.FotoDenunciaEndPoint;
-            var savePhotoShelterHouse = await _requestProvider.PostAsync<List<SavePhotoComplaints>>(uri, _savePhotoComplaints).ConfigureAwait(false);
-            return savePhotoShelterHouse;
+            foreach (var item in _savePhotoComplaints)
+            {
+                var savePhotoShelterHouse = await _requestProvider.PostAsync<SavePhotoComplaints>(uri, item).ConfigureAwait(false);
+            }
+            return _savePhotoComplaints;
         }
     }
 }

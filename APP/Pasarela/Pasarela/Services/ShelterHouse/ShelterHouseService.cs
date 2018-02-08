@@ -52,8 +52,11 @@ namespace Pasarela.Core.Services.ShelterHouse
         public async Task<List<SavePhotoShelterHouse>> SavePhotoShelterHouseAsync(List<SavePhotoShelterHouse> _savePhotoShelterHouse)
         {
             string uri = GlobalSetting.Instance.FotoCasaRefugioEndPoint;
-            var savePhotoShelterHouse = await _requestProvider.PostAsync<List<SavePhotoShelterHouse>>(uri, _savePhotoShelterHouse).ConfigureAwait(false);
-            return savePhotoShelterHouse;
+            foreach (var item in _savePhotoShelterHouse)
+            {
+                var savePhotoShelterHouse = await _requestProvider.PostAsync<SavePhotoShelterHouse>(uri, item).ConfigureAwait(false);
+            }
+            return _savePhotoShelterHouse;
         }
     }
 }

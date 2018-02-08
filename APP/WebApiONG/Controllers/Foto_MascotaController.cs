@@ -73,7 +73,7 @@ namespace WebApiONG.Controllers
 
         // POST: api/Foto_Mascota
         [ResponseType(typeof(Foto_Mascota))]
-        public IHttpActionResult PostFoto_Mascota(List<FotoMascotaModelPostDTO> fotoMascota)
+        public IHttpActionResult PostFoto_Mascota(FotoMascotaModelPostDTO fotoMascota)
         {
 
             if (!ModelState.IsValid)
@@ -81,10 +81,7 @@ namespace WebApiONG.Controllers
                 return BadRequest(ModelState);
             }
             var idMascota = db.Mascota.Max(x => x.cod_mas);
-            foreach (var item in fotoMascota)
-            {
-                db.Foto_CasaRefugio.Add(new Foto_CasaRefugio() { foto = item.Photo, cod_casa = idMascota });
-            };
+            db.Foto_Mascota.Add(new Foto_Mascota() { foto = fotoMascota.Photo, cod_mas = idMascota });
 
             try
             {
