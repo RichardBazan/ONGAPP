@@ -96,6 +96,15 @@ namespace Pasarela.Core.ViewModels
             IsBusy = false;
         }
 
+        public ICommand ConfigurationCommand => new Command(async () => await ConfigurationAsync());
+
+        private async Task ConfigurationAsync()
+        {
+            IsBusy = true;
+            await NavigationService.NavigateToAsync<MainConfigurationViewModel>();
+            IsBusy = false;
+        }
+
 
     }
 }

@@ -129,6 +129,7 @@
     <Compile Include="ViewModels\AllShelterHouseViewModel.cs" />
     <Compile Include="ViewModels\BasketViewModel.cs" />
     <Compile Include="ViewModels\CatalogViewModel.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\ComentComplaintsViewModel.cs" />
     <Compile Include="ViewModels\ComplaintDetailViewModel.cs" />
@@ -139,8 +140,10 @@
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\MainAbuseViewModel.cs" />
     <Compile Include="ViewModels\MainAdoptionViewModel.cs" />
+    <Compile Include="ViewModels\MainConfigurationViewModel.cs" />
     <Compile Include="ViewModels\MainShelterHouseViewModel.cs" />
     <Compile Include="ViewModels\MyComplaintsViewModel.cs" />
+    <Compile Include="ViewModels\MyDataViewModel.cs" />
     <Compile Include="ViewModels\MyShelterHouseViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailViewModel.cs" />
     <Compile Include="ViewModels\ProfileViewModel.cs" />
@@ -166,6 +169,9 @@
     </Compile>
     <Compile Include="Views\AllShelterHouseView.xaml.cs">
       <DependentUpon>AllShelterHouseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePasswordView.xaml.cs">
+      <DependentUpon>ChangePasswordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ComentComplaintsView.xaml.cs">
       <DependentUpon>ComentComplaintsView.xaml</DependentUpon>
@@ -257,6 +263,9 @@
     <Compile Include="ViewModels\Base\ViewModelLocator.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\MainConfigurationView.xaml.cs">
+      <DependentUpon>MainConfigurationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -265,6 +274,9 @@
     </Compile>
     <Compile Include="Views\MyComplaintsView.xaml.cs">
       <DependentUpon>MyComplaintsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyDataView.xaml.cs">
+      <DependentUpon>MyDataView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyShelterHouseView.xaml.cs">
       <DependentUpon>MyShelterHouseView.xaml</DependentUpon>
@@ -530,6 +542,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\RegisterUserView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainConfigurationView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyDataView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ChangePasswordView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

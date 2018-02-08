@@ -80,6 +80,9 @@ namespace Pasarela.Core.ViewModels.Base
             builder.RegisterType<ConfirmationAdoptionViewModel>();
             builder.RegisterType<ConfirmationAdoptionOngViewModel>();
             builder.RegisterType<RegisterUserViewModel>();
+            builder.RegisterType<MainConfigurationViewModel>();
+            builder.RegisterType<MyDataViewModel>();
+            builder.RegisterType<ChangePasswordViewModel>();
 
 
             // Services

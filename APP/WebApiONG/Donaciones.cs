@@ -24,6 +24,7 @@ namespace WebApiONG
         public string estado_don { get; set; }
         public int cod_casa { get; set; }
         public int cod_usu { get; set; }
+        public Nullable<System.DateTime> fech_reg { get; set; }
     
         public virtual CasaRefugio CasaRefugio { get; set; }
         public virtual Usuario Usuario { get; set; }

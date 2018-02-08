@@ -68,6 +68,7 @@
           <Property Name="estado_don" Type="varchar" MaxLength="50" />
           <Property Name="cod_casa" Type="int" Nullable="false" />
           <Property Name="cod_usu" Type="int" Nullable="false" />
+          <Property Name="fech_reg" Type="date" />
         </EntityType>
         <EntityType Name="DonacionProducto">
           <Key>
@@ -145,8 +146,9 @@
           <Property Name="contraseña" Type="nvarchar" MaxLength="50" />
           <Property Name="foto_usu" Type="varchar(max)" />
           <Property Name="pertenencia" Type="varchar" MaxLength="50" />
+          <Property Name="fecha_reg" Type="date" />
         </EntityType>
-        <Association Name="FK__Adopcion__cod_ma__412EB0B6">
+        <Association Name="FK__Adopcion__cod_ma__2E1BDC42">
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
           <End Role="Adopcion" Type="Self.Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -158,7 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Adopcion__cod_us__403A8C7D">
+        <Association Name="FK__Adopcion__cod_us__2D27B809">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Adopcion" Type="Self.Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -170,7 +172,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CasaRefug__cod_u__440B1D61">
+        <Association Name="FK__CasaRefug__cod_u__30F848ED">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="CasaRefugio" Type="Self.CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -182,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_d__46E78A0C">
+        <Association Name="FK__Comentari__cod_d__33D4B598">
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="1" />
           <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -194,7 +196,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_u__47DBAE45">
+        <Association Name="FK__Comentari__cod_u__34C8D9D1">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Comentario" Type="Self.Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -206,7 +208,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_m__4316F928">
+        <Association Name="FK__DarAdopci__cod_m__300424B4">
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
           <End Role="DarAdopcion" Type="Self.DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -218,7 +220,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_u__4222D4EF">
+        <Association Name="FK__DarAdopci__cod_u__2F10007B">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="DarAdopcion" Type="Self.DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -230,7 +232,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_ra__3E52440B">
+        <Association Name="FK__Denuncia__cod_ra__2B3F6F97">
           <End Role="Raza" Type="Self.Raza" Multiplicity="1" />
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -242,7 +244,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_us__3F466844">
+        <Association Name="FK__Denuncia__cod_us__2C3393D0">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -254,7 +256,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Donacione__cod_c__49C3F6B7">
+        <Association Name="FK__Donacione__cod_c__36B12243">
           <End Role="CasaRefugio" Type="Self.CasaRefugio" Multiplicity="1" />
           <End Role="Donaciones" Type="Self.Donaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -266,7 +268,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Donacione__cod_u__4AB81AF0">
+        <Association Name="FK__Donacione__cod_u__37A5467C">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Donaciones" Type="Self.Donaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -278,7 +280,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DonacionP__cod_d__4BAC3F29">
+        <Association Name="FK__DonacionP__cod_d__38996AB5">
           <End Role="Donaciones" Type="Self.Donaciones" Multiplicity="1" />
           <End Role="DonacionProducto" Type="Self.DonacionProducto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -290,7 +292,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DonacionP__cod_p__4CA06362">
+        <Association Name="FK__DonacionP__cod_p__398D8EEE">
           <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
           <End Role="DonacionProducto" Type="Self.DonacionProducto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -302,7 +304,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Casa__cod_c__45F365D3">
+        <Association Name="FK__Foto_Casa__cod_c__32E0915F">
           <End Role="CasaRefugio" Type="Self.CasaRefugio" Multiplicity="1" />
           <End Role="Foto_CasaRefugio" Type="Self.Foto_CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -314,7 +316,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Denu__cod_d__44FF419A">
+        <Association Name="FK__Foto_Denu__cod_d__31EC6D26">
           <End Role="Denuncia" Type="Self.Denuncia" Multiplicity="1" />
           <End Role="Foto_Denuncia" Type="Self.Foto_Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -326,7 +328,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Masc__cod_m__48CFD27E">
+        <Association Name="FK__Foto_Masc__cod_m__35BCFE0A">
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="1" />
           <End Role="Foto_Mascota" Type="Self.Foto_Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -338,7 +340,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mascota__cod_raz__3C69FB99">
+        <Association Name="FK__Mascota__cod_raz__29572725">
           <End Role="Raza" Type="Self.Raza" Multiplicity="1" />
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -350,7 +352,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mascota__cod_usu__3D5E1FD2">
+        <Association Name="FK__Mascota__cod_usu__2A4B4B5E">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Mascota" Type="Self.Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -377,75 +379,75 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Raza" EntityType="Self.Raza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Adopcion__cod_ma__412EB0B6" Association="Self.FK__Adopcion__cod_ma__412EB0B6">
+          <AssociationSet Name="FK__Adopcion__cod_ma__2E1BDC42" Association="Self.FK__Adopcion__cod_ma__2E1BDC42">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Adopcion__cod_us__403A8C7D" Association="Self.FK__Adopcion__cod_us__403A8C7D">
+          <AssociationSet Name="FK__Adopcion__cod_us__2D27B809" Association="Self.FK__Adopcion__cod_us__2D27B809">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CasaRefug__cod_u__440B1D61" Association="Self.FK__CasaRefug__cod_u__440B1D61">
+          <AssociationSet Name="FK__CasaRefug__cod_u__30F848ED" Association="Self.FK__CasaRefug__cod_u__30F848ED">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_d__46E78A0C" Association="Self.FK__Comentari__cod_d__46E78A0C">
+          <AssociationSet Name="FK__Comentari__cod_d__33D4B598" Association="Self.FK__Comentari__cod_d__33D4B598">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_u__47DBAE45" Association="Self.FK__Comentari__cod_u__47DBAE45">
+          <AssociationSet Name="FK__Comentari__cod_u__34C8D9D1" Association="Self.FK__Comentari__cod_u__34C8D9D1">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_m__4316F928" Association="Self.FK__DarAdopci__cod_m__4316F928">
+          <AssociationSet Name="FK__DarAdopci__cod_m__300424B4" Association="Self.FK__DarAdopci__cod_m__300424B4">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_u__4222D4EF" Association="Self.FK__DarAdopci__cod_u__4222D4EF">
+          <AssociationSet Name="FK__DarAdopci__cod_u__2F10007B" Association="Self.FK__DarAdopci__cod_u__2F10007B">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_ra__3E52440B" Association="Self.FK__Denuncia__cod_ra__3E52440B">
+          <AssociationSet Name="FK__Denuncia__cod_ra__2B3F6F97" Association="Self.FK__Denuncia__cod_ra__2B3F6F97">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_us__3F466844" Association="Self.FK__Denuncia__cod_us__3F466844">
+          <AssociationSet Name="FK__Denuncia__cod_us__2C3393D0" Association="Self.FK__Denuncia__cod_us__2C3393D0">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Donacione__cod_c__49C3F6B7" Association="Self.FK__Donacione__cod_c__49C3F6B7">
+          <AssociationSet Name="FK__Donacione__cod_c__36B12243" Association="Self.FK__Donacione__cod_c__36B12243">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Donaciones" EntitySet="Donaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__Donacione__cod_u__4AB81AF0" Association="Self.FK__Donacione__cod_u__4AB81AF0">
+          <AssociationSet Name="FK__Donacione__cod_u__37A5467C" Association="Self.FK__Donacione__cod_u__37A5467C">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Donaciones" EntitySet="Donaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__DonacionP__cod_d__4BAC3F29" Association="Self.FK__DonacionP__cod_d__4BAC3F29">
+          <AssociationSet Name="FK__DonacionP__cod_d__38996AB5" Association="Self.FK__DonacionP__cod_d__38996AB5">
             <End Role="Donaciones" EntitySet="Donaciones" />
             <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          <AssociationSet Name="FK__DonacionP__cod_p__4CA06362" Association="Self.FK__DonacionP__cod_p__4CA06362">
+          <AssociationSet Name="FK__DonacionP__cod_p__398D8EEE" Association="Self.FK__DonacionP__cod_p__398D8EEE">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Casa__cod_c__45F365D3" Association="Self.FK__Foto_Casa__cod_c__45F365D3">
+          <AssociationSet Name="FK__Foto_Casa__cod_c__32E0915F" Association="Self.FK__Foto_Casa__cod_c__32E0915F">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Foto_CasaRefugio" EntitySet="Foto_CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Denu__cod_d__44FF419A" Association="Self.FK__Foto_Denu__cod_d__44FF419A">
+          <AssociationSet Name="FK__Foto_Denu__cod_d__31EC6D26" Association="Self.FK__Foto_Denu__cod_d__31EC6D26">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Foto_Denuncia" EntitySet="Foto_Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Masc__cod_m__48CFD27E" Association="Self.FK__Foto_Masc__cod_m__48CFD27E">
+          <AssociationSet Name="FK__Foto_Masc__cod_m__35BCFE0A" Association="Self.FK__Foto_Masc__cod_m__35BCFE0A">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Foto_Mascota" EntitySet="Foto_Mascota" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mascota__cod_raz__3C69FB99" Association="Self.FK__Mascota__cod_raz__3C69FB99">
+          <AssociationSet Name="FK__Mascota__cod_raz__29572725" Association="Self.FK__Mascota__cod_raz__29572725">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Mascota" EntitySet="Mascota" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mascota__cod_usu__3D5E1FD2" Association="Self.FK__Mascota__cod_usu__3D5E1FD2">
+          <AssociationSet Name="FK__Mascota__cod_usu__2A4B4B5E" Association="Self.FK__Mascota__cod_usu__2A4B4B5E">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Mascota" EntitySet="Mascota" />
           </AssociationSet>
@@ -469,75 +471,75 @@
           <EntitySet Name="Producto" EntityType="BDONGModel.Producto" />
           <EntitySet Name="Raza" EntityType="BDONGModel.Raza" />
           <EntitySet Name="Usuario" EntityType="BDONGModel.Usuario" />
-          <AssociationSet Name="FK__Adopcion__cod_ma__412EB0B6" Association="BDONGModel.FK__Adopcion__cod_ma__412EB0B6">
+          <AssociationSet Name="FK__Adopcion__cod_ma__2E1BDC42" Association="BDONGModel.FK__Adopcion__cod_ma__2E1BDC42">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Adopcion__cod_us__403A8C7D" Association="BDONGModel.FK__Adopcion__cod_us__403A8C7D">
+          <AssociationSet Name="FK__Adopcion__cod_us__2D27B809" Association="BDONGModel.FK__Adopcion__cod_us__2D27B809">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Adopcion" EntitySet="Adopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__CasaRefug__cod_u__440B1D61" Association="BDONGModel.FK__CasaRefug__cod_u__440B1D61">
+          <AssociationSet Name="FK__CasaRefug__cod_u__30F848ED" Association="BDONGModel.FK__CasaRefug__cod_u__30F848ED">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Donacione__cod_c__49C3F6B7" Association="BDONGModel.FK__Donacione__cod_c__49C3F6B7">
+          <AssociationSet Name="FK__Donacione__cod_c__36B12243" Association="BDONGModel.FK__Donacione__cod_c__36B12243">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Donaciones" EntitySet="Donaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Casa__cod_c__45F365D3" Association="BDONGModel.FK__Foto_Casa__cod_c__45F365D3">
+          <AssociationSet Name="FK__Foto_Casa__cod_c__32E0915F" Association="BDONGModel.FK__Foto_Casa__cod_c__32E0915F">
             <End Role="CasaRefugio" EntitySet="CasaRefugio" />
             <End Role="Foto_CasaRefugio" EntitySet="Foto_CasaRefugio" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_d__46E78A0C" Association="BDONGModel.FK__Comentari__cod_d__46E78A0C">
+          <AssociationSet Name="FK__Comentari__cod_d__33D4B598" Association="BDONGModel.FK__Comentari__cod_d__33D4B598">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__Comentari__cod_u__47DBAE45" Association="BDONGModel.FK__Comentari__cod_u__47DBAE45">
+          <AssociationSet Name="FK__Comentari__cod_u__34C8D9D1" Association="BDONGModel.FK__Comentari__cod_u__34C8D9D1">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Comentario" EntitySet="Comentario" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_m__4316F928" Association="BDONGModel.FK__DarAdopci__cod_m__4316F928">
+          <AssociationSet Name="FK__DarAdopci__cod_m__300424B4" Association="BDONGModel.FK__DarAdopci__cod_m__300424B4">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__DarAdopci__cod_u__4222D4EF" Association="BDONGModel.FK__DarAdopci__cod_u__4222D4EF">
+          <AssociationSet Name="FK__DarAdopci__cod_u__2F10007B" Association="BDONGModel.FK__DarAdopci__cod_u__2F10007B">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="DarAdopcion" EntitySet="DarAdopcion" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_ra__3E52440B" Association="BDONGModel.FK__Denuncia__cod_ra__3E52440B">
+          <AssociationSet Name="FK__Denuncia__cod_ra__2B3F6F97" Association="BDONGModel.FK__Denuncia__cod_ra__2B3F6F97">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Denuncia__cod_us__3F466844" Association="BDONGModel.FK__Denuncia__cod_us__3F466844">
+          <AssociationSet Name="FK__Denuncia__cod_us__2C3393D0" Association="BDONGModel.FK__Denuncia__cod_us__2C3393D0">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Denuncia" EntitySet="Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Denu__cod_d__44FF419A" Association="BDONGModel.FK__Foto_Denu__cod_d__44FF419A">
+          <AssociationSet Name="FK__Foto_Denu__cod_d__31EC6D26" Association="BDONGModel.FK__Foto_Denu__cod_d__31EC6D26">
             <End Role="Denuncia" EntitySet="Denuncia" />
             <End Role="Foto_Denuncia" EntitySet="Foto_Denuncia" />
           </AssociationSet>
-          <AssociationSet Name="FK__Donacione__cod_u__4AB81AF0" Association="BDONGModel.FK__Donacione__cod_u__4AB81AF0">
+          <AssociationSet Name="FK__Donacione__cod_u__37A5467C" Association="BDONGModel.FK__Donacione__cod_u__37A5467C">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Donaciones" EntitySet="Donaciones" />
           </AssociationSet>
-          <AssociationSet Name="FK__DonacionP__cod_d__4BAC3F29" Association="BDONGModel.FK__DonacionP__cod_d__4BAC3F29">
+          <AssociationSet Name="FK__DonacionP__cod_d__38996AB5" Association="BDONGModel.FK__DonacionP__cod_d__38996AB5">
             <End Role="Donaciones" EntitySet="Donaciones" />
             <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          <AssociationSet Name="FK__DonacionP__cod_p__4CA06362" Association="BDONGModel.FK__DonacionP__cod_p__4CA06362">
+          <AssociationSet Name="FK__DonacionP__cod_p__398D8EEE" Association="BDONGModel.FK__DonacionP__cod_p__398D8EEE">
             <End Role="Producto" EntitySet="Producto" />
             <End Role="DonacionProducto" EntitySet="DonacionProducto" />
           </AssociationSet>
-          <AssociationSet Name="FK__Foto_Masc__cod_m__48CFD27E" Association="BDONGModel.FK__Foto_Masc__cod_m__48CFD27E">
+          <AssociationSet Name="FK__Foto_Masc__cod_m__35BCFE0A" Association="BDONGModel.FK__Foto_Masc__cod_m__35BCFE0A">
             <End Role="Mascota" EntitySet="Mascota" />
             <End Role="Foto_Mascota" EntitySet="Foto_Mascota" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mascota__cod_raz__3C69FB99" Association="BDONGModel.FK__Mascota__cod_raz__3C69FB99">
+          <AssociationSet Name="FK__Mascota__cod_raz__29572725" Association="BDONGModel.FK__Mascota__cod_raz__29572725">
             <End Role="Raza" EntitySet="Raza" />
             <End Role="Mascota" EntitySet="Mascota" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mascota__cod_usu__3D5E1FD2" Association="BDONGModel.FK__Mascota__cod_usu__3D5E1FD2">
+          <AssociationSet Name="FK__Mascota__cod_usu__2A4B4B5E" Association="BDONGModel.FK__Mascota__cod_usu__2A4B4B5E">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Mascota" EntitySet="Mascota" />
           </AssociationSet>
@@ -551,8 +553,8 @@
           <Property Name="estado_adop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Adopcion__cod_ma__412EB0B6" FromRole="Adopcion" ToRole="Mascota" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Adopcion__cod_us__403A8C7D" FromRole="Adopcion" ToRole="Usuario" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Adopcion__cod_ma__2E1BDC42" FromRole="Adopcion" ToRole="Mascota" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Adopcion__cod_us__2D27B809" FromRole="Adopcion" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="CasaRefugio">
           <Key>
@@ -566,9 +568,9 @@
           <Property Name="fecha_reg" Type="DateTime" Precision="0" />
           <Property Name="estado_casa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__CasaRefug__cod_u__440B1D61" FromRole="CasaRefugio" ToRole="Usuario" />
-          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_c__49C3F6B7" FromRole="CasaRefugio" ToRole="Donaciones" />
-          <NavigationProperty Name="Foto_CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__45F365D3" FromRole="CasaRefugio" ToRole="Foto_CasaRefugio" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__CasaRefug__cod_u__30F848ED" FromRole="CasaRefugio" ToRole="Usuario" />
+          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_c__36B12243" FromRole="CasaRefugio" ToRole="Donaciones" />
+          <NavigationProperty Name="Foto_CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__32E0915F" FromRole="CasaRefugio" ToRole="Foto_CasaRefugio" />
         </EntityType>
         <EntityType Name="Comentario">
           <Key>
@@ -578,8 +580,8 @@
           <Property Name="comen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_den" Type="Int32" Nullable="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Comentari__cod_d__46E78A0C" FromRole="Comentario" ToRole="Denuncia" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Comentari__cod_u__47DBAE45" FromRole="Comentario" ToRole="Usuario" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Comentari__cod_d__33D4B598" FromRole="Comentario" ToRole="Denuncia" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Comentari__cod_u__34C8D9D1" FromRole="Comentario" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="DarAdopcion">
           <Key>
@@ -589,8 +591,8 @@
           <Property Name="fecha_reg" Type="DateTime" Precision="0" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__DarAdopci__cod_m__4316F928" FromRole="DarAdopcion" ToRole="Mascota" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__DarAdopci__cod_u__4222D4EF" FromRole="DarAdopcion" ToRole="Usuario" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__DarAdopci__cod_m__300424B4" FromRole="DarAdopcion" ToRole="Mascota" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__DarAdopci__cod_u__2F10007B" FromRole="DarAdopcion" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Denuncia">
           <Key>
@@ -605,10 +607,10 @@
           <Property Name="estado_den" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
           <Property Name="cod_raza" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_d__46E78A0C" FromRole="Denuncia" ToRole="Comentario" />
-          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Denuncia__cod_ra__3E52440B" FromRole="Denuncia" ToRole="Raza" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Denuncia__cod_us__3F466844" FromRole="Denuncia" ToRole="Usuario" />
-          <NavigationProperty Name="Foto_Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__44FF419A" FromRole="Denuncia" ToRole="Foto_Denuncia" />
+          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_d__33D4B598" FromRole="Denuncia" ToRole="Comentario" />
+          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Denuncia__cod_ra__2B3F6F97" FromRole="Denuncia" ToRole="Raza" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Denuncia__cod_us__2C3393D0" FromRole="Denuncia" ToRole="Usuario" />
+          <NavigationProperty Name="Foto_Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__31EC6D26" FromRole="Denuncia" ToRole="Foto_Denuncia" />
         </EntityType>
         <EntityType Name="Donaciones">
           <Key>
@@ -618,9 +620,10 @@
           <Property Name="estado_don" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_casa" Type="Int32" Nullable="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Donacione__cod_c__49C3F6B7" FromRole="Donaciones" ToRole="CasaRefugio" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Donacione__cod_u__4AB81AF0" FromRole="Donaciones" ToRole="Usuario" />
-          <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_d__4BAC3F29" FromRole="Donaciones" ToRole="DonacionProducto" />
+          <Property Name="fech_reg" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Donacione__cod_c__36B12243" FromRole="Donaciones" ToRole="CasaRefugio" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Donacione__cod_u__37A5467C" FromRole="Donaciones" ToRole="Usuario" />
+          <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_d__38996AB5" FromRole="Donaciones" ToRole="DonacionProducto" />
         </EntityType>
         <EntityType Name="DonacionProducto">
           <Key>
@@ -630,8 +633,8 @@
           <Property Name="cod_don" Type="Int32" Nullable="false" />
           <Property Name="cod_pro" Type="Int32" Nullable="false" />
           <Property Name="cantidad" Type="Int32" />
-          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__DonacionP__cod_d__4BAC3F29" FromRole="DonacionProducto" ToRole="Donaciones" />
-          <NavigationProperty Name="Producto" Relationship="BDONGModel.FK__DonacionP__cod_p__4CA06362" FromRole="DonacionProducto" ToRole="Producto" />
+          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__DonacionP__cod_d__38996AB5" FromRole="DonacionProducto" ToRole="Donaciones" />
+          <NavigationProperty Name="Producto" Relationship="BDONGModel.FK__DonacionP__cod_p__398D8EEE" FromRole="DonacionProducto" ToRole="Producto" />
         </EntityType>
         <EntityType Name="Foto_CasaRefugio">
           <Key>
@@ -640,7 +643,7 @@
           <Property Name="cod_foto_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_casa" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__45F365D3" FromRole="Foto_CasaRefugio" ToRole="CasaRefugio" />
+          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__Foto_Casa__cod_c__32E0915F" FromRole="Foto_CasaRefugio" ToRole="CasaRefugio" />
         </EntityType>
         <EntityType Name="Foto_Denuncia">
           <Key>
@@ -649,7 +652,7 @@
           <Property Name="cod_foto_den" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_den" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__44FF419A" FromRole="Foto_Denuncia" ToRole="Denuncia" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Foto_Denu__cod_d__31EC6D26" FromRole="Foto_Denuncia" ToRole="Denuncia" />
         </EntityType>
         <EntityType Name="Foto_Mascota">
           <Key>
@@ -658,7 +661,7 @@
           <Property Name="cod_foto_mas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="cod_mas" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__48CFD27E" FromRole="Foto_Mascota" ToRole="Mascota" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__35BCFE0A" FromRole="Foto_Mascota" ToRole="Mascota" />
         </EntityType>
         <EntityType Name="Mascota">
           <Key>
@@ -673,11 +676,11 @@
           <Property Name="tenencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="cod_raza" Type="Int32" Nullable="false" />
           <Property Name="cod_usu" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_ma__412EB0B6" FromRole="Mascota" ToRole="Adopcion" />
-          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_m__4316F928" FromRole="Mascota" ToRole="DarAdopcion" />
-          <NavigationProperty Name="Foto_Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__48CFD27E" FromRole="Mascota" ToRole="Foto_Mascota" />
-          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Mascota__cod_raz__3C69FB99" FromRole="Mascota" ToRole="Raza" />
-          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Mascota__cod_usu__3D5E1FD2" FromRole="Mascota" ToRole="Usuario" />
+          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_ma__2E1BDC42" FromRole="Mascota" ToRole="Adopcion" />
+          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_m__300424B4" FromRole="Mascota" ToRole="DarAdopcion" />
+          <NavigationProperty Name="Foto_Mascota" Relationship="BDONGModel.FK__Foto_Masc__cod_m__35BCFE0A" FromRole="Mascota" ToRole="Foto_Mascota" />
+          <NavigationProperty Name="Raza" Relationship="BDONGModel.FK__Mascota__cod_raz__29572725" FromRole="Mascota" ToRole="Raza" />
+          <NavigationProperty Name="Usuario" Relationship="BDONGModel.FK__Mascota__cod_usu__2A4B4B5E" FromRole="Mascota" ToRole="Usuario" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
@@ -685,7 +688,7 @@
           </Key>
           <Property Name="cod_pro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="des_pro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_p__4CA06362" FromRole="Producto" ToRole="DonacionProducto" />
+          <NavigationProperty Name="DonacionProducto" Relationship="BDONGModel.FK__DonacionP__cod_p__398D8EEE" FromRole="Producto" ToRole="DonacionProducto" />
         </EntityType>
         <EntityType Name="Raza">
           <Key>
@@ -693,8 +696,8 @@
           </Key>
           <Property Name="cod_raza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nom_raza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_ra__3E52440B" FromRole="Raza" ToRole="Denuncia" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_raz__3C69FB99" FromRole="Raza" ToRole="Mascota" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_ra__2B3F6F97" FromRole="Raza" ToRole="Denuncia" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_raz__29572725" FromRole="Raza" ToRole="Mascota" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
@@ -711,15 +714,16 @@
           <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="foto_usu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="pertenencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_us__403A8C7D" FromRole="Usuario" ToRole="Adopcion" />
-          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__CasaRefug__cod_u__440B1D61" FromRole="Usuario" ToRole="CasaRefugio" />
-          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_u__47DBAE45" FromRole="Usuario" ToRole="Comentario" />
-          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_u__4222D4EF" FromRole="Usuario" ToRole="DarAdopcion" />
-          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_us__3F466844" FromRole="Usuario" ToRole="Denuncia" />
-          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_u__4AB81AF0" FromRole="Usuario" ToRole="Donaciones" />
-          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_usu__3D5E1FD2" FromRole="Usuario" ToRole="Mascota" />
+          <Property Name="fecha_reg" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Adopcion" Relationship="BDONGModel.FK__Adopcion__cod_us__2D27B809" FromRole="Usuario" ToRole="Adopcion" />
+          <NavigationProperty Name="CasaRefugio" Relationship="BDONGModel.FK__CasaRefug__cod_u__30F848ED" FromRole="Usuario" ToRole="CasaRefugio" />
+          <NavigationProperty Name="Comentario" Relationship="BDONGModel.FK__Comentari__cod_u__34C8D9D1" FromRole="Usuario" ToRole="Comentario" />
+          <NavigationProperty Name="DarAdopcion" Relationship="BDONGModel.FK__DarAdopci__cod_u__2F10007B" FromRole="Usuario" ToRole="DarAdopcion" />
+          <NavigationProperty Name="Denuncia" Relationship="BDONGModel.FK__Denuncia__cod_us__2C3393D0" FromRole="Usuario" ToRole="Denuncia" />
+          <NavigationProperty Name="Donaciones" Relationship="BDONGModel.FK__Donacione__cod_u__37A5467C" FromRole="Usuario" ToRole="Donaciones" />
+          <NavigationProperty Name="Mascota" Relationship="BDONGModel.FK__Mascota__cod_usu__2A4B4B5E" FromRole="Usuario" ToRole="Mascota" />
         </EntityType>
-        <Association Name="FK__Adopcion__cod_ma__412EB0B6">
+        <Association Name="FK__Adopcion__cod_ma__2E1BDC42">
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="1" />
           <End Type="BDONGModel.Adopcion" Role="Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -731,7 +735,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Adopcion__cod_us__403A8C7D">
+        <Association Name="FK__Adopcion__cod_us__2D27B809">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Adopcion" Role="Adopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -743,7 +747,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CasaRefug__cod_u__440B1D61">
+        <Association Name="FK__CasaRefug__cod_u__30F848ED">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.CasaRefugio" Role="CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -755,7 +759,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Donacione__cod_c__49C3F6B7">
+        <Association Name="FK__Donacione__cod_c__36B12243">
           <End Type="BDONGModel.CasaRefugio" Role="CasaRefugio" Multiplicity="1" />
           <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -767,7 +771,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Casa__cod_c__45F365D3">
+        <Association Name="FK__Foto_Casa__cod_c__32E0915F">
           <End Type="BDONGModel.CasaRefugio" Role="CasaRefugio" Multiplicity="1" />
           <End Type="BDONGModel.Foto_CasaRefugio" Role="Foto_CasaRefugio" Multiplicity="*" />
           <ReferentialConstraint>
@@ -779,7 +783,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_d__46E78A0C">
+        <Association Name="FK__Comentari__cod_d__33D4B598">
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="1" />
           <End Type="BDONGModel.Comentario" Role="Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -791,7 +795,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Comentari__cod_u__47DBAE45">
+        <Association Name="FK__Comentari__cod_u__34C8D9D1">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Comentario" Role="Comentario" Multiplicity="*" />
           <ReferentialConstraint>
@@ -803,7 +807,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_m__4316F928">
+        <Association Name="FK__DarAdopci__cod_m__300424B4">
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="1" />
           <End Type="BDONGModel.DarAdopcion" Role="DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -815,7 +819,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DarAdopci__cod_u__4222D4EF">
+        <Association Name="FK__DarAdopci__cod_u__2F10007B">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.DarAdopcion" Role="DarAdopcion" Multiplicity="*" />
           <ReferentialConstraint>
@@ -827,7 +831,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_ra__3E52440B">
+        <Association Name="FK__Denuncia__cod_ra__2B3F6F97">
           <End Type="BDONGModel.Raza" Role="Raza" Multiplicity="1" />
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -839,7 +843,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Denuncia__cod_us__3F466844">
+        <Association Name="FK__Denuncia__cod_us__2C3393D0">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -851,7 +855,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Denu__cod_d__44FF419A">
+        <Association Name="FK__Foto_Denu__cod_d__31EC6D26">
           <End Type="BDONGModel.Denuncia" Role="Denuncia" Multiplicity="1" />
           <End Type="BDONGModel.Foto_Denuncia" Role="Foto_Denuncia" Multiplicity="*" />
           <ReferentialConstraint>
@@ -863,7 +867,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Donacione__cod_u__4AB81AF0">
+        <Association Name="FK__Donacione__cod_u__37A5467C">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="*" />
           <ReferentialConstraint>
@@ -875,7 +879,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DonacionP__cod_d__4BAC3F29">
+        <Association Name="FK__DonacionP__cod_d__38996AB5">
           <End Type="BDONGModel.Donaciones" Role="Donaciones" Multiplicity="1" />
           <End Type="BDONGModel.DonacionProducto" Role="DonacionProducto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -887,7 +891,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__DonacionP__cod_p__4CA06362">
+        <Association Name="FK__DonacionP__cod_p__398D8EEE">
           <End Type="BDONGModel.Producto" Role="Producto" Multiplicity="1" />
           <End Type="BDONGModel.DonacionProducto" Role="DonacionProducto" Multiplicity="*" />
           <ReferentialConstraint>
@@ -899,7 +903,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Foto_Masc__cod_m__48CFD27E">
+        <Association Name="FK__Foto_Masc__cod_m__35BCFE0A">
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="1" />
           <End Type="BDONGModel.Foto_Mascota" Role="Foto_Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -911,7 +915,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mascota__cod_raz__3C69FB99">
+        <Association Name="FK__Mascota__cod_raz__29572725">
           <End Type="BDONGModel.Raza" Role="Raza" Multiplicity="1" />
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -923,7 +927,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mascota__cod_usu__3D5E1FD2">
+        <Association Name="FK__Mascota__cod_usu__2A4B4B5E">
           <End Type="BDONGModel.Usuario" Role="Usuario" Multiplicity="1" />
           <End Type="BDONGModel.Mascota" Role="Mascota" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1004,6 +1008,7 @@
           <EntitySetMapping Name="Donaciones">
             <EntityTypeMapping TypeName="BDONGModel.Donaciones">
               <MappingFragment StoreEntitySet="Donaciones">
+                <ScalarProperty Name="fech_reg" ColumnName="fech_reg" />
                 <ScalarProperty Name="cod_usu" ColumnName="cod_usu" />
                 <ScalarProperty Name="cod_casa" ColumnName="cod_casa" />
                 <ScalarProperty Name="estado_don" ColumnName="estado_don" />
@@ -1082,6 +1087,7 @@
           <EntitySetMapping Name="Usuario">
             <EntityTypeMapping TypeName="BDONGModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="fecha_reg" ColumnName="fecha_reg" />
                 <ScalarProperty Name="pertenencia" ColumnName="pertenencia" />
                 <ScalarProperty Name="foto_usu" ColumnName="foto_usu" />
                 <ScalarProperty Name="contraseña" ColumnName="contraseña" />

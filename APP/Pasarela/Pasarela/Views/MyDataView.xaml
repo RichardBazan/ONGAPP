@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pasarela.Core.Views.MyDataView"
+             xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
+             viewModelBase:ViewModelLocator.AutoWireViewModel="true">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Editar" Command="{Binding EditCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="ic_edit" iOS="ic_edit"/>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="10,12,10,0">
+                <Label Text="MIS DATOS DE USUARIO" TextColor="#00a69c" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"></Label>
+            </StackLayout>
+            <ScrollView>
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.35*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.65*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="130"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Text="Nombres" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="1" Text="Ap. Paterno" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="2" Text="Ap. Materno" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="3" Text="Fec. Nac." FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="4" Text="Dirección" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="5" Text="Telefono" FontAttributes="Bold"></Label>
+                    <Label Grid.Column="0" Grid.Row="6" Text="Usuario" FontAttributes="Bold"></Label>
+                    <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Name}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="1" Text="{Binding FirstLastName}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="2" Text="{Binding SecondLastName}" ></Entry>
+                    <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="01/01/1940" MaximumDate="12/31/2008"></DatePicker>
+                    <Entry Grid.Column="1" Grid.Row="4" Text="{Binding Address}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Phone}" Keyboard="Telephone"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="6" Text="{Binding User}"></Entry>
+                    <Image Grid.Column="0" Grid.Row="7" Source="ic_camera">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CameraCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Image x:Name="image" Grid.Column="1" Grid.Row="7"></Image>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Text="Cancelar" BackgroundColor="#00a69c" Command="{Binding CancelCommand}"></Button>
+                        <Button Grid.Column="1" Text="Actualizar" BackgroundColor="#00a69c" Command="{Binding UpdateCommand}"></Button>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
