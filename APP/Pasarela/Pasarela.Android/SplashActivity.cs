@@ -15,7 +15,7 @@ using Android.Widget;
 namespace Pasarela.Droid
 {
     [Activity(
-         Label = "Cuidando Ángeles",
+         Label = "Dog Lovers",
          Icon = "@drawable/header_logo1",
          Theme = "@style/Theme.Splash",
          NoHistory = true,

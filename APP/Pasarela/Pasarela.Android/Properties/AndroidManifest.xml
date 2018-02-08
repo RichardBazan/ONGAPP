@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="Pasarela.Android">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="Cuidando Ángeles" android:icon="@drawable/header_logo1">
+	<application android:label="Dog Lovers" android:icon="@drawable/header_logo1">
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="Pasarela.Android.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>
