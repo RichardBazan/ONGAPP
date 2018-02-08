@@ -1,4 +1,5 @@
 ﻿using Pasarela.Core.Extensions;
+using Pasarela.Core.Helpers;
 using Pasarela.Core.Models.Breed;
 using Pasarela.Core.Models.Common;
 using Pasarela.Core.Models.Dog;
@@ -157,6 +158,13 @@ namespace Pasarela.Core.ViewModels
                 ImageUser(args);
                 PhotosDog.Add(new SavePhotoDog { Photo = photoDog });
             });
+        }
+
+        public ICommand CameraCommand => new Command(async () => await CameraAsync());
+
+        private async Task CameraAsync()
+        {
+            MessageHelper.OpenCameraMessage();
         }
 
         public ICommand SaveCommand => new Command(async () => await SaveAsync());
