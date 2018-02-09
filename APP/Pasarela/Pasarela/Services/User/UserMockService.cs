@@ -16,5 +16,15 @@ namespace Pasarela.Core.Services.User
         {
             throw new NotImplementedException();
         }
+
+        public Task<bool> UpdatePasswordAsync(int id, ChangePassword _change)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> UpdateUserAsync(int id, UserInfo _saveUser)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

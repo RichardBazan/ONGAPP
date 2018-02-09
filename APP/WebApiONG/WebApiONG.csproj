@@ -259,6 +259,7 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdopcionModelDTO.cs" />
+    <Compile Include="Models\CambiarContraseñaModelDTO.cs" />
     <Compile Include="Models\CasaRefugioModelDTO.cs" />
     <Compile Include="Models\CasaRefugioModelPostDTO.cs" />
     <Compile Include="Models\ComentarioModelDTO.cs" />
@@ -285,6 +286,7 @@
     <Compile Include="Models\RazaModelDTO.cs" />
     <Compile Include="Models\UsuarioInfoModelDTO.cs" />
     <Compile Include="Models\UsuarioModelDTO.cs" />
+    <Compile Include="Models\UsuarioModelUpdateDTO.cs" />
     <Compile Include="Producto.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

@@ -7,7 +7,7 @@ namespace Pasarela.Core
     {
         public const string AzureTag = "Azure";
         public const string MockTag = "Mock";
-        public const string DefaultEndpoint = "http://192.168.43.70/WebApiONG/api";
+        public const string DefaultEndpoint = "http://192.168.43.121/WebApiONG/api";
 
 
         private string _baseEndpoint;

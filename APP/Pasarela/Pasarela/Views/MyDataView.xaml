@@ -40,19 +40,23 @@
                     <Label Grid.Column="0" Grid.Row="4" Text="Dirección" FontAttributes="Bold"></Label>
                     <Label Grid.Column="0" Grid.Row="5" Text="Telefono" FontAttributes="Bold"></Label>
                     <Label Grid.Column="0" Grid.Row="6" Text="Usuario" FontAttributes="Bold"></Label>
-                    <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Name}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="1" Text="{Binding FirstLastName}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="2" Text="{Binding SecondLastName}" ></Entry>
-                    <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="01/01/1940" MaximumDate="12/31/2008"></DatePicker>
-                    <Entry Grid.Column="1" Grid.Row="4" Text="{Binding Address}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Phone}" Keyboard="Telephone"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="6" Text="{Binding User}"></Entry>
-                    <Image Grid.Column="0" Grid.Row="7" Source="ic_camera">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding CameraCommand}"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <Image x:Name="image" Grid.Column="1" Grid.Row="7"></Image>
+                    <Entry Grid.Column="1" Grid.Row="0" Text="{Binding UserInfo.Name, Mode=TwoWay}" IsEnabled="{Binding Disable}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="1" Text="{Binding UserInfo.FirstLastName, Mode=TwoWay}" IsEnabled="{Binding Disable}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="2" Text="{Binding UserInfo.SecondLastName, Mode=TwoWay}" IsEnabled="{Binding Disable}"></Entry>
+                    <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding UserInfo.Birthdate, Mode=TwoWay}" MinimumDate="01/01/1940" MaximumDate="12/31/2008" IsEnabled="{Binding Disable}"></DatePicker>
+                    <Entry Grid.Column="1" Grid.Row="4" Text="{Binding UserInfo.Address, Mode=TwoWay}" IsEnabled="{Binding Disable}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="5" Text="{Binding UserInfo.Phone, Mode=TwoWay}" Keyboard="Telephone" IsEnabled="{Binding Disable}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="6" Text="{Binding UserInfo.UserName, Mode=TwoWay}" IsEnabled="{Binding Disable}"></Entry>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7">
+                        <Image Grid.Column="0" Source="ic_camera" IsEnabled="{Binding Disable}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CameraCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Grid.Column="1" Source="{Binding PhotoUser}"></Image>
+                        <Image x:Name="image" Grid.Column="2"></Image>
+                    </Grid>
+
                     <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.5*"></ColumnDefinition>

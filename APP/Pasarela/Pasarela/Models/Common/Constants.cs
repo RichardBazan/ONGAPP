@@ -72,6 +72,12 @@ namespace Pasarela.Core.Models.Common
             public const string USERNAME = "/Username";
 
             public const string PASSWORD = "/Password";
+
+            public const string ID = "/Id";
+
+            public const string PASSWORDACTUAL = "/PasswordActual";
+
+            public const string PASSWORDNEW = "/PasswordNew";
         }
 
         public struct MethodsService

@@ -93,7 +93,9 @@
     <Compile Include="Models\StateComplaints\StateComplaints.cs" />
     <Compile Include="Models\StateDog\StateDog.cs" />
     <Compile Include="Models\StateShelterHouse\StateShelterHouse.cs" />
+    <Compile Include="Models\User\ChangePassword.cs" />
     <Compile Include="Models\User\User.cs" />
+    <Compile Include="Models\User\UserUpdate.cs" />
     <Compile Include="Services\Adoption\AdoptionService.cs" />
     <Compile Include="Services\Adoption\IAdoptionService.cs" />
     <Compile Include="Services\Breed\BreedService.cs" />

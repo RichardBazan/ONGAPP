@@ -142,6 +142,8 @@ namespace Pasarela.Core.ViewModels
                 MessagingCenter.Unsubscribe<RegisterUserView, string>(OLD_INSTANCE, MessageKeys.SendData);
             }
 
+            OLD_INSTANCE = this;
+
             MessagingCenter.Subscribe<RegisterUserView, string>(this, MessageKeys.SendData, (sender, args) =>
             {
                 ImageUser(args);

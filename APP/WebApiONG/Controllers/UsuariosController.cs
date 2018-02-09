@@ -50,19 +50,17 @@ namespace WebApiONG.Controllers
 
         // PUT: api/Usuarios/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsuario(int id, Usuario usuario)
+        public bool PutUsuario(int id, UsuarioModelUpdateDTO usuario)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != usuario.cod_usu)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(usuario).State = EntityState.Modified;
+            var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();
+            entity.nom_usu = usuario.Name;
+            entity.ape_pat = usuario.FirstLastName;
+            entity.ape_mat = usuario.SecondLastName;
+            entity.dir_usu = usuario.Address;
+            entity.tel_usu = usuario.Phone;
+            entity.fecha_nac = usuario.Birthdate;
+            entity.usuario1 = usuario.UserName;
+            entity.foto_usu = usuario.Photo;
 
             try
             {
@@ -72,15 +70,43 @@ namespace WebApiONG.Controllers
             {
                 if (!UsuarioExists(id))
                 {
-                    return NotFound();
+                    return false;
                 }
                 else
                 {
                     throw;
                 }
             }
+            return true;
+        }
 
-            return StatusCode(HttpStatusCode.NoContent);
+        // PUT: api/Usuarios/5
+        [ResponseType(typeof(void))]
+        public bool PutUsuarioContraseña(int id, CambiarContraseñaModelDTO cambio)
+        {
+            var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();
+            if(entity.contraseña == cambio.PasswordActual)
+            {
+                entity.contraseña = cambio.PasswordNew;
+            }
+            
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return true;
         }
 
         // POST: api/Usuarios

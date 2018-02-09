@@ -50,8 +50,8 @@ namespace Pasarela.Core.ViewModels
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
-            var banner = await _homeService.GetBannerAsync();
-            Banner = banner.ToObservableCollection();
+            //var banner = await _homeService.GetBannerAsync();
+            //Banner = banner.ToObservableCollection();
             string p = GlobalSetting.UserInfo.Photo;
             p = p.Substring(23);
             var bytes = Convert.FromBase64String(p);
