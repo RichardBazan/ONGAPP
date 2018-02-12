@@ -18,7 +18,7 @@ namespace Pasarela.Droid
 {
     [Activity(
         Label = "Dog Lovers",
-        Icon = "@drawable/header_logo1",
+        Icon = "@drawable/ic_logo",
         Theme = "@style/MainTheme",
         MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
