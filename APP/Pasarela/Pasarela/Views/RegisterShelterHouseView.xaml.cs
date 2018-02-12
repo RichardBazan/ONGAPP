@@ -21,7 +21,7 @@ namespace Pasarela.Core.Views
         {
             InitializeComponent();
 
-            MessagingCenter.Subscribe<MessageHelper, bool>(this, MessageKeys.OpenCamera, (sender, args) =>
+            MessagingCenter.Subscribe<MessageHelper, bool>(this, MessageKeys.OpenCameraShelterHouse, (sender, args) =>
             {
                 Camera();
             });

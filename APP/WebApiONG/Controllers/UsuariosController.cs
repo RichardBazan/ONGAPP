@@ -24,8 +24,8 @@ namespace WebApiONG.Controllers
         {
             Usuario usuario = new Usuario();
             UsuarioInfoModelDTO UsuarioInfoModelDTO = new UsuarioInfoModelDTO();
-            var hashPassword = Hash.ComputeHash(password, new SHA256CryptoServiceProvider());
-            usuario = db.Usuario.Where(x => x.usuario1 == username && x.contraseña == hashPassword).FirstOrDefault();
+            //var hashPassword = Hash.ComputeHash(password, new SHA256CryptoServiceProvider());
+            usuario = db.Usuario.Where(x => x.usuario1 == username && x.contraseña == password).FirstOrDefault();
             if (usuario != null)
             {
                 UsuarioInfoModelDTO.Id = usuario.cod_usu;
@@ -119,8 +119,8 @@ namespace WebApiONG.Controllers
             usu = db.Usuario.Where(x => x.usuario1 == usuario.UserName).FirstOrDefault();
             if (usu == null)
             {
-                string hashPassword = Hash.ComputeHash(usuario.Password, new SHA256CryptoServiceProvider());
-                db.Usuario.Add(new Usuario() { nom_usu = usuario.Name, ape_pat = usuario.FirstLastName, ape_mat = usuario.SecondLastName, dir_usu = usuario.Address, tel_usu = usuario.Phone, usuario1 = usuario.UserName, fecha_nac = usuario.Birthdate, contraseña = hashPassword, foto_usu = usuario.Photo });
+                //var hashPassword = Hash.ComputeHash(usuario.Password, new SHA256CryptoServiceProvider());
+                db.Usuario.Add(new Usuario() { nom_usu = usuario.Name, ape_pat = usuario.FirstLastName, ape_mat = usuario.SecondLastName, dir_usu = usuario.Address, tel_usu = usuario.Phone, usuario1 = usuario.UserName, fecha_nac = usuario.Birthdate, contraseña = usuario.Password, foto_usu = usuario.Photo });
                 db.SaveChanges();
             }
             else

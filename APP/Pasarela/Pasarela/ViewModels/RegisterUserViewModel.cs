@@ -154,7 +154,7 @@ namespace Pasarela.Core.ViewModels
 
         private async Task CameraAsync()
         {
-            MessageHelper.OpenCameraMessage();
+            MessageHelper.OpenCameraUser();
         }
 
         public ICommand CancelCommand => new Command(async () => await CancelAsync());

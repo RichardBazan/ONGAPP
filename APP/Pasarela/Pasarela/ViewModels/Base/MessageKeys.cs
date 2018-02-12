@@ -11,7 +11,15 @@
         // Change selected Tab programmatically
         public const string ChangeTab = "ChangeTab";
 
-        public const string OpenCamera = "OpenCamera";
+        public const string OpenCameraUser = "OpenCameraUser";
+
+        public const string OpenCameraShelterHouse = "OpenCameraShelterHouse";
+
+        public const string OpenCameraComplaints = "OpenCameraComplaints";
+
+        public const string OpenCameraDog = "OpenCameraDog";
+
+        public const string OpenCameraData = "OpenCameraData";
 
         public const string SendData = "SendData";
     }

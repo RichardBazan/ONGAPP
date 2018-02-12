@@ -22,9 +22,29 @@ namespace Pasarela.Core.Helpers
             return instance;
         }
 
-        public static void OpenCameraMessage()
+        public static void OpenCameraUser()
         {
-            MessagingCenter.Send(GetInstance(), MessageKeys.OpenCamera, true);
+            MessagingCenter.Send(GetInstance(), MessageKeys.OpenCameraUser, true);
+        }
+
+        public static void OpenCameraShelterHouse()
+        {
+            MessagingCenter.Send(GetInstance(), MessageKeys.OpenCameraShelterHouse, true);
+        }
+
+        public static void OpenCameraComplaints()
+        {
+            MessagingCenter.Send(GetInstance(), MessageKeys.OpenCameraComplaints, true);
+        }
+
+        public static void OpenCameraDog()
+        {
+            MessagingCenter.Send(GetInstance(), MessageKeys.OpenCameraDog, true);
+        }
+
+        public static void OpenCameraData()
+        {
+            MessagingCenter.Send(GetInstance(), MessageKeys.OpenCameraData, true);
         }
 
     }

@@ -120,7 +120,7 @@ namespace Pasarela.Core.ViewModels
 
         private async Task CameraAsync()
         {
-            MessageHelper.OpenCameraMessage();
+            MessageHelper.OpenCameraShelterHouse();
         }
 
         public ICommand CancelCommand => new Command(async () => await CancelAsync());

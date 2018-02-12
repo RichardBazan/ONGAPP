@@ -164,7 +164,7 @@ namespace Pasarela.Core.ViewModels
 
         private async Task CameraAsync()
         {
-            MessageHelper.OpenCameraMessage();
+            MessageHelper.OpenCameraDog();
         }
 
         public ICommand SaveCommand => new Command(async () => await SaveAsync());
