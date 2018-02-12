@@ -98,6 +98,7 @@ namespace Pasarela.Core.ViewModels
                         PasswordNew = PasswordNew
                     };
                     await _userService.UpdatePasswordAsync(GlobalSetting.UserInfo.Id, changepassword);
+                    await DialogService.ShowAlertAsync("Se actualizó la contraseña correctamente", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 }
                 else
                 {

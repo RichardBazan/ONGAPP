@@ -49,7 +49,7 @@ namespace WebApiONG.Controllers
 
 
         // PUT: api/Usuarios/5
-        [ResponseType(typeof(void))]
+        [Route("api/Usuarios/{id}/UpdateUsuario")]
         public bool PutUsuario(int id, UsuarioModelUpdateDTO usuario)
         {
             var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();
@@ -81,7 +81,7 @@ namespace WebApiONG.Controllers
         }
 
         // PUT: api/Usuarios/5
-        [ResponseType(typeof(void))]
+        [Route("api/Usuarios/{id}/UpdatePassword")]
         public bool PutUsuarioContraseña(int id, CambiarContraseñaModelDTO cambio)
         {
             var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();

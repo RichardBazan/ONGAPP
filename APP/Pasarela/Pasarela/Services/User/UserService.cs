@@ -47,7 +47,7 @@ namespace Pasarela.Core.Services.User
         public async Task<bool> UpdatePasswordAsync(int id, ChangePassword _change)
         {
             string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.UsuarioEndPoint,
-            string.Format(Constants.Parameters.ID + "/{0}", id));
+            string.Format("/{0}" + "/UpdatePassword", id));
             var changePassword = await _requestProvider.PutAsync<ChangePassword>(uri, _change);
             return changePassword;
         }
@@ -55,7 +55,7 @@ namespace Pasarela.Core.Services.User
         public async Task<bool> UpdateUserAsync(int id, UserInfo _updateUser)
         {
             string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.UsuarioEndPoint,
-            string.Format("/{0}", id));
+            string.Format("/{0}" + "/UpdateUsuario", id));
             var updateUser = await _requestProvider.PutAsync<Models.User.UserInfo>(uri, _updateUser).ConfigureAwait(false);
             return updateUser;
         }
