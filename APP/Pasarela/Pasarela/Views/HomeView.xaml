@@ -13,6 +13,11 @@
                 <OnPlatform x:TypeArguments="FileImageSource" Android="ic_settings" iOS="ic_settings"/>
             </ToolbarItem.Icon>
         </ToolbarItem>
+        <ToolbarItem Text="Cerrar Sesion" Command="{Binding SignOffCommand}">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource" Android="ic_signoff" iOS="ic_signoff"/>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

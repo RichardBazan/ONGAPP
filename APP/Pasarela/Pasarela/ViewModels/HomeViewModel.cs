@@ -50,6 +50,8 @@ namespace Pasarela.Core.ViewModels
         public override async Task InitializeAsync(object navigationData)
         {
             IsBusy = true;
+            await NavigationService.RemoveBackStackAsync();
+
             //var banner = await _homeService.GetBannerAsync();
             //Banner = banner.ToObservableCollection();
             string p = GlobalSetting.UserInfo.Photo;
@@ -102,6 +104,15 @@ namespace Pasarela.Core.ViewModels
         {
             IsBusy = true;
             await NavigationService.NavigateToAsync<MainConfigurationViewModel>();
+            IsBusy = false;
+        }
+
+        public ICommand SignOffCommand => new Command(async () => await SignOffAsync());
+
+        private async Task SignOffAsync()
+        {
+            IsBusy = true;
+            await NavigationService.NavigateToAsync<LoginViewModel>();
             IsBusy = false;
         }
 

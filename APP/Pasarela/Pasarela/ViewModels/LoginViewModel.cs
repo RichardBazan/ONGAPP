@@ -145,6 +145,8 @@ namespace Pasarela.Core.ViewModels
 
         public override Task InitializeAsync(object navigationData)
         {
+            UserName = "";
+            Password = "";
             if (navigationData is LogoutParameter)
             {
                 var logoutParameter = (LogoutParameter)navigationData;
