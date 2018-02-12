@@ -279,6 +279,7 @@
     <Compile Include="Models\FotoDenunciaModelPostDTO.cs" />
     <Compile Include="Models\FotoMascotaModelDTO.cs" />
     <Compile Include="Models\FotoMascotaModelPostDTO.cs" />
+    <Compile Include="Models\Hash.cs" />
     <Compile Include="Models\MascotaModelDTO.cs" />
     <Compile Include="Models\MascotaModelPostDTO.cs" />
     <Compile Include="Models\ProductoDonacionModelDTO.cs" />

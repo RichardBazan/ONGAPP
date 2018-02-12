@@ -25,7 +25,11 @@ namespace Pasarela.Services
 
         public Task InitializeAsync()
         {
-            if (string.IsNullOrEmpty(Settings.AuthAccessToken))
+            //if (string.IsNullOrEmpty(Settings.AuthAccessToken))
+            //    return NavigateToAsync<LoginViewModel>();
+            //else
+            //    return NavigateToAsync<HomeViewModel>();
+            if(GlobalSetting.UserInfo==null)
                 return NavigateToAsync<LoginViewModel>();
             else
                 return NavigateToAsync<HomeViewModel>();

@@ -112,6 +112,7 @@ namespace Pasarela.Core.ViewModels
         private async Task SignOffAsync()
         {
             IsBusy = true;
+
             await NavigationService.NavigateToAsync<LoginViewModel>();
             IsBusy = false;
         }
