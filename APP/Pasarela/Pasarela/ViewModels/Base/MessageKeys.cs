@@ -21,6 +21,15 @@
 
         public const string OpenCameraData = "OpenCameraData";
 
-        public const string SendData = "SendData";
+        public const string SendDataUser = "SendDataUser";
+
+        public const string SendDataShelterHouse = "SendDataShelterHouse";
+
+        public const string SendDataComplaints = "SendDataComplaints";
+
+        public const string SendDataDog = "SendDataDog";
+
+
+        public const string SendDataMyData = "SendDataMyData";
     }
 }

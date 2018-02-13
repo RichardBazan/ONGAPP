@@ -122,12 +122,12 @@ namespace Pasarela.Core.ViewModels
             ListBreed = breed.ToObservableCollection();
             if (OLD_INSTANCE != null)
             {
-                MessagingCenter.Unsubscribe<RegisterComplaintView, string>(OLD_INSTANCE, MessageKeys.SendData);
+                MessagingCenter.Unsubscribe<RegisterComplaintView, string>(OLD_INSTANCE, MessageKeys.SendDataComplaints);
             }
 
             OLD_INSTANCE = this;
 
-            MessagingCenter.Subscribe<RegisterComplaintView, string>(this, MessageKeys.SendData, (sender, args) =>
+            MessagingCenter.Subscribe<RegisterComplaintView, string>(this, MessageKeys.SendDataComplaints, (sender, args) =>
             {
                 ImageUser(args);
                 PhotosComplaint.Add(new SavePhotoComplaints { Photo = photoComplaint });
@@ -145,7 +145,9 @@ namespace Pasarela.Core.ViewModels
 
         private async Task SaveAsync()
         {
-            try
+            if (SelectedBreed != null && Title != null && Description != null && Address != null && Phone != null && Description != "" && Title != "" && Address != "" && Phone != "")
+            {
+                try
             {
                 var saveComplaints = new SaveComplaints()
                 {
@@ -165,6 +167,11 @@ namespace Pasarela.Core.ViewModels
             catch (Exception ex)
             {
                 await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+            }
+            }
+            else
+            {
+                await DialogService.ShowAlertAsync("Complete todos los campos para poder registrar la denuncia", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
         }
 

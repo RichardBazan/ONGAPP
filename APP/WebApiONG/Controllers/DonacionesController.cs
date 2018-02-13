@@ -28,7 +28,7 @@ namespace WebApiONG.Controllers
         {
             List<DonacionModelDTO> ListDonacionModelDTO = new List<DonacionModelDTO>();
             List<Donaciones> ListDonaciones = new List<Donaciones>();
-            ListDonaciones = db.Donaciones.Where(d => d.cod_casa == shelterHouseId).ToList();
+            ListDonaciones = db.Donaciones.Where(d => d.cod_casa == shelterHouseId && d.estado_don.Equals("Aceptada")).ToList();
 
             foreach (var item in ListDonaciones)
             {
@@ -103,7 +103,7 @@ namespace WebApiONG.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Donaciones.Add(new Donaciones() { cod_usu=donaciones.IdUser,cod_casa=donaciones.IdShelterHouse });
+            db.Donaciones.Add(new Donaciones() { cod_usu=donaciones.IdUser,cod_casa=donaciones.IdShelterHouse, estado_don="En espera", fech_reg=DateTime.Now });
 
             try
             {

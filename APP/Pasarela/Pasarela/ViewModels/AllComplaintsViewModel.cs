@@ -42,7 +42,7 @@ namespace Pasarela.Core.ViewModels
             {
                 if (item.Photos.Count == 0)
                 {
-                    item.Photos.Add(new Models.PhotoComplaints.PhotoComplaints() { Photo = "icon.png" });
+                    item.Photos.Add(new Models.PhotoComplaints.PhotoComplaints() { Photo = "ic_default" });
                 }
             }
             ListComplaints = complaintsList.ToObservableCollection();

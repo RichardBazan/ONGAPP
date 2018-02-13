@@ -43,7 +43,7 @@ namespace Pasarela.Core.ViewModels
             {
                 if (item.Photos.Count == 0)
                 {
-                    item.Photos.Add(new Models.PhotoShelterHouse.PhotoShelterHouse() { Photo = "icon.png" });
+                    item.Photos.Add(new Models.PhotoShelterHouse.PhotoShelterHouse() { Photo = "ic_default" });
                 }
             }
             ListShelterHouse = shelterHouseList.ToObservableCollection();

@@ -139,12 +139,12 @@ namespace Pasarela.Core.ViewModels
         {
             if (OLD_INSTANCE != null)
             {
-                MessagingCenter.Unsubscribe<RegisterUserView, string>(OLD_INSTANCE, MessageKeys.SendData);
+                MessagingCenter.Unsubscribe<RegisterUserView, string>(OLD_INSTANCE, MessageKeys.SendDataUser);
             }
 
             OLD_INSTANCE = this;
 
-            MessagingCenter.Subscribe<RegisterUserView, string>(this, MessageKeys.SendData, (sender, args) =>
+            MessagingCenter.Subscribe<RegisterUserView, string>(this, MessageKeys.SendDataUser, (sender, args) =>
             {
                 ImageUser(args);
             });
@@ -173,7 +173,7 @@ namespace Pasarela.Core.ViewModels
 
             if (Password == PasswordConfirm && Password != null)
             {
-                if (Name != null && FirstLastName != null && SecondLastName != null && Address != null && Phone != null && User != null && Password != null && Name != "" && FirstLastName != "" && SecondLastName != "" && Address != "" && Phone != "" && User != "" && Password != "")
+                if (Name != null && FirstLastName != null && SecondLastName != null && Address != null && Phone != null && User != null && Password != null && Name != "" && FirstLastName != "" && SecondLastName != "" && Address != "" && Phone != "" && User != "" && Password != "" && photoUser != null && photoUser != "" )
                 {
                     try
                     {

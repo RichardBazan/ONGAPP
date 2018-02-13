@@ -43,7 +43,7 @@ namespace Pasarela.Core.ViewModels
             {
                 if (item.Photos.Count == 0)
                 {
-                    item.Photos.Add(new Models.PhotoDog.PhotoDog() { Photo = "icon.png" });
+                    item.Photos.Add(new Models.PhotoDog.PhotoDog() { Photo = "ic_default" });
                 }
             }
             ListDog = dogList.ToObservableCollection();

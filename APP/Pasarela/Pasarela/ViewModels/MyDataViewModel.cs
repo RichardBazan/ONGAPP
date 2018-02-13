@@ -89,12 +89,12 @@ namespace Pasarela.Core.ViewModels
             IsBusy = true;
             if (OLD_INSTANCE != null)
             {
-                MessagingCenter.Unsubscribe<MyDataView, string>(OLD_INSTANCE, MessageKeys.SendData);
+                MessagingCenter.Unsubscribe<MyDataView, string>(OLD_INSTANCE, MessageKeys.SendDataMyData);
             }
 
             OLD_INSTANCE = this;
 
-            MessagingCenter.Subscribe<MyDataView, string>(this, MessageKeys.SendData, (sender, args) =>
+            MessagingCenter.Subscribe<MyDataView, string>(this, MessageKeys.SendDataMyData, (sender, args) =>
             {
                 ImageUser(args);
             });

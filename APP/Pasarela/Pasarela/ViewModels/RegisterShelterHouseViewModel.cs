@@ -105,12 +105,12 @@ namespace Pasarela.Core.ViewModels
         {
             if (OLD_INSTANCE != null)
             {
-                MessagingCenter.Unsubscribe<RegisterShelterHouseView, string>(OLD_INSTANCE, MessageKeys.SendData);
+                MessagingCenter.Unsubscribe<RegisterShelterHouseView, string>(OLD_INSTANCE, MessageKeys.SendDataShelterHouse);
             }
 
             OLD_INSTANCE = this;
 
-            MessagingCenter.Subscribe<RegisterShelterHouseView, string>(this, MessageKeys.SendData, (sender, args) =>
+            MessagingCenter.Subscribe<RegisterShelterHouseView, string>(this, MessageKeys.SendDataShelterHouse, (sender, args) =>
             {
                 PhotosShelterHouse.Add(new SavePhotoShelterHouse { Photo = args });
             });
@@ -136,30 +136,36 @@ namespace Pasarela.Core.ViewModels
 
         private async Task SaveAsync()
         {
-            try
+            if (Name != null && Description != null && Address != null && Address != null && Phone != null && Name != "" && Description  != "" && Address != "" && Phone != "" )
             {
-                var saveShelterHouse = new SaveShelterHouse()
+                try
                 {
-                    IdUser = GlobalSetting.UserInfo.Id,
-                    Name = Name,
-                    Description = Description,
-                    Address = Address,
-                    Phone = Phone
-                };
-                await _shelterHouseService.SaveShelterHouseAsync(saveShelterHouse);
-                //var savePhotoShelterHouse = new List<SavePhotoShelterHouse>()
-                //{
-                //    Photo= PhotosShelterHouse
-                //};
-                await _shelterHouseService.SavePhotoShelterHouseAsync(PhotosShelterHouse);
-                await DialogService.ShowAlertAsync("Se registro con éxito la casa refugio", Constants.MessageTitle.Message, Constants.MessageButton.OK);
-                await NavigationService.NavigateBack(false);
+                    var saveShelterHouse = new SaveShelterHouse()
+                    {
+                        IdUser = GlobalSetting.UserInfo.Id,
+                        Name = Name,
+                        Description = Description,
+                        Address = Address,
+                        Phone = Phone
+                    };
+                    await _shelterHouseService.SaveShelterHouseAsync(saveShelterHouse);
+                    //var savePhotoShelterHouse = new List<SavePhotoShelterHouse>()
+                    //{
+                    //    Photo= PhotosShelterHouse
+                    //};
+                    await _shelterHouseService.SavePhotoShelterHouseAsync(PhotosShelterHouse);
+                    await DialogService.ShowAlertAsync("Se registro con éxito la casa refugio", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                    await NavigationService.NavigateBack(false);
+                }
+                catch (Exception ex)
+                {
+                    await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync("Complete todos los campos para poder registrar la casa refugio", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
-        }
-
+            }
     }
 }

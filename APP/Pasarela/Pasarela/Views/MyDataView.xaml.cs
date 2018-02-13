@@ -64,7 +64,7 @@ namespace Pasarela.Core.Views
                 }
                 string base64 = Convert.ToBase64String(bytes);
                 string photo = "data:image/jpeg;base64," + base64;
-                MessagingCenter.Send(this, MessageKeys.SendData, photo);
+                MessagingCenter.Send(this, MessageKeys.SendDataMyData, photo);
             }
 
         }

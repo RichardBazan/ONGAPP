@@ -148,12 +148,12 @@ namespace Pasarela.Core.ViewModels
             ListBreed = breed.ToObservableCollection();
             if (OLD_INSTANCE != null)
             {
-                MessagingCenter.Unsubscribe<GiveInAdoptionView, string>(OLD_INSTANCE, MessageKeys.SendData);
+                MessagingCenter.Unsubscribe<GiveInAdoptionView, string>(OLD_INSTANCE, MessageKeys.SendDataDog);
             }
 
             OLD_INSTANCE = this;
 
-            MessagingCenter.Subscribe<GiveInAdoptionView, string>(this, MessageKeys.SendData, (sender, args) =>
+            MessagingCenter.Subscribe<GiveInAdoptionView, string>(this, MessageKeys.SendDataDog, (sender, args) =>
             {
                 ImageUser(args);
                 PhotosDog.Add(new SavePhotoDog { Photo = photoDog });
@@ -171,7 +171,9 @@ namespace Pasarela.Core.ViewModels
 
         private async Task SaveAsync()
         {
-            try
+            if (SelectedBreed != null && Name != null && Description != null && Age != null && SelectedSex != null && Name != "" && Description != "" && Age != "" && SelectedSex != "" && photoDog!=null && photoDog!= "")
+            {
+                try
             {
                 var saveDog = new SaveDog()
                 {
@@ -197,6 +199,11 @@ namespace Pasarela.Core.ViewModels
             catch (Exception ex)
             {
                 await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+            }
+            }
+            else
+            {
+                await DialogService.ShowAlertAsync("Complete todos los campos para poder registrar su perro en adopción", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
         }
 
