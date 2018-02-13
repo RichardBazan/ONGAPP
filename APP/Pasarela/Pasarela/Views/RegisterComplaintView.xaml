@@ -32,7 +32,11 @@
                     <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Title}"></Entry>
                     <Picker Grid.Column="1" Grid.Row="1" Title="Selecciona raza" ItemsSource="{Binding ListBreed}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedBreed}"></Picker>
                     <Entry Grid.Column="1" Grid.Row="2" Text="{Binding Address}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="3" Text="{Binding Phone}" Keyboard="Telephone"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="3" Text="{Binding Phone}" Keyboard="Telephone">
+                        <Entry.Behaviors>
+                            <behaviors:EntryLengthValidatorBehavior MaxLength="9" />
+                        </Entry.Behaviors>
+                    </Entry>
                     <Editor Grid.Column="1" Grid.Row="4" Text="{Binding Description}">
                         <Editor.Behaviors>
                             <behaviors:EntryLengthValidatorBehavior MaxLength="320" />

@@ -44,6 +44,7 @@
     </Compile>
     <Compile Include="Behaviors\Base\BindableBehavior.cs" />
     <Compile Include="Behaviors\ConfirmPasswordBehavior.cs" />
+    <Compile Include="Behaviors\EditorLengthValidatorBehavior.cs" />
     <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\LineColorBehavior.cs" />

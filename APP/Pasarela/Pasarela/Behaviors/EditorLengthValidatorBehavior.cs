@@ -7,17 +7,17 @@ using Xamarin.Forms;
 
 namespace Pasarela.Core.Behaviors
 {
-    public class EntryLengthValidatorBehavior : Behavior<Entry>
+    public class EditorLengthValidatorBehavior : Behavior<Editor>
     {
         public int MaxLength { get; set; }
 
-        protected override void OnAttachedTo(Entry bindable)
+        protected override void OnAttachedTo(Editor bindable)
         {
             base.OnAttachedTo(bindable);
             bindable.TextChanged += OnEntryTextChanged;
         }
 
-        protected override void OnDetachingFrom(Entry bindable)
+        protected override void OnDetachingFrom(Editor bindable)
         {
             base.OnDetachingFrom(bindable);
             bindable.TextChanged -= OnEntryTextChanged;
@@ -25,7 +25,7 @@ namespace Pasarela.Core.Behaviors
 
         void OnEntryTextChanged(object sender, TextChangedEventArgs e)
         {
-            var entry = (Entry)sender;
+            var entry = (Editor)sender;
 
             // if Entry text is longer then valid length
             if (entry.Text.Length > this.MaxLength)

@@ -43,7 +43,11 @@
                     <Entry Grid.Column="1" Grid.Row="2" Text="{Binding SecondLastName}" ></Entry>
                     <DatePicker Grid.Column="1" Grid.Row="3" Format="dd/MM/yyyy" Date="{Binding Birthdate}" MinimumDate="01/01/1940" MaximumDate="12/31/2008"></DatePicker>
                     <Entry Grid.Column="1" Grid.Row="4" Text="{Binding Address}"></Entry>
-                    <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Phone}" Keyboard="Telephone"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="5" Text="{Binding Phone}" Keyboard="Telephone">
+                        <Entry.Behaviors>
+                            <behaviors:EntryLengthValidatorBehavior MaxLength="9" />
+                        </Entry.Behaviors>
+                    </Entry>
                     <Entry Grid.Column="1" Grid.Row="6" Text="{Binding User}"></Entry>
                     <Entry Grid.Column="1" Grid.Row="7" Text="{Binding Password}" IsPassword="true"></Entry>
                     <Entry Grid.Column="1" Grid.Row="8" Text="{Binding PasswordConfirm}" IsPassword="true"></Entry>

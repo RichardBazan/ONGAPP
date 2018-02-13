@@ -84,7 +84,7 @@ namespace WebApiONG.Controllers
 
         // PUT: api/Usuarios/5
         [Route("api/Usuarios/{id}/UpdatePassword")]
-        public bool PutUsuarioContraseña(int id, CambiarContraseñaModelDTO cambio)
+        public HttpResponseMessage PutUsuarioContraseña(int id, CambiarContraseñaModelDTO cambio)
         {
             var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();
             var hashPassword = Hash.ComputeHash(cambio.PasswordActual, new SHA256CryptoServiceProvider());
@@ -92,25 +92,14 @@ namespace WebApiONG.Controllers
             if (entity.contraseña == hashPassword)
             {
                 entity.contraseña = hashPasswordNew;
-            }
-            
-
-            try
-            {
                 db.SaveChanges();
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!UsuarioExists(id))
-                {
-                    return false;
-                }
-                else
-                {
-                    throw;
-                }
+                var message = string.Format("Tu contraseña actual no es la correcta");
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
             }
-            return true;
+            return Request.CreateResponse(HttpStatusCode.OK, id);
         }
 
         // POST: api/Usuarios
