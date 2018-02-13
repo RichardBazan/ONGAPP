@@ -154,6 +154,7 @@ namespace Pasarela.Core.ViewModels
 
         private async Task CameraAsync()
         {
+            photoUser = null;
             MessageHelper.OpenCameraUser();
         }
 
@@ -162,6 +163,13 @@ namespace Pasarela.Core.ViewModels
         private async Task CancelAsync()
         {
             IsBusy = true;
+            Name = null;
+            FirstLastName = null;
+            SecondLastName = null;
+            Address = null;
+            Phone = null;
+            Password = null;
+            photoUser = null;
             await NavigationService.NavigateBack();
             IsBusy = false;
         }
@@ -170,14 +178,12 @@ namespace Pasarela.Core.ViewModels
 
         private async Task SaveAsync()
         {
-
-            if (Password == PasswordConfirm && Password != null)
+            if (Name != null && FirstLastName != null && SecondLastName != null && Address != null && Phone != null && User != null && Password != null && Name != "" && FirstLastName != "" && SecondLastName != "" && Address != "" && Phone != "" && User != "" && Password != "" && photoUser != null && photoUser != "")
             {
-                if (Name != null && FirstLastName != null && SecondLastName != null && Address != null && Phone != null && User != null && Password != null && Name != "" && FirstLastName != "" && SecondLastName != "" && Address != "" && Phone != "" && User != "" && Password != "" && photoUser != null && photoUser != "" )
+                if (Password == PasswordConfirm)
                 {
                     try
                     {
-
                         var saveUser = new User()
                         {
                             Name = Name,
@@ -190,7 +196,6 @@ namespace Pasarela.Core.ViewModels
                             Password = Password,
                             Photo = photoUser
                         };
-
                         await _userService.SaveUserAsync(saveUser);
                         await DialogService.ShowAlertAsync("Se registro con éxito", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                         await NavigationService.NavigateBack(false);
@@ -199,16 +204,15 @@ namespace Pasarela.Core.ViewModels
                     {
                         await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
                     }
-
                 }
                 else
                 {
-                    await DialogService.ShowAlertAsync("Complete todos los campos para poder registrarse", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                    await DialogService.ShowAlertAsync("Las contraseñas no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 }
             }
             else
             {
-                await DialogService.ShowAlertAsync("Las contraseñas no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync("Complete todos los campos para poder registrarse", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
         }
     }

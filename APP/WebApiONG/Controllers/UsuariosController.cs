@@ -87,9 +87,11 @@ namespace WebApiONG.Controllers
         public bool PutUsuarioContraseña(int id, CambiarContraseñaModelDTO cambio)
         {
             var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();
-            if(entity.contraseña == cambio.PasswordActual)
+            var hashPassword = Hash.ComputeHash(cambio.PasswordActual, new SHA256CryptoServiceProvider());
+            var hashPasswordNew = Hash.ComputeHash(cambio.PasswordNew, new SHA256CryptoServiceProvider());
+            if (entity.contraseña == hashPassword)
             {
-                entity.contraseña = cambio.PasswordNew;
+                entity.contraseña = hashPasswordNew;
             }
             
 

@@ -127,9 +127,9 @@ namespace Pasarela.Core.ViewModels
 
         private async Task UpdateAsync()
         {
+            if(UserInfo.Name!= null && UserInfo.Name != "" && UserInfo.FirstLastName != null && UserInfo.FirstLastName!= "" && UserInfo.SecondLastName!= null && UserInfo.SecondLastName!="" && UserInfo.Address!=null && UserInfo.Address!= "" && UserInfo.Phone!=null && UserInfo.Phone!="" && UserInfo.UserName!=null && UserInfo.UserName!= "") { 
             try
             {
-
                 var updateUser = new UserInfo()
                 {
                     Name = UserInfo.Name,
@@ -150,6 +150,20 @@ namespace Pasarela.Core.ViewModels
             {
                 await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
             }
+            }
+            else
+            {
+                await DialogService.ShowAlertAsync("Complete todos los campos para poder actualizar tus datos", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+            }
+        }
+
+        public ICommand CancelCommand => new Command(async () => await CancelAsync());
+
+        private async Task CancelAsync()
+        {
+            IsBusy = true;
+            await NavigationService.NavigateBack();
+            IsBusy = false;
         }
 
     }
