@@ -147,5 +147,6 @@ namespace Pasarela.Core.Services.RequestProvider
                 throw new HttpRequestException(content);
             }
         }
+
     }
 }

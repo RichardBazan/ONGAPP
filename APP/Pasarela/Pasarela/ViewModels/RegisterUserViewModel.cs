@@ -182,6 +182,7 @@ namespace Pasarela.Core.ViewModels
             {
                 if (Password == PasswordConfirm)
                 {
+                    if (Password.Length >= 6) { 
                     try
                     {
                         var saveUser = new User()
@@ -203,6 +204,11 @@ namespace Pasarela.Core.ViewModels
                     catch (Exception ex)
                     {
                         await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                    }
+                    }
+                    else
+                    {
+                        await DialogService.ShowAlertAsync("Tu contraseña debe tener un minimo de 6 caracteres", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                     }
                 }
                 else

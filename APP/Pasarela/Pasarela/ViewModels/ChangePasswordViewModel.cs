@@ -25,7 +25,6 @@ namespace Pasarela.Core.ViewModels
             _userService = userService;
         }
 
-
         public ChangePassword ChangePassword
         {
             get
@@ -88,9 +87,10 @@ namespace Pasarela.Core.ViewModels
         private async Task ChangeAsync()
         {
             IsBusy = true;
-            try
+
+            if (PasswordNew == PasswordConfirm)
             {
-                if (PasswordNew == PasswordConfirm)
+                try
                 {
                     var changepassword = new ChangePassword()
                     {
@@ -99,17 +99,17 @@ namespace Pasarela.Core.ViewModels
                     };
                     await _userService.UpdatePasswordAsync(GlobalSetting.UserInfo.Id, changepassword);
                     await DialogService.ShowAlertAsync("Se actualizó la contraseña correctamente", Constants.MessageTitle.Message, Constants.MessageButton.OK);
-                
                 }
-                else
+                catch (Exception ex)
                 {
-                    await DialogService.ShowAlertAsync("Las contraseña no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                    await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync("Las contraseña no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
+
 
             IsBusy = false;
         }

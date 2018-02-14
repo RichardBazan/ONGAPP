@@ -99,7 +99,7 @@ namespace WebApiONG.Controllers
                 var message = string.Format("Tu contraseña actual no es la correcta");
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, id);
+            return Request.CreateResponse(HttpStatusCode.OK, true);
         }
 
         // POST: api/Usuarios

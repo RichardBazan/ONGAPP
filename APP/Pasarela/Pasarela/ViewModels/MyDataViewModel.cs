@@ -143,6 +143,7 @@ namespace Pasarela.Core.ViewModels
                 };
 
                 await _userService.UpdateUserAsync(GlobalSetting.UserInfo.Id, updateUser);
+                GlobalSetting.UserInfo.Photo = photoUser;
                 await DialogService.ShowAlertAsync("Se actualizó con éxito", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
             }

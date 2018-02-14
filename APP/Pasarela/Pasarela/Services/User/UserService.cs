@@ -48,7 +48,7 @@ namespace Pasarela.Core.Services.User
         {
             string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.UsuarioEndPoint,
             string.Format("/{0}" + "/UpdatePassword", id));
-            var changePassword = await _requestProvider.PutAsync<ChangePassword>(uri, _change);
+            var changePassword = await _requestProvider.PutAsync<ChangePassword>(uri, _change).ConfigureAwait(false);
             return changePassword;
         }
 
