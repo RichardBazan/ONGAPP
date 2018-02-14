@@ -196,11 +196,11 @@ namespace Pasarela.Core.ViewModels
             VisibleComment = false;
         }
 
-        //public ICommand AddCommand => new Command(async () => await AddAsync());
+        public ICommand DeleteCommand => new Command(async () => await DeleteAsync());
 
-        //private async Task AddAsync()
-        //{
-            
-        //}
+        private async Task DeleteAsync()
+        {
+            //ListProductDonate.Remove();
+        }
     }
 }

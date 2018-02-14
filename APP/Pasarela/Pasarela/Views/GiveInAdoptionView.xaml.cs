@@ -45,7 +45,6 @@ namespace Pasarela.Core.Views
                 if (file == null)
                     return;
 
-                //await DisplayAlert("File Location", file.Path, "OK");
                 if (image1.Source == null)
                 {
                     image1.Source = ImageSource.FromStream(() =>
