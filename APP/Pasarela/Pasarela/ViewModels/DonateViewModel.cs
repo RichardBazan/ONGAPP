@@ -200,7 +200,7 @@ namespace Pasarela.Core.ViewModels
 
         private async Task DeleteAsync()
         {
-            //ListProductDonate.Remove()
+            //ListProductDonate.Remove();
         }
     }
 }
