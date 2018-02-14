@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApiONG.Models
 {
-    public class CambiarContraseñaModelDTO
+    public class CambiarContrasenaModelDTO
     {
 
         public string PasswordActual;

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
@@ -9,7 +7,6 @@ using System.Net.Http;
 using System.Security.Cryptography;
 using System.Web.Http;
 using System.Web.Http.Description;
-using WebApiONG;
 using WebApiONG.Models;
 
 namespace WebApiONG.Controllers
@@ -84,7 +81,7 @@ namespace WebApiONG.Controllers
 
         // PUT: api/Usuarios/5
         [Route("api/Usuarios/{id}/UpdatePassword")]
-        public HttpResponseMessage PutUsuarioContraseña(int id, CambiarContraseñaModelDTO cambio)
+        public HttpResponseMessage PutUsuarioContrasena(int id, CambiarContrasenaModelDTO cambio)
         {
             var entity = db.Usuario.Where(m => m.cod_usu == id).FirstOrDefault();
             var hashPassword = Hash.ComputeHash(cambio.PasswordActual, new SHA256CryptoServiceProvider());
@@ -96,10 +93,10 @@ namespace WebApiONG.Controllers
             }
             else
             {
-                var message = string.Format("Tu contraseña actual no es la correcta");
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
-            return Request.CreateResponse(HttpStatusCode.OK, true);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         // POST: api/Usuarios

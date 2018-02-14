@@ -88,29 +88,35 @@ namespace Pasarela.Core.ViewModels
         {
             IsBusy = true;
 
-            if (PasswordNew == PasswordConfirm)
+            if (PasswordNew.Length >= 6)
             {
-                try
+                if (PasswordNew == PasswordConfirm)
                 {
                     var changepassword = new ChangePassword()
                     {
                         PasswordActual = PasswordActual,
                         PasswordNew = PasswordNew
                     };
-                    await _userService.UpdatePasswordAsync(GlobalSetting.UserInfo.Id, changepassword);
-                    await DialogService.ShowAlertAsync("Se actualizó la contraseña correctamente", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                    var respuesta = await _userService.UpdatePasswordAsync(GlobalSetting.UserInfo.Id, changepassword);
+                    if (respuesta == true)
+                    {
+                        await DialogService.ShowAlertAsync("Se actualizó la contraseña correctamente", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                        await NavigationService.NavigateBack();
+                    }
+                    else
+                    {
+                        await DialogService.ShowAlertAsync("Su contraseña no es la correcta", Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                    await DialogService.ShowAlertAsync("Las contraseña no coinciden", Constants.MessageTitle.Error, Constants.MessageButton.OK);
                 }
             }
             else
             {
-                await DialogService.ShowAlertAsync("Las contraseña no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync("Su contraseña debe tener un mínimo de 6 digitos", Constants.MessageTitle.Error, Constants.MessageButton.OK);
             }
-
-
             IsBusy = false;
         }
 
