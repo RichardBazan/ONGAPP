@@ -130,6 +130,7 @@ namespace Pasarela.Core.ViewModels
             if(UserInfo.Name!= null && UserInfo.Name != "" && UserInfo.FirstLastName != null && UserInfo.FirstLastName!= "" && UserInfo.SecondLastName!= null && UserInfo.SecondLastName!="" && UserInfo.Address!=null && UserInfo.Address!= "" && UserInfo.Phone!=null && UserInfo.Phone!="" && UserInfo.UserName!=null && UserInfo.UserName!= "") { 
             try
             {
+                    if (photoUser != null) { 
                 var updateUser = new UserInfo()
                 {
                     Name = UserInfo.Name,
@@ -146,7 +147,25 @@ namespace Pasarela.Core.ViewModels
                 GlobalSetting.UserInfo.Photo = photoUser;
                 await DialogService.ShowAlertAsync("Se actualizó con éxito", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 await NavigationService.NavigateBack(false);
-            }
+                    }
+                    else
+                    {
+                        var updateUser = new UserInfo()
+                        {
+                            Name = UserInfo.Name,
+                            FirstLastName = UserInfo.FirstLastName,
+                            SecondLastName = UserInfo.SecondLastName,
+                            Birthdate = UserInfo.Birthdate,
+                            Address = UserInfo.Address,
+                            Phone = UserInfo.Phone,
+                            UserName = UserInfo.UserName,
+                            Photo = UserInfo.Photo
+                        };
+                        await _userService.UpdateUserAsync(GlobalSetting.UserInfo.Id, updateUser);
+                        await DialogService.ShowAlertAsync("Se actualizó con éxito", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                        await NavigationService.NavigateBack(false);
+                    }
+                }
             catch (Exception ex)
             {
                 await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Message, Constants.MessageButton.OK);
