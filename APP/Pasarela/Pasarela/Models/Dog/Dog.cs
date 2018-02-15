@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Pasarela.Core.Models.Dog
 {
@@ -17,5 +18,6 @@ namespace Pasarela.Core.Models.Dog
         public string State { get; set; }
         public string Tenure { get; set; }
         public List<PhotoDog.PhotoDog> Photos { get; set; }
+        public ImageSource PhotoPerfil { get; set; } 
     }
 }

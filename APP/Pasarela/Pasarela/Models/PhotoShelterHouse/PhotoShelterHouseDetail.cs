@@ -5,13 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Pasarela.Core.Models.PhotoDog
+namespace Pasarela.Core.Models.PhotoShelterHouse
 {
-    public class PhotoDog
+    public class PhotoShelterHouseDetail
     {
-
-        public int IdPhoto { get; set; }
-        public string Photo { get; set; }
-
+        public ImageSource PhotoDetail { get; set; }
     }
 }

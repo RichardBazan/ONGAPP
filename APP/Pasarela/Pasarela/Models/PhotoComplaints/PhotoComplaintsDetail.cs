@@ -5,13 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Pasarela.Core.Models.PhotoDog
+namespace Pasarela.Core.Models.PhotoComplaints
 {
-    public class PhotoDog
+    public class PhotoComplaintsDetail
     {
-
-        public int IdPhoto { get; set; }
-        public string Photo { get; set; }
-
+        public ImageSource PhotoDetail { get; set; }
     }
 }

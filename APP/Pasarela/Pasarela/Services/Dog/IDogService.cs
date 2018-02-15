@@ -23,5 +23,7 @@ namespace Pasarela.Core.Services.Dog
         Task<bool> StateDogAsync(int id, Models.StateDog.StateDog _stateDog);
 
         Task<List<SavePhotoDog>> SavePhotoDogAsync(List<SavePhotoDog> _savePhotoDog);
+
+        Task<List<PhotoDog>> GetPhotoDoyByIdAsync(int id);
     }
 }

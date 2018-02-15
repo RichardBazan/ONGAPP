@@ -95,6 +95,26 @@ namespace WebApiONG.Controllers
             return CreatedAtRoute("DefaultApi", null, fotoCasaRefugio);
         }
 
+        [Route("api/CasaRefugios/{id}/GetPhotosById")]
+        public HttpResponseMessage GetPhotosByShelterHouse(int id)
+        {
+            List<Foto_CasaRefugio> ListFotoCasaRefugio = new List<Foto_CasaRefugio>();
+            List<FotoCasaRefugioModelDTO> LisFotoCasaRefugioModelDTO = new List<FotoCasaRefugioModelDTO>();
+            ListFotoCasaRefugio = db.Foto_CasaRefugio.Where(m => m.cod_casa == id).ToList();
+
+            foreach (var item in ListFotoCasaRefugio)
+            {
+
+                LisFotoCasaRefugioModelDTO.Add(new FotoCasaRefugioModelDTO()
+                {
+                    IdPhoto = item.cod_foto_casa,
+                    Photo = item.foto
+                });
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, LisFotoCasaRefugioModelDTO);
+        }
+
         // DELETE: api/Foto_CasaRefugio/5
         //[ResponseType(typeof(Foto_CasaRefugio))]
         //public IHttpActionResult DeleteFoto_CasaRefugio(int id)

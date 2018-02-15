@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Pasarela.Core.Models.PhotoComplaints;
+using Xamarin.Forms;
 
 namespace Pasarela.Core.Models.Complaints
 {
@@ -18,6 +19,7 @@ namespace Pasarela.Core.Models.Complaints
         public string Breed { get; set; }
         public string Description { get; set; }
         public List<PhotoComplaints.PhotoComplaints> Photos { get; set; }
+        public ImageSource PhotoPerfil { get; set; }
 
     }
 }

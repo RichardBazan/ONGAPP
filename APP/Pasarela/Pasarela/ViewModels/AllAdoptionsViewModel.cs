@@ -5,6 +5,7 @@ using Pasarela.Core.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,10 +41,15 @@ namespace Pasarela.Core.ViewModels
             var dogList = await _dogService.GetDogAdoptionsAsync();
             foreach (var item in dogList)
             {
-                if (item.Photos.Count == 0)
-                {
-                    item.Photos.Add(new Models.PhotoDog.PhotoDog() { Photo = "ic_default" });
-                }
+                //if (item.Photos.Count == 0)
+                //{
+                //    item.Photos.Add(new Models.PhotoDog.PhotoDog() { Photo = "ic_default" });
+                //}
+                var photo = item.Photos[0].Photo;
+                photo = photo.Substring(23);
+                byte[] bytes = Convert.FromBase64String(photo);
+                Stream contents = new MemoryStream(bytes);
+                item.PhotoPerfil = ImageSource.FromStream(() => { return contents; });
             }
             ListDog = dogList.ToObservableCollection();
             IsBusy = false;

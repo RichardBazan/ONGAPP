@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pasarela.Core.Views.AdoptionDetailView"
              xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:controls="clr-namespace:Pasarela.Core.Controls;assembly=Pasarela.Core"
              xmlns:viewModelBase="clr-namespace:Pasarela.Core.ViewModels.Base;assembly=Pasarela.Core"
              viewModelBase:ViewModelLocator.AutoWireViewModel="true">
     <ContentPage.Content>
@@ -23,10 +24,10 @@
                         <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Text="{Binding Dog.Name}" FontSize="40" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                    <cv:CarouselView Grid.Row="1" ItemsSource="{Binding Dog.Photos}">
+                    <cv:CarouselView Grid.Row="1" ItemsSource="{Binding ListPhotos}">
                         <cv:CarouselView.ItemTemplate>
                             <DataTemplate>
-                                <Image Aspect="AspectFit" Source="{Binding Photo}"/>
+                                <Image Aspect="AspectFit" Source="{Binding PhotoDetail}"/>
                             </DataTemplate>
                         </cv:CarouselView.ItemTemplate>
                     </cv:CarouselView>

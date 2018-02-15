@@ -20,10 +20,10 @@
                     <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="{Binding ShelterHouse.Name}" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"></Label>
-                <cv:CarouselView Grid.Row="1" ItemsSource="{Binding ShelterHouse.Photos}">
+                <cv:CarouselView Grid.Row="1" ItemsSource="{Binding ListPhotos}">
                     <cv:CarouselView.ItemTemplate>
                         <DataTemplate>
-                            <Image Aspect="AspectFit" Source="{Binding Photo}"/>
+                            <Image Aspect="AspectFit" Source="{Binding PhotoDetail}"/>
                         </DataTemplate>
                     </cv:CarouselView.ItemTemplate>
                 </cv:CarouselView>

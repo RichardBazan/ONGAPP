@@ -129,6 +129,9 @@ namespace Pasarela.Core.Models.Common
 
             /*Save Complaints*/
             public const string METHOD_SAVE_COMPLAINTS = "/SaveComplaints";
+
+            /*Save Complaints*/
+            public const string METHOD_GET_PHOTOS_BY_ID = "/GetPhotosById";
         }
 
         public struct ParameterService

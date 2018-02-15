@@ -83,10 +83,13 @@
     <Compile Include="Models\Donate\SaveDonate.cs" />
     <Compile Include="Models\GiveInAdoption\GiveInAdoption.cs" />
     <Compile Include="Models\PhotoComplaints\PhotoComplaints.cs" />
+    <Compile Include="Models\PhotoComplaints\PhotoComplaintsDetail.cs" />
     <Compile Include="Models\PhotoComplaints\SavePhotoComplaints.cs" />
     <Compile Include="Models\PhotoDog\PhotoDog.cs" />
+    <Compile Include="Models\PhotoDog\PhotoDogDetail.cs" />
     <Compile Include="Models\PhotoDog\SavePhotoDog.cs" />
     <Compile Include="Models\PhotoShelterHouse\PhotoShelterHouse.cs" />
+    <Compile Include="Models\PhotoShelterHouse\PhotoShelterHouseDetail.cs" />
     <Compile Include="Models\PhotoShelterHouse\SavePhotoShelterHouse.cs" />
     <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\ShelterHouse\SaveShelterHouse.cs" />

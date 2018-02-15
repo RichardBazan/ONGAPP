@@ -39,6 +39,11 @@ namespace Pasarela.Core.Services.Dog
             throw new NotImplementedException();
         }
 
+        public Task<List<PhotoDog>> GetPhotoDoyByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<SaveDog> SaveDogAsync(SaveDog _saveDog)
         {
             throw new NotImplementedException();

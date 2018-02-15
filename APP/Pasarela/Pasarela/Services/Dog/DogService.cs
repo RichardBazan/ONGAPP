@@ -73,5 +73,13 @@ namespace Pasarela.Core.Services.Dog
             }
             return _savePhotoDog;
         }
+
+        public async Task<List<PhotoDog>> GetPhotoDoyByIdAsync(int id)
+        {
+            string uri = GlobalSetting.Instance.MakeURI(GlobalSetting.Instance.MascotaEndPoint,
+            string.Format("/{0}" + Constants.MethodsService.METHOD_GET_PHOTOS_BY_ID, id));
+            var listPhotosDogs = await _requestProvider.GetAsync<List<PhotoDog>>(uri);
+            return listPhotosDogs;
+        }
     }
 }

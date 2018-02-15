@@ -36,6 +36,27 @@ namespace WebApiONG.Controllers
             return Ok(foto_Denuncia);
         }
 
+
+        [Route("api/Denuncias/{id}/GetPhotosById")]
+        public HttpResponseMessage GetPhotosByComplaints(int id)
+        {
+            List<Foto_Denuncia> ListFotoDenuncia = new List<Foto_Denuncia>();
+            List<FotoDenunciaModelDTO> LisFotoDenunciaModelDTO = new List<FotoDenunciaModelDTO>();
+            ListFotoDenuncia = db.Foto_Denuncia.Where(m => m.cod_den == id).ToList();
+
+            foreach (var item in ListFotoDenuncia)
+            {
+
+                LisFotoDenunciaModelDTO.Add(new FotoDenunciaModelDTO()
+                {
+                    IdPhoto = item.cod_foto_den,
+                    Photo = item.foto
+                });
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, LisFotoDenunciaModelDTO);
+        }
+
         // PUT: api/Foto_Denuncia/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutFoto_Denuncia(int id, Foto_Denuncia foto_Denuncia)

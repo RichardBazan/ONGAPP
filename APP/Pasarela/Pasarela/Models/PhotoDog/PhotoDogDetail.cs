@@ -7,11 +7,8 @@ using Xamarin.Forms;
 
 namespace Pasarela.Core.Models.PhotoDog
 {
-    public class PhotoDog
+    public class PhotoDogDetail
     {
-
-        public int IdPhoto { get; set; }
-        public string Photo { get; set; }
-
+        public ImageSource PhotoDetail { get; set; }
     }
 }

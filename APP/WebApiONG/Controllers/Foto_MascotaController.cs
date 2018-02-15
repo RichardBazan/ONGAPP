@@ -36,6 +36,26 @@ namespace WebApiONG.Controllers
             return Ok(foto_Mascota);
         }
 
+        [Route("api/Mascotas/{id}/GetPhotosById")]
+        public HttpResponseMessage GetPhotosByDog(int id)
+        {
+            List<Foto_Mascota> ListFotoMascota = new List<Foto_Mascota>();
+            List<FotoMascotaModelDTO> LisFotoMascotaModelDTO = new List<FotoMascotaModelDTO>();
+            ListFotoMascota = db.Foto_Mascota.Where(m => m.cod_mas == id).ToList();
+
+            foreach (var item in ListFotoMascota)
+            {
+
+                LisFotoMascotaModelDTO.Add(new FotoMascotaModelDTO()
+                    {
+                        IdPhoto = item.cod_foto_mas,
+                        Photo = item.foto
+                    });
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, LisFotoMascotaModelDTO);
+        }
+
         // PUT: api/Foto_Mascota/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutFoto_Mascota(int id, Foto_Mascota foto_Mascota)
