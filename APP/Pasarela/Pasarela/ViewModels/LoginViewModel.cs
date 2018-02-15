@@ -170,12 +170,12 @@ namespace Pasarela.Core.ViewModels
                 }
                 else
                 {
-                    await DialogService.ShowAlertAsync("Ingrese su nombre de usuario y contraseña", Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                    await DialogService.ShowAlertAsync("Ingrese su nombre de usuario y contraseña", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 }
             }
             catch (Exception ex)
             {
-                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
 
 

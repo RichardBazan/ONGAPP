@@ -203,7 +203,7 @@ namespace Pasarela.Core.ViewModels
                     }
                     catch (Exception ex)
                     {
-                        await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                        await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Message, Constants.MessageButton.OK);
                     }
                     }
                     else

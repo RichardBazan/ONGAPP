@@ -105,17 +105,17 @@ namespace Pasarela.Core.ViewModels
                     }
                     else
                     {
-                        await DialogService.ShowAlertAsync("Su contraseña no es la correcta", Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                        await DialogService.ShowAlertAsync("Su contraseña no es la correcta", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                     }
                 }
                 else
                 {
-                    await DialogService.ShowAlertAsync("Las contraseña no coinciden", Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                    await DialogService.ShowAlertAsync("Las contraseña no coinciden", Constants.MessageTitle.Message, Constants.MessageButton.OK);
                 }
             }
             else
             {
-                await DialogService.ShowAlertAsync("Su contraseña debe tener un mínimo de 6 digitos", Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync("Su contraseña debe tener un mínimo de 6 digitos", Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
             IsBusy = false;
         }

@@ -32,7 +32,7 @@ namespace Pasarela.Core.ViewModels
         private string quantity;
         private ObservableCollection<DonateProduct> _donateproduct;
 
-        public DonateViewModel( IDonateService donateService, IProductService productService)
+        public DonateViewModel(IDonateService donateService, IProductService productService)
         {
             VisibleComment = false;
             _donateService = donateService;
@@ -154,8 +154,15 @@ namespace Pasarela.Core.ViewModels
 
         private async Task AddAsync()
         {
-            ListProductDonate.Add(new DonateProduct() { ProductId = SelectedProduct.Id, Name = SelectedProduct.Name, Quantity = SelectedCount });
-            ListProductDonate = ListProductDonate.ToObservableCollection();
+            if (SelectedProduct != null || SelectedCount != null)
+            {
+                ListProductDonate.Add(new DonateProduct() { ProductId = SelectedProduct.Id, Name = SelectedProduct.Name, Quantity = SelectedCount });
+                ListProductDonate = ListProductDonate.ToObservableCollection();
+            }
+            else
+            {
+                await DialogService.ShowAlertAsync("Tiene que ingresar producto y cantidad", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+            }
         }
 
         public ICommand GiveDonateCommand => new Command(async () => await GiveDonateAsync());
@@ -164,28 +171,32 @@ namespace Pasarela.Core.ViewModels
         {
             try
             {
-                var saveDonate = new SaveDonate()
+                if (ListProductDonate.Count > 0)
                 {
-                    IdShelterHouse = ShelterHouse.Id,
-                    IdUser = GlobalSetting.UserInfo.Id
-                    //ListProducts= ListProductDonate.ToList()
-                };
-                await _donateService.SaveDonateAsync(saveDonate);
+                    var saveDonate = new SaveDonate()
+                    {
+                        IdShelterHouse = ShelterHouse.Id,
+                        IdUser = GlobalSetting.UserInfo.Id
+                        //ListProducts= ListProductDonate.ToList()
+                    };
+                    await _donateService.SaveDonateAsync(saveDonate);
 
-                var saveDonateProduct = new ProductDonate()
+                    var saveDonateProduct = new ProductDonate()
+                    {
+                        ListProducts = ListProductDonate.ToList()
+                    };
+                    await _donateService.SaveProductDonateAsync(saveDonateProduct);
+                    await DialogService.ShowAlertAsync("Se registro con éxito su donación", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                    await NavigationService.NavigateBack(false);
+                }
+                else
                 {
-                    ListProducts = ListProductDonate.ToList()
-                };
-                await _donateService.SaveProductDonateAsync(saveDonateProduct);
-
-                await DialogService.ShowAlertAsync("Se registro con éxito su donación", Constants.MessageTitle.Message, Constants.MessageButton.OK);
-                await NavigationService.NavigateBack(false);
+                    await DialogService.ShowAlertAsync("Necesita agregar productos a su donación", Constants.MessageTitle.Message, Constants.MessageButton.OK);
+                }
             }
-
-            
             catch (Exception ex)
             {
-                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Error, Constants.MessageButton.OK);
+                await DialogService.ShowAlertAsync(ex.Message, Constants.MessageTitle.Message, Constants.MessageButton.OK);
             }
         }
 
@@ -196,11 +207,13 @@ namespace Pasarela.Core.ViewModels
             VisibleComment = false;
         }
 
-        public ICommand DeleteCommand => new Command(async () => await DeleteAsync());
+        public ICommand DeleteCommand => new Command(async (item) => await DeleteAsync(item));
 
-        private async Task DeleteAsync()
+        private async Task DeleteAsync(object item)
         {
-            //ListProductDonate.Remove();
+            var product = item as DonateProduct;
+            ListProductDonate.Remove(product);
+            ListProductDonate = ListProductDonate.ToObservableCollection();
         }
     }
 }

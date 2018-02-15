@@ -22,8 +22,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="55"></RowDefinition>
                     </Grid.RowDefinitions>
-                    <Picker Grid.Column="0" Grid.Row="0" Title="Selecciona producto" ItemsSource="{Binding ListProduct}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProduct}"></Picker>
-                    <Picker Grid.Column="1" Grid.Row="0" Title="Selecciona cantidad" SelectedItem="{Binding SelectedCount}">
+                    <Picker Grid.Column="0" Grid.Row="0" Title="Producto" ItemsSource="{Binding ListProduct}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProduct}"></Picker>
+                    <Picker Grid.Column="1" Grid.Row="0" Title="Cantidad" SelectedItem="{Binding SelectedCount}">
                         <Picker.Items>
                             <x:String>1</x:String>
                             <x:String>2</x:String>
@@ -57,7 +57,8 @@
                                         <Label Grid.Column="1" Grid.Row="0" Text="{Binding Quantity}"></Label>
                                         <Image Grid.Column="2" Grid.Row="0"  Source="ic_delete">
                                             <Image.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding DeleteCommand}"/>
+                                                <TapGestureRecognizer BindingContext="{Binding Source={x:Reference listViewDonate}, Path=BindingContext}" Command="{Binding DeleteCommand}"
+                                        CommandParameter="{Binding Source={x:Reference ItemDonate}, Path=BindingContext}"/>
                                             </Image.GestureRecognizers>
                                         </Image>
                                     </Grid>
@@ -78,7 +79,7 @@
                     <Button Grid.Column="1" Grid.Row="0" Text="CANCELAR" BackgroundColor="#FAB29E" Command="{Binding CancelDonateCommand}"></Button>
                 </Grid>
             </StackLayout>
-            <ListView ItemsSource="{Binding ListDonate}" HasUnevenRows="True" SeparatorVisibility="Default">
+            <ListView ItemsSource="{Binding ListDonate}" HasUnevenRows="True" SeparatorVisibility="Default" IsVisible="{Binding VisibleComment, Converter={StaticResource InverseBoolConverter}}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <controls:ExtendedViewCell SelectedBackgroundColor="White">
