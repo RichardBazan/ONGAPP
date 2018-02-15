@@ -46,6 +46,7 @@
     <Compile Include="Behaviors\ConfirmPasswordBehavior.cs" />
     <Compile Include="Behaviors\EditorLengthValidatorBehavior.cs" />
     <Compile Include="Behaviors\EntryLengthValidatorBehavior.cs" />
+    <Compile Include="Behaviors\EntryValidatorBehavior.cs" />
     <Compile Include="Behaviors\EventToCommandBehavior.cs" />
     <Compile Include="Behaviors\LineColorBehavior.cs" />
     <Compile Include="Behaviors\RequiredValidatorBehavior.cs" />

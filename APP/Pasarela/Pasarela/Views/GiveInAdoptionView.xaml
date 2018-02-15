@@ -29,7 +29,11 @@
                     <Label Grid.Column="0" Grid.Row="2" Text="Sexo" VerticalOptions="Center"></Label>
                     <Label Grid.Column="0" Grid.Row="3" Text="Edad" VerticalOptions="Center"></Label>
                     <Label Grid.Column="0" Grid.Row="4" Text="Descripción" VerticalOptions="Center"></Label>
-                    <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Name}"></Entry>
+                    <Entry Grid.Column="1" Grid.Row="0" Text="{Binding Name}">
+                        <Entry.Behaviors>
+                            <behaviors:EntryValidatorBehavior />
+                        </Entry.Behaviors>
+                    </Entry>
                     <Picker Grid.Column="1" Grid.Row="1" Title="Selecciona raza" ItemsSource="{Binding ListBreed}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedBreed}"></Picker>
                     <Picker Grid.Column="1" Grid.Row="2" Title="Selecciona sexo" SelectedItem="{Binding SelectedSex}">
                         <Picker.Items>
