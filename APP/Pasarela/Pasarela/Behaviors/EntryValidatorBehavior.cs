@@ -10,7 +10,7 @@ namespace Pasarela.Core.Behaviors
 {
     public class EntryValidatorBehavior : Behavior<Entry>
     {
-        const string numberRegex = "^[a-zA-Z]+$";
+        const string numberRegex = "^[a-zA-Z ]*$";
 
         static readonly BindablePropertyKey IsValidPropertyKey = BindableProperty.CreateReadOnly("IsValid", typeof(bool), typeof(EntryValidatorBehavior), false);
 
