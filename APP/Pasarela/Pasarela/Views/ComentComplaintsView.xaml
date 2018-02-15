@@ -16,7 +16,7 @@
             <StackLayout IsVisible="{Binding VisibleComment}">
                 <Editor HeightRequest="100" Text="{Binding Comment}">
                     <Editor.Behaviors>
-                        <behaviors:EntryLengthValidatorBehavior MaxLength="320" />
+                        <behaviors:EditorLengthValidatorBehavior MaxLength="320" />
                     </Editor.Behaviors>
                 </Editor>
                 <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
